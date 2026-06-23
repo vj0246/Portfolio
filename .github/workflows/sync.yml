@@ -1,0 +1,43 @@
+name: Sync Portfolio Data
+
+on:
+  # Run every day at midnight IST (18:30 UTC)
+  schedule:
+    - cron: '30 18 * * *'
+
+  # Run on every push to main
+  push:
+    branches: [ main ]
+
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout portfolio repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch GitHub data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: vj0246
+        run: python scripts/fetch_data.py
+
+      - name: Commit updated data if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/github_data.json
+          git diff --staged --quiet || git commit -m "chore: sync github data [skip ci]"
+          git push

@@ -1,0 +1,10 @@
+Put your 3 PDF files here:
+- resume-aiml.pdf       (AI/ML Engineer resume)
+- resume-quant.pdf      (Quant/Fintech resume)
+- resume-swe.pdf        (Software Engineer resume)
+
+How to get them from Overleaf:
+1. Open the project on Overleaf
+2. Click the green Recompile button (top left)
+3. Click the Download PDF button (arrow icon next to Recompile)
+4. Rename the file as above and drop it in this folder
