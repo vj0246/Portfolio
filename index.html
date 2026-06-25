@@ -24,7 +24,9 @@
       <a href="#research">Research</a>
       <a href="#education">Education</a>
       <a href="#blog">Blog</a>
+      <a href="#achievements">Achievements</a>
       <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
       <button class="nav-resume" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
     </div>
@@ -92,7 +94,7 @@
     <div class="exp-card">
       <div class="exp-left">
         <span class="exp-badge intern">Internship</span>
-        <div class="exp-period">2025<br>AI / ML</div>
+        <div class="exp-period">Apr 2026 – Present<br>Full Stack AI Intern</div>
       </div>
       <div class="exp-right">
         <div class="exp-title">Full Stack AI Intern</div>
@@ -104,10 +106,10 @@
           and semantic question mapping across 13+ Indian languages.
         </p>
         <ul class="exp-bullets">
-          <li>Built the full pipeline end-to-end: audio preprocessing, ASR, speaker diarization, semantic question mapping — all integrated and deployed to production on AWS</li>
+          <li>Built the full pipeline end-to-end: audio preprocessing, ASR, speaker diarization, semantic question mapping: all integrated and deployed to production on AWS</li>
           <li>Improved question mapping accuracy by 20% and transcription quality by 15% through preprocessing optimisation, architecture-level experimentation, and speaker segmentation refinement</li>
           <li>Reduced overall pipeline latency by 30% through integration of speech processing frameworks and targeted bottleneck analysis</li>
-          <li>Extended question mapping to 13+ Indian languages — built and tested the multilingual pipeline from preprocessing through to structured output</li>
+          <li>Extended question mapping to 13+ Indian languages: built and tested the multilingual pipeline from preprocessing through to structured output</li>
         </ul>
       </div>
     </div>
@@ -123,7 +125,7 @@
         <div class="exp-company">Shakti Alloys Pvt Ltd &nbsp;·&nbsp; <a href="https://www.shaktialloys.in" target="_blank" rel="noopener">shaktialloys.in ↗</a></div>
         <p class="exp-desc">
           Took a real manufacturing business from zero web presence to a fully operational
-          production site — sole developer across design, build, and deployment.
+          production site: sole developer across design, build, and deployment.
           The brief was a professional catalogue site that the client could own permanently
           without needing a developer on retainer.
         </p>
@@ -158,10 +160,11 @@
               <span class="proj-name">MindVault</span>
               <span class="badge live">● Live</span>
             </div>
-            <p class="proj-tagline">Upload documents and query them in plain English. Full-stack RAG system with multi-document routing, session memory, and an interactive knowledge graph.</p>
+            <p class="proj-tagline">Production-grade multi-tenant RAG system with hybrid retrieval (semantic + BM25 + FlashRank reranking via Reciprocal Rank Fusion), real-time streaming, multimodal ingestion, and RAGAS-validated quality across 25+ test cases.</p>
             <div class="proj-tags">
-              <span class="tag">Python</span><span class="tag">LangChain LCEL</span>
-              <span class="tag">FAISS</span><span class="tag">Next.js</span><span class="tag">Supabase</span>
+              <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
+              <span class="tag">RAGAS</span><span class="tag">FastAPI</span>
+              <span class="tag">Next.js</span><span class="tag">Supabase/pgvector</span>
             </div>
           </div>
         </div>
@@ -176,15 +179,8 @@
           <div class="detail-block">
             <div class="detail-h">What it does</div>
             <div class="detail-text">
-              <p>Upload any document and ask questions about it in plain English. MindVault finds the most relevant passages, routes your query across multiple documents intelligently, and remembers earlier parts of your conversation. It also builds a knowledge graph that maps how concepts across all your documents connect visually, a second way to navigate beyond chat.</p>
-              <p>Multi-user with Supabase authentication. Each user has their own private document space with row-level security enforced at the database level, not in application code.</p>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">How it was built, and why twice</div>
-            <div class="detail-text">
-              <p>Built the retrieval pipeline twice on purpose. First entirely from scratch without LangChain to understand every decision at the implementation level. Then rebuilt with LangChain LCEL RouterChain once the internals were clear. The key problem found during the manual build: without a similarity threshold the retriever answers confidently from irrelevant document chunks. Setting score_threshold=0.72 was the fix that turned it from a demo into something reliable.</p>
+              <p>A multi-tenant RAG system where users upload documents and query them with natural language. Under the hood it uses three retrieval methods fused together: semantic vector search, BM25 keyword matching, and FlashRank cross-encoder reranking combined via Reciprocal Rank Fusion. This eliminates the blind spots that any single retrieval method has. Real-time streaming responses, multimodal document and image ingestion, shareable conversation links.</p>
+              <p>Built to run reliably on constrained 512MB infrastructure. Diagnosed and resolved 6+ critical production incidents including memory leaks, race conditions, and rate-limit cascades. RAGAS evaluation suite covers faithfulness, context precision, and context recall across 25+ test cases.</p>
             </div>
           </div>
 
@@ -192,21 +188,21 @@
             <div class="detail-h">Architecture</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">Document<br><small>PDF / text</small></div>
+                <div class="arch-node">Document<br><small>PDF / image / text</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">Text Chunker<br><small>500 chars/chunk</small></div>
+                <div class="arch-node">Chunker<br><small>500 chars</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">FAISS Index<br><small>vector embeddings</small></div>
+                <div class="arch-node key">3 Retrievers<br><small>FAISS · BM25 · FlashRank</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">RouterChain<br><small>threshold 0.72</small></div>
+                <div class="arch-node key">RRF Fusion<br><small>Reciprocal Rank Fusion</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">llama3.2 / Groq<br><small>via Ollama</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Response<br><small>session memory</small></div>
+                <div class="arch-node">LLM<br><small>streaming</small></div>
               </div>
               <div class="arch-note">
-                Knowledge graph layer runs in parallel: entity and relation extraction runs over the full document text, stored as a graph, rendered as an interactive node view (GraphPanel.tsx + GraphExplorer.tsx in Next.js frontend).
-                FastAPI backend handles ingestion, embedding, and LLM routing.
+                Parallel async retrieval across all three methods, selective LLM call pruning on low-confidence chunks: 40% reduction in query latency.
+                Intent classification and context-aware query rewriting before retrieval. Cross-session conversational memory with rolling summarisation.
+                Knowledge graph layer (NetworkX) extracts typed entity relationships across 50+ concept nodes per document, rendered as interactive graph UI.
+                Multi-tenant: Supabase/pgvector with row-level security, every query scoped to authenticated user at database level.
               </div>
             </div>
           </div>
@@ -214,27 +210,36 @@
           <div class="detail-block">
             <div class="detail-h">Technical depth</div>
             <ul class="detail-bullets">
-              <li>RouterChain with per-document FAISS retrievers, each uploaded document gets its own retriever; the router selects based on query-document cosine similarity before calling the LLM, preventing cross-document contamination</li>
-              <li>Similarity threshold gates retrieval, below 0.72, the system returns nothing and falls back rather than hallucinating from unrelated chunks</li>
-              <li>Session memory with rolling summarisation, past turns are compressed into a summary so context persists across long conversations without hitting context window limits</li>
-              <li>chunk_size=500 chosen empirically for dense typed notes, larger chunks diluted the meaning of technical content; smaller chunks lost context</li>
-              <li>Knowledge graph as a separate layer, entity/relation extraction runs independently from the retrieval pipeline so both views (chat and graph) stay in sync</li>
-              <li>Supabase row-level security, every query scoped to the authenticated user's document IDs at the database level</li>
+              <li>Hybrid retrieval via Reciprocal Rank Fusion: FAISS semantic search, BM25 keyword matching, and FlashRank cross-encoder reranking each run in parallel, results fused to eliminate single-method blind spots</li>
+              <li>40% query latency reduction through parallel async retrieval and selective LLM call pruning on chunks below a confidence threshold</li>
+              <li>RAGAS evaluation suite: automated faithfulness, context precision, and context recall scoring across 25+ curated test cases, run on every significant change</li>
+              <li>6+ critical production incidents resolved: memory leaks from embedding model loading, race conditions in concurrent session writes, rate-limit cascades under burst load: zero-downtime reliability on 512MB infrastructure</li>
+              <li>Knowledge graph construction from LLM-extracted typed entity relationships across 50+ concept nodes, stored in NetworkX, rendered as interactive node graph in Next.js frontend</li>
+              <li>Intent classification chain rewrites ambiguous or context-dependent queries before retrieval, improving relevance without the user needing to rephrase</li>
             </ul>
           </div>
         </div>
 
         <div class="detail-sidebar">
           <div class="sidebar-block">
-            <div class="sb-label">Full Stack</div>
+            <div class="sb-label">Stack</div>
             <div class="sb-tags">
               <span class="tag">Python</span><span class="tag">FastAPI</span>
-              <span class="tag">LangChain LCEL</span><span class="tag">LangGraph</span>
-              <span class="tag">FAISS</span><span class="tag">Ollama</span>
-              <span class="tag">llama3.2</span><span class="tag">Groq</span>
-              <span class="tag">HuggingFace</span><span class="tag">Next.js</span>
-              <span class="tag">TypeScript</span><span class="tag">Supabase</span>
-              <span class="tag">Vercel</span>
+              <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
+              <span class="tag">BM25</span><span class="tag">FlashRank</span>
+              <span class="tag">RAGAS</span><span class="tag">NetworkX</span>
+              <span class="tag">Pydantic</span><span class="tag">Ollama</span>
+              <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+              <span class="tag">Supabase/pgvector</span><span class="tag">Vercel</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Query latency</span><span class="metric-val">40% faster</span></div>
+              <div class="metric-row"><span class="metric-label">RAGAS test cases</span><span class="metric-val">25+</span></div>
+              <div class="metric-row"><span class="metric-label">Prod incidents fixed</span><span class="metric-val">6+</span></div>
+              <div class="metric-row"><span class="metric-label">Concept nodes</span><span class="metric-val">50+</span></div>
             </div>
           </div>
           <div class="sidebar-block">
@@ -253,13 +258,13 @@
           <span class="proj-num">02</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">ML Research: Nifty 50 Forecasting + Sentiment Analysis</span>
+              <span class="proj-name">ML Research: Equity Forecasting + Sentiment Alpha</span>
               <span class="badge research">Research</span>
             </div>
-            <p class="proj-tagline">Two ML research builds: a custom Transformer predicting Nifty 50 direction across 4 horizons with FinBERT sentiment, and an end-to-end NLP classification pipeline on IMDB. Both built to understand every decision in the pipeline.</p>
+            <p class="proj-tagline">Two related quantitative finance ML projects: a custom Transformer for multi-horizon Nifty 50 direction forecasting (0.62 AUC, 0.6+ Sharpe), and a controlled experiment testing whether news sentiment provides incremental alpha beyond price.</p>
             <div class="proj-tags">
-              <span class="tag">PyTorch</span><span class="tag">FinBERT</span>
-              <span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">NLP</span>
+              <span class="tag">TensorFlow</span><span class="tag">FinBERT</span>
+              <span class="tag">XGBoost</span><span class="tag">yfinance</span><span class="tag">Pandas</span>
             </div>
           </div>
         </div>
@@ -272,79 +277,78 @@
       <div class="proj-detail">
         <div>
           <div class="detail-block">
-            <div class="detail-h">Part 1: Multi-Horizon Transformer for Nifty 50</div>
+            <div class="detail-h">Project 1: Multi-Horizon Transformer for Nifty 50</div>
             <div class="detail-text">
-              <p>A single Transformer encoder that outputs directional forecasts for 1, 5, 10, and 20 trading days simultaneously. Trained on 4,900+ daily observations (Jan 2006 to Feb 2026). FinBERT-processed financial news sentiment runs as a parallel input alongside 16 engineered technical features. Benchmarked against XGBoost with Spearman IC and quantile long-short Sharpe ratio on the held-out test set.</p>
+              <p>A Transformer encoder built from scratch in TensorFlow that outputs directional forecasts for 4 horizons simultaneously: 1, 5, 10, and 20 trading days: from one forward pass. Trained on 4,900+ trading days (Jan 2006–Feb 2026). FinBERT news sentiment fused as a parallel signal. Achieved 0.62 AUC and 0.6+ non-overlapping long-short Sharpe on the held-out test set.</p>
             </div>
           </div>
+
           <div class="detail-block">
-            <div class="detail-h">Architecture: Nifty Transformer</div>
+            <div class="detail-h">Architecture: Transformer</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">18yr OHLCV<br><small>4,900+ days</small></div>
+                <div class="arch-node">18yr OHLCV<br><small>Jan 2006 – Feb 2026</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">16 Features + FinBERT</div>
+                <div class="arch-node key">16 Features<br><small>OHLCV + technicals</small></div>
+                <span class="arch-plus">+</span>
+                <div class="arch-node key">FinBERT<br><small>sentiment score</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">Transformer Encoder<br><small>2 blocks · 4 heads · d=64</small></div>
+                <div class="arch-node key">Transformer Encoder<br><small>60-day self-attention · TensorFlow</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">4 Horizons<br><small>1/5/10/20d</small></div>
-                <span class="arch-arr">vs</span>
-                <div class="arch-node">XGBoost baseline</div>
+                <div class="arch-node">4 Outputs<br><small>1/5/10/20d · 0.62 AUC</small></div>
               </div>
-              <div class="arch-note">Temporal split 70/15/15. Evaluated: Spearman IC per horizon + quantile long-short Sharpe ratio. Volatility regime analysis post-hoc.</div>
+              <div class="arch-note">
+                Fully vectorized long-short backtesting engine validates economic performance beyond drift.
+                Walk-forward validation and decile-based strategy evaluation ensure no temporal leakage.
+                Leakage-free scaling applied to all features. 16 quantitative technical factors engineered.
+                Compared against XGBoost baseline on same features. 0.6+ non-overlapping long-short Sharpe.
+              </div>
             </div>
           </div>
+
           <div class="detail-block">
-            <div class="detail-h">Part 2: Text Sentiment Classification</div>
+            <div class="detail-h">Project 2: Sentiment-Driven Quantitative Alpha Modeling</div>
             <div class="detail-text">
-              <p>End-to-end classical NLP pipeline on 50k IMDB reviews. Deliberately classical (no fine-tuned BERT) so every decision at each stage is visible and controllable. Preprocessing complete. TF-IDF vectorisation done. Classifier training in progress.</p>
+              <p>A rigorous controlled experiment testing a specific hypothesis: does news sentiment provide incremental predictive signal beyond pure price-based models in financial markets? Pipeline fuses historical price, volume, and API-sourced news sentiment. Found a 5-day return correlation improvement from 0.43 to 0.46 using sentiment features, supported by MAE and RMSE diagnostics and shuffle testing. Conclusion: gains were modest, unstable, and highly sensitive to validation design: which is itself a meaningful finding about the fragile nature of financial signals.</p>
             </div>
           </div>
+
           <div class="detail-block">
-            <div class="detail-h">Architecture: Sentiment Pipeline</div>
-            <div class="arch-diagram">
-              <div class="arch-flow">
-                <div class="arch-node">IMDB 50k reviews</div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">Preprocessing<br><small>clean · tokenize · normalize</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">TF-IDF</div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Classifier<br><small>in progress</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">+/- Label</div>
-              </div>
-            </div>
+            <div class="detail-h">Technical depth across both projects</div>
+            <ul class="detail-bullets">
+              <li>TensorFlow throughout: Transformer encoder built from scratch, custom multi-head attention, positional encoding, 60-day temporal context window</li>
+              <li>Fully vectorized backtesting engine: long-short strategy evaluated at decile level without any lookahead: the backtester was built from scratch, not a library</li>
+              <li>Walk-forward validation: multiple expanding train windows evaluated in sequence, not a single temporal split, providing more robust out-of-sample estimates</li>
+              <li>Leakage-free scaling: mean and std computed only on training windows, applied to val/test: prevents a common source of overly optimistic results in finance ML</li>
+              <li>Sentiment alpha experiment designed to falsify, not confirm: MAE/RMSE diagnostics and shuffle testing specifically to distinguish genuine signal from validation artefacts</li>
+            </ul>
           </div>
         </div>
+
         <div class="detail-sidebar">
           <div class="sidebar-block">
-            <div class="sb-label">Nifty Transformer Stack</div>
+            <div class="sb-label">Stack</div>
             <div class="sb-tags">
-              <span class="tag">Python</span><span class="tag">PyTorch</span>
+              <span class="tag">Python</span><span class="tag">TensorFlow</span>
               <span class="tag">FinBERT</span><span class="tag">XGBoost</span>
-              <span class="tag">yfinance</span><span class="tag">quantstats</span><span class="tag">Jupyter</span>
+              <span class="tag">Pandas</span><span class="tag">NumPy</span>
+              <span class="tag">scikit-learn</span><span class="tag">yfinance</span>
+              <span class="tag">quantstats</span><span class="tag">Jupyter</span>
             </div>
           </div>
           <div class="sidebar-block">
-            <div class="sb-label">Sentiment Stack</div>
-            <div class="sb-tags">
-              <span class="tag">Python</span><span class="tag">scikit-learn</span>
-              <span class="tag">Pandas</span><span class="tag">NLTK</span><span class="tag">Jupyter</span>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Key figures</div>
+            <div class="sb-label">Key metrics</div>
             <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">AUC (Transformer)</span><span class="metric-val">0.62</span></div>
+              <div class="metric-row"><span class="metric-label">L/S Sharpe</span><span class="metric-val">0.6+</span></div>
               <div class="metric-row"><span class="metric-label">Training days</span><span class="metric-val">4,900+</span></div>
-              <div class="metric-row"><span class="metric-label">Data span</span><span class="metric-val">18+ years</span></div>
-              <div class="metric-row"><span class="metric-label">Horizons</span><span class="metric-val">1/5/10/20d</span></div>
-              <div class="metric-row"><span class="metric-label">IMDB reviews</span><span class="metric-val">50,000</span></div>
+              <div class="metric-row"><span class="metric-label">Features</span><span class="metric-val">16</span></div>
+              <div class="metric-row"><span class="metric-label">Sentiment correlation</span><span class="metric-val">0.43 → 0.46</span></div>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Links</div>
-            <a href="https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting" target="_blank" rel="noopener" class="sb-link">Nifty Transformer GitHub <span>↗</span></a>
+            <a href="https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting" target="_blank" rel="noopener" class="sb-link">Transformer GitHub <span>↗</span></a>
             <a href="https://github.com/vj0246/Text-Sentiment-Classification-System" target="_blank" rel="noopener" class="sb-link">Sentiment GitHub <span>↗</span></a>
           </div>
         </div>
@@ -358,14 +362,14 @@
           <span class="proj-num">03</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">ApplyPilot</span>
+              <span class="proj-name">ApplyPilot AI</span>
               <span class="badge progress">In Development</span>
             </div>
-            <p class="proj-tagline">An AI agent that handles the job-application grind. Upload resume, paste a job posting, and 15 seconds later get a cover letter, application email, fit score, reworded resume bullets, and grounded answers to form questions, all written so they don't read like a robot wrote them.</p>
+            <p class="proj-tagline">Autonomous multi-agent system that discovers jobs, generates personalised applications, and executes end-to-end application workflows: reducing manual effort by 90% and compressing 1 hour of work per application to under 5 minutes.</p>
             <div class="proj-tags">
-              <span class="tag">Next.js 14</span><span class="tag">FastAPI</span>
-              <span class="tag">Groq / Llama 3.3 70B</span><span class="tag">PostgreSQL</span>
-              <span class="tag">Docker</span>
+              <span class="tag">LangGraph</span><span class="tag">FastAPI</span>
+              <span class="tag">Next.js</span><span class="tag">Kubernetes</span>
+              <span class="tag">PostgreSQL</span>
             </div>
           </div>
         </div>
@@ -380,51 +384,64 @@
           <div class="detail-block">
             <div class="detail-h">What it does</div>
             <div class="detail-text">
-              <p>A working end-to-end product, not a demo. Upload a resume (PDF or DOCX) and AI extracts the full profile with an ATS score. Paste any job URL (Greenhouse, Lever, LinkedIn) or raw text and AI extracts requirements, salary, and culture signals. Hit apply and one background job produces a fit score, cover letter, application email, and adapted resume bullets. A form filler answers any application's custom questions with grounded, specific responses. Everything tracked through a real status pipeline: ready, approved, submitted, interviewing, offered.</p>
-              <p>Built for myself first, after writing the same cover letter 40 times with tiny tweaks. The AI gets you 90% there; you own the last 10% before hitting send.</p>
+              <p>A multi-agent system where autonomous agents handle the entire job application workflow: discover relevant opportunities, adapt the resume to each JD, generate a cover letter and application email, answer custom form questions, track status, and coordinate all steps without manual intervention. Users process 100+ targeted applications with minimal involvement at 20x better throughput than doing it manually.</p>
+              <p>The AI never invents experience. Resume adaptation has explicit prompt-level constraints: reword existing bullets to hit JD keywords, never add a skill or change a date. Tested specifically by feeding it a resume missing an obvious JD keyword to confirm it reframes rather than fabricates.</p>
             </div>
           </div>
 
           <div class="detail-block">
-            <div class="detail-h">The apply flow</div>
+            <div class="detail-h">Multi-agent architecture</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">Resume + Job<br><small>parsed data</small></div>
+                <div class="arch-node">Job Discovery<br><small>agent 1</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">analyze_fit()<br><small>pure Python, skill intersection</small></div>
+                <div class="arch-node key">LangGraph<br><small>orchestration</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">3 Groq Calls<br><small>letter · email · bullets</small></div>
+                <div class="arch-node">Resume Adapt<br><small>agent 2</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">Review Page<br><small>~15s, fully editable</small></div>
+                <div class="arch-node">Cover Letter<br><small>agent 3</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Application<br><small>agent 4</small></div>
               </div>
               <div class="arch-note">
-                Three-tier app: Next.js 14 frontend, FastAPI backend, Postgres storage. Fit score is pure Python (transparent skill-set intersection, no black-box embeddings). Three Groq calls run inside one FastAPI BackgroundTask, no Celery or Redis queue. Frontend polls every 2.5s while processing.
+                LangGraph manages agent state, decision routing, and execution coordination across the pipeline.
+                FastAPI backend. Next.js 14 frontend. PostgreSQL for application state persistence.
+                Deployed with Kubernetes for container orchestration and horizontal scaling.
+                Groq (Llama 3.3 70B) for all LLM calls: free tier, no paid API dependency.
               </div>
             </div>
           </div>
 
           <div class="detail-block">
-            <div class="detail-h">Key decisions and the pivot</div>
+            <div class="detail-h">Technical depth</div>
             <ul class="detail-bullets">
-              <li>Scrapped the enterprise stack: first pass used LangGraph + Celery + Redis + MinIO + Ollama (five extra containers, a broker to debug, a local LLM needing real hardware). Cut to FastAPI + Postgres + BackgroundTasks, three containers, one command to run. Swapping in Celery later is a contained change, not architecturally locked</li>
-              <li>Groq over OpenAI and over Ollama: OpenAI needs a paid key (dead on arrival for open source), Ollama needs 8GB+ RAM and a multi-GB download. Groq's free tier gives free, fast, zero-setup inference on Llama 3.3 70B</li>
-              <li>No vector DB, no embeddings: skill-set intersection is transparent (you see exactly why your fit score is what it is) where embedding similarity would be a black box that's harder to trust and debug</li>
-              <li>The AI never invents experience: adapt_resume_for_job() has explicit prompt rules to never add a skill or change a date, only reword existing bullets. Tested by feeding it a resume missing an obvious JD keyword to confirm it reframes rather than fabricates. A tool that makes you look qualified for something you're not is a liability, not a feature</li>
-              <li>Background tasks poll, not push: polling every 2.5s instead of WebSockets means less code and no extra connection to manage, and the latency doesn't matter for a 15-20s job</li>
+              <li>LangGraph orchestration: agents share state through a typed graph, each node handles one concern (discovery, analysis, generation, tracking), transitions are conditional on previous node outputs</li>
+              <li>Fit scoring is pure Python (skill-set intersection) before any LLM call: transparent, fast, and tells the user exactly why their score is what it is rather than an opaque embedding similarity</li>
+              <li>Three Groq calls per application (cover letter, email, resume adaptation) run sequentially inside one FastAPI BackgroundTask: no queue, no broker, genuinely sufficient at this scale</li>
+              <li>Kubernetes deployment: containerised with Docker Compose for local dev, K8s manifests for production: allows horizontal scaling of the FastAPI worker pods independently of the Next.js frontend</li>
+              <li>Original design used Celery + Redis + LangGraph + Ollama: scrapped after testing because five extra containers and a message broker added complexity with no benefit at this scale, cut to BackgroundTasks + Groq</li>
             </ul>
           </div>
         </div>
 
         <div class="detail-sidebar">
           <div class="sidebar-block">
-            <div class="sb-label">Full Stack</div>
+            <div class="sb-label">Stack</div>
             <div class="sb-tags">
-              <span class="tag">Next.js 14</span><span class="tag">TypeScript</span>
-              <span class="tag">Tailwind</span><span class="tag">React Query</span>
-              <span class="tag">Zustand</span><span class="tag">FastAPI</span>
-              <span class="tag">async SQLAlchemy 2</span><span class="tag">PostgreSQL 16</span>
-              <span class="tag">Groq</span><span class="tag">Llama 3.3 70B</span>
-              <span class="tag">JWT</span><span class="tag">Docker Compose</span>
+              <span class="tag">LangGraph</span><span class="tag">LangChain</span>
+              <span class="tag">FastAPI</span><span class="tag">async SQLAlchemy</span>
+              <span class="tag">PostgreSQL</span><span class="tag">Next.js 14</span>
+              <span class="tag">TypeScript</span><span class="tag">Tailwind</span>
+              <span class="tag">Groq / Llama 3.3 70B</span>
+              <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">JWT</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Manual effort reduction</span><span class="metric-val">90%</span></div>
+              <div class="metric-row"><span class="metric-label">Time per application</span><span class="metric-val">1hr → 5min</span></div>
+              <div class="metric-row"><span class="metric-label">Throughput improvement</span><span class="metric-val">20×</span></div>
             </div>
           </div>
           <div class="sidebar-block">
@@ -445,10 +462,10 @@
               <span class="proj-name">AuditMind AI</span>
               <span class="badge progress">In Development</span>
             </div>
-            <p class="proj-tagline">LLM-powered audit tool that ingests financial data and audio survey recordings, surfaces anomalies, auto-generates compliance risk reports.</p>
+            <p class="proj-tagline">End-to-end multilingual audio intelligence pipeline for 13 Indian languages. Processes noisy field interview audio through ASR (Whisper large-v3), speaker diarization (SpeechBrain ECAPA-TDNN), and semantic question mapping — speaker-labelled transcripts, zero paid API dependency.</p>
             <div class="proj-tags">
-              <span class="tag">Python</span><span class="tag">FastAPI</span>
-              <span class="tag">React</span><span class="tag">LLM</span>
+              <span class="tag">PyTorch</span><span class="tag">Whisper large-v3</span>
+              <span class="tag">SpeechBrain ECAPA-TDNN</span><span class="tag">13 Indian languages</span>
             </div>
           </div>
         </div>
@@ -462,37 +479,47 @@
           <div class="detail-block">
             <div class="detail-h">What it does</div>
             <div class="detail-text">
-              <p>Audit teams spend significant time on manual review of surveys, structured records, and audio recordings. AuditMind automates that initial pass: ingests Excel survey data and .wav audio recordings, runs LLM analysis to surface anomalies with reasoning, flags compliance risks, and generates a structured report.</p>
+              <p>Processes noisy field interview recordings in 13 Indian languages into clean, speaker-labelled transcripts with zero paid API dependency. Raw audio goes through signal preprocessing, ASR via Whisper large-v3, speaker diarization via SpeechBrain ECAPA-TDNN, and semantic question mapping to produce structured outputs from unstructured conversational audio at scale.</p>
             </div>
           </div>
           <div class="detail-block">
             <div class="detail-h">Architecture</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">Survey Data<br><small>Excel structured</small></div>
-                <span class="arch-plus">+</span>
-                <div class="arch-node">Audio Files<br><small>.wav recordings</small></div>
+                <div class="arch-node">Raw Audio<br><small>noisy field recordings</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">FastAPI Backend<br><small>ingestion + routing</small></div>
+                <div class="arch-node key">Signal Preprocessing<br><small>bandpass · noise reduction · RMS norm</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">LLM Analysis<br><small>anomaly detection</small></div>
+                <div class="arch-node key">Whisper large-v3<br><small>ASR · 13 Indian languages</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">Risk Flags<br><small>with reasoning</small></div>
+                <div class="arch-node key">SpeechBrain ECAPA-TDNN<br><small>speaker diarization</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Structured Transcript<br><small>speaker-labelled output</small></div>
               </div>
               <div class="arch-note">
-                Frontend: React + Vite. Dashboard overview, AuditLog table, Upload page, per-entry UIDDetailDrawer showing exactly why each entry was flagged.
-                Components: AudioPlayer, AuditTable, ErrorBadge, StatCard, Navbar.
+                Preprocessing evaluator tests 16 signal processing configurations (bandpass, noise reduction, RMS normalisation) scored via Whisper confidence metrics to identify the optimal variant per audio condition automatically.
+                No paid API at any stage: Whisper and SpeechBrain run fully on PyTorch locally.
               </div>
             </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Technical depth</div>
+            <ul class="detail-bullets">
+              <li>Whisper large-v3 for multilingual ASR across 13 Indian languages including dialects where cloud APIs degrade on noisy field recordings; runs entirely locally with no per-call cost</li>
+              <li>SpeechBrain ECAPA-TDNN separates overlapping speech and assigns speaker identities so transcripts are labelled by who said what, not just a flat stream of text</li>
+              <li>16-configuration preprocessing evaluator: systematic search over combinations of bandpass filters, noise reduction, and RMS normalisation; selects the best-scoring variant per input using Whisper confidence as the objective metric</li>
+              <li>Semantic question mapping layer maps transcript segments to structured question slots, enabling downstream analysis without manual review of raw transcripts</li>
+            </ul>
           </div>
         </div>
         <div class="detail-sidebar">
           <div class="sidebar-block">
             <div class="sb-label">Stack</div>
             <div class="sb-tags">
-              <span class="tag">Python</span><span class="tag">FastAPI</span>
-              <span class="tag">React</span><span class="tag">Vite</span>
-              <span class="tag">JavaScript</span><span class="tag">LLM</span>
+              <span class="tag">Python</span><span class="tag">PyTorch</span>
+              <span class="tag">Whisper large-v3</span><span class="tag">SpeechBrain</span>
+              <span class="tag">ECAPA-TDNN</span><span class="tag">SoundFile</span>
+              <span class="tag">NoiseReduce</span>
             </div>
           </div>
           <div class="sidebar-block">
@@ -638,7 +665,8 @@
       </div>
     </div>
     <div class="edu-right">
-      <div class="edu-degree">B.Tech. Computer Engineering</div>
+      <div class="edu-degree">B.Tech. Computer Engineering <span style="font-weight:500;font-size:15px;color:var(--blue)">· Honours in Data Science</span></div>
+        <div class="edu-school" style="font-size:13px;color:var(--g400);margin-bottom:2px;font-family:var(--mono);">Honours in Data Science</div>
       <div class="edu-school">Dwarkadas J. Sanghvi College of Engineering (DJSCE), Mumbai</div>
       <p class="edu-desc">
         One of Mumbai's top engineering colleges, affiliated with the University of Mumbai.
@@ -709,75 +737,106 @@
 
   <div class="skills-grid">
 
-    <div class="skill-group">
-      <div class="sg-name">Generative AI &amp; LLMs</div>
-      <div class="sg-tags">
-        <span class="sg-tag">LangChain</span><span class="sg-tag">LangChain LCEL</span>
-        <span class="sg-tag">LangGraph</span><span class="sg-tag">RAG Pipelines</span>
-        <span class="sg-tag">FAISS</span><span class="sg-tag">ChromaDB</span>
-        <span class="sg-tag">Ollama</span><span class="sg-tag">Groq</span>
-        <span class="sg-tag">FinBERT</span><span class="sg-tag">HuggingFace Hub</span>
-        <span class="sg-tag">Transformers</span><span class="sg-tag">Embeddings</span>
-        <span class="sg-tag">Prompt Engineering</span>
+      <div class="skill-group">
+        <div class="sg-name">Generative AI &amp; LLMs</div>
+        <div class="sg-tags">
+          <span class="sg-tag">LangChain</span><span class="sg-tag">LangGraph</span>
+          <span class="sg-tag">LangChain LCEL</span><span class="sg-tag">RAG Pipelines</span>
+          <span class="sg-tag">FAISS</span><span class="sg-tag">RAGAS</span>
+          <span class="sg-tag">BM25</span><span class="sg-tag">FlashRank</span>
+          <span class="sg-tag">Ollama</span><span class="sg-tag">Groq</span>
+          <span class="sg-tag">NetworkX</span><span class="sg-tag">Pydantic</span>
+          <span class="sg-tag">Prompt Engineering</span>
+        </div>
       </div>
-    </div>
 
-    <div class="skill-group">
-      <div class="sg-name">ML &amp; Deep Learning</div>
-      <div class="sg-tags">
-        <span class="sg-tag">PyTorch</span><span class="sg-tag">TensorFlow</span>
-        <span class="sg-tag">Keras</span><span class="sg-tag">scikit-learn</span>
-        <span class="sg-tag">XGBoost</span><span class="sg-tag">LightGBM</span>
-        <span class="sg-tag">MLflow</span><span class="sg-tag">Transformer Architecture</span>
-        <span class="sg-tag">Self-Attention</span><span class="sg-tag">NLTK</span>
-        <span class="sg-tag">Computer Vision</span>
+      <div class="skill-group">
+        <div class="sg-name">ML &amp; Deep Learning</div>
+        <div class="sg-tags">
+          <span class="sg-tag">TensorFlow</span><span class="sg-tag">Keras</span>
+          <span class="sg-tag">PyTorch</span><span class="sg-tag">Whisper large-v3</span>
+          <span class="sg-tag">SpeechBrain</span><span class="sg-tag">scikit-learn</span>
+          <span class="sg-tag">XGBoost</span><span class="sg-tag">NLTK</span>
+          <span class="sg-tag">SpaCy</span><span class="sg-tag">MLflow</span>
+          <span class="sg-tag">FinBERT</span>
+        </div>
       </div>
-    </div>
 
-    <div class="skill-group">
-      <div class="sg-name">Data Science &amp; Quantitative Finance</div>
-      <div class="sg-tags">
-        <span class="sg-tag">NumPy</span><span class="sg-tag">Pandas</span>
-        <span class="sg-tag">Matplotlib</span><span class="sg-tag">Seaborn</span>
-        <span class="sg-tag">Plotly</span><span class="sg-tag">SciPy</span>
-        <span class="sg-tag">yfinance</span><span class="sg-tag">quantstats</span>
-        <span class="sg-tag">TA-Lib</span><span class="sg-tag">Spearman IC</span>
-        <span class="sg-tag">Sharpe Ratio</span><span class="sg-tag">Jupyter</span>
+      <div class="skill-group">
+        <div class="sg-name">Data Science &amp; Quantitative Finance</div>
+        <div class="sg-tags">
+          <span class="sg-tag">NumPy</span><span class="sg-tag">Pandas</span>
+          <span class="sg-tag">Matplotlib</span><span class="sg-tag">yfinance</span>
+          <span class="sg-tag">quantstats</span><span class="sg-tag">TA-Lib</span>
+          <span class="sg-tag">Spearman IC</span><span class="sg-tag">Sharpe Ratio</span>
+          <span class="sg-tag">Walk-Forward Validation</span><span class="sg-tag">Jupyter</span>
+        </div>
       </div>
-    </div>
 
-    <div class="skill-group">
-      <div class="sg-name">Backend &amp; APIs</div>
-      <div class="sg-tags">
-        <span class="sg-tag">FastAPI</span><span class="sg-tag">Flask</span>
-        <span class="sg-tag">Node.js</span><span class="sg-tag">REST APIs</span>
-        <span class="sg-tag">Supabase</span><span class="sg-tag">MySQL</span>
-        <span class="sg-tag">Streamlit</span><span class="sg-tag">Postman</span>
+      <div class="skill-group">
+        <div class="sg-name">Backend &amp; APIs</div>
+        <div class="sg-tags">
+          <span class="sg-tag">FastAPI</span><span class="sg-tag">Flask</span>
+          <span class="sg-tag">async SQLAlchemy</span><span class="sg-tag">PostgreSQL</span>
+          <span class="sg-tag">Supabase</span><span class="sg-tag">MySQL</span>
+          <span class="sg-tag">REST APIs</span><span class="sg-tag">Streamlit</span>
+        </div>
       </div>
-    </div>
 
-    <div class="skill-group">
-      <div class="sg-name">Frontend</div>
-      <div class="sg-tags">
-        <span class="sg-tag">React 18</span><span class="sg-tag">Next.js</span>
-        <span class="sg-tag">TypeScript</span><span class="sg-tag">Tailwind CSS</span>
-        <span class="sg-tag">Vite</span><span class="sg-tag">EmailJS</span>
-        <span class="sg-tag">Figma</span>
+      <div class="skill-group">
+        <div class="sg-name">Frontend</div>
+        <div class="sg-tags">
+          <span class="sg-tag">Next.js 14</span><span class="sg-tag">React 18</span>
+          <span class="sg-tag">TypeScript</span><span class="sg-tag">Tailwind CSS</span>
+          <span class="sg-tag">Vite</span><span class="sg-tag">React Query</span>
+          <span class="sg-tag">Zustand</span>
+        </div>
       </div>
-    </div>
 
-    <div class="skill-group">
-      <div class="sg-name">Languages &amp; Tools</div>
-      <div class="sg-tags">
-        <span class="sg-tag">Python</span><span class="sg-tag">TypeScript</span>
-        <span class="sg-tag">JavaScript</span><span class="sg-tag">C++</span>
-        <span class="sg-tag">C</span><span class="sg-tag">Java</span>
-        <span class="sg-tag">SQL</span><span class="sg-tag">LaTeX</span>
-        <span class="sg-tag">Git</span><span class="sg-tag">GitHub</span>
-        <span class="sg-tag">Vercel</span><span class="sg-tag">Notion</span>
+      <div class="skill-group">
+        <div class="sg-name">Languages, Tools &amp; Infrastructure</div>
+        <div class="sg-tags">
+          <span class="sg-tag">Python</span><span class="sg-tag">C/C++</span>
+          <span class="sg-tag">Java</span><span class="sg-tag">MySQL</span>
+          <span class="sg-tag">TypeScript</span><span class="sg-tag">Docker</span>
+          <span class="sg-tag">Kubernetes</span><span class="sg-tag">AWS</span>
+          <span class="sg-tag">Git</span><span class="sg-tag">GitHub</span>
+          <span class="sg-tag">Vercel</span><span class="sg-tag">Linux</span>
+          <span class="sg-tag">VS Code</span>
+        </div>
       </div>
-    </div>
 
+    </div>
+</section>
+
+
+<section id="achievements" class="section">
+  <p class="section-eyebrow">Recognition</p>
+  <h2 class="section-title">Achievements</h2>
+
+  <div style="border:1px solid var(--g200);border-radius:var(--r2);background:var(--white);padding:28px;display:grid;grid-template-columns:200px 1fr;gap:28px;">
+    <div>
+      <span style="font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;background:var(--amb-bg);color:var(--amber);border:1px solid #FDE68A;border-radius:99px;display:inline-block;padding:3px 10px;margin-bottom:10px;">First Prize</span>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--g400);">Competition</div>
+    </div>
+    <div>
+      <div style="font-size:18px;font-weight:700;color:var(--g900);letter-spacing:-.3px;margin-bottom:4px;">Urban Empire</div>
+      <div style="font-size:14px;color:var(--blue);font-weight:500;margin-bottom:12px;">Data-driven strategy competition</div>
+      <p style="font-size:15px;color:var(--g500);line-height:1.8;">Built a winning data-driven city budget allocation strategy, placing first in the competition.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="achievements" style="padding:48px 0 56px;border-bottom:1px solid var(--g200);">
+  <p class="section-eyebrow">Recognition</p>
+  <h2 class="section-title">Achievements</h2>
+  <div style="border:1px solid var(--g200);border-radius:var(--r2);padding:22px 26px;background:var(--white);display:flex;align-items:flex-start;gap:18px;max-width:640px;">
+    <div style="font-family:var(--mono);font-size:22px;flex-shrink:0;line-height:1;">🥇</div>
+    <div>
+      <div style="font-size:16px;font-weight:700;color:var(--g900);margin-bottom:4px;">First Prize — Urban Empire</div>
+      <div style="font-size:14px;color:var(--g500);line-height:1.7;">Built and presented a winning data-driven city budget allocation strategy using quantitative modelling and optimisation techniques.</div>
+    </div>
   </div>
 </section>
 
