@@ -59,6 +59,11 @@ nav {
 .nav-links a.active { color: var(--blue); }
 .nav-resume { font-size: 13px; font-weight: 600; background: var(--g900); color: var(--white); border: none; border-radius: 6px; padding: 7px 16px; margin-left: 8px; cursor: pointer; transition: background .12s; }
 .nav-resume:hover { background: var(--g700); }
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; border-radius: 6px; flex-shrink: 0; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--g700); border-radius: 2px; transition: transform .2s, opacity .2s; }
+.nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── PAGE ─────────────────────────────────────── */
 .page { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
@@ -250,9 +255,18 @@ footer { max-width: 1120px; margin: 0 auto; padding: 32px 40px; border-top: 1px 
 .modal-close { width: 100%; margin-top: 14px; padding: 10px; background: none; border: 1px solid var(--g200); border-radius: 7px; color: var(--g500); font-size: 14px; cursor: pointer; }
 .modal-close:hover { background: var(--g50); }
 
+/* ── ACHIEVEMENTS ──────────────────────────────── */
+.achievement-grid { border: 1px solid var(--g200); border-radius: var(--r2); background: var(--white); padding: 28px; display: grid; grid-template-columns: 200px 1fr; gap: 28px; }
+.achievement-badge-pill { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; background: var(--amb-bg); color: var(--amber); border: 1px solid #FDE68A; border-radius: 99px; display: inline-block; padding: 3px 10px; margin-bottom: 10px; }
+.achievement-type-label { font-family: var(--mono); font-size: 12px; color: var(--g400); }
+.achievement-title { font-size: 18px; font-weight: 700; color: var(--g900); letter-spacing: -.3px; margin-bottom: 4px; }
+.achievement-subtitle { font-size: 14px; color: var(--blue); font-weight: 500; margin-bottom: 12px; }
+.achievement-desc { font-size: 15px; color: var(--g500); line-height: 1.8; }
+
 /* ── RESPONSIVE ────────────────────────────────── */
 @media (max-width: 900px) {
-  .page, nav { padding-left: 24px; padding-right: 24px; }
+  .page { padding-left: 24px; padding-right: 24px; }
+  nav { padding-left: 24px; padding-right: 24px; }
   #hero { grid-template-columns: 1fr; }
   .hero-sidebar { display: none; }
   details[open] .proj-detail { grid-template-columns: 1fr; padding-left: 26px; }
@@ -262,6 +276,87 @@ footer { max-width: 1120px; margin: 0 auto; padding: 32px 40px; border-top: 1px 
   .skills-grid { grid-template-columns: 1fr; }
   #contact .contact-wrap { grid-template-columns: 1fr; }
   .hero-name { font-size: 38px; }
+}
+
+@media (max-width: 768px) {
+  /* Hamburger nav */
+  .nav-hamburger { display: flex; }
+  nav { overflow: visible; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--g200);
+    box-shadow: 0 8px 24px rgba(0,0,0,.09);
+    flex-direction: column;
+    padding: 8px 20px 20px;
+    gap: 2px;
+  }
+  .nav-links.mobile-open { display: flex; }
+  .nav-links a { padding: 11px 14px; font-size: 15px; border-radius: 8px; }
+  .nav-resume { width: 100%; margin-left: 0; margin-top: 8px; padding: 11px 16px; font-size: 14px; text-align: center; }
+
+  /* Spacing */
+  .page, nav { padding-left: 20px; padding-right: 20px; }
+  section { padding: 48px 0; }
+  #hero { padding: 44px 0 52px; }
+
+  /* Hero text */
+  .hero-name { font-size: 36px; letter-spacing: -1.5px; }
+  .hero-role { font-size: 15px; }
+  .hero-bio { font-size: 15px; }
+
+  /* Project cards: stack expand label */
+  .proj-summary { flex-wrap: wrap; gap: 14px; padding: 18px 20px; }
+  .expand-label { width: 100%; text-align: center; box-sizing: border-box; }
+  .proj-detail { padding: 24px 20px; }
+
+  /* Architecture diagrams */
+  .arch-node { white-space: normal; }
+  .arch-flow { gap: 4px; }
+
+  /* Achievements */
+  .achievement-grid { grid-template-columns: 1fr; }
+
+  /* Modal */
+  .modal { width: calc(100vw - 32px); max-width: 460px; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+  .footer-links { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .page, nav { padding-left: 16px; padding-right: 16px; }
+  section { padding: 36px 0; }
+  #hero { padding: 32px 0 40px; }
+  .hero-name { font-size: 30px; letter-spacing: -1px; }
+  .hero-role { font-size: 14px; }
+  .hero-bio { font-size: 14px; margin-bottom: 28px; }
+  .btn-primary, .btn-outline { font-size: 13px; padding: 9px 16px; }
+  .section-title { font-size: 24px; }
+  .section-sub { font-size: 14px; margin-bottom: 28px; }
+  .proj-name { font-size: 16px; }
+  .proj-summary { padding: 14px 16px; gap: 10px; }
+  .proj-tagline { font-size: 13px; }
+  .proj-detail { padding: 18px 14px; }
+  .exp-card { padding: 18px 16px; }
+  .exp-title { font-size: 16px; }
+  .exp-desc { font-size: 14px; }
+  .edu-card { padding: 18px 16px; }
+  .edu-degree { font-size: 17px; }
+  .blog-card { padding: 18px 16px; }
+  .blog-title { font-size: 16px; }
+  .skill-group { padding: 16px; }
+  .sidebar-block { padding: 14px; }
+  .contact-link { padding: 12px 14px; }
+  footer { padding: 20px 16px; }
+  .modal { padding: 20px; }
+  .achievement-grid { padding: 20px; }
+  .nav-links { padding: 8px 16px 16px; }
 }
 
 /* ── PRINT ─────────────────────────────────────── */

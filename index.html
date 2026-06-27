@@ -18,7 +18,7 @@
 <nav>
   <div class="nav-inner">
     <div class="nav-name">Vivaan Jain <span>/ AI&ML</span></div>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#research">Research</a>
@@ -26,10 +26,12 @@
       <a href="#blog">Blog</a>
       <a href="#achievements">Achievements</a>
       <a href="#skills">Skills</a>
-      <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
       <button class="nav-resume" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
     </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -814,28 +816,15 @@
   <p class="section-eyebrow">Recognition</p>
   <h2 class="section-title">Achievements</h2>
 
-  <div style="border:1px solid var(--g200);border-radius:var(--r2);background:var(--white);padding:28px;display:grid;grid-template-columns:200px 1fr;gap:28px;">
-    <div>
-      <span style="font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;background:var(--amb-bg);color:var(--amber);border:1px solid #FDE68A;border-radius:99px;display:inline-block;padding:3px 10px;margin-bottom:10px;">First Prize</span>
-      <div style="font-family:var(--mono);font-size:12px;color:var(--g400);">Competition</div>
+  <div class="achievement-grid">
+    <div class="achievement-left">
+      <span class="achievement-badge-pill">First Prize</span>
+      <div class="achievement-type-label">Competition</div>
     </div>
     <div>
-      <div style="font-size:18px;font-weight:700;color:var(--g900);letter-spacing:-.3px;margin-bottom:4px;">Urban Empire</div>
-      <div style="font-size:14px;color:var(--blue);font-weight:500;margin-bottom:12px;">Data driven strategy competition</div>
-      <p style="font-size:15px;color:var(--g500);line-height:1.8;">Built a winning data driven city budget allocation strategy, placing first in the competition.</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="achievements" style="padding:48px 0 56px;border-bottom:1px solid var(--g200);">
-  <p class="section-eyebrow">Recognition</p>
-  <h2 class="section-title">Achievements</h2>
-  <div style="border:1px solid var(--g200);border-radius:var(--r2);padding:22px 26px;background:var(--white);display:flex;align-items:flex-start;gap:18px;max-width:640px;">
-    <div style="font-family:var(--mono);font-size:22px;flex-shrink:0;line-height:1;">🥇</div>
-    <div>
-      <div style="font-size:16px;font-weight:700;color:var(--g900);margin-bottom:4px;">First Prize: Urban Empire</div>
-      <div style="font-size:14px;color:var(--g500);line-height:1.7;">Built and presented a winning data driven city budget allocation strategy using quantitative modelling and optimisation techniques.</div>
+      <div class="achievement-title">Urban Empire</div>
+      <div class="achievement-subtitle">Data driven strategy competition</div>
+      <p class="achievement-desc">Built a winning data driven city budget allocation strategy, placing first in the competition.</p>
     </div>
   </div>
 </section>
@@ -922,20 +911,34 @@
 </div>
 
 
-<!-- ═══ SCRIPT, nav highlight only (no expand JS needed) ════════ -->
+<!-- ═══ SCRIPT ════════ -->
 <script>
   // Nav active highlight on scroll
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinkEls = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section[id]');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         const id = e.target.id;
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        navLinkEls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach(s => io.observe(s));
+
+  // Hamburger menu
+  const navToggle = document.getElementById('navToggle');
+  const navLinksMenu = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function () {
+    navLinksMenu.classList.toggle('mobile-open');
+    navToggle.classList.toggle('active');
+  });
+  navLinksMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinksMenu.classList.remove('mobile-open');
+      navToggle.classList.remove('active');
+    });
+  });
 </script>
 
 </body>
