@@ -39,7 +39,6 @@
   <div class="nav-inner">
     <div class="nav-name"><img src="assets/vivaan.png" alt="" class="nav-avatar" />Vivaan Jain <span>/ AI&ML</span></div>
     <div class="nav-links" id="navLinks">
-      <a href="#browse">Browse</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#research">Research</a>
@@ -57,10 +56,28 @@
 </nav>
 
 <div class="page">
+
+<!-- ═══ PIPELINE STORY RAIL ═════════════════════ -->
+<aside id="pipeline" aria-hidden="true">
+  <div class="pipe-track"><div class="pipe-fill"></div><div class="pipe-packet"></div></div>
+  <ul class="pipe-stages">
+    <li data-to="hero"        style="--i:0"><span class="pn"></span><span class="pl"><em>00</em>Source</span></li>
+    <li data-to="experience"  style="--i:1"><span class="pn"></span><span class="pl"><em>01</em>In Production</span></li>
+    <li data-to="projects"    style="--i:2"><span class="pn"></span><span class="pl"><em>02</em>The Build</span></li>
+    <li data-to="research"    style="--i:3"><span class="pn"></span><span class="pl"><em>03</em>The Frontier</span></li>
+    <li data-to="education"   style="--i:4"><span class="pn"></span><span class="pl"><em>04</em>Foundation</span></li>
+    <li data-to="blog"        style="--i:5"><span class="pn"></span><span class="pl"><em>05</em>Broadcast</span></li>
+    <li data-to="skills"      style="--i:6"><span class="pn"></span><span class="pl"><em>06</em>Toolkit</span></li>
+    <li data-to="achievements" style="--i:7"><span class="pn"></span><span class="pl"><em>07</em>Recognition</span></li>
+    <li data-to="contact"     style="--i:8"><span class="pn"></span><span class="pl"><em>08</em>Connect</span></li>
+  </ul>
+</aside>
+
 <!-- ═══ HERO ════════════════════════════════════ -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-left" data-reveal>
+    <p class="section-eyebrow hero-eyebrow">Stage 00 · Source</p>
     <div class="status-pill">
       <span class="status-dot"></span>
       Open to internships and research roles
@@ -135,76 +152,8 @@
 </section>
 
 
-<!-- ═══ BROWSE ROWS (streaming-style catalog) ════ -->
-<section id="browse">
-  <p class="section-eyebrow">Browse the catalog</p>
-  <h2 class="section-title">Every system, one click away</h2>
-  <p class="section-sub">Pick a tile to jump straight into the full technical breakdown — architecture, decisions, metrics.</p>
-
-  <div class="row-block" data-reveal>
-    <div class="row-head"><span class="row-dot live"></span> Shipped &amp; Live</div>
-    <div class="row-scroll">
-      <button class="poster" data-target="proj-mindvault">
-        <div class="poster-top"><span class="poster-num">01</span><span class="badge live">● Live</span></div>
-        <div class="poster-name">MindVault</div>
-        <p class="poster-tag">Multi-tenant RAG · hybrid retrieval + RRF · real-time streaming · RAGAS-validated.</p>
-        <div class="poster-tags"><span class="tag">FAISS</span><span class="tag">LangChain</span><span class="tag">Next.js</span></div>
-        <span class="poster-open">Open breakdown →</span>
-      </button>
-      <a class="poster poster-link" href="https://www.shaktialloys.in" target="_blank" rel="noopener">
-        <div class="poster-top"><span class="poster-num">↗</span><span class="badge freelance">Freelance</span></div>
-        <div class="poster-name">Shakti Alloys</div>
-        <p class="poster-tag">Full production catalogue site for a real manufacturer — sole developer, live on a custom domain.</p>
-        <div class="poster-tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Vercel</span></div>
-        <span class="poster-open">Visit site ↗</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="row-block" data-reveal>
-    <div class="row-head"><span class="row-dot research"></span> Research &amp; Quant</div>
-    <div class="row-scroll">
-      <button class="poster" data-target="proj-ml-research">
-        <div class="poster-top"><span class="poster-num">02</span><span class="badge research">Research</span></div>
-        <div class="poster-name">Equity Forecasting + Sentiment Alpha</div>
-        <p class="poster-tag">Custom Transformer for multi-horizon Nifty 50 direction · 0.62 AUC · 0.6+ Sharpe.</p>
-        <div class="poster-tags"><span class="tag">TensorFlow</span><span class="tag">FinBERT</span><span class="tag">XGBoost</span></div>
-        <span class="poster-open">Open breakdown →</span>
-      </button>
-      <button class="poster" data-target="proj-creditscore">
-        <div class="poster-top"><span class="poster-num">R1</span><span class="badge research">ACM · 2025</span></div>
-        <div class="poster-name">Cost-Sensitive Credit Scoring</div>
-        <p class="poster-tag">Latent risk embeddings, debt-acceleration modelling, economic-loss optimisation, built-in XAI.</p>
-        <div class="poster-tags"><span class="tag">Deep Learning</span><span class="tag">XAI</span><span class="tag">FinTech</span></div>
-        <span class="poster-open">Open breakdown →</span>
-      </button>
-    </div>
-  </div>
-
-  <div class="row-block" data-reveal>
-    <div class="row-head"><span class="row-dot progress"></span> In Development</div>
-    <div class="row-scroll">
-      <button class="poster" data-target="proj-applypilot">
-        <div class="poster-top"><span class="poster-num">03</span><span class="badge progress">In Dev</span></div>
-        <div class="poster-name">ApplyPilot AI</div>
-        <p class="poster-tag">Autonomous multi-agent job-application system · 90% less manual effort · 20× throughput.</p>
-        <div class="poster-tags"><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Kubernetes</span></div>
-        <span class="poster-open">Open breakdown →</span>
-      </button>
-      <button class="poster" data-target="proj-auditmind">
-        <div class="poster-top"><span class="poster-num">04</span><span class="badge progress">In Dev</span></div>
-        <div class="poster-name">AuditMind AI</div>
-        <p class="poster-tag">Multilingual audio intelligence for 13 Indian languages · ASR + diarization · zero paid API.</p>
-        <div class="poster-tags"><span class="tag">Whisper large-v3</span><span class="tag">SpeechBrain</span><span class="tag">PyTorch</span></div>
-        <span class="poster-open">Open breakdown →</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-
 <section id="experience">
-  <p class="section-eyebrow">Work</p>
+  <p class="section-eyebrow">Stage 01 · In Production</p>
   <h2 class="section-title">Experience</h2>
 
   <div class="exp-list">
@@ -263,7 +212,7 @@
 
 
 <section id="projects">
-  <p class="section-eyebrow">Work</p>
+  <p class="section-eyebrow">Stage 02 · The Build</p>
   <h2 class="section-title">Projects</h2>
   <p class="section-sub">Click any card to see the architecture, technical decisions, and what was actually built.</p>
 
@@ -654,7 +603,7 @@
 
 
 <section id="research">
-  <p class="section-eyebrow">Research</p>
+  <p class="section-eyebrow">Stage 03 · The Frontier</p>
   <h2 class="section-title">Research</h2>
   <p class="section-sub">Independent research in applied AI, under ACM Research Core programme.</p>
 
@@ -771,7 +720,7 @@
 
 
 <section id="education">
-  <p class="section-eyebrow">Academic</p>
+  <p class="section-eyebrow">Stage 04 · Foundation</p>
   <h2 class="section-title">Education</h2>
 
   <div class="edu-card">
@@ -801,7 +750,7 @@
 
 
 <section id="blog">
-  <p class="section-eyebrow">Writing</p>
+  <p class="section-eyebrow">Stage 05 · Broadcast</p>
   <h2 class="section-title">Blog</h2>
   <p class="section-sub">Technical articles published on Medium.</p>
 
@@ -850,7 +799,7 @@
 
 
 <section id="skills">
-  <p class="section-eyebrow">Technical</p>
+  <p class="section-eyebrow">Stage 06 · Toolkit</p>
   <h2 class="section-title">Skills</h2>
   <p class="section-sub">Aggregated from all projects and work, grouped by domain.</p>
 
@@ -930,7 +879,7 @@
 
 
 <section id="achievements" class="section">
-  <p class="section-eyebrow">Recognition</p>
+  <p class="section-eyebrow">Stage 07 · Recognition</p>
   <h2 class="section-title">Achievements</h2>
 
   <div class="achievement-grid">
@@ -948,7 +897,7 @@
 
 
 <section id="contact">
-  <p class="section-eyebrow">Get in touch</p>
+  <p class="section-eyebrow">Stage 08 · Connect</p>
   <h2 class="section-title">Contact</h2>
 
   <div class="contact-wrap">
@@ -1044,15 +993,54 @@
     intro.addEventListener('click', () => { clearTimeout(timer); dismiss(); });
   })();
 
-  // ── Browse posters → open matching detail ──
-  document.querySelectorAll('.poster[data-target]').forEach(p => {
-    p.addEventListener('click', () => {
-      const el = document.getElementById(p.dataset.target);
-      if (!el) return;
-      el.open = true;
-      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+  // ── Pipeline story rail ──
+  (function () {
+    const rail = document.getElementById('pipeline');
+    if (!rail) return;
+    const fill = rail.querySelector('.pipe-fill');
+    const packet = rail.querySelector('.pipe-packet');
+    const track = rail.querySelector('.pipe-track');
+    const items = [...rail.querySelectorAll('.pipe-stages li')];
+
+    items.forEach(li => li.addEventListener('click', () => {
+      const t = document.getElementById(li.dataset.to);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+
+    const move = () => {
+      const h = document.documentElement;
+      const p = Math.min(Math.max(h.scrollTop / (h.scrollHeight - h.clientHeight), 0), 1);
+      const y = p * track.offsetHeight;
+      fill.style.height = y + 'px';
+      packet.style.top = y + 'px';
+    };
+    window.addEventListener('scroll', move, { passive: true });
+    window.addEventListener('resize', move);
+    move();
+
+    const secObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          items.forEach(li => li.classList.toggle('active', li.dataset.to === e.target.id));
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    items.forEach(li => { const t = document.getElementById(li.dataset.to); if (t) secObserver.observe(t); });
+  })();
+
+  // ── Hero ID-card 3D parallax ──
+  (function () {
+    const card = document.querySelector('.hero-sidebar');
+    if (!card || reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2);
+      const py = (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2);
+      card.style.transform = `perspective(900px) rotateY(${(px * 7).toFixed(2)}deg) rotateX(${(-py * 7).toFixed(2)}deg)`;
     });
-  });
+    hero.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  })();
 
   // ── Nav active highlight on scroll ──
   const navLinkEls = document.querySelectorAll('.nav-links a');
