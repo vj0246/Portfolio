@@ -6,7 +6,7 @@
   <title>Vivaan Jain, AI/ML Engineer</title>
   <meta name="description" content="Vivaan Jain, CS student at DJSCE Mumbai building RAG systems, custom Transformers, and production AI applications." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#07080d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,10 +21,12 @@
 </head>
 <body>
 
+<div id="scroll-progress"></div>
+
 <!-- ═══ NAV ═════════════════════════════════════ -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-name">Vivaan Jain <span>/ AI&ML</span></div>
+    <div class="nav-name"><img src="assets/vivaan.png" alt="" class="nav-avatar" />Vivaan Jain <span>/ AI&ML</span></div>
     <div class="nav-links" id="navLinks">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
@@ -45,12 +47,13 @@
 <div class="page">
 <!-- ═══ HERO ════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-left">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-left" data-reveal>
     <div class="status-pill">
       <span class="status-dot"></span>
       Open to internships and research roles
     </div>
-    <h1 class="hero-name">Vivaan Jain</h1>
+    <h1 class="hero-name"><span class="grad-text">Vivaan Jain</span></h1>
     <p class="hero-role">Agentic AI &nbsp;·&nbsp; Gen AI / RAG &nbsp;·&nbsp; Quant / Fintech</p>
     <p class="hero-bio">
       Computer Engineering student at DJSCE Mumbai (Class of 2028, CGPA 9.4/10)
@@ -65,7 +68,15 @@
       <a href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener" class="btn-outline">Medium ↗</a>
     </div>
   </div>
-  <div class="hero-sidebar">
+  <div class="hero-sidebar d1" data-reveal>
+    <div class="sidebar-id">
+      <img src="assets/vivaan.png" alt="Vivaan Jain" class="avatar" loading="lazy" />
+      <div>
+        <div class="sid-name">Vivaan Jain</div>
+        <div class="sid-role">AI/ML Engineer</div>
+      </div>
+    </div>
+    <hr class="info-div">
     <div class="info-row">
       <div class="info-label">Status</div>
       <div class="info-val">Open to work · AI/ML Intern roles</div>
@@ -88,6 +99,25 @@
         <a href="https://codeforces.com/profile/Vj0246" target="_blank" rel="noopener">codeforces/Vj0246</a><br>
         <a href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener">medium/@vivaan.jain246</a>
       </div>
+    </div>
+  </div>
+
+  <div class="highlights">
+    <div class="hl-card" data-reveal>
+      <div class="hl-num grad-text" data-count="9.4" data-suffix="/10">0</div>
+      <div class="hl-label">CGPA · CS @ DJSCE Mumbai</div>
+    </div>
+    <div class="hl-card d1" data-reveal>
+      <div class="hl-num grad-text" data-count="13" data-suffix="+">0</div>
+      <div class="hl-label">Indian languages in prod ASR pipeline</div>
+    </div>
+    <div class="hl-card d2" data-reveal>
+      <div class="hl-num grad-text" data-count="0.62">0</div>
+      <div class="hl-label">AUC · custom Transformer, Nifty 50</div>
+    </div>
+    <div class="hl-card d3" data-reveal>
+      <div class="hl-num grad-text" data-count="90" data-suffix="%">0</div>
+      <div class="hl-label">Manual effort cut by agentic system</div>
     </div>
   </div>
 </section>
@@ -920,10 +950,12 @@
 
 <!-- ═══ SCRIPT ════════ -->
 <script>
-  // Nav active highlight on scroll
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Nav active highlight on scroll ──
   const navLinkEls = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section[id]');
-  const io = new IntersectionObserver(entries => {
+  const navIo = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         const id = e.target.id;
@@ -931,9 +963,9 @@
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  sections.forEach(s => io.observe(s));
+  sections.forEach(s => navIo.observe(s));
 
-  // Hamburger menu
+  // ── Hamburger menu ──
   const navToggle = document.getElementById('navToggle');
   const navLinksMenu = document.getElementById('navLinks');
   navToggle.addEventListener('click', function () {
@@ -946,6 +978,129 @@
       navToggle.classList.remove('active');
     });
   });
+
+  // ── Scroll progress bar ──
+  const progress = document.getElementById('scroll-progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    progress.style.width = (p * 100) + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ── Scroll reveal (auto-tag key elements) ──
+  const revealTargets = document.querySelectorAll(
+    '.section-eyebrow, .section-title, .section-sub, .exp-card, .proj-card, ' +
+    '.edu-card, .blog-card, .skill-group, .achievement-grid, .contact-intro, ' +
+    '.contact-link, [data-reveal]'
+  );
+  revealTargets.forEach(el => {
+    if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
+  });
+  const revealIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); revealIo.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  revealTargets.forEach(el => revealIo.observe(el));
+
+  // ── Animated counters ──
+  const counters = document.querySelectorAll('[data-count]');
+  const animateCount = (el) => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const decimals = (el.dataset.count.split('.')[1] || '').length;
+    const dur = 1400; const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(decimals) + (p === 1 ? suffix : '');
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const countIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        if (reduceMotion) { e.target.textContent = e.target.dataset.count + (e.target.dataset.suffix || ''); }
+        else animateCount(e.target);
+        countIo.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => countIo.observe(c));
+
+  // ── 3D tilt on cards ──
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.hl-card, .exp-card, .edu-card, .blog-card, .skill-group, .achievement-grid').forEach(card => {
+      card.addEventListener('mousemove', (ev) => {
+        const r = card.getBoundingClientRect();
+        const px = (ev.clientX - r.left) / r.width - 0.5;
+        const py = (ev.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  // ── Hero neural-network particle canvas ──
+  (function () {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas || reduceMotion) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr, nodes = [];
+    const mouse = { x: -9999, y: -9999 };
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = canvas.getBoundingClientRect();
+      w = rect.width; h = rect.height;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.min(64, Math.floor(w * h / 14000));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35
+      }));
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    canvas.parentElement.addEventListener('mousemove', (e) => {
+      const r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    canvas.parentElement.addEventListener('mouseleave', () => { mouse.x = mouse.y = -9999; });
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        const dm = Math.hypot(n.x - mouse.x, n.y - mouse.y);
+        if (dm < 130) { n.x += (n.x - mouse.x) / dm * 0.6; n.y += (n.y - mouse.y) / dm * 0.6; }
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 130) {
+            ctx.strokeStyle = `rgba(79,125,255,${(1 - d / 130) * 0.28})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      for (const n of nodes) {
+        const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < 130;
+        ctx.fillStyle = near ? 'rgba(34,211,238,.9)' : 'rgba(168,85,247,.55)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, near ? 2.6 : 1.8, 0, Math.PI * 2); ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    };
+    draw();
+  })();
 </script>
 
 </body>
