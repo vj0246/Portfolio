@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T20:30:04.481098+00:00",
+  "generated_at": "2026-07-01T12:31:21.559166+00:00",
   "username": "vj0246",
   "public_repo_count": 25,
   "recent_pushes": [
@@ -7,17 +7,35 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-06-30T09:20:01Z",
+      "pushed_at": "2026-07-01T12:31:09Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
-      "name": "Mumpy-Demo",
+      "name": "vj0246",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-07-01T12:19:53Z",
+      "html_url": "https://github.com/vj0246/vj0246",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "MindVault",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-07-01T12:18:45Z",
+      "html_url": "https://github.com/vj0246/MindVault",
+      "homepage": "https://mind-vault-backend-seven.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "FinIntel",
       "description": "",
       "language": "Python",
       "pushed_at": "2026-06-30T07:34:48Z",
-      "html_url": "https://github.com/vj0246/Mumpy-Demo",
+      "html_url": "https://github.com/vj0246/FinIntel",
       "homepage": "https://mumpy-demo.vercel.app",
       "stars": 0
     },
@@ -31,30 +49,12 @@
       "stars": 0
     },
     {
-      "name": "vj0246",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-06-23T06:01:39Z",
-      "html_url": "https://github.com/vj0246/vj0246",
-      "homepage": "",
-      "stars": 0
-    },
-    {
       "name": "internovo",
       "description": "",
       "language": "Python",
       "pushed_at": "2026-06-22T19:52:34Z",
       "html_url": "https://github.com/vj0246/internovo",
       "homepage": "https://internovo.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "MindVault",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-06-22T19:25:22Z",
-      "html_url": "https://github.com/vj0246/MindVault",
-      "homepage": "https://mind-vault-backend-seven.vercel.app",
       "stars": 0
     },
     {
@@ -80,10 +80,20 @@
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-06-30T09:20:01Z"
+      "pushed_at": "2026-07-01T12:31:09Z"
     },
     {
-      "name": "Mumpy-Demo",
+      "name": "vj0246",
+      "language": "",
+      "pushed_at": "2026-07-01T12:19:53Z"
+    },
+    {
+      "name": "MindVault",
+      "language": "Python",
+      "pushed_at": "2026-07-01T12:18:45Z"
+    },
+    {
+      "name": "FinIntel",
       "language": "Python",
       "pushed_at": "2026-06-30T07:34:48Z"
     },
@@ -93,19 +103,9 @@
       "pushed_at": "2026-06-23T10:24:16Z"
     },
     {
-      "name": "vj0246",
-      "language": "",
-      "pushed_at": "2026-06-23T06:01:39Z"
-    },
-    {
       "name": "internovo",
       "language": "Python",
       "pushed_at": "2026-06-22T19:52:34Z"
-    },
-    {
-      "name": "MindVault",
-      "language": "Python",
-      "pushed_at": "2026-06-22T19:25:22Z"
     },
     {
       "name": "Zeex-AMI-MVP",
