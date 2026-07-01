@@ -73,7 +73,6 @@ def main():
         "MindVault",
         "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
         "auditmind-ai",
-        "Text-Sentiment-Classification-System",
         "Shakti-Site",
         "ApplyPilot-AI",
     ]
