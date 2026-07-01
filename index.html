@@ -32,52 +32,64 @@
   </div>
 </div>
 
-<div id="scroll-progress"></div>
+<!-- ═══ IDE SHELL ═══════════════════════════════ -->
+<div id="ide">
 
-<!-- ═══ NAV ═════════════════════════════════════ -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-name"><img src="assets/vivaan.png" alt="" class="nav-avatar" />Vivaan Jain <span>/ AI&ML</span></div>
-    <div class="nav-links" id="navLinks">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research</a>
-      <a href="#education">Education</a>
-      <a href="#blog">Blog</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <button class="nav-resume" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
+  <!-- title bar -->
+  <div class="ide-titlebar">
+    <div class="tb-dots"><span class="d r"></span><span class="d y"></span><span class="d g"></span></div>
+    <button class="tb-mobile" id="sbToggle" aria-label="Toggle explorer">☰</button>
+    <div class="tb-title"><img src="assets/vivaan.png" class="tb-avatar" alt="" />vivaan-jain / <b>portfolio</b> — Visual Vivaan Code</div>
+    <div class="tb-actions">
+      <button class="tb-btn" id="cmdkBtn"><span>⌘</span>K&nbsp; Go to…</button>
+      <button class="tb-btn accent" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
     </div>
-    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-</nav>
 
-<div class="page">
+  <div class="ide-body">
+    <!-- activity bar -->
+    <div class="activity-bar">
+      <button class="act active" data-act="explorer" title="Explorer">▤</button>
+      <button class="act" id="cmdkAct" title="Go to file (Cmd/Ctrl+K)">⌕</button>
+      <a class="act" href="https://github.com/vj0246" target="_blank" rel="noopener" title="GitHub">GH</a>
+      <a class="act" href="https://www.linkedin.com/in/vivaan-jain-398160279" target="_blank" rel="noopener" title="LinkedIn">in</a>
+      <a class="act" href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener" title="Medium">M</a>
+      <a class="act bottom" href="mailto:vivaan.jain246@gmail.com" title="Email">@</a>
+    </div>
 
-<!-- ═══ PIPELINE STORY RAIL ═════════════════════ -->
-<aside id="pipeline" aria-hidden="true">
-  <div class="pipe-cap">Pipeline · you are here</div>
-  <div class="pipe-row">
-  <div class="pipe-track"><div class="pipe-fill"></div><div class="pipe-packet"></div></div>
-  <ul class="pipe-stages">
-    <li data-to="hero"        style="--i:0"><span class="pn"></span><span class="pl"><em>00</em>Source</span></li>
-    <li data-to="experience"  style="--i:1"><span class="pn"></span><span class="pl"><em>01</em>In Production</span></li>
-    <li data-to="projects"    style="--i:2"><span class="pn"></span><span class="pl"><em>02</em>The Build</span></li>
-    <li data-to="research"    style="--i:3"><span class="pn"></span><span class="pl"><em>03</em>The Frontier</span></li>
-    <li data-to="education"   style="--i:4"><span class="pn"></span><span class="pl"><em>04</em>Foundation</span></li>
-    <li data-to="blog"        style="--i:5"><span class="pn"></span><span class="pl"><em>05</em>Broadcast</span></li>
-    <li data-to="skills"      style="--i:6"><span class="pn"></span><span class="pl"><em>06</em>Toolkit</span></li>
-    <li data-to="achievements" style="--i:7"><span class="pn"></span><span class="pl"><em>07</em>Recognition</span></li>
-    <li data-to="contact"     style="--i:8"><span class="pn"></span><span class="pl"><em>08</em>Connect</span></li>
-  </ul>
-  </div>
-</aside>
+    <!-- explorer sidebar -->
+    <aside class="ide-sidebar" id="ideSidebar">
+      <div class="sb-head">Explorer</div>
+      <div class="sb-tree">
+        <div class="tree-root">▾ VIVAAN-JAIN</div>
+        <button class="file" data-file="hero" data-name="README.md"><i class="fi md">M↓</i>README.md</button>
+        <button class="file" data-file="experience" data-name="experience.log"><i class="fi log">≣</i>experience.log</button>
+        <div class="tree-folder">▾ projects</div>
+        <div class="folder-children">
+          <button class="file" data-file="projects" data-anchor="proj-mindvault" data-name="mindvault.py"><i class="fi py">py</i>mindvault.py</button>
+          <button class="file" data-file="projects" data-anchor="proj-ml-research" data-name="nifty_transformer.ipynb"><i class="fi ipynb"> nb</i>nifty_transformer.ipynb</button>
+          <button class="file" data-file="projects" data-anchor="proj-applypilot" data-name="applypilot.py"><i class="fi py">py</i>applypilot.py</button>
+          <button class="file" data-file="projects" data-anchor="proj-auditmind" data-name="auditmind.py"><i class="fi py">py</i>auditmind.py</button>
+        </div>
+        <button class="file" data-file="research" data-name="research.md"><i class="fi md">M↓</i>research.md</button>
+        <button class="file" data-file="education" data-name="education.json"><i class="fi json">{}</i>education.json</button>
+        <button class="file" data-file="blog" data-name="blog.md"><i class="fi md">M↓</i>blog.md</button>
+        <button class="file" data-file="skills" data-name="skills.json"><i class="fi json">{}</i>skills.json</button>
+        <button class="file" data-file="achievements" data-name="awards.md"><i class="fi md">M↓</i>awards.md</button>
+        <button class="file" data-file="contact" data-name="contact.sh"><i class="fi sh">$_</i>contact.sh</button>
+      </div>
+      <div class="sb-foot">
+        <span class="sbf-dot"></span> 9.4 CGPA · DJSCE '28
+      </div>
+    </aside>
+
+    <!-- editor group -->
+    <main class="ide-main">
+      <div class="tab-bar" id="tabBar"></div>
+      <div class="editor" id="editor">
 
 <!-- ═══ HERO ════════════════════════════════════ -->
-<section id="hero">
+<section class="pane active" id="hero" data-file="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-left" data-reveal>
     <p class="section-eyebrow hero-eyebrow">Stage 00 · Source</p>
@@ -155,7 +167,7 @@
 </section>
 
 
-<section id="experience">
+<section class="pane" id="experience" data-file="experience">
   <p class="section-eyebrow">Stage 01 · In Production</p>
   <h2 class="section-title">Experience</h2>
 
@@ -214,7 +226,7 @@
 </section>
 
 
-<section id="projects">
+<section class="pane" id="projects" data-file="projects">
   <p class="section-eyebrow">Stage 02 · The Build</p>
   <h2 class="section-title">Projects</h2>
   <p class="section-sub">Click any card to see the architecture, technical decisions, and what was actually built.</p>
@@ -605,7 +617,7 @@
 </section>
 
 
-<section id="research">
+<section class="pane" id="research" data-file="research">
   <p class="section-eyebrow">Stage 03 · The Frontier</p>
   <h2 class="section-title">Research</h2>
   <p class="section-sub">Independent research in applied AI, under ACM Research Core programme.</p>
@@ -722,7 +734,7 @@
 </section>
 
 
-<section id="education">
+<section class="pane" id="education" data-file="education">
   <p class="section-eyebrow">Stage 04 · Foundation</p>
   <h2 class="section-title">Education</h2>
 
@@ -752,7 +764,7 @@
 </section>
 
 
-<section id="blog">
+<section class="pane" id="blog" data-file="blog">
   <p class="section-eyebrow">Stage 05 · Broadcast</p>
   <h2 class="section-title">Blog</h2>
   <p class="section-sub">Technical articles published on Medium.</p>
@@ -801,7 +813,7 @@
 </section>
 
 
-<section id="skills">
+<section class="pane" id="skills" data-file="skills">
   <p class="section-eyebrow">Stage 06 · Toolkit</p>
   <h2 class="section-title">Skills</h2>
   <p class="section-sub">Aggregated from all projects and work, grouped by domain.</p>
@@ -881,7 +893,7 @@
 </section>
 
 
-<section id="achievements" class="section">
+<section class="pane" id="achievements" data-file="achievements">
   <p class="section-eyebrow">Stage 07 · Recognition</p>
   <h2 class="section-title">Achievements</h2>
 
@@ -899,7 +911,7 @@
 </section>
 
 
-<section id="contact">
+<section class="pane" id="contact" data-file="contact">
   <p class="section-eyebrow">Stage 08 · Connect</p>
   <h2 class="section-title">Contact</h2>
 
@@ -944,16 +956,45 @@
   </div>
 </section>
 
-</div><!-- /page -->
+      </div><!-- /editor -->
 
-<footer>
-  <span>Vivaan Jain &nbsp;·&nbsp; DJSCE Mumbai '28 &nbsp;·&nbsp; CGPA 9.4</span>
-  <div class="footer-links">
-    <a href="https://github.com/vj0246" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/vivaan-jain-398160279" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:vivaan.jain246@gmail.com">Email</a>
+      <!-- terminal panel -->
+      <div class="ide-panel" id="idePanel">
+        <div class="panel-tabs">
+          <span class="pt active">TERMINAL</span>
+          <span class="pt">OUTPUT</span>
+          <span class="pt">PROBLEMS <em>0</em></span>
+          <button class="panel-min" id="panelMin" title="Toggle panel">⌄</button>
+        </div>
+        <div class="term" id="term">
+          <div class="term-out" id="termOut"></div>
+          <div class="term-line"><span class="term-prompt">vivaan@portfolio</span>:<span class="term-path">~</span>$&nbsp;<input id="termIn" autocomplete="off" spellcheck="false" aria-label="terminal input" /></div>
+        </div>
+      </div>
+    </main>
+  </div><!-- /ide-body -->
+
+  <!-- status bar -->
+  <div class="ide-status">
+    <span class="st-item accent" id="stBranch">⑂ main</span>
+    <span class="st-item live">● Open to work</span>
+    <span class="st-item hide-s">Mumbai, IN</span>
+    <span class="st-grow"></span>
+    <span class="st-item hide-s" id="stFile">README.md</span>
+    <span class="st-item hide-s">UTF-8</span>
+    <span class="st-item">Ln 1, Col 1</span>
+    <span class="st-item accent">AI/ML</span>
   </div>
-</footer>
+</div><!-- /ide -->
+
+<!-- ═══ COMMAND PALETTE ═════════════════════════ -->
+<div id="palette" class="pal-bd">
+  <div class="pal">
+    <div class="pal-in"><span>⌘K</span><input id="palInput" placeholder="Go to file or section…  e.g. projects, blog, contact" autocomplete="off" spellcheck="false" /></div>
+    <div class="pal-list" id="palList"></div>
+    <div class="pal-hint"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
+  </div>
+</div>
 
 
 <!-- ═══ RESUME MODAL ════════════════════════════ -->
@@ -996,107 +1037,152 @@
     intro.addEventListener('click', () => { clearTimeout(timer); dismiss(); });
   })();
 
-  // ── Pipeline story rail ──
-  (function () {
-    const rail = document.getElementById('pipeline');
-    if (!rail) return;
-    const fill = rail.querySelector('.pipe-fill');
-    const packet = rail.querySelector('.pipe-packet');
-    const track = rail.querySelector('.pipe-track');
-    const items = [...rail.querySelectorAll('.pipe-stages li')];
-
-    items.forEach(li => li.addEventListener('click', () => {
-      const t = document.getElementById(li.dataset.to);
-      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }));
-
-    const move = () => {
-      const h = document.documentElement;
-      const p = Math.min(Math.max(h.scrollTop / (h.scrollHeight - h.clientHeight), 0), 1);
-      const y = p * track.offsetHeight;
-      fill.style.height = y + 'px';
-      packet.style.top = y + 'px';
-    };
-    window.addEventListener('scroll', move, { passive: true });
-    window.addEventListener('resize', move);
-    move();
-
-    const secObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          items.forEach(li => li.classList.toggle('active', li.dataset.to === e.target.id));
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    items.forEach(li => { const t = document.getElementById(li.dataset.to); if (t) secObserver.observe(t); });
-  })();
-
-  // ── Hero ID-card 3D parallax ──
-  (function () {
-    const card = document.querySelector('.hero-sidebar');
-    if (!card || reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
-    const hero = document.getElementById('hero');
-    hero.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2);
-      const py = (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2);
-      card.style.transform = `perspective(900px) rotateY(${(px * 7).toFixed(2)}deg) rotateX(${(-py * 7).toFixed(2)}deg)`;
-    });
-    hero.addEventListener('mouseleave', () => { card.style.transform = ''; });
-  })();
-
-  // ── Nav active highlight on scroll ──
-  const navLinkEls = document.querySelectorAll('.nav-links a');
-  const sections = document.querySelectorAll('section[id]');
-  const navIo = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        navLinkEls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-      }
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  sections.forEach(s => navIo.observe(s));
-
-  // ── Hamburger menu ──
-  const navToggle = document.getElementById('navToggle');
-  const navLinksMenu = document.getElementById('navLinks');
-  navToggle.addEventListener('click', function () {
-    navLinksMenu.classList.toggle('mobile-open');
-    navToggle.classList.toggle('active');
-  });
-  navLinksMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinksMenu.classList.remove('mobile-open');
-      navToggle.classList.remove('active');
-    });
-  });
-
-  // ── Scroll progress bar ──
-  const progress = document.getElementById('scroll-progress');
-  const onScroll = () => {
-    const h = document.documentElement;
-    const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
-    progress.style.width = (p * 100) + '%';
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // ── Scroll reveal (auto-tag key elements) ──
-  const revealTargets = document.querySelectorAll(
+  // ── Auto-tag reveal targets ──
+  document.querySelectorAll(
     '.section-eyebrow, .section-title, .section-sub, .exp-card, .proj-card, ' +
-    '.edu-card, .blog-card, .skill-group, .achievement-grid, .contact-intro, ' +
-    '.contact-link, [data-reveal]'
-  );
-  revealTargets.forEach(el => {
-    if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
-  });
-  const revealIo = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); revealIo.unobserve(e.target); }
+    '.edu-card, .blog-card, .skill-group, .achievement-grid, .contact-intro, .contact-link'
+  ).forEach(el => { if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', ''); });
+
+  // ══════════════════════════════════════════════
+  //  IDE ENGINE — file tree, tabs, palette, terminal
+  // ══════════════════════════════════════════════
+  const TAB_NAME = {
+    hero: 'README.md', experience: 'experience.log', projects: 'projects',
+    research: 'research.md', education: 'education.json', blog: 'blog.md',
+    skills: 'skills.json', achievements: 'awards.md', contact: 'contact.sh'
+  };
+  const FILE_ORDER = ['hero','experience','projects','research','education','blog','skills','achievements','contact'];
+  const editor   = document.getElementById('editor');
+  const tabBar   = document.getElementById('tabBar');
+  const stFile   = document.getElementById('stFile');
+  const sidebar  = document.getElementById('ideSidebar');
+  const treeFiles = [...document.querySelectorAll('.sb-tree .file')];
+  const openTabs = [];
+  let activeKey = null;
+
+  const revealPane = (pane) => {
+    const els = [pane, ...pane.querySelectorAll('[data-reveal]')];
+    els.forEach((el, i) => { if (el.hasAttribute('data-reveal')) setTimeout(() => el.classList.add('in'), Math.min(i * 45, 350)); });
+  };
+
+  function renderTabs() {
+    tabBar.innerHTML = '';
+    openTabs.forEach(key => {
+      const t = document.createElement('div');
+      t.className = 'tab' + (key === activeKey ? ' active' : '');
+      t.innerHTML = `<i class="tab-i"></i><span>${TAB_NAME[key]}</span><button class="tab-x" aria-label="close">×</button>`;
+      t.addEventListener('click', (e) => { if (!e.target.classList.contains('tab-x')) openFile(key); });
+      t.querySelector('.tab-x').addEventListener('click', (e) => { e.stopPropagation(); closeTab(key); });
+      tabBar.appendChild(t);
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  revealTargets.forEach(el => revealIo.observe(el));
+  }
+
+  function closeTab(key) {
+    const i = openTabs.indexOf(key);
+    if (i < 0) return;
+    openTabs.splice(i, 1);
+    if (activeKey === key) {
+      const next = openTabs[i] || openTabs[i - 1] || openTabs[0] || 'hero';
+      if (!openTabs.length) openTabs.push('hero');
+      openFile(next);
+    } else renderTabs();
+  }
+
+  function openFile(key, anchor) {
+    if (!TAB_NAME[key]) return;
+    activeKey = key;
+    if (!openTabs.includes(key)) openTabs.push(key);
+
+    document.querySelectorAll('.pane').forEach(p => p.classList.toggle('active', p.id === key));
+    treeFiles.forEach(f => f.classList.toggle('sel', f.dataset.file === key && (!anchor || f.dataset.anchor === anchor)));
+    stFile.textContent = TAB_NAME[key];
+    renderTabs();
+
+    const pane = document.getElementById(key);
+    editor.scrollTop = 0;
+    revealPane(pane);
+
+    if (anchor) {
+      const d = document.getElementById(anchor);
+      if (d) { if (d.tagName === 'DETAILS') d.open = true; setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 90); }
+    }
+    if (window.innerWidth <= 900) sidebar.classList.remove('open');
+  }
+
+  treeFiles.forEach(f => f.addEventListener('click', () => openFile(f.dataset.file, f.dataset.anchor)));
+
+  // sidebar toggle (mobile)
+  document.getElementById('sbToggle').addEventListener('click', () => sidebar.classList.toggle('open'));
+
+  // ── Command palette ──
+  (function () {
+    const pal = document.getElementById('palette');
+    const input = document.getElementById('palInput');
+    const list = document.getElementById('palList');
+    let sel = 0, filtered = [];
+
+    const render = () => {
+      const q = input.value.toLowerCase();
+      filtered = FILE_ORDER.filter(k => TAB_NAME[k].toLowerCase().includes(q) || k.includes(q));
+      list.innerHTML = filtered.map((k, i) =>
+        `<div class="pal-item${i === sel ? ' on' : ''}" data-k="${k}"><i></i>${TAB_NAME[k]}<span>${k}</span></div>`).join('') || '<div class="pal-empty">no match</div>';
+      [...list.querySelectorAll('.pal-item')].forEach(el => el.addEventListener('click', () => { openFile(el.dataset.k); close(); }));
+    };
+    const open = () => { pal.classList.add('open'); input.value = ''; sel = 0; render(); setTimeout(() => input.focus(), 30); };
+    const close = () => pal.classList.remove('open');
+    const isOpen = () => pal.classList.contains('open');
+
+    input.addEventListener('input', () => { sel = 0; render(); });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { sel = Math.min(sel + 1, filtered.length - 1); render(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp') { sel = Math.max(sel - 1, 0); render(); e.preventDefault(); }
+      else if (e.key === 'Enter') { if (filtered[sel]) { openFile(filtered[sel]); close(); } }
+      else if (e.key === 'Escape') close();
+    });
+    pal.addEventListener('click', (e) => { if (e.target === pal) close(); });
+    document.getElementById('cmdkBtn').addEventListener('click', open);
+    document.getElementById('cmdkAct').addEventListener('click', open);
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); isOpen() ? close() : open(); }
+    });
+  })();
+
+  // ── Terminal ──
+  (function () {
+    const out = document.getElementById('termOut');
+    const inp = document.getElementById('termIn');
+    const panel = document.getElementById('idePanel');
+    const CAT = {
+      'README.md': "Vivaan Jain — AI/ML Engineer. CS @ DJSCE Mumbai ('28, 9.4 CGPA). Ships RAG systems, custom Transformers, agentic tools.",
+      'contact.sh': "mailto: vivaan.jain246@gmail.com  ·  github.com/vj0246  ·  linkedin.com/in/vivaan-jain-398160279",
+      'skills.json': "GenAI/LLMs · ML/DL · Quant · Backend · Frontend · Infra — run 'open skills.json' for the full list."
+    };
+    const print = (html, cls) => { const d = document.createElement('div'); d.className = 'to-line' + (cls ? ' ' + cls : ''); d.innerHTML = html; out.appendChild(d); out.scrollTop = out.scrollHeight; };
+
+    print("Portfolio shell v5 — type <b>help</b> to start.", 'dim');
+    const run = (raw) => {
+      const cmd = raw.trim(); if (!cmd) return;
+      print(`<span class="to-p">vivaan@portfolio</span>:~$ ${cmd.replace(/</g,'&lt;')}`);
+      const [c, ...a] = cmd.split(/\s+/); const arg = a.join(' ');
+      switch (c) {
+        case 'help': print("commands: <b>ls</b>, <b>open</b> &lt;file&gt;, <b>cat</b> &lt;file&gt;, <b>whoami</b>, <b>resume</b>, <b>clear</b>"); break;
+        case 'ls': print(FILE_ORDER.map(k => TAB_NAME[k]).join('&nbsp;&nbsp;')); break;
+        case 'whoami': print("vivaan — AI/ML engineer, quant-curious, ships to prod."); break;
+        case 'resume': document.getElementById('resumeModal').classList.add('open'); print("opening resume picker…", 'dim'); break;
+        case 'clear': out.innerHTML = ''; break;
+        case 'open': { const k = FILE_ORDER.find(x => TAB_NAME[x] === arg || x === arg); if (k) { openFile(k); print(`opening ${TAB_NAME[k]}…`, 'dim'); } else print(`no such file: ${arg}`, 'err'); break; }
+        case 'cat': print(CAT[arg] || (FILE_ORDER.some(x => TAB_NAME[x] === arg) ? "(binary-ish) — use 'open " + arg + "'" : `cat: ${arg}: No such file`), CAT[arg] ? '' : 'dim'); break;
+        case 'sudo': print("nice try 😏", 'err'); break;
+        default: print(`command not found: ${c} — try 'help'`, 'err');
+      }
+    };
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { run(inp.value); inp.value = ''; } });
+    document.getElementById('term').addEventListener('click', () => inp.focus());
+    document.getElementById('panelMin').addEventListener('click', () => panel.classList.toggle('min'));
+  })();
+
+  // boot the editor
+  openFile('hero');
 
   // ── Animated counters ──
   const counters = document.querySelectorAll('[data-count]');
@@ -1121,8 +1207,12 @@
         countIo.unobserve(e.target);
       }
     });
-  }, { threshold: 0.6 });
+  }, { root: editor, threshold: 0.15 });
   counters.forEach(c => countIo.observe(c));
+  // safety: if hero counters never intersect, fire shortly after boot
+  setTimeout(() => counters.forEach(c => {
+    if (c.textContent === '0') { reduceMotion ? (c.textContent = c.dataset.count + (c.dataset.suffix || '')) : animateCount(c); }
+  }), 900);
 
   // ── 3D tilt on cards ──
   if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
