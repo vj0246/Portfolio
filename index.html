@@ -21,6 +21,17 @@
 </head>
 <body>
 
+<!-- ═══ CINEMATIC INTRO ═════════════════════════ -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <div class="intro-mark grad-text">VJ</div>
+    <div class="intro-name">Vivaan Jain</div>
+    <div class="intro-tag">AI / ML Engineer · Building shipped systems</div>
+    <div class="intro-bar"><span></span></div>
+    <div class="intro-skip">click anywhere to skip</div>
+  </div>
+</div>
+
 <div id="scroll-progress"></div>
 
 <!-- ═══ NAV ═════════════════════════════════════ -->
@@ -28,6 +39,7 @@
   <div class="nav-inner">
     <div class="nav-name"><img src="assets/vivaan.png" alt="" class="nav-avatar" />Vivaan Jain <span>/ AI&ML</span></div>
     <div class="nav-links" id="navLinks">
+      <a href="#browse">Browse</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#research">Research</a>
@@ -118,6 +130,74 @@
     <div class="hl-card d3" data-reveal>
       <div class="hl-num grad-text" data-count="90" data-suffix="%">0</div>
       <div class="hl-label">Manual effort cut by agentic system</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ BROWSE ROWS (streaming-style catalog) ════ -->
+<section id="browse">
+  <p class="section-eyebrow">Browse the catalog</p>
+  <h2 class="section-title">Every system, one click away</h2>
+  <p class="section-sub">Pick a tile to jump straight into the full technical breakdown — architecture, decisions, metrics.</p>
+
+  <div class="row-block" data-reveal>
+    <div class="row-head"><span class="row-dot live"></span> Shipped &amp; Live</div>
+    <div class="row-scroll">
+      <button class="poster" data-target="proj-mindvault">
+        <div class="poster-top"><span class="poster-num">01</span><span class="badge live">● Live</span></div>
+        <div class="poster-name">MindVault</div>
+        <p class="poster-tag">Multi-tenant RAG · hybrid retrieval + RRF · real-time streaming · RAGAS-validated.</p>
+        <div class="poster-tags"><span class="tag">FAISS</span><span class="tag">LangChain</span><span class="tag">Next.js</span></div>
+        <span class="poster-open">Open breakdown →</span>
+      </button>
+      <a class="poster poster-link" href="https://www.shaktialloys.in" target="_blank" rel="noopener">
+        <div class="poster-top"><span class="poster-num">↗</span><span class="badge freelance">Freelance</span></div>
+        <div class="poster-name">Shakti Alloys</div>
+        <p class="poster-tag">Full production catalogue site for a real manufacturer — sole developer, live on a custom domain.</p>
+        <div class="poster-tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Vercel</span></div>
+        <span class="poster-open">Visit site ↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="row-block" data-reveal>
+    <div class="row-head"><span class="row-dot research"></span> Research &amp; Quant</div>
+    <div class="row-scroll">
+      <button class="poster" data-target="proj-ml-research">
+        <div class="poster-top"><span class="poster-num">02</span><span class="badge research">Research</span></div>
+        <div class="poster-name">Equity Forecasting + Sentiment Alpha</div>
+        <p class="poster-tag">Custom Transformer for multi-horizon Nifty 50 direction · 0.62 AUC · 0.6+ Sharpe.</p>
+        <div class="poster-tags"><span class="tag">TensorFlow</span><span class="tag">FinBERT</span><span class="tag">XGBoost</span></div>
+        <span class="poster-open">Open breakdown →</span>
+      </button>
+      <button class="poster" data-target="proj-creditscore">
+        <div class="poster-top"><span class="poster-num">R1</span><span class="badge research">ACM · 2025</span></div>
+        <div class="poster-name">Cost-Sensitive Credit Scoring</div>
+        <p class="poster-tag">Latent risk embeddings, debt-acceleration modelling, economic-loss optimisation, built-in XAI.</p>
+        <div class="poster-tags"><span class="tag">Deep Learning</span><span class="tag">XAI</span><span class="tag">FinTech</span></div>
+        <span class="poster-open">Open breakdown →</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row-block" data-reveal>
+    <div class="row-head"><span class="row-dot progress"></span> In Development</div>
+    <div class="row-scroll">
+      <button class="poster" data-target="proj-applypilot">
+        <div class="poster-top"><span class="poster-num">03</span><span class="badge progress">In Dev</span></div>
+        <div class="poster-name">ApplyPilot AI</div>
+        <p class="poster-tag">Autonomous multi-agent job-application system · 90% less manual effort · 20× throughput.</p>
+        <div class="poster-tags"><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Kubernetes</span></div>
+        <span class="poster-open">Open breakdown →</span>
+      </button>
+      <button class="poster" data-target="proj-auditmind">
+        <div class="poster-top"><span class="poster-num">04</span><span class="badge progress">In Dev</span></div>
+        <div class="poster-name">AuditMind AI</div>
+        <p class="poster-tag">Multilingual audio intelligence for 13 Indian languages · ASR + diarization · zero paid API.</p>
+        <div class="poster-tags"><span class="tag">Whisper large-v3</span><span class="tag">SpeechBrain</span><span class="tag">PyTorch</span></div>
+        <span class="poster-open">Open breakdown →</span>
+      </button>
     </div>
   </div>
 </section>
@@ -728,7 +808,7 @@
   <div class="blog-grid">
 
     <div class="blog-card">
-      <div class="blog-meta">Medium &nbsp;·&nbsp; January 18, 2026 &nbsp;·&nbsp; 7 min read</div>
+      <div class="blog-meta">Medium &nbsp;·&nbsp; January 18, 2026 &nbsp;·&nbsp; 7 min read <span class="blog-impressions">▲ 110+ impressions</span></div>
       <h3 class="blog-title">NLP: From Fundamentals to Modern Applications</h3>
       <p class="blog-desc">
         A deep technical series for engineers who want to understand NLP from first principles,
@@ -747,7 +827,7 @@
     </div>
 
     <div class="blog-card">
-      <div class="blog-meta">Medium &nbsp;·&nbsp; October 2025</div>
+      <div class="blog-meta">Medium &nbsp;·&nbsp; October 2025 <span class="blog-impressions">▲ 150+ impressions</span></div>
       <h3 class="blog-title">From Motion to Prompts: AI Powered Video Creation</h3>
       <p class="blog-desc">
         How AI generates, edits, and transforms video from a single text prompt, covering
@@ -951,6 +1031,28 @@
 <!-- ═══ SCRIPT ════════ -->
 <script>
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Cinematic intro ──
+  (function () {
+    const intro = document.getElementById('intro');
+    if (!intro) return;
+    const dismiss = () => { intro.classList.add('gone'); document.body.style.overflow = ''; setTimeout(() => intro.remove(), 700); };
+    if (reduceMotion || sessionStorage.getItem('introSeen')) { intro.remove(); return; }
+    sessionStorage.setItem('introSeen', '1');
+    document.body.style.overflow = 'hidden';
+    const timer = setTimeout(dismiss, 2400);
+    intro.addEventListener('click', () => { clearTimeout(timer); dismiss(); });
+  })();
+
+  // ── Browse posters → open matching detail ──
+  document.querySelectorAll('.poster[data-target]').forEach(p => {
+    p.addEventListener('click', () => {
+      const el = document.getElementById(p.dataset.target);
+      if (!el) return;
+      el.open = true;
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+    });
+  });
 
   // ── Nav active highlight on scroll ──
   const navLinkEls = document.querySelectorAll('.nav-links a');

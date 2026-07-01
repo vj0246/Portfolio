@@ -185,7 +185,7 @@ hr.info-div { border: none; border-top: 1px solid var(--line); margin: 14px 0; }
 
 /* ── PROJECTS ─────────────────────────────────── */
 .proj-list { display: flex; flex-direction: column; gap: 14px; }
-details.proj-card { border: 1px solid var(--line); border-radius: var(--r2); background: linear-gradient(160deg, var(--panel), var(--bg2)); transition: border-color .25s, box-shadow .25s, transform .25s; overflow: hidden; }
+details.proj-card { border: 1px solid var(--line); border-radius: var(--r2); background: linear-gradient(160deg, var(--panel), var(--bg2)); transition: border-color .25s, box-shadow .25s, transform .25s; overflow: hidden; scroll-margin-top: 80px; }
 details.proj-card:hover { border-color: var(--line2); box-shadow: var(--sh); }
 details.proj-card[open] { border-color: var(--blue-bd); box-shadow: var(--glow); }
 
@@ -352,6 +352,63 @@ footer { max-width: 1160px; margin: 0 auto; padding: 36px 40px; border-top: 1px 
 .achievement-subtitle { font-size: 14px; color: var(--cyan); font-weight: 500; margin-bottom: 12px; }
 .achievement-desc { font-size: 15px; color: var(--g500); line-height: 1.8; }
 
+/* ── CINEMATIC INTRO ─────────────────────────── */
+#intro {
+  position: fixed; inset: 0; z-index: 500; display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse 70% 60% at 50% 45%, #0d1120, var(--bg) 75%);
+  cursor: pointer; transition: opacity .6s ease, transform .6s ease;
+}
+#intro.gone { opacity: 0; transform: scale(1.06); pointer-events: none; }
+.intro-inner { text-align: center; }
+.intro-mark { font-size: 88px; font-weight: 800; letter-spacing: -4px; line-height: 1; margin-bottom: 18px; animation: intro-pop .8s cubic-bezier(.16,1.2,.3,1) both; }
+.intro-name { font-size: 26px; font-weight: 700; color: var(--white); letter-spacing: -.6px; opacity: 0; animation: intro-up .6s ease .35s both; }
+.intro-tag { font-family: var(--mono); font-size: 12px; color: var(--g400); margin-top: 8px; letter-spacing: 1px; opacity: 0; animation: intro-up .6s ease .55s both; }
+.intro-bar { width: 180px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.08); margin: 26px auto 0; overflow: hidden; opacity: 0; animation: intro-up .5s ease .7s both; }
+.intro-bar span { display: block; height: 100%; width: 0; background: var(--grad); background-size: 200% auto; animation: intro-fill 1.5s cubic-bezier(.5,0,.2,1) .75s forwards, grad-slide 3s linear infinite; }
+.intro-skip { font-family: var(--mono); font-size: 10px; color: var(--g400); margin-top: 30px; opacity: 0; animation: intro-fade 1s ease 1.6s forwards; }
+@keyframes intro-pop { from { opacity: 0; transform: scale(.6); filter: blur(8px); } to { opacity: 1; transform: scale(1); filter: none; } }
+@keyframes intro-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes intro-fill { to { width: 100%; } }
+@keyframes intro-fade { to { opacity: .6; } }
+
+/* ── BROWSE ROWS ─────────────────────────────── */
+.row-block { margin-bottom: 30px; }
+.row-block:last-child { margin-bottom: 0; }
+.row-head { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 700; color: var(--white); letter-spacing: -.2px; margin-bottom: 14px; }
+.row-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.row-dot.live { background: var(--green); box-shadow: 0 0 10px var(--green); }
+.row-dot.research { background: var(--violet); box-shadow: 0 0 10px var(--violet); }
+.row-dot.progress { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+.row-scroll {
+  display: flex; gap: 14px; overflow-x: auto; padding: 6px 4px 16px; scroll-snap-type: x mandatory;
+  scrollbar-width: thin; scrollbar-color: var(--line2) transparent;
+}
+.row-scroll::-webkit-scrollbar { height: 8px; }
+.row-scroll::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 8px; }
+.row-scroll::-webkit-scrollbar-track { background: transparent; }
+.poster {
+  flex: 0 0 300px; scroll-snap-align: start; text-align: left; cursor: pointer;
+  background: linear-gradient(160deg, var(--panel2), var(--bg2)); border: 1px solid var(--line);
+  border-radius: var(--r2); padding: 20px; display: flex; flex-direction: column; gap: 10px;
+  position: relative; overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s;
+  font-family: var(--sans); color: inherit;
+}
+.poster::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--grad); opacity: .7; }
+.poster::after { content: ''; position: absolute; width: 160px; height: 160px; right: -60px; top: -60px; border-radius: 50%; background: radial-gradient(circle, rgba(79,125,255,.18), transparent 70%); opacity: 0; transition: opacity .3s; }
+.poster:hover { transform: translateY(-6px); border-color: var(--blue-bd); box-shadow: var(--sh2); }
+.poster:hover::after { opacity: 1; }
+.poster-top { display: flex; align-items: center; justify-content: space-between; }
+.poster-num { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--g400); }
+.poster-name { font-size: 17px; font-weight: 700; color: var(--white); letter-spacing: -.3px; line-height: 1.25; }
+.poster-tag { font-size: 13px; color: var(--g500); line-height: 1.55; flex: 1; }
+.poster-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.poster-open { font-size: 12px; font-weight: 600; color: var(--cyan); font-family: var(--mono); transition: letter-spacing .2s; }
+.poster:hover .poster-open { letter-spacing: .4px; }
+.poster-link:hover { text-decoration: none; }
+
+/* Blog impressions pill */
+.blog-impressions { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 700; color: var(--green); background: var(--grn-bg); border: 1px solid var(--grn-bd); letter-spacing: .3px; }
+
 /* ── SCROLL PROGRESS BAR ── */
 #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 300; background: var(--grad); background-size: 200% auto; box-shadow: 0 0 12px rgba(79,125,255,.6); transition: width .1s linear; }
 
@@ -396,6 +453,8 @@ footer { max-width: 1160px; margin: 0 auto; padding: 36px 40px; border-top: 1px 
   .proj-detail { padding: 26px 20px; }
   .arch-node { white-space: normal; }
   .arch-flow { gap: 4px; }
+  .poster { flex-basis: 80vw; max-width: 320px; }
+  .intro-mark { font-size: 64px; }
   .achievement-grid { grid-template-columns: 1fr; }
   .modal { width: calc(100vw - 32px); max-width: 460px; }
   footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
