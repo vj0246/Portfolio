@@ -1,13 +1,40 @@
 {
-  "generated_at": "2026-07-01T20:45:00.706722+00:00",
+  "generated_at": "2026-07-02T20:02:58.350570+00:00",
   "username": "vj0246",
-  "public_repo_count": 25,
+  "public_repo_count": 26,
   "recent_pushes": [
+    {
+      "name": "Shakti-Site",
+      "description": "",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-02T14:13:17Z",
+      "html_url": "https://github.com/vj0246/Shakti-Site",
+      "homepage": "https://shakti-alloys-site.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "vj0246",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-07-02T13:56:30Z",
+      "html_url": "https://github.com/vj0246/vj0246",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "darexai",
+      "description": "",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-02T12:18:25Z",
+      "html_url": "https://github.com/vj0246/darexai",
+      "homepage": "https://darexai.vercel.app",
+      "stars": 0
+    },
     {
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-07-01T20:44:48Z",
+      "pushed_at": "2026-07-01T20:45:01Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
@@ -19,15 +46,6 @@
       "pushed_at": "2026-07-01T20:31:39Z",
       "html_url": "https://github.com/vj0246/MindVault",
       "homepage": "https://mind-vault-backend-seven.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "vj0246",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-07-01T19:44:29Z",
-      "html_url": "https://github.com/vj0246/vj0246",
-      "homepage": "",
       "stars": 0
     },
     {
@@ -56,41 +74,33 @@
       "html_url": "https://github.com/vj0246/internovo",
       "homepage": "https://internovo.vercel.app",
       "stars": 0
-    },
-    {
-      "name": "Zeex-AMI-MVP",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-06-15T06:59:10Z",
-      "html_url": "https://github.com/vj0246/Zeex-AMI-MVP",
-      "homepage": "https://zeex-ami-mvp.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "FormFiller",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-06-04T12:34:55Z",
-      "html_url": "https://github.com/vj0246/FormFiller",
-      "homepage": "",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
+      "name": "Shakti-Site",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-02T14:13:17Z"
+    },
+    {
+      "name": "vj0246",
+      "language": "",
+      "pushed_at": "2026-07-02T13:56:30Z"
+    },
+    {
+      "name": "darexai",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-02T12:18:25Z"
+    },
+    {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-07-01T20:44:48Z"
+      "pushed_at": "2026-07-01T20:45:01Z"
     },
     {
       "name": "MindVault",
       "language": "Python",
       "pushed_at": "2026-07-01T20:31:39Z"
-    },
-    {
-      "name": "vj0246",
-      "language": "",
-      "pushed_at": "2026-07-01T19:44:29Z"
     },
     {
       "name": "FinIntel",
@@ -126,11 +136,6 @@
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
       "language": "Jupyter Notebook",
       "pushed_at": "2026-05-21T16:25:31Z"
-    },
-    {
-      "name": "Shakti-Site",
-      "language": "TypeScript",
-      "pushed_at": "2026-05-16T18:58:06Z"
     },
     {
       "name": "Sentiment-Driven-Quantitative-Alpha-Modeling",
