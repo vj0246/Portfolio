@@ -39,7 +39,7 @@
 <!-- ═══ NAV ═════════════════════════════════════ -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-name" href="#hero"><img src="assets/vivaan.png" class="nav-avatar" alt="" />Vivaan Jain <span>· neural.net</span></a>
+    <a class="nav-name" href="#hero"><img src="assets/vivaan.png" class="nav-avatar" alt="" />Vivaan Jain <span>· latent space</span></a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navLinks">
       <a href="#experience">Experience</a>
@@ -1065,17 +1065,17 @@
     const ctx = canvas.getContext('2d');
     let w, h, dpr, nodes = [];
     const mouse = { x: -9999, y: -9999 };
-    const DIST = 138;
+    const DIST = 124;
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = window.innerWidth; h = window.innerHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(110, Math.floor(w * h / 15000));
+      const count = Math.min(78, Math.floor(w * h / 21000));
       nodes = Array.from({ length: count }, () => ({
         x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3
+        vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22
       }));
     };
     resize();
@@ -1097,7 +1097,7 @@
           const a = nodes[i], b = nodes[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < DIST) {
-            ctx.strokeStyle = `rgba(79,125,255,${(1 - d / DIST) * 0.22})`;
+            ctx.strokeStyle = `rgba(45,212,191,${(1 - d / DIST) * 0.16})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
@@ -1105,8 +1105,8 @@
       }
       for (const n of nodes) {
         const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < DIST;
-        ctx.fillStyle = near ? 'rgba(34,211,238,.85)' : 'rgba(168,85,247,.45)';
-        ctx.beginPath(); ctx.arc(n.x, n.y, near ? 2.4 : 1.6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = near ? 'rgba(34,211,238,.85)' : 'rgba(94,234,212,.4)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, near ? 2.4 : 1.5, 0, Math.PI * 2); ctx.fill();
       }
       requestAnimationFrame(draw);
     };
