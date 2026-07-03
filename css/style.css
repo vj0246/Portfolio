@@ -14,17 +14,17 @@
   --line:    #1b2233;
   --line2:   #273049;
 
-  /* ── Text ── */
-  --white:   #f4f6fb;
-  --g50:     #eef1f8;
-  --g100:    #dfe3ee;
-  --g200:    #c3c9db;
-  --g300:    #a6adc6;
-  --g400:    #858ca9;
-  --g500:    #9ba4bf;
-  --g600:    #aab1c9;
-  --g700:    #c7cddd;
-  --g900:    #f4f6fb;
+  /* ── Text (warm-neutral, low blue tint — reads human) ── */
+  --white:   #f5f3ef;
+  --g50:     #efece6;
+  --g100:    #e5e2db;
+  --g200:    #ccc8c0;
+  --g300:    #b1ada5;
+  --g400:    #948f86;
+  --g500:    #a39e95;
+  --g600:    #b2aea6;
+  --g700:    #cbc7be;
+  --g900:    #f5f3ef;
 
   /* ── Accents (teal · cyan · blue · green — no purple) ── */
   --cyan:    #22d3ee;
