@@ -53,25 +53,6 @@
   </div>
 </nav>
 
-<!-- ═══ LAYER RAIL (forward-pass navigation) ═══ -->
-<aside id="layerRail" aria-label="Section navigation">
-  <div class="rail-cap">Forward&nbsp;Pass</div>
-  <div class="rail-row">
-    <div class="rail-track"><div class="rail-fill" id="railFill"></div><div class="rail-packet" id="railPacket"></div></div>
-    <ul class="rail-layers" id="railLayers">
-      <li data-target="hero" class="active"><span class="rn"></span><span class="rl"><em>L00</em> Input</span></li>
-      <li data-target="experience"><span class="rn"></span><span class="rl"><em>L01</em> Signal</span></li>
-      <li data-target="projects"><span class="rn"></span><span class="rl"><em>L02</em> Activation</span></li>
-      <li data-target="research"><span class="rn"></span><span class="rl"><em>L03</em> Frontier</span></li>
-      <li data-target="education"><span class="rn"></span><span class="rl"><em>L04</em> Foundation</span></li>
-      <li data-target="blog"><span class="rn"></span><span class="rl"><em>L05</em> Broadcast</span></li>
-      <li data-target="skills"><span class="rn"></span><span class="rl"><em>L06</em> Weights</span></li>
-      <li data-target="achievements"><span class="rn"></span><span class="rl"><em>L07</em> Output</span></li>
-      <li data-target="contact"><span class="rn"></span><span class="rl"><em>L08</em> Connect</span></li>
-    </ul>
-  </div>
-</aside>
-
 <main class="page">
 
 <!-- ═══ HERO ════════════════════════════════════ -->
@@ -166,7 +147,7 @@
       </div>
       <div class="exp-right">
         <div class="exp-title">Full Stack AI Intern</div>
-        <div class="exp-company">Zeex AI &nbsp;·&nbsp; AI Video Analytics &nbsp;·&nbsp; Chennai</div>
+        <div class="exp-company">Zeex AI &nbsp;·&nbsp; B2B Full Stack SaaS &nbsp;·&nbsp; Mumbai</div>
         <p class="exp-desc">
           Architected and built a production grade, end to end audio intelligence pipeline on AWS
           that transforms unstructured conversational audio into structured outputs at scale.
@@ -1038,35 +1019,17 @@
     progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
   };
 
-  // ── Nav active link + layer rail (forward pass) ──
+  // ── Nav active link ──
   const sections = [...document.querySelectorAll('main.page > section[id]')];
   const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-  const railItems = [...document.querySelectorAll('#railLayers li')];
-  const railFill = document.getElementById('railFill');
-  const railPacket = document.getElementById('railPacket');
 
   const setActive = (id) => {
     navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-    let idx = 0;
-    railItems.forEach((li, i) => {
-      const on = li.dataset.target === id;
-      li.classList.toggle('active', on);
-      if (on) idx = i;
-    });
-    const frac = railItems.length > 1 ? idx / (railItems.length - 1) : 0;
-    railFill.style.height = (frac * 100) + '%';
-    railPacket.style.top = (frac * 100) + '%';
   };
   const sectionIo = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
   }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
   sections.forEach(s => sectionIo.observe(s));
-
-  // rail + nav click → smooth scroll
-  railItems.forEach(li => li.addEventListener('click', () => {
-    const t = document.getElementById(li.dataset.target);
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }));
 
   window.addEventListener('scroll', () => requestAnimationFrame(onScrollProgress), { passive: true });
   onScrollProgress();
