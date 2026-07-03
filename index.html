@@ -86,6 +86,9 @@
     <!-- editor group -->
     <main class="ide-main">
       <div class="tab-bar" id="tabBar"></div>
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></nav>
+      <div class="code-area">
+        <div class="gutter" aria-hidden="true"><div class="gutter-nums" id="gutterNums"></div></div>
       <div class="editor" id="editor">
 
 <!-- ═══ HERO ════════════════════════════════════ -->
@@ -958,6 +961,13 @@
 
       </div><!-- /editor -->
 
+        <!-- minimap -->
+        <div class="minimap" id="minimap" aria-hidden="true">
+          <div class="mm-content" id="mmContent"></div>
+          <div class="mm-view" id="mmView"></div>
+        </div>
+      </div><!-- /code-area -->
+
       <!-- terminal panel -->
       <div class="ide-panel" id="idePanel">
         <div class="panel-tabs">
@@ -1056,6 +1066,29 @@
   const tabBar   = document.getElementById('tabBar');
   const stFile   = document.getElementById('stFile');
   const sidebar  = document.getElementById('ideSidebar');
+  const breadcrumb = document.getElementById('breadcrumb');
+  const gutterNums = document.getElementById('gutterNums');
+  const minimap  = document.getElementById('minimap');
+  const mmView   = document.getElementById('mmView');
+  const mmContent = document.getElementById('mmContent');
+
+  const FILE_META = {
+    hero:        { path: ['portfolio'], name: 'README.md',      ext: 'md' },
+    experience:  { path: ['portfolio'], name: 'experience.log', ext: 'log' },
+    projects:    { path: ['portfolio', 'projects'], name: 'mindvault.py', ext: 'py' },
+    research:    { path: ['portfolio'], name: 'research.md',     ext: 'md' },
+    education:   { path: ['portfolio'], name: 'education.json',  ext: 'json' },
+    blog:        { path: ['portfolio'], name: 'blog.md',         ext: 'md' },
+    skills:      { path: ['portfolio'], name: 'skills.json',     ext: 'json' },
+    achievements:{ path: ['portfolio'], name: 'awards.md',       ext: 'md' },
+    contact:     { path: ['portfolio'], name: 'contact.sh',      ext: 'sh' }
+  };
+  const ANCHOR_META = {
+    'proj-mindvault':  { name: 'mindvault.py',           ext: 'py' },
+    'proj-ml-research':{ name: 'nifty_transformer.ipynb', ext: 'ipynb' },
+    'proj-applypilot': { name: 'applypilot.py',          ext: 'py' },
+    'proj-auditmind':  { name: 'auditmind.py',           ext: 'py' }
+  };
   const treeFiles = [...document.querySelectorAll('.sb-tree .file')];
   const openTabs = [];
   let activeKey = null;
@@ -1064,6 +1097,66 @@
     const els = [pane, ...pane.querySelectorAll('[data-reveal]')];
     els.forEach((el, i) => { if (el.hasAttribute('data-reveal')) setTimeout(() => el.classList.add('in'), Math.min(i * 45, 350)); });
   };
+
+  // ── Breadcrumb ──
+  function renderBreadcrumb(key, anchor) {
+    const m = FILE_META[key]; if (!m) return;
+    let name = m.name, ext = m.ext;
+    if (anchor && ANCHOR_META[anchor]) { name = ANCHOR_META[anchor].name; ext = ANCHOR_META[anchor].ext; }
+    breadcrumb.innerHTML = m.path.map(s =>
+      `<span class="bc-seg"><span class="bc-name">${s}</span><span class="bc-sep">›</span></span>`).join('') +
+      `<span class="bc-seg"><i class="bc-ico">◈</i><span class="bc-name ${ext}">${name}</span></span>`;
+  }
+
+  // ── Gutter line numbers ──
+  const LH = 20; // px per gutter line
+  let lineCount = 0;
+  function buildGutter() {
+    const n = Math.min(700, Math.max(40, Math.ceil(editor.scrollHeight / LH) + 4));
+    if (n === lineCount) return;
+    lineCount = n;
+    let s = '';
+    for (let i = 1; i <= n; i++) s += `<b>${i}</b>`;
+    gutterNums.innerHTML = s;
+  }
+
+  // ── Minimap bars (decorative, built once) ──
+  (function buildMinimap() {
+    const cls = ['', '', 'h', '', 'a', '', '', 'v', 'h', ''];
+    let s = '';
+    for (let i = 0; i < 110; i++) {
+      const c = cls[Math.floor(Math.random() * cls.length)];
+      const w = 30 + Math.floor(Math.random() * 68);
+      s += `<div class="mm-bar ${c}" style="width:${w}%"></div>`;
+    }
+    mmContent.innerHTML = s;
+  })();
+
+  // ── Scroll sync: gutter translate + minimap viewport ──
+  let curLine = -1;
+  function syncScroll() {
+    const st = editor.scrollTop, sh = editor.scrollHeight, ch = editor.clientHeight;
+    gutterNums.style.transform = `translateY(${-st}px)`;
+    const top = Math.floor(st / LH);
+    if (top !== curLine) {
+      const nodes = gutterNums.children;
+      if (nodes[curLine]) nodes[curLine].classList.remove('cur');
+      if (nodes[top]) nodes[top].classList.add('cur');
+      curLine = top;
+    }
+    const mmH = minimap.clientHeight;
+    const vh = Math.max(24, (ch / sh) * mmH);
+    mmView.style.height = vh + 'px';
+    mmView.style.transform = `translateY(${(st / (sh - ch || 1)) * (mmH - vh)}px)`;
+  }
+  editor.addEventListener('scroll', () => requestAnimationFrame(syncScroll), { passive: true });
+  minimap.addEventListener('click', (e) => {
+    const r = minimap.getBoundingClientRect();
+    const ratio = (e.clientY - r.top) / r.height;
+    editor.scrollTo({ top: ratio * editor.scrollHeight - editor.clientHeight / 2, behavior: 'smooth' });
+  });
+  function refreshChrome() { buildGutter(); syncScroll(); }
+  window.addEventListener('resize', refreshChrome);
 
   function renderTabs() {
     tabBar.innerHTML = '';
@@ -1101,6 +1194,10 @@
     const pane = document.getElementById(key);
     editor.scrollTop = 0;
     revealPane(pane);
+    renderBreadcrumb(key, anchor);
+    curLine = -1;
+    refreshChrome();
+    setTimeout(refreshChrome, 420);
 
     if (anchor) {
       const d = document.getElementById(anchor);
