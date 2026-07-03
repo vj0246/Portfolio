@@ -19,9 +19,9 @@
   --g50:     #eef1f8;
   --g100:    #dfe3ee;
   --g200:    #c3c9db;
-  --g300:    #9aa1bb;
-  --g400:    #767d9b;
-  --g500:    #8891ad;
+  --g300:    #a6adc6;
+  --g400:    #858ca9;
+  --g500:    #9ba4bf;
   --g600:    #aab1c9;
   --g700:    #c7cddd;
   --g900:    #f4f6fb;
@@ -57,7 +57,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 body {
   font-family: var(--sans); color: var(--g700);
   background: var(--bg); line-height: 1.6;
@@ -107,12 +107,12 @@ details > summary::marker { display: none; }
 }
 @keyframes grad-slide { to { background-position: 200% center; } }
 
-/* Scroll reveal (3D lift) */
-[data-reveal] { opacity: 0; transform: perspective(1200px) rotateX(7deg) translateY(34px); transform-origin: 50% 100%; transition: opacity .75s cubic-bezier(.16,.8,.3,1), transform .75s cubic-bezier(.16,.8,.3,1); will-change: opacity, transform; }
+/* Scroll reveal (gentle lift) */
+[data-reveal] { opacity: 0; transform: perspective(1400px) rotateX(4deg) translateY(24px); transform-origin: 50% 100%; transition: opacity .9s cubic-bezier(.16,.8,.3,1), transform .9s cubic-bezier(.16,.8,.3,1); will-change: opacity, transform; }
 [data-reveal].in { opacity: 1; transform: none; }
-[data-reveal].d1 { transition-delay: .08s; }
-[data-reveal].d2 { transition-delay: .16s; }
-[data-reveal].d3 { transition-delay: .24s; }
+[data-reveal].d1 { transition-delay: .09s; }
+[data-reveal].d2 { transition-delay: .18s; }
+[data-reveal].d3 { transition-delay: .27s; }
 
 /* ── NAV ──────────────────────────────────────── */
 nav {
@@ -336,7 +336,7 @@ details[open] .proj-detail { display: grid; animation: detail-in .5s ease; }
 .cl-arr { color: var(--g400); font-size: 18px; }
 
 /* ── FOOTER ────────────────────────────────────── */
-footer { max-width: 1160px; margin: 0 auto; padding: 36px 40px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--g400); position: relative; z-index: 1; }
+footer { max-width: 1160px; margin: 0 auto; padding: 30px 40px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--g400); position: relative; z-index: 1; }
 .footer-links { display: flex; gap: 20px; }
 .footer-links a { color: var(--g400); }
 .footer-links a:hover { color: var(--cyan); }
