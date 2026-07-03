@@ -32,70 +32,52 @@
   </div>
 </div>
 
-<!-- ═══ IDE SHELL ═══════════════════════════════ -->
-<div id="ide">
+<!-- ═══ NEURAL FIELD (global animated bg) ═══════ -->
+<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div id="scroll-progress"></div>
 
-  <!-- title bar -->
-  <div class="ide-titlebar">
-    <div class="tb-dots"><span class="d r"></span><span class="d y"></span><span class="d g"></span></div>
-    <button class="tb-mobile" id="sbToggle" aria-label="Toggle explorer">☰</button>
-    <div class="tb-title"><img src="assets/vivaan.png" class="tb-avatar" alt="" />vivaan-jain / <b>portfolio</b> — Visual Vivaan Code</div>
-    <div class="tb-actions">
-      <button class="tb-btn" id="cmdkBtn"><span>⌘</span>K&nbsp; Go to…</button>
-      <button class="tb-btn accent" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
+<!-- ═══ NAV ═════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#hero"><img src="assets/vivaan.png" class="nav-avatar" alt="" />Vivaan Jain <span>· neural.net</span></a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <button class="nav-resume" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
     </div>
   </div>
+</nav>
 
-  <div class="ide-body">
-    <!-- activity bar -->
-    <div class="activity-bar">
-      <button class="act active" data-act="explorer" title="Explorer">▤</button>
-      <button class="act" id="cmdkAct" title="Go to file (Cmd/Ctrl+K)">⌕</button>
-      <a class="act" href="https://github.com/vj0246" target="_blank" rel="noopener" title="GitHub">GH</a>
-      <a class="act" href="https://www.linkedin.com/in/vivaan-jain-398160279" target="_blank" rel="noopener" title="LinkedIn">in</a>
-      <a class="act" href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener" title="Medium">M</a>
-      <a class="act bottom" href="mailto:vivaan.jain246@gmail.com" title="Email">@</a>
-    </div>
+<!-- ═══ LAYER RAIL (forward-pass navigation) ═══ -->
+<aside id="layerRail" aria-label="Section navigation">
+  <div class="rail-cap">Forward&nbsp;Pass</div>
+  <div class="rail-row">
+    <div class="rail-track"><div class="rail-fill" id="railFill"></div><div class="rail-packet" id="railPacket"></div></div>
+    <ul class="rail-layers" id="railLayers">
+      <li data-target="hero" class="active"><span class="rn"></span><span class="rl"><em>L00</em> Input</span></li>
+      <li data-target="experience"><span class="rn"></span><span class="rl"><em>L01</em> Signal</span></li>
+      <li data-target="projects"><span class="rn"></span><span class="rl"><em>L02</em> Activation</span></li>
+      <li data-target="research"><span class="rn"></span><span class="rl"><em>L03</em> Frontier</span></li>
+      <li data-target="education"><span class="rn"></span><span class="rl"><em>L04</em> Foundation</span></li>
+      <li data-target="blog"><span class="rn"></span><span class="rl"><em>L05</em> Broadcast</span></li>
+      <li data-target="skills"><span class="rn"></span><span class="rl"><em>L06</em> Weights</span></li>
+      <li data-target="achievements"><span class="rn"></span><span class="rl"><em>L07</em> Output</span></li>
+      <li data-target="contact"><span class="rn"></span><span class="rl"><em>L08</em> Connect</span></li>
+    </ul>
+  </div>
+</aside>
 
-    <!-- explorer sidebar -->
-    <aside class="ide-sidebar" id="ideSidebar">
-      <div class="sb-head">Explorer</div>
-      <div class="sb-tree">
-        <div class="tree-root">▾ VIVAAN-JAIN</div>
-        <button class="file" data-file="hero" data-name="README.md"><i class="fi md">M↓</i>README.md</button>
-        <button class="file" data-file="experience" data-name="experience.log"><i class="fi log">≣</i>experience.log</button>
-        <div class="tree-folder">▾ projects</div>
-        <div class="folder-children">
-          <button class="file" data-file="projects" data-anchor="proj-mindvault" data-name="mindvault.py"><i class="fi py">py</i>mindvault.py</button>
-          <button class="file" data-file="projects" data-anchor="proj-ml-research" data-name="nifty_transformer.ipynb"><i class="fi ipynb"> nb</i>nifty_transformer.ipynb</button>
-          <button class="file" data-file="projects" data-anchor="proj-applypilot" data-name="applypilot.py"><i class="fi py">py</i>applypilot.py</button>
-          <button class="file" data-file="projects" data-anchor="proj-auditmind" data-name="auditmind.py"><i class="fi py">py</i>auditmind.py</button>
-        </div>
-        <button class="file" data-file="research" data-name="research.md"><i class="fi md">M↓</i>research.md</button>
-        <button class="file" data-file="education" data-name="education.json"><i class="fi json">{}</i>education.json</button>
-        <button class="file" data-file="blog" data-name="blog.md"><i class="fi md">M↓</i>blog.md</button>
-        <button class="file" data-file="skills" data-name="skills.json"><i class="fi json">{}</i>skills.json</button>
-        <button class="file" data-file="achievements" data-name="awards.md"><i class="fi md">M↓</i>awards.md</button>
-        <button class="file" data-file="contact" data-name="contact.sh"><i class="fi sh">$_</i>contact.sh</button>
-      </div>
-      <div class="sb-foot">
-        <span class="sbf-dot"></span> 9.4 CGPA · DJSCE '28
-      </div>
-    </aside>
-
-    <!-- editor group -->
-    <main class="ide-main">
-      <div class="tab-bar" id="tabBar"></div>
-      <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></nav>
-      <div class="code-area">
-        <div class="gutter" aria-hidden="true"><div class="gutter-nums" id="gutterNums"></div></div>
-      <div class="editor" id="editor">
+<main class="page">
 
 <!-- ═══ HERO ════════════════════════════════════ -->
-<section class="pane active" id="hero" data-file="hero">
-  <canvas id="hero-canvas"></canvas>
+<section id="hero">
   <div class="hero-left" data-reveal>
-    <p class="section-eyebrow hero-eyebrow">Stage 00 · Source</p>
+    <p class="section-eyebrow hero-eyebrow">Layer 00 · Input</p>
     <div class="status-pill">
       <span class="status-dot"></span>
       Open to internships and research roles
@@ -170,8 +152,8 @@
 </section>
 
 
-<section class="pane" id="experience" data-file="experience">
-  <p class="section-eyebrow">Stage 01 · In Production</p>
+<section id="experience">
+  <p class="section-eyebrow">Layer 01 · Signal</p>
   <h2 class="section-title">Experience</h2>
 
   <div class="exp-list">
@@ -229,8 +211,8 @@
 </section>
 
 
-<section class="pane" id="projects" data-file="projects">
-  <p class="section-eyebrow">Stage 02 · The Build</p>
+<section id="projects">
+  <p class="section-eyebrow">Layer 02 · Activation</p>
   <h2 class="section-title">Projects</h2>
   <p class="section-sub">Click any card to see the architecture, technical decisions, and what was actually built.</p>
 
@@ -620,8 +602,8 @@
 </section>
 
 
-<section class="pane" id="research" data-file="research">
-  <p class="section-eyebrow">Stage 03 · The Frontier</p>
+<section id="research">
+  <p class="section-eyebrow">Layer 03 · Frontier</p>
   <h2 class="section-title">Research</h2>
   <p class="section-sub">Independent research in applied AI, under ACM Research Core programme.</p>
 
@@ -737,8 +719,8 @@
 </section>
 
 
-<section class="pane" id="education" data-file="education">
-  <p class="section-eyebrow">Stage 04 · Foundation</p>
+<section id="education">
+  <p class="section-eyebrow">Layer 04 · Foundation</p>
   <h2 class="section-title">Education</h2>
 
   <div class="edu-card">
@@ -767,8 +749,8 @@
 </section>
 
 
-<section class="pane" id="blog" data-file="blog">
-  <p class="section-eyebrow">Stage 05 · Broadcast</p>
+<section id="blog">
+  <p class="section-eyebrow">Layer 05 · Broadcast</p>
   <h2 class="section-title">Blog</h2>
   <p class="section-sub">Technical articles published on Medium.</p>
 
@@ -816,8 +798,8 @@
 </section>
 
 
-<section class="pane" id="skills" data-file="skills">
-  <p class="section-eyebrow">Stage 06 · Toolkit</p>
+<section id="skills">
+  <p class="section-eyebrow">Layer 06 · Weights</p>
   <h2 class="section-title">Skills</h2>
   <p class="section-sub">Aggregated from all projects and work, grouped by domain.</p>
 
@@ -896,8 +878,8 @@
 </section>
 
 
-<section class="pane" id="achievements" data-file="achievements">
-  <p class="section-eyebrow">Stage 07 · Recognition</p>
+<section id="achievements">
+  <p class="section-eyebrow">Layer 07 · Output</p>
   <h2 class="section-title">Achievements</h2>
 
   <div class="achievement-grid">
@@ -914,8 +896,8 @@
 </section>
 
 
-<section class="pane" id="contact" data-file="contact">
-  <p class="section-eyebrow">Stage 08 · Connect</p>
+<section id="contact">
+  <p class="section-eyebrow">Layer 08 · Connect</p>
   <h2 class="section-title">Contact</h2>
 
   <div class="contact-wrap">
@@ -959,53 +941,18 @@
   </div>
 </section>
 
-      </div><!-- /editor -->
 
-        <!-- minimap -->
-        <div class="minimap" id="minimap" aria-hidden="true">
-          <div class="mm-content" id="mmContent"></div>
-          <div class="mm-view" id="mmView"></div>
-        </div>
-      </div><!-- /code-area -->
+</main><!-- /page -->
 
-      <!-- terminal panel -->
-      <div class="ide-panel" id="idePanel">
-        <div class="panel-tabs">
-          <span class="pt active">TERMINAL</span>
-          <span class="pt">OUTPUT</span>
-          <span class="pt">PROBLEMS <em>0</em></span>
-          <button class="panel-min" id="panelMin" title="Toggle panel">⌄</button>
-        </div>
-        <div class="term" id="term">
-          <div class="term-out" id="termOut"></div>
-          <div class="term-line"><span class="term-prompt">vivaan@portfolio</span>:<span class="term-path">~</span>$&nbsp;<input id="termIn" autocomplete="off" spellcheck="false" aria-label="terminal input" /></div>
-        </div>
-      </div>
-    </main>
-  </div><!-- /ide-body -->
-
-  <!-- status bar -->
-  <div class="ide-status">
-    <span class="st-item accent" id="stBranch">⑂ main</span>
-    <span class="st-item live">● Open to work</span>
-    <span class="st-item hide-s">Mumbai, IN</span>
-    <span class="st-grow"></span>
-    <span class="st-item hide-s" id="stFile">README.md</span>
-    <span class="st-item hide-s">UTF-8</span>
-    <span class="st-item">Ln 1, Col 1</span>
-    <span class="st-item accent">AI/ML</span>
+<footer>
+  <div>© 2026 Vivaan Jain · Built from scratch, vanilla JS · Deployed on Vercel</div>
+  <div class="footer-links">
+    <a href="https://github.com/vj0246" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/vivaan-jain-398160279" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener">Medium</a>
+    <a href="mailto:vivaan.jain246@gmail.com">Email</a>
   </div>
-</div><!-- /ide -->
-
-<!-- ═══ COMMAND PALETTE ═════════════════════════ -->
-<div id="palette" class="pal-bd">
-  <div class="pal">
-    <div class="pal-in"><span>⌘K</span><input id="palInput" placeholder="Go to file or section…  e.g. projects, blog, contact" autocomplete="off" spellcheck="false" /></div>
-    <div class="pal-list" id="palList"></div>
-    <div class="pal-hint"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
-  </div>
-</div>
-
+</footer>
 
 <!-- ═══ RESUME MODAL ════════════════════════════ -->
 <div class="modal-bd" id="resumeModal" onclick="if(event.target===this)this.classList.remove('open')">
@@ -1049,245 +996,22 @@
 
   // ── Auto-tag reveal targets ──
   document.querySelectorAll(
-    '.section-eyebrow, .section-title, .section-sub, .exp-card, .proj-card, ' +
+    '.section-eyebrow, .section-title, .section-sub, .hero-left, .hero-sidebar, .hl-card, .exp-card, .proj-card, ' +
     '.edu-card, .blog-card, .skill-group, .achievement-grid, .contact-intro, .contact-link'
   ).forEach(el => { if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', ''); });
 
-  // ══════════════════════════════════════════════
-  //  IDE ENGINE — file tree, tabs, palette, terminal
-  // ══════════════════════════════════════════════
-  const TAB_NAME = {
-    hero: 'README.md', experience: 'experience.log', projects: 'projects',
-    research: 'research.md', education: 'education.json', blog: 'blog.md',
-    skills: 'skills.json', achievements: 'awards.md', contact: 'contact.sh'
-  };
-  const FILE_ORDER = ['hero','experience','projects','research','education','blog','skills','achievements','contact'];
-  const editor   = document.getElementById('editor');
-  const tabBar   = document.getElementById('tabBar');
-  const stFile   = document.getElementById('stFile');
-  const sidebar  = document.getElementById('ideSidebar');
-  const breadcrumb = document.getElementById('breadcrumb');
-  const gutterNums = document.getElementById('gutterNums');
-  const minimap  = document.getElementById('minimap');
-  const mmView   = document.getElementById('mmView');
-  const mmContent = document.getElementById('mmContent');
-
-  const FILE_META = {
-    hero:        { path: ['portfolio'], name: 'README.md',      ext: 'md' },
-    experience:  { path: ['portfolio'], name: 'experience.log', ext: 'log' },
-    projects:    { path: ['portfolio', 'projects'], name: 'mindvault.py', ext: 'py' },
-    research:    { path: ['portfolio'], name: 'research.md',     ext: 'md' },
-    education:   { path: ['portfolio'], name: 'education.json',  ext: 'json' },
-    blog:        { path: ['portfolio'], name: 'blog.md',         ext: 'md' },
-    skills:      { path: ['portfolio'], name: 'skills.json',     ext: 'json' },
-    achievements:{ path: ['portfolio'], name: 'awards.md',       ext: 'md' },
-    contact:     { path: ['portfolio'], name: 'contact.sh',      ext: 'sh' }
-  };
-  const ANCHOR_META = {
-    'proj-mindvault':  { name: 'mindvault.py',           ext: 'py' },
-    'proj-ml-research':{ name: 'nifty_transformer.ipynb', ext: 'ipynb' },
-    'proj-applypilot': { name: 'applypilot.py',          ext: 'py' },
-    'proj-auditmind':  { name: 'auditmind.py',           ext: 'py' }
-  };
-  const treeFiles = [...document.querySelectorAll('.sb-tree .file')];
-  const openTabs = [];
-  let activeKey = null;
-
-  const revealPane = (pane) => {
-    const els = [pane, ...pane.querySelectorAll('[data-reveal]')];
-    els.forEach((el, i) => { if (el.hasAttribute('data-reveal')) setTimeout(() => el.classList.add('in'), Math.min(i * 45, 350)); });
-  };
-
-  // ── Breadcrumb ──
-  function renderBreadcrumb(key, anchor) {
-    const m = FILE_META[key]; if (!m) return;
-    let name = m.name, ext = m.ext;
-    if (anchor && ANCHOR_META[anchor]) { name = ANCHOR_META[anchor].name; ext = ANCHOR_META[anchor].ext; }
-    breadcrumb.innerHTML = m.path.map(s =>
-      `<span class="bc-seg"><span class="bc-name">${s}</span><span class="bc-sep">›</span></span>`).join('') +
-      `<span class="bc-seg"><i class="bc-ico">◈</i><span class="bc-name ${ext}">${name}</span></span>`;
-  }
-
-  // ── Gutter line numbers ──
-  const LH = 20; // px per gutter line
-  let lineCount = 0;
-  function buildGutter() {
-    const n = Math.min(700, Math.max(40, Math.ceil(editor.scrollHeight / LH) + 4));
-    if (n === lineCount) return;
-    lineCount = n;
-    let s = '';
-    for (let i = 1; i <= n; i++) s += `<b>${i}</b>`;
-    gutterNums.innerHTML = s;
-  }
-
-  // ── Minimap bars (decorative, built once) ──
-  (function buildMinimap() {
-    const cls = ['', '', 'h', '', 'a', '', '', 'v', 'h', ''];
-    let s = '';
-    for (let i = 0; i < 110; i++) {
-      const c = cls[Math.floor(Math.random() * cls.length)];
-      const w = 30 + Math.floor(Math.random() * 68);
-      s += `<div class="mm-bar ${c}" style="width:${w}%"></div>`;
-    }
-    mmContent.innerHTML = s;
-  })();
-
-  // ── Scroll sync: gutter translate + minimap viewport ──
-  let curLine = -1;
-  function syncScroll() {
-    const st = editor.scrollTop, sh = editor.scrollHeight, ch = editor.clientHeight;
-    gutterNums.style.transform = `translateY(${-st}px)`;
-    const top = Math.floor(st / LH);
-    if (top !== curLine) {
-      const nodes = gutterNums.children;
-      if (nodes[curLine]) nodes[curLine].classList.remove('cur');
-      if (nodes[top]) nodes[top].classList.add('cur');
-      curLine = top;
-    }
-    const mmH = minimap.clientHeight;
-    const vh = Math.max(24, (ch / sh) * mmH);
-    mmView.style.height = vh + 'px';
-    mmView.style.transform = `translateY(${(st / (sh - ch || 1)) * (mmH - vh)}px)`;
-  }
-  editor.addEventListener('scroll', () => requestAnimationFrame(syncScroll), { passive: true });
-  minimap.addEventListener('click', (e) => {
-    const r = minimap.getBoundingClientRect();
-    const ratio = (e.clientY - r.top) / r.height;
-    editor.scrollTo({ top: ratio * editor.scrollHeight - editor.clientHeight / 2, behavior: 'smooth' });
-  });
-  function refreshChrome() { buildGutter(); syncScroll(); }
-  window.addEventListener('resize', refreshChrome);
-
-  function renderTabs() {
-    tabBar.innerHTML = '';
-    openTabs.forEach(key => {
-      const t = document.createElement('div');
-      t.className = 'tab' + (key === activeKey ? ' active' : '');
-      t.innerHTML = `<i class="tab-i"></i><span>${TAB_NAME[key]}</span><button class="tab-x" aria-label="close">×</button>`;
-      t.addEventListener('click', (e) => { if (!e.target.classList.contains('tab-x')) openFile(key); });
-      t.querySelector('.tab-x').addEventListener('click', (e) => { e.stopPropagation(); closeTab(key); });
-      tabBar.appendChild(t);
-    });
-  }
-
-  function closeTab(key) {
-    const i = openTabs.indexOf(key);
-    if (i < 0) return;
-    openTabs.splice(i, 1);
-    if (activeKey === key) {
-      const next = openTabs[i] || openTabs[i - 1] || openTabs[0] || 'hero';
-      if (!openTabs.length) openTabs.push('hero');
-      openFile(next);
-    } else renderTabs();
-  }
-
-  function openFile(key, anchor) {
-    if (!TAB_NAME[key]) return;
-    activeKey = key;
-    if (!openTabs.includes(key)) openTabs.push(key);
-
-    document.querySelectorAll('.pane').forEach(p => p.classList.toggle('active', p.id === key));
-    treeFiles.forEach(f => f.classList.toggle('sel', f.dataset.file === key && (!anchor || f.dataset.anchor === anchor)));
-    stFile.textContent = TAB_NAME[key];
-    renderTabs();
-
-    const pane = document.getElementById(key);
-    editor.scrollTop = 0;
-    revealPane(pane);
-    renderBreadcrumb(key, anchor);
-    curLine = -1;
-    refreshChrome();
-    setTimeout(refreshChrome, 420);
-
-    if (anchor) {
-      const d = document.getElementById(anchor);
-      if (d) { if (d.tagName === 'DETAILS') d.open = true; setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 90); }
-    }
-    if (window.innerWidth <= 900) sidebar.classList.remove('open');
-  }
-
-  treeFiles.forEach(f => f.addEventListener('click', () => openFile(f.dataset.file, f.dataset.anchor)));
-
-  // sidebar toggle (mobile)
-  document.getElementById('sbToggle').addEventListener('click', () => sidebar.classList.toggle('open'));
-
-  // ── Command palette ──
-  (function () {
-    const pal = document.getElementById('palette');
-    const input = document.getElementById('palInput');
-    const list = document.getElementById('palList');
-    let sel = 0, filtered = [];
-
-    const render = () => {
-      const q = input.value.toLowerCase();
-      filtered = FILE_ORDER.filter(k => TAB_NAME[k].toLowerCase().includes(q) || k.includes(q));
-      list.innerHTML = filtered.map((k, i) =>
-        `<div class="pal-item${i === sel ? ' on' : ''}" data-k="${k}"><i></i>${TAB_NAME[k]}<span>${k}</span></div>`).join('') || '<div class="pal-empty">no match</div>';
-      [...list.querySelectorAll('.pal-item')].forEach(el => el.addEventListener('click', () => { openFile(el.dataset.k); close(); }));
-    };
-    const open = () => { pal.classList.add('open'); input.value = ''; sel = 0; render(); setTimeout(() => input.focus(), 30); };
-    const close = () => pal.classList.remove('open');
-    const isOpen = () => pal.classList.contains('open');
-
-    input.addEventListener('input', () => { sel = 0; render(); });
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown') { sel = Math.min(sel + 1, filtered.length - 1); render(); e.preventDefault(); }
-      else if (e.key === 'ArrowUp') { sel = Math.max(sel - 1, 0); render(); e.preventDefault(); }
-      else if (e.key === 'Enter') { if (filtered[sel]) { openFile(filtered[sel]); close(); } }
-      else if (e.key === 'Escape') close();
-    });
-    pal.addEventListener('click', (e) => { if (e.target === pal) close(); });
-    document.getElementById('cmdkBtn').addEventListener('click', open);
-    document.getElementById('cmdkAct').addEventListener('click', open);
-    window.addEventListener('keydown', (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); isOpen() ? close() : open(); }
-    });
-  })();
-
-  // ── Terminal ──
-  (function () {
-    const out = document.getElementById('termOut');
-    const inp = document.getElementById('termIn');
-    const panel = document.getElementById('idePanel');
-    const CAT = {
-      'README.md': "Vivaan Jain — AI/ML Engineer. CS @ DJSCE Mumbai ('28, 9.4 CGPA). Ships RAG systems, custom Transformers, agentic tools.",
-      'contact.sh': "mailto: vivaan.jain246@gmail.com  ·  github.com/vj0246  ·  linkedin.com/in/vivaan-jain-398160279",
-      'skills.json': "GenAI/LLMs · ML/DL · Quant · Backend · Frontend · Infra — run 'open skills.json' for the full list."
-    };
-    const print = (html, cls) => { const d = document.createElement('div'); d.className = 'to-line' + (cls ? ' ' + cls : ''); d.innerHTML = html; out.appendChild(d); out.scrollTop = out.scrollHeight; };
-
-    print("Portfolio shell v5 — type <b>help</b> to start.", 'dim');
-    const run = (raw) => {
-      const cmd = raw.trim(); if (!cmd) return;
-      print(`<span class="to-p">vivaan@portfolio</span>:~$ ${cmd.replace(/</g,'&lt;')}`);
-      const [c, ...a] = cmd.split(/\s+/); const arg = a.join(' ');
-      switch (c) {
-        case 'help': print("commands: <b>ls</b>, <b>open</b> &lt;file&gt;, <b>cat</b> &lt;file&gt;, <b>whoami</b>, <b>resume</b>, <b>clear</b>"); break;
-        case 'ls': print(FILE_ORDER.map(k => TAB_NAME[k]).join('&nbsp;&nbsp;')); break;
-        case 'whoami': print("vivaan — AI/ML engineer, quant-curious, ships to prod."); break;
-        case 'resume': document.getElementById('resumeModal').classList.add('open'); print("opening resume picker…", 'dim'); break;
-        case 'clear': out.innerHTML = ''; break;
-        case 'open': { const k = FILE_ORDER.find(x => TAB_NAME[x] === arg || x === arg); if (k) { openFile(k); print(`opening ${TAB_NAME[k]}…`, 'dim'); } else print(`no such file: ${arg}`, 'err'); break; }
-        case 'cat': print(CAT[arg] || (FILE_ORDER.some(x => TAB_NAME[x] === arg) ? "(binary-ish) — use 'open " + arg + "'" : `cat: ${arg}: No such file`), CAT[arg] ? '' : 'dim'); break;
-        case 'sudo': print("nice try 😏", 'err'); break;
-        default: print(`command not found: ${c} — try 'help'`, 'err');
-      }
-    };
-    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { run(inp.value); inp.value = ''; } });
-    document.getElementById('term').addEventListener('click', () => inp.focus());
-    document.getElementById('panelMin').addEventListener('click', () => panel.classList.toggle('min'));
-  })();
-
-  // boot the editor
-  openFile('hero');
+  // ── Scroll reveal ──
+  const revealIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealIo.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => revealIo.observe(el));
 
   // ── Animated counters ──
-  const counters = document.querySelectorAll('[data-count]');
   const animateCount = (el) => {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const decimals = (el.dataset.count.split('.')[1] || '').length;
-    const dur = 1400; const t0 = performance.now();
+    const dur = 1400, t0 = performance.now();
     const tick = (now) => {
       const p = Math.min((now - t0) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
@@ -1296,24 +1020,71 @@
     };
     requestAnimationFrame(tick);
   };
-  const countIo = new IntersectionObserver(entries => {
+  const countIo = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        if (reduceMotion) { e.target.textContent = e.target.dataset.count + (e.target.dataset.suffix || ''); }
-        else animateCount(e.target);
-        countIo.unobserve(e.target);
-      }
+      if (!e.isIntersecting) return;
+      if (reduceMotion) e.target.textContent = e.target.dataset.count + (e.target.dataset.suffix || '');
+      else animateCount(e.target);
+      countIo.unobserve(e.target);
     });
-  }, { root: editor, threshold: 0.15 });
-  counters.forEach(c => countIo.observe(c));
-  // safety: if hero counters never intersect, fire shortly after boot
-  setTimeout(() => counters.forEach(c => {
-    if (c.textContent === '0') { reduceMotion ? (c.textContent = c.dataset.count + (c.dataset.suffix || '')) : animateCount(c); }
-  }), 900);
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach(c => countIo.observe(c));
+
+  // ── Scroll progress bar ──
+  const progress = document.getElementById('scroll-progress');
+  const onScrollProgress = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  };
+
+  // ── Nav active link + layer rail (forward pass) ──
+  const sections = [...document.querySelectorAll('main.page > section[id]')];
+  const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const railItems = [...document.querySelectorAll('#railLayers li')];
+  const railFill = document.getElementById('railFill');
+  const railPacket = document.getElementById('railPacket');
+
+  const setActive = (id) => {
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    let idx = 0;
+    railItems.forEach((li, i) => {
+      const on = li.dataset.target === id;
+      li.classList.toggle('active', on);
+      if (on) idx = i;
+    });
+    const frac = railItems.length > 1 ? idx / (railItems.length - 1) : 0;
+    railFill.style.height = (frac * 100) + '%';
+    railPacket.style.top = (frac * 100) + '%';
+  };
+  const sectionIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  sections.forEach(s => sectionIo.observe(s));
+
+  // rail + nav click → smooth scroll
+  railItems.forEach(li => li.addEventListener('click', () => {
+    const t = document.getElementById(li.dataset.target);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+
+  window.addEventListener('scroll', () => requestAnimationFrame(onScrollProgress), { passive: true });
+  onScrollProgress();
+
+  // ── Mobile menu ──
+  const hamburger = document.getElementById('hamburger');
+  const navLinksWrap = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinksWrap.classList.toggle('mobile-open');
+  });
+  navLinksWrap.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('active'); navLinksWrap.classList.remove('mobile-open');
+  }));
 
   // ── 3D tilt on cards ──
   if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.hl-card, .exp-card, .edu-card, .blog-card, .skill-group, .achievement-grid').forEach(card => {
+    document.querySelectorAll('.hl-card, .exp-card, .edu-card, .blog-card, .skill-group, .achievement-grid, .hero-sidebar').forEach(card => {
       card.addEventListener('mousemove', (ev) => {
         const r = card.getBoundingClientRect();
         const px = (ev.clientX - r.left) / r.width - 0.5;
@@ -1324,33 +1095,30 @@
     });
   }
 
-  // ── Hero neural-network particle canvas ──
+  // ── Global neural-network field ──
   (function () {
-    const canvas = document.getElementById('hero-canvas');
+    const canvas = document.getElementById('neural-bg');
     if (!canvas || reduceMotion) return;
     const ctx = canvas.getContext('2d');
     let w, h, dpr, nodes = [];
     const mouse = { x: -9999, y: -9999 };
+    const DIST = 138;
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const rect = canvas.getBoundingClientRect();
-      w = rect.width; h = rect.height;
+      w = window.innerWidth; h = window.innerHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(64, Math.floor(w * h / 14000));
+      const count = Math.min(110, Math.floor(w * h / 15000));
       nodes = Array.from({ length: count }, () => ({
         x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35
+        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3
       }));
     };
     resize();
     window.addEventListener('resize', resize);
-    canvas.parentElement.addEventListener('mousemove', (e) => {
-      const r = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
-    });
-    canvas.parentElement.addEventListener('mouseleave', () => { mouse.x = mouse.y = -9999; });
+    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('mouseout', () => { mouse.x = mouse.y = -9999; });
 
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
@@ -1359,23 +1127,23 @@
         if (n.x < 0 || n.x > w) n.vx *= -1;
         if (n.y < 0 || n.y > h) n.vy *= -1;
         const dm = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-        if (dm < 130) { n.x += (n.x - mouse.x) / dm * 0.6; n.y += (n.y - mouse.y) / dm * 0.6; }
+        if (dm < 150) { n.x += (n.x - mouse.x) / dm * 0.7; n.y += (n.y - mouse.y) / dm * 0.7; }
       }
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i], b = nodes[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < 130) {
-            ctx.strokeStyle = `rgba(79,125,255,${(1 - d / 130) * 0.28})`;
+          if (d < DIST) {
+            ctx.strokeStyle = `rgba(79,125,255,${(1 - d / DIST) * 0.22})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
       }
       for (const n of nodes) {
-        const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < 130;
-        ctx.fillStyle = near ? 'rgba(34,211,238,.9)' : 'rgba(168,85,247,.55)';
-        ctx.beginPath(); ctx.arc(n.x, n.y, near ? 2.6 : 1.8, 0, Math.PI * 2); ctx.fill();
+        const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < DIST;
+        ctx.fillStyle = near ? 'rgba(34,211,238,.85)' : 'rgba(168,85,247,.45)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, near ? 2.4 : 1.6, 0, Math.PI * 2); ctx.fill();
       }
       requestAnimationFrame(draw);
     };
