@@ -124,7 +124,7 @@ nav {
 }
 .nav-inner { max-width: 1160px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .nav-name { font-weight: 700; font-size: 15px; color: var(--white); display: flex; align-items: center; gap: 9px; }
-.nav-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid var(--line2); box-shadow: 0 0 12px rgba(79,125,255,.35); }
+.nav-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid var(--line2); box-shadow: 0 0 12px rgba(79,125,255,.35); }
 .nav-name span { font-weight: 500; font-size: 13px; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links a { font-size: 13px; color: var(--g400); font-weight: 500; padding: 6px 12px; border-radius: 8px; transition: background .15s, color .15s; position: relative; }
