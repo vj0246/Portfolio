@@ -399,7 +399,8 @@ footer { max-width: 1160px; margin: 0 auto; padding: 30px 40px; border-top: 1px 
 }
 #intro.gone { opacity: 0; transform: scale(1.06); pointer-events: none; }
 .intro-inner { text-align: center; }
-.intro-mark { font-size: 88px; font-weight: 800; letter-spacing: -4px; line-height: 1; margin-bottom: 18px; animation: intro-pop .8s cubic-bezier(.16,1.2,.3,1) both; }
+.intro-mark { line-height: 1; margin-bottom: 22px; animation: intro-pop .8s cubic-bezier(.16,1.2,.3,1) both; }
+.intro-dot { display: block; width: 64px; height: 64px; border-radius: 50%; margin: 0 auto; background: var(--grad); box-shadow: 0 0 44px rgba(45,212,191,.55), 0 0 0 8px rgba(45,212,191,.06); }
 .intro-name { font-size: 26px; font-weight: 700; color: var(--white); letter-spacing: -.6px; opacity: 0; animation: intro-up .6s ease .35s both; }
 .intro-tag { font-family: var(--mono); font-size: 12px; color: var(--g400); margin-top: 8px; letter-spacing: 1px; opacity: 0; animation: intro-up .6s ease .55s both; }
 .intro-bar { width: 180px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.08); margin: 26px auto 0; overflow: hidden; opacity: 0; animation: intro-up .5s ease .7s both; }
