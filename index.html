@@ -199,11 +199,106 @@
 
   <div class="proj-list">
 
-    <!-- ─ MindVault ────────────────────────────── -->
-    <details class="proj-card" id="proj-mindvault">
+    <details class="proj-card" id="proj-applypilot">
       <summary class="proj-summary">
         <div class="ps-left">
           <span class="proj-num">01</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name">ApplyPilot AI</span>
+              <span class="badge live">● Live</span>
+            </div>
+            <p class="proj-tagline">A full stack AI application copilot: upload a resume, paste a job post, and get a tailored cover letter, application email, fit score, and reworded resume bullets in 10 to 20 seconds. Three tier app on Groq Llama 3.3 70B, no paid API.</p>
+            <div class="proj-tags">
+              <span class="tag">FastAPI</span><span class="tag">Next.js 14</span>
+              <span class="tag">PostgreSQL</span><span class="tag">Groq · Llama 3.3 70B</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">What it does</div>
+            <div class="detail-text">
+              <p>Upload a resume, paste a job posting, and in 10 to 20 seconds ApplyPilot returns a cover letter, an application email, a fit score, adapted resume bullets, and grounded answers to custom application questions. Resume and job parsing extract structured profiles; the fit score is computed in plain Python before any model call; generation runs through Groq's free Llama 3.3 70B. A real status pipeline (ready → approved → submitted → interviewing → offered/rejected) tracks every application.</p>
+              <p>The AI never invents experience. Resume adaptation carries explicit prompt level constraints: reword existing bullets to hit JD keywords, never add a skill or change a date. It was tested specifically by feeding a resume missing an obvious JD keyword to confirm it reframes rather than fabricates.</p>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="detail-h">Architecture</div>
+            <div class="arch-diagram">
+              <div class="arch-flow">
+                <div class="arch-node">Next.js 14<br><small>upload · paste JD</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">FastAPI<br><small>JWT REST · BackgroundTasks</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Groq · Llama 3.3 70B<br><small>3 sequential calls</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">PostgreSQL<br><small>profiles · application state</small></div>
+              </div>
+              <div class="arch-note">
+                Fit scoring is pure Python skill set intersection before any LLM call: transparent and fast, and it tells the user exactly why the score is what it is.
+                Three Groq calls per application (cover letter, email, resume adaptation) run sequentially inside one FastAPI BackgroundTask: no queue, no broker.
+                The whole stack runs in three Docker containers via Docker Compose; PostgreSQL persists profiles, documents, and lifecycle across five tables.
+                Groq free tier (Llama 3.3 70B) for every generation: no OpenAI key, no per call cost.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="detail-h">Technical depth</div>
+            <ul class="detail-bullets">
+              <li>Three tier app: Next.js 14 frontend with polling based state, JWT secured REST to a FastAPI backend, PostgreSQL for persistence: no unnecessary moving parts</li>
+              <li>Fit score is deterministic Python (skill set intersection) computed before any LLM call: transparent and explainable rather than an opaque embedding similarity</li>
+              <li>Three Groq calls per application run sequentially inside one FastAPI BackgroundTask: no Celery, no Redis, no broker: genuinely sufficient at this scale</li>
+              <li>Original design used Celery + Redis + LangGraph + Ollama: scrapped after testing because five extra containers and a message broker added complexity with no benefit, cut to BackgroundTasks + Groq</li>
+              <li>Resume adaptation is constrained at the prompt level to reword existing bullets only, never fabricate skills or dates: verified by adversarial testing with a missing keyword</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Stack</div>
+            <div class="sb-tags">
+              <span class="tag">FastAPI</span><span class="tag">SQLAlchemy 2</span>
+              <span class="tag">PostgreSQL 16</span><span class="tag">Next.js 14</span>
+              <span class="tag">TypeScript</span><span class="tag">React Query</span>
+              <span class="tag">Zustand</span><span class="tag">Tailwind</span>
+              <span class="tag">Groq · Llama 3.3 70B</span>
+              <span class="tag">Docker Compose</span><span class="tag">JWT</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Time per application</span><span class="metric-val">10–20s</span></div>
+              <div class="metric-row"><span class="metric-label">Groq calls / application</span><span class="metric-val">3</span></div>
+              <div class="metric-row"><span class="metric-label">Free tier throughput</span><span class="metric-val">14,400 req/min</span></div>
+              <div class="metric-row"><span class="metric-label">Containers</span><span class="metric-val">3</span></div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Links</div>
+            <a href="https://github.com/vj0246/ApplyPilot-AI" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+            <a href="https://applypilot.vercel.app" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="proj-card" id="proj-mindvault">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">02</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name">MindVault</span>
@@ -300,11 +395,111 @@
       </div>
     </details>
 
-    <!-- ─ Nifty Transformer ──────────────────────── -->
+    <details class="proj-card" id="proj-finintel">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">03</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name">FinIntel — Agentic Equity Desk</span>
+              <span class="badge live">● Live</span>
+            </div>
+            <p class="proj-tagline">An agentic AI equity research desk for Indian markets (NSE): six specialised LLM agents grounded in live market data, LangGraph human in the loop approval gates, a mandatory compliance pipeline, and deterministic Python maths so the model interprets numbers rather than inventing them.</p>
+            <div class="proj-tags">
+              <span class="tag">LangGraph</span><span class="tag">FastAPI</span>
+              <span class="tag">Groq</span><span class="tag">React · Vite</span>
+              <span class="tag">yfinance · NSE</span><span class="tag">Supabase</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">What it does</div>
+            <div class="detail-text">
+              <p>FinIntel is a multi agent system for equity research on India's National Stock Exchange. A fleet of specialised LLM agents, each grounded in live market data, lets a user analyse a single stock, screen the market by custom criteria, audit portfolio risk, or request a full research report. A five question suitability profile gates every recommendation against the user's stated risk tolerance, and human in the loop approval gates keep a person in control of consequential steps.</p>
+              <p>Every output passes a mandatory compliance pipeline: input validation, semantic screening, grounded rewrites that avoid fabrication, PII scrubbing, and SEBI style disclaimers. Deterministic mathematics (volatility, Sharpe, beta, drawdown, CAGR, XIRR, stress tests) is computed in Python; the LLM interprets the results rather than performing the arithmetic, which removes a whole class of hallucination.</p>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="detail-h">Agentic architecture</div>
+            <div class="arch-diagram">
+              <div class="arch-flow">
+                <div class="arch-node">Query<br><small>React · SSE</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Rate limit + Auth<br><small>PBKDF2 · Supabase</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">6 Agents<br><small>ReAct · 31 tools</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">LangGraph<br><small>interrupt() human gate</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Compliance<br><small>PII scrub · SEBI</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Response<br><small>streamed · sourced</small></div>
+              </div>
+              <div class="arch-note">
+                LangGraph StateGraph checkpoints state and calls interrupt() to pause for human approval; the user approves, redirects, or stops via Command(resume=...) on four agents (desk, war room, portfolio auditor, task).
+                Deterministic maths runs in Python behind a TTL cache; the LLM only interprets the numbers, never computes them.
+                Groq multi key failover pool for resilience; data from yfinance, Screener.in, and NSE with labelled sample fallback when live feeds are unreachable.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <div class="detail-h">Technical depth</div>
+            <ul class="detail-bullets">
+              <li>Six interactive agents (Analyst, Brief, Discover, Portfolio, War Room, Report) across a seven tab desk; the ReAct chat agent exposes 31 grounded tools</li>
+              <li>LangGraph StateGraph with interrupt() / Command(resume=...) human in the loop on four agents: the graph checkpoints, pauses for approval, and resumes without losing state</li>
+              <li>Mandatory compliance pipeline on every output: input validation, semantic screening, grounded rewrite of unsourced claims, PII scrubbing, and SEBI style disclaimers</li>
+              <li>Deterministic quant maths in Python (volatility, Sharpe, beta, RSI, drawdown, CAGR, XIRR, stress test factors); the LLM interprets results rather than doing arithmetic, cutting hallucination risk</li>
+              <li>Five question suitability questionnaire builds a per user risk profile that gates recommendations; a Groq multi key failover pool and a TTL cache for deterministic calls keep it resilient and cheap</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Stack</div>
+            <div class="sb-tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span>
+              <span class="tag">LangGraph</span><span class="tag">Groq</span>
+              <span class="tag">React</span><span class="tag">Vite</span>
+              <span class="tag">SSE</span><span class="tag">yfinance</span>
+              <span class="tag">Screener.in</span><span class="tag">NSE India</span>
+              <span class="tag">Supabase</span><span class="tag">PBKDF2</span>
+              <span class="tag">Render</span><span class="tag">Vercel</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Interactive agents</span><span class="metric-val">6</span></div>
+              <div class="metric-row"><span class="metric-label">ReAct tools</span><span class="metric-val">31</span></div>
+              <div class="metric-row"><span class="metric-label">Human in the loop agents</span><span class="metric-val">4</span></div>
+              <div class="metric-row"><span class="metric-label">Desk tabs</span><span class="metric-val">7</span></div>
+              <div class="metric-row"><span class="metric-label">Suitability questions</span><span class="metric-val">5</span></div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Links</div>
+            <a href="https://github.com/vj0246/FinIntel" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+            <a href="https://mumpy-demo.vercel.app" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+
     <details class="proj-card" id="proj-ml-research">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">02</span>
+          <span class="proj-num">04</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name">ML Research: Equity Forecasting + Sentiment Alpha</span>
@@ -404,108 +599,10 @@
       </div>
     </details>
 
-    <!-- ─ Apply Pilot ─────────────────────────────── -->
-    <details class="proj-card" id="proj-applypilot">
-      <summary class="proj-summary">
-        <div class="ps-left">
-          <span class="proj-num">03</span>
-          <div class="proj-info">
-            <div class="proj-title-row">
-              <span class="proj-name">ApplyPilot AI</span>
-              <span class="badge progress">In Development</span>
-            </div>
-            <p class="proj-tagline">Autonomous multi agent system that discovers jobs, generates personalised applications, and executes end to end application workflows: reducing manual effort by 90% and compressing 1 hour of work per application to under 5 minutes.</p>
-            <div class="proj-tags">
-              <span class="tag">LangGraph</span><span class="tag">FastAPI</span>
-              <span class="tag">Next.js</span><span class="tag">Kubernetes</span>
-              <span class="tag">PostgreSQL</span>
-            </div>
-          </div>
-        </div>
-        <span class="expand-label">
-          <span class="close-text">View details ↓</span>
-          <span class="open-text">Close ↑</span>
-        </span>
-      </summary>
-
-      <div class="proj-detail">
-        <div>
-          <div class="detail-block">
-            <div class="detail-h">What it does</div>
-            <div class="detail-text">
-              <p>A multi agent system where autonomous agents handle the entire job application workflow: discover relevant opportunities, adapt the resume to each JD, generate a cover letter and application email, answer custom form questions, track status, and coordinate all steps without manual intervention. Users process 100+ targeted applications with minimal involvement at 20x better throughput than doing it manually.</p>
-              <p>The AI never invents experience. Resume adaptation has explicit prompt level constraints: reword existing bullets to hit JD keywords, never add a skill or change a date. Tested specifically by feeding it a resume missing an obvious JD keyword to confirm it reframes rather than fabricates.</p>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">Multi agent architecture</div>
-            <div class="arch-diagram">
-              <div class="arch-flow">
-                <div class="arch-node">Job Discovery<br><small>agent 1</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">LangGraph<br><small>orchestration</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Resume Adapt<br><small>agent 2</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Cover Letter<br><small>agent 3</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Application<br><small>agent 4</small></div>
-              </div>
-              <div class="arch-note">
-                LangGraph manages agent state, decision routing, and execution coordination across the pipeline.
-                FastAPI backend. Next.js 14 frontend. PostgreSQL for application state persistence.
-                Deployed with Kubernetes for container orchestration and horizontal scaling.
-                Groq (Llama 3.3 70B) for all LLM calls: free tier, no paid API dependency.
-              </div>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">Technical depth</div>
-            <ul class="detail-bullets">
-              <li>LangGraph orchestration: agents share state through a typed graph, each node handles one concern (discovery, analysis, generation, tracking), transitions are conditional on previous node outputs</li>
-              <li>Fit scoring is pure Python (skill set intersection) before any LLM call: transparent, fast, and tells the user exactly why their score is what it is rather than an opaque embedding similarity</li>
-              <li>Three Groq calls per application (cover letter, email, resume adaptation) run sequentially inside one FastAPI BackgroundTask: no queue, no broker, genuinely sufficient at this scale</li>
-              <li>Kubernetes deployment: containerised with Docker Compose for local dev, K8s manifests for production: allows horizontal scaling of the FastAPI worker pods independently of the Next.js frontend</li>
-              <li>Original design used Celery + Redis + LangGraph + Ollama: scrapped after testing because five extra containers and a message broker added complexity with no benefit at this scale, cut to BackgroundTasks + Groq</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="detail-sidebar">
-          <div class="sidebar-block">
-            <div class="sb-label">Stack</div>
-            <div class="sb-tags">
-              <span class="tag">LangGraph</span><span class="tag">LangChain</span>
-              <span class="tag">FastAPI</span><span class="tag">async SQLAlchemy</span>
-              <span class="tag">PostgreSQL</span><span class="tag">Next.js 14</span>
-              <span class="tag">TypeScript</span><span class="tag">Tailwind</span>
-              <span class="tag">Groq · Llama 3.3 70B</span>
-              <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">JWT</span>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Key metrics</div>
-            <div class="sb-metrics">
-              <div class="metric-row"><span class="metric-label">Manual effort reduction</span><span class="metric-val">90%</span></div>
-              <div class="metric-row"><span class="metric-label">Time per application</span><span class="metric-val">1hr → 5min</span></div>
-              <div class="metric-row"><span class="metric-label">Throughput improvement</span><span class="metric-val">20×</span></div>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Links</div>
-            <a href="https://github.com/vj0246/ApplyPilot-AI" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
-          </div>
-        </div>
-      </div>
-    </details>
-
-    <!-- AuditMind -->
     <details class="proj-card" id="proj-auditmind">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">04</span>
+          <span class="proj-num">05</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name">AuditMind AI</span>
