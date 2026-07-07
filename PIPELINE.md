@@ -1,206 +1,172 @@
-# Dynamic Portfolio Pipeline — Setup Guide
+# Portfolio — Maintenance Guide
 
-How to make the portfolio auto-update whenever you push to GitHub
-or update your Overleaf resume. Zero manual steps after initial setup.
+How to add a project, and how the automation actually works.
 
----
-
-## What gets automated
-
-| Trigger | What happens |
-|---------|-------------|
-| You push any commit to any GitHub repo | `scripts/fetch_data.py` runs, updates `data/github_data.json`, Vercel redeploys |
-| Daily at midnight | Same as above — catches anything missed |
-| You update your resume on Overleaf | Overleaf pushes LaTeX to GitHub → PDF auto-compiled → portfolio links to latest |
-| You update a project README | Next sync (push or daily) re-fetches the README content |
+This site is a **static single page** (`index.html` + `css/style.css` + a little vanilla JS).
+No framework, no build step. You edit HTML, push, and Vercel redeploys.
 
 ---
 
-## PART 1 — GitHub auto-sync (takes ~10 min)
+## The two automations (do not confuse them)
 
-### Step 1: Push the portfolio to GitHub
+There are two completely independent systems:
 
-The `.github/workflows/sync.yml` file in this folder must be in your
-GitHub repo. If you've already pushed the portfolio, it's there.
+| System | What it does | Involved when adding a project? |
+|--------|--------------|--------------------------------|
+| **Vercel auto-deploy** | Watches the GitHub repo. Every push to `main` triggers an automatic rebuild + redeploy (~30s). This is the only thing that publishes your changes. | **Yes** — push = live. |
+| **GitHub Action (`sync.yml`)** | Runs `scripts/fetch_data.py`, which writes `data/github_data.json` (repo count, recent pushes, READMEs). | **No** — see the note below. |
 
-### Step 2: Check the Action ran
+### Important: the GitHub Action is currently dormant
 
-Go to: `github.com/YOUR_USERNAME/portfolio` → Actions tab
+`index.html` does **not** load `js/github.js` and has no `#gh-*` elements, so **nothing on the
+visible site reads `data/github_data.json`**. The Action just keeps that data file fresh in the repo;
+no visitor ever sees it. It does not add projects, change your on-screen repo count, or touch any card.
 
-You should see "Sync Portfolio Data" in the list. Click it → Run workflow
-to trigger it manually the first time.
+**Adding a project is 100% a manual HTML edit.** The Action is not part of it.
 
-After it runs, `data/github_data.json` will have your real repo count
-and recent pushes. Vercel will redeploy automatically.
+Mental model:
 
-### Step 3: Cross-repo triggers (optional but recommended)
-
-To trigger a portfolio rebuild when you push to a **different** repo
-(e.g. MindVault), add this file to each of those repos:
-
-File: `MindVault/.github/workflows/notify-portfolio.yml`
-
-```yaml
-name: Notify Portfolio
-
-on:
-  push:
-    branches: [main, master]
-    paths:
-      - 'README.md'        # only trigger on README changes
-
-jobs:
-  notify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger portfolio sync
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ secrets.PORTFOLIO_PAT }}
-          repository: vj0246/portfolio
-          event-type: readme-updated
-          client-payload: '{"repo": "${{ github.event.repository.name }}"}'
 ```
-
-For this to work, create a GitHub Personal Access Token (PAT):
-1. github.com → Settings → Developer Settings → Personal access tokens → Fine-grained
-2. Give it access to the `portfolio` repo with "Actions: write" permission
-3. Copy the token
-4. Go to each project repo → Settings → Secrets → New secret
-5. Name: `PORTFOLIO_PAT`, Value: the token you copied
-
-Then add this trigger to `portfolio/.github/workflows/sync.yml`:
-```yaml
-on:
-  repository_dispatch:
-    types: [readme-updated]
-  schedule:
-    ...
+You edit index.html  --push-->  Vercel redeploys  -->  LIVE      (this is "adding a project")
+sync.yml (Action)    -->  refreshes data/github_data.json  -->  currently unused by the page
 ```
 
 ---
 
-## PART 2 — Overleaf resume auto-sync (takes ~20 min)
+## Part 1 — Add a new project (the manual part)
 
-### Step 1: Enable Overleaf → GitHub sync
+### Step 1: Study the repo's README first
 
-1. Open your resume project on Overleaf
-2. Menu (top left) → Sync → GitHub
-3. Connect your GitHub account if not already done
-4. Create a new repo called `vivaan-resume` (private is fine)
-5. Click "Push to GitHub"
+Pull these out of the project's `README.md`, **verbatim — never invent numbers**:
 
-Now every time you click "Push to GitHub" in Overleaf, your LaTeX
-source goes to `github.com/vj0246/vivaan-resume`.
+- One-line what-it-does → **tagline**
+- Real tech stack → **tags** + **sidebar Stack**
+- Hard numbers (latency, test cases, tools, users, accuracy…) → **Key metrics**
+- The pipeline / data flow → **Architecture** nodes
+- Live URL + GitHub URL → **Links**
+- Status (live / in progress / research) → **badge**
 
-### Step 2: Auto-compile PDF in GitHub Actions
+### Step 2: Copy an existing card
 
-Add this file to the resume repo:
+Each project is one `<details class="proj-card" id="proj-XXX"> … </details>` block inside
+`<section id="projects">` → `<div class="proj-list">`.
 
-File: `vivaan-resume/.github/workflows/compile.yml`
+- Has a live demo → copy `proj-finintel` or `proj-applypilot` (GitHub + Live links).
+- No demo → copy `proj-auditmind` (GitHub link only).
 
-```yaml
-name: Compile Resume PDF
+### Step 3: Paste in the position you want
 
-on:
-  push:
-    branches: [main, master]
+Order on the page = top-to-bottom order of the blocks in the file. Drop the copy where it should appear.
 
-jobs:
-  compile:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Compile LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: main.tex   # change to your main .tex filename
-
-      - name: Commit compiled PDF
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add resume.pdf
-          git diff --staged --quiet || git commit -m "chore: compile resume [skip ci]"
-          git push
-```
-
-### Step 3: Point portfolio to the compiled PDF
-
-In `index.html`, update the resume modal links from `href="#"` to the
-raw GitHub URL of the compiled PDF:
+### Step 4: Change exactly these fields
 
 ```html
-<a class="resume-opt" href="https://raw.githubusercontent.com/vj0246/vivaan-resume/main/resume.pdf" ...>
+<details class="proj-card" id="proj-YOURNAME">        <!-- unique id -->
+  ...
+  <span class="proj-num">06</span>                    <!-- sequence number -->
+  <span class="proj-name">Project Name</span>         <!-- title -->
+  <span class="badge live">● Live</span>              <!-- badge: see table below -->
+  <p class="proj-tagline">One sentence: what it is + why it matters.</p>
+  <div class="proj-tags">                              <!-- 4-6 chips -->
+    <span class="tag">FastAPI</span><span class="tag">Groq</span>
+  </div>
+  ...
+  <!-- "What it does": 1-2 <p> paragraphs -->
+  <!-- "Architecture": arch-node boxes (see reference below) -->
+  <!-- "Technical depth": <li> bullets in <ul class="detail-bullets"> -->
+  <!-- Sidebar: Stack tags, Key metrics rows, Links -->
+  <a href="https://github.com/vj0246/REPO" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+  <a href="https://YOURAPP.vercel.app" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
+</details>
 ```
 
-Every time you update Overleaf → Push to GitHub → PDF auto-compiles →
-portfolio link always points to the latest version.
+### Step 5: Renumber
 
-### Step 4: Make the repo public (or use GitHub Pages)
+If you inserted in the middle, fix `<span class="proj-num">NN</span>` on the cards below so the
+sequence stays 01, 02, 03…
 
-For the PDF link to work without authentication:
-- Make `vivaan-resume` a public repo, OR
-- Use GitHub Pages: repo Settings → Pages → Source: main branch → /root
-  Then link to: `https://vj0246.github.io/vivaan-resume/resume.pdf`
+### Step 6: What you do NOT touch
 
-GitHub Pages URL is cleaner and works even with private repos if you
-set up the Pages action correctly.
+Nothing else. No JS, no `data/`, no CSS. The `◆ model-card` badge, gradient edge, scroll-reveal,
+3D tilt, and expand/collapse all auto-apply from existing selectors. That is why every card looks
+consistent.
+
+### Step 7: Test, then ship
+
+```bash
+# Preview locally first: open v5/index.html in your browser, click the new card.
+cd "C:/Users/vivaa/OneDrive/Desktop/Personal Projects/Portfolio/v5"
+git add index.html
+git commit -m "feat(projects): add <Name> project card"
+git pull --rebase origin main   # CI commits data back; always rebase first
+git push
+```
+
+Push → Vercel redeploys in ~30s → live.
+
+> Research-section project? Same block, but paste inside `<section id="research">`,
+> use `badge research`, and number it `R2`, `R3`, …
 
 ---
 
-## PART 3 — How the portfolio reads live data
+## Reference: card building blocks
 
-`js/github.js` runs on every page load and fetches `/data/github_data.json`.
-This file is rebuilt by `scripts/fetch_data.py` on every sync.
+### Badge options (pick one)
 
-The JSON contains:
-- `public_repo_count` → shown in the hero/sidebar
-- `recent_pushes` → shown as a live activity feed (if you add `#gh-recent` to HTML)
-- `readmes` → raw README content from each key project repo
+| Class | Renders |
+|-------|---------|
+| `badge live` | ● Live |
+| `badge progress` | In Development |
+| `badge research` | Research |
 
-To add more repos to the README fetch, edit `KEY_REPOS` in `scripts/fetch_data.py`:
+### Architecture flow pieces (inside `.arch-flow`)
 
-```python
-KEY_REPOS = [
-    "MindVault",
-    "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
-    "auditmind-ai",
-    "Text-Sentiment-Classification-System",
-    "Shakti-Site",
-    "your-new-repo-name",   # add here
-]
+| Markup | Purpose |
+|--------|---------|
+| `<div class="arch-node">Label<br><small>detail</small></div>` | Normal box |
+| `<div class="arch-node key">…</div>` | Highlighted (teal) box — use for the important steps |
+| `<span class="arch-arr">→</span>` | Arrow between boxes |
+| `<span class="arch-plus">+</span>` | Plus sign (for parallel inputs merging) |
+
+### Metric row (inside `.sb-metrics`)
+
+```html
+<div class="metric-row"><span class="metric-label">Query latency</span><span class="metric-val">40% faster</span></div>
 ```
 
 ---
 
-## Summary of files
+## Part 2 — How the GitHub Action works (`.github/workflows/sync.yml`)
 
 ```
-portfolio/
-├── .github/
-│   └── workflows/
-│       └── sync.yml          ← GitHub Action (auto-runs daily + on push)
-├── scripts/
-│   └── fetch_data.py         ← fetches GitHub API, writes github_data.json
-├── data/
-│   └── github_data.json      ← auto-generated, read by github.js
-├── js/
-│   └── github.js             ← reads github_data.json, updates DOM
-└── index.html                ← portfolio site
+Triggers:  daily 18:30 UTC (cron)
+           manual  (GitHub → Actions tab → "Sync Portfolio Data" → Run workflow)
+           push to main  (skipped for pushes that only touch data/** or *.md)
+
+Steps:     checkout → set up Python 3.11 → pip install requests
+           → run scripts/fetch_data.py   (env: GITHUB_TOKEN, GITHUB_USERNAME=vj0246)
+           → if data/github_data.json changed → commit "[skip ci]" → push
+
+Hardening: permissions: contents: write   (least privilege — only needs to commit data back)
+           concurrency group                (a scheduled run and a push run never race on git push)
 ```
+
+`scripts/fetch_data.py` calls the GitHub API, paginates your public repos, and writes
+`data/github_data.json`: public repo count, 8 most recent pushes, all repos, and the READMEs of the
+repos listed in `KEY_REPOS`.
+
+### If you ever wire it into the page
+
+Right now this data is unused. To make it live (e.g. a self-updating "N public repos · synced 2h ago ·
+recent activity" strip), `js/github.js` needs to be loaded and matching `#gh-*` elements added to
+`index.html` — use the XSS-safe DOM version (`textContent` / `replaceChildren`, not raw `innerHTML`).
+If you keep and wire the pipeline, add each new project's repo name to the `KEY_REPOS` list in
+`scripts/fetch_data.py` so its README gets fetched.
 
 ---
 
-## Troubleshooting
+## Security / headers
 
-**Action fails with 403:** The GITHUB_TOKEN secret is auto-provided by
-GitHub Actions — you don't need to add it manually. If it fails, check
-that the repo has Actions enabled (Settings → Actions → Allow all actions).
-
-**PDF link returns 404:** Make sure the repo is public, the file is
-named exactly `resume.pdf`, and it's on the `main` branch.
-
-**Data not updating:** Check the Actions tab for error logs. The most
-common issue is a typo in `GITHUB_USERNAME` in the workflow file.
+Security headers (CSP, HSTS, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy) are set in
+`vercel.json`. If you add a new external resource (a font host, a script, an analytics tag), you must
+add its origin to the matching CSP directive in `vercel.json`, or the browser will block it.
