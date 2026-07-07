@@ -529,3 +529,59 @@ footer { max-width: 1160px; margin: 0 auto; padding: 30px 40px; border-top: 1px 
   details.proj-card .proj-detail { display: grid !important; }
   .modal-bd { display: none; }
 }
+
+/* ── Live from GitHub strip ─────────────────────────── */
+.gh-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0 0 26px;
+  font-size: 13px;
+  color: var(--g400);
+}
+.gh-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 0 rgba(45, 212, 191, .5);
+  animation: gh-pulse 2.2s ease-out infinite;
+}
+@keyframes gh-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(45, 212, 191, .5); }
+  70%  { box-shadow: 0 0 0 7px rgba(45, 212, 191, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
+}
+.gh-strip-label {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--teal);
+}
+.gh-stat b { color: var(--g100); font-weight: 700; }
+.gh-sep { color: var(--line2); }
+.gh-updated { font-variant-numeric: tabular-nums; }
+.gh-recent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+  margin-top: 4px;
+}
+.gh-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--g200);
+  font-size: 12px;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease;
+}
+.gh-item:hover { border-color: rgba(45, 212, 191, .4); color: var(--white); }
+.gh-item-time { color: var(--g500); font-size: 11px; }
