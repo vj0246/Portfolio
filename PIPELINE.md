@@ -14,21 +14,23 @@ There are two completely independent systems:
 | System | What it does | Involved when adding a project? |
 |--------|--------------|--------------------------------|
 | **Vercel auto-deploy** | Watches the GitHub repo. Every push to `main` triggers an automatic rebuild + redeploy (~30s). This is the only thing that publishes your changes. | **Yes** — push = live. |
-| **GitHub Action (`sync.yml`)** | Runs `scripts/fetch_data.py`, which writes `data/github_data.json` (repo count, recent pushes, READMEs). | **No** — see the note below. |
+| **GitHub Action (`sync.yml`)** | Runs `scripts/fetch_data.py`, which writes `data/github_data.json` (repo count, recent pushes, READMEs). Feeds the "Live from GitHub" strip under the Projects heading. | **No** — it powers the live strip, not the project cards. |
 
-### Important: the GitHub Action is currently dormant
+### What the GitHub Action feeds
 
-`index.html` does **not** load `js/github.js` and has no `#gh-*` elements, so **nothing on the
-visible site reads `data/github_data.json`**. The Action just keeps that data file fresh in the repo;
-no visitor ever sees it. It does not add projects, change your on-screen repo count, or touch any card.
+`index.html` loads `js/github.js`, which fetches `data/github_data.json` and fills the
+**"Live from GitHub"** strip under the Projects heading (`#gh-repo-count`, `#gh-updated`,
+`#gh-recent`). So the Action keeps that strip current — public repo count, "synced Xh ago",
+and the most recent pushes — with zero manual work.
 
-**Adding a project is 100% a manual HTML edit.** The Action is not part of it.
+It does **not** touch your project cards. **Adding a project is still 100% a manual HTML edit.**
 
 Mental model:
 
 ```
-You edit index.html  --push-->  Vercel redeploys  -->  LIVE      (this is "adding a project")
-sync.yml (Action)    -->  refreshes data/github_data.json  -->  currently unused by the page
+You edit index.html  --push-->  Vercel redeploys  -->  LIVE            (this is "adding a project")
+sync.yml (daily)     -->  refreshes data/github_data.json  --push-->  Vercel redeploys
+                     -->  js/github.js reads it  -->  "Live from GitHub" strip updates itself
 ```
 
 ---
@@ -155,13 +157,18 @@ Hardening: permissions: contents: write   (least privilege — only needs to com
 `data/github_data.json`: public repo count, 8 most recent pushes, all repos, and the READMEs of the
 repos listed in `KEY_REPOS`.
 
-### If you ever wire it into the page
+### The "Live from GitHub" strip (wired)
 
-Right now this data is unused. To make it live (e.g. a self-updating "N public repos · synced 2h ago ·
-recent activity" strip), `js/github.js` needs to be loaded and matching `#gh-*` elements added to
-`index.html` — use the XSS-safe DOM version (`textContent` / `replaceChildren`, not raw `innerHTML`).
-If you keep and wire the pipeline, add each new project's repo name to the `KEY_REPOS` list in
-`scripts/fetch_data.py` so its README gets fetched.
+`js/github.js` reads this JSON and populates the strip under the Projects heading. It is XSS-safe:
+values are set with `textContent` / `replaceChildren` (never `innerHTML`), and repo URLs are
+allow-listed to `https://github.com/` before use. If the fetch ever fails, the static fallback text
+in `index.html` (`25+ public repos · auto-synced daily`) stays in place, so it never looks broken.
+
+The strip updates on its own: the daily cron rewrites `data/github_data.json` → the commit push
+triggers a Vercel redeploy → the new JSON is served → the strip shows fresh numbers. No action needed.
+
+If you add a big new project and want its README pulled into the data file, add its repo name to the
+`KEY_REPOS` list in `scripts/fetch_data.py`.
 
 ---
 
