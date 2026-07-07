@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vivaanjain.vercel.app/sitemap.xml
+Sitemap: https://vivaan-jain-portfolio.vercel.app/sitemap.xml

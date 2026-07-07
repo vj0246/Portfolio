@@ -5,12 +5,25 @@ on:
   schedule:
     - cron: '30 18 * * *'
 
-  # Run on every push to main
+  # Run on push to main, but skip pushes that only touch data/docs
+  # (prevents the bot's own [skip ci] commit and README edits from looping)
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'data/**'
+      - '**.md'
 
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
+
+# Least privilege: the job only needs to commit data back
+permissions:
+  contents: write
+
+# Serialize runs so a scheduled run and a push run never race on git push
+concurrency:
+  group: sync-portfolio-data
+  cancel-in-progress: false
 
 jobs:
   sync:

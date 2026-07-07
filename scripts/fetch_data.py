@@ -10,6 +10,7 @@ Usage locally:
 
 import json
 import os
+import re
 import sys
 import urllib.request
 import urllib.error
@@ -17,6 +18,11 @@ from datetime import datetime, timezone
 
 USERNAME = os.environ.get("GITHUB_USERNAME", "vj0246")
 TOKEN    = os.environ.get("GITHUB_TOKEN", "")
+
+# Validate username before it is interpolated into any API URL (GitHub's own
+# rule: 1-39 chars, alphanumeric or single hyphens). Prevents URL/path injection.
+if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?", USERNAME):
+    sys.exit(f"Refusing to run: invalid GITHUB_USERNAME {USERNAME!r}")
 
 HEADERS = {
     "Accept": "application/vnd.github+json",
