@@ -1,15 +1,33 @@
 {
-  "generated_at": "2026-07-11T19:41:51.783933+00:00",
+  "generated_at": "2026-07-12T19:39:17.472474+00:00",
   "username": "vj0246",
   "public_repo_count": 27,
   "recent_pushes": [
     {
+      "name": "artha",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-07-12T19:23:19Z",
+      "html_url": "https://github.com/vj0246/artha",
+      "homepage": "",
+      "stars": 0
+    },
+    {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-07-11T13:14:57Z",
+      "pushed_at": "2026-07-12T13:16:06Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-07-11T19:41:52Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -31,30 +49,12 @@
       "stars": 0
     },
     {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-07-10T19:58:51Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
-      "stars": 0
-    },
-    {
       "name": "ApplyPilot-AI",
       "description": "",
       "language": "Python",
       "pushed_at": "2026-07-10T17:36:07Z",
       "html_url": "https://github.com/vj0246/ApplyPilot-AI",
       "homepage": "https://apply-pilot-ai.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "artha",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-07-09T11:44:55Z",
-      "html_url": "https://github.com/vj0246/artha",
-      "homepage": "",
       "stars": 0
     },
     {
@@ -78,9 +78,19 @@
   ],
   "all_repos": [
     {
+      "name": "artha",
+      "language": "Python",
+      "pushed_at": "2026-07-12T19:23:19Z"
+    },
+    {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-07-11T13:14:57Z"
+      "pushed_at": "2026-07-12T13:16:06Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-07-11T19:41:52Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
@@ -93,19 +103,9 @@
       "pushed_at": "2026-07-11T10:14:57Z"
     },
     {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-07-10T19:58:51Z"
-    },
-    {
       "name": "ApplyPilot-AI",
       "language": "Python",
       "pushed_at": "2026-07-10T17:36:07Z"
-    },
-    {
-      "name": "artha",
-      "language": "Python",
-      "pushed_at": "2026-07-09T11:44:55Z"
     },
     {
       "name": "FinIntel",
