@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T19:55:49.975792+00:00",
+  "generated_at": "2026-07-25T19:44:03.294121+00:00",
   "username": "vj0246",
   "public_repo_count": 27,
   "recent_pushes": [
@@ -7,9 +7,18 @@
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-07-24T13:40:43Z",
+      "pushed_at": "2026-07-25T13:21:07Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-07-24T19:55:50Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -19,15 +28,6 @@
       "pushed_at": "2026-07-24T12:58:59Z",
       "html_url": "https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
       "homepage": "https://multi-horizon-transformer-for-syste.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-07-23T19:56:09Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -80,17 +80,17 @@
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-07-24T13:40:43Z"
+      "pushed_at": "2026-07-25T13:21:07Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-07-24T19:55:50Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
       "language": "Python",
       "pushed_at": "2026-07-24T12:58:59Z"
-    },
-    {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-07-23T19:56:09Z"
     },
     {
       "name": "artha",
