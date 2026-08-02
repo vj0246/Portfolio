@@ -1,13 +1,22 @@
 {
-  "generated_at": "2026-08-01T19:44:01.408315+00:00",
+  "generated_at": "2026-08-02T19:43:39.056028+00:00",
   "username": "vj0246",
-  "public_repo_count": 27,
+  "public_repo_count": 28,
   "recent_pushes": [
+    {
+      "name": "Overnight-Return-Predictor",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-08-02T17:56:00Z",
+      "html_url": "https://github.com/vj0246/Overnight-Return-Predictor",
+      "homepage": "",
+      "stars": 0
+    },
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-01T13:15:51Z",
+      "pushed_at": "2026-08-02T13:16:29Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
       "stars": 0
@@ -16,7 +25,7 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-07-31T20:02:41Z",
+      "pushed_at": "2026-08-01T19:44:02Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
@@ -65,27 +74,23 @@
       "html_url": "https://github.com/vj0246/ApplyPilot-AI",
       "homepage": "https://apply-pilot-ai.vercel.app",
       "stars": 0
-    },
-    {
-      "name": "FinIntel",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-07-06T17:37:33Z",
-      "html_url": "https://github.com/vj0246/FinIntel",
-      "homepage": "https://mumpy-demo.vercel.app",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
+      "name": "Overnight-Return-Predictor",
+      "language": "",
+      "pushed_at": "2026-08-02T17:56:00Z"
+    },
+    {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-01T13:15:51Z"
+      "pushed_at": "2026-08-02T13:16:29Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-07-31T20:02:41Z"
+      "pushed_at": "2026-08-01T19:44:02Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
