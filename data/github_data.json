@@ -1,22 +1,13 @@
 {
-  "generated_at": "2026-08-02T19:43:39.056028+00:00",
+  "generated_at": "2026-08-03T20:12:39.792028+00:00",
   "username": "vj0246",
   "public_repo_count": 28,
   "recent_pushes": [
     {
-      "name": "Overnight-Return-Predictor",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-08-02T17:56:00Z",
-      "html_url": "https://github.com/vj0246/Overnight-Return-Predictor",
-      "homepage": "",
-      "stars": 0
-    },
-    {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-02T13:16:29Z",
+      "pushed_at": "2026-08-03T14:34:08Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
       "stars": 0
@@ -25,9 +16,18 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-08-01T19:44:02Z",
+      "pushed_at": "2026-08-02T19:43:40Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "Overnight-Return-Predictor",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-08-02T17:56:00Z",
+      "html_url": "https://github.com/vj0246/Overnight-Return-Predictor",
+      "homepage": "",
       "stars": 0
     },
     {
@@ -78,19 +78,19 @@
   ],
   "all_repos": [
     {
-      "name": "Overnight-Return-Predictor",
-      "language": "",
-      "pushed_at": "2026-08-02T17:56:00Z"
-    },
-    {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-02T13:16:29Z"
+      "pushed_at": "2026-08-03T14:34:08Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-08-01T19:44:02Z"
+      "pushed_at": "2026-08-02T19:43:40Z"
+    },
+    {
+      "name": "Overnight-Return-Predictor",
+      "language": "",
+      "pushed_at": "2026-08-02T17:56:00Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
