@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T19:08:23.100606+00:00",
+  "generated_at": "2026-08-09T19:11:49.590283+00:00",
   "username": "vj0246",
   "public_repo_count": 28,
   "recent_pushes": [
@@ -7,9 +7,18 @@
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-08T12:42:40Z",
+      "pushed_at": "2026-08-09T12:44:42Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-08-08T19:08:24Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -19,15 +28,6 @@
       "pushed_at": "2026-08-08T12:12:19Z",
       "html_url": "https://github.com/vj0246/Overnight-Return-Predictor",
       "homepage": "",
-      "stars": 0
-    },
-    {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-08-07T19:30:12Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -80,17 +80,17 @@
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-08T12:42:40Z"
+      "pushed_at": "2026-08-09T12:44:42Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-08-08T19:08:24Z"
     },
     {
       "name": "Overnight-Return-Predictor",
       "language": "Python",
       "pushed_at": "2026-08-08T12:12:19Z"
-    },
-    {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-08-07T19:30:12Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
