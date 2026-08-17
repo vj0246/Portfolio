@@ -1,15 +1,24 @@
 {
-  "generated_at": "2026-08-16T18:56:11.997906+00:00",
+  "generated_at": "2026-08-17T19:07:23.988798+00:00",
   "username": "vj0246",
-  "public_repo_count": 30,
+  "public_repo_count": 29,
   "recent_pushes": [
     {
-      "name": "QuantStorm",
+      "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-16T18:34:27Z",
-      "html_url": "https://github.com/vj0246/QuantStorm",
+      "pushed_at": "2026-08-17T12:39:04Z",
+      "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-08-16T18:56:13Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -22,30 +31,12 @@
       "stars": 0
     },
     {
-      "name": "vj0246",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-08-16T12:34:49Z",
-      "html_url": "https://github.com/vj0246/vj0246",
-      "homepage": "",
-      "stars": 0
-    },
-    {
       "name": "Overnight-Return-Predictor",
       "description": "",
       "language": "Python",
       "pushed_at": "2026-08-16T04:54:04Z",
       "html_url": "https://github.com/vj0246/Overnight-Return-Predictor",
       "homepage": "",
-      "stars": 0
-    },
-    {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-08-15T18:56:51Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -74,13 +65,27 @@
       "html_url": "https://github.com/vj0246/MindVault",
       "homepage": "https://mind-vault-backend-seven.vercel.app",
       "stars": 0
+    },
+    {
+      "name": "Shakti-Site",
+      "description": "",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-15T08:26:35Z",
+      "html_url": "https://github.com/vj0246/Shakti-Site",
+      "homepage": "https://shakti-alloys-site.vercel.app",
+      "stars": 0
     }
   ],
   "all_repos": [
     {
-      "name": "QuantStorm",
+      "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-16T18:34:27Z"
+      "pushed_at": "2026-08-17T12:39:04Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-08-16T18:56:13Z"
     },
     {
       "name": "quantstorm-ps",
@@ -88,19 +93,9 @@
       "pushed_at": "2026-08-16T18:33:59Z"
     },
     {
-      "name": "vj0246",
-      "language": "",
-      "pushed_at": "2026-08-16T12:34:49Z"
-    },
-    {
       "name": "Overnight-Return-Predictor",
       "language": "Python",
       "pushed_at": "2026-08-16T04:54:04Z"
-    },
-    {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-08-15T18:56:51Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
