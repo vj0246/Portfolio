@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-18T19:07:19.802653+00:00",
+  "generated_at": "2026-08-19T19:02:57.322095+00:00",
   "username": "vj0246",
-  "public_repo_count": 29,
+  "public_repo_count": 35,
   "recent_pushes": [
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-18T12:40:31Z",
+      "pushed_at": "2026-08-19T12:41:31Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
       "stars": 0
@@ -16,9 +16,18 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-08-17T19:07:25Z",
+      "pushed_at": "2026-08-18T19:07:21Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "QuantStorm",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-08-18T00:51:44Z",
+      "html_url": "https://github.com/vj0246/QuantStorm",
+      "homepage": "",
       "stars": 0
     },
     {
@@ -40,6 +49,15 @@
       "stars": 0
     },
     {
+      "name": "College",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-08-06T06:23:54Z",
+      "html_url": "https://github.com/vj0246/College",
+      "homepage": "",
+      "stars": 0
+    },
+    {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
       "description": "",
       "language": "Python",
@@ -56,36 +74,23 @@
       "html_url": "https://github.com/vj0246/artha",
       "homepage": "https://artha-quant.vercel.app",
       "stars": 0
-    },
-    {
-      "name": "MindVault",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-07-22T09:52:14Z",
-      "html_url": "https://github.com/vj0246/MindVault",
-      "homepage": "https://mind-vault-backend-seven.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "Shakti-Site",
-      "description": "",
-      "language": "TypeScript",
-      "pushed_at": "2026-07-15T08:26:35Z",
-      "html_url": "https://github.com/vj0246/Shakti-Site",
-      "homepage": "https://shakti-alloys-site.vercel.app",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-18T12:40:31Z"
+      "pushed_at": "2026-08-19T12:41:31Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-08-17T19:07:25Z"
+      "pushed_at": "2026-08-18T19:07:21Z"
+    },
+    {
+      "name": "QuantStorm",
+      "language": "Python",
+      "pushed_at": "2026-08-18T00:51:44Z"
     },
     {
       "name": "quantstorm-ps",
@@ -96,6 +101,11 @@
       "name": "Overnight-Return-Predictor",
       "language": "Python",
       "pushed_at": "2026-08-16T04:54:04Z"
+    },
+    {
+      "name": "College",
+      "language": "Python",
+      "pushed_at": "2026-08-06T06:23:54Z"
     },
     {
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
@@ -118,6 +128,11 @@
       "pushed_at": "2026-07-15T08:26:35Z"
     },
     {
+      "name": "AI-Web-Surfer-Agent",
+      "language": "Python",
+      "pushed_at": "2026-07-14T14:58:35Z"
+    },
+    {
       "name": "ApplyPilot-AI",
       "language": "Python",
       "pushed_at": "2026-07-10T17:36:07Z"
@@ -131,6 +146,11 @@
       "name": "darexai",
       "language": "TypeScript",
       "pushed_at": "2026-07-02T12:18:25Z"
+    },
+    {
+      "name": "fashion-outfit-system",
+      "language": "Python",
+      "pushed_at": "2026-06-24T18:19:35Z"
     },
     {
       "name": "internovo",
@@ -201,6 +221,16 @@
       "name": "Automated-Credit-Risk-Evaluation-for-Loan-Approval",
       "language": "Jupyter Notebook",
       "pushed_at": "2026-01-19T07:51:00Z"
+    },
+    {
+      "name": "vj0246.github.io",
+      "language": "",
+      "pushed_at": "2025-12-06T19:39:48Z"
+    },
+    {
+      "name": "ML-Project1",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-12-05T08:03:25Z"
     },
     {
       "name": "djsacm-research.github.io",
