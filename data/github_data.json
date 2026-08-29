@@ -1,15 +1,33 @@
 {
-  "generated_at": "2026-08-29T01:50:08.514361+00:00",
+  "generated_at": "2026-08-29T21:04:30.720321+00:00",
   "username": "vj0246",
-  "public_repo_count": 37,
+  "public_repo_count": 38,
   "recent_pushes": [
+    {
+      "name": "Video_Generative_AI_Blog",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-08-29T16:57:38Z",
+      "html_url": "https://github.com/vj0246/Video_Generative_AI_Blog",
+      "homepage": "",
+      "stars": 0
+    },
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-28T21:43:34Z",
+      "pushed_at": "2026-08-29T16:12:59Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-08-29T01:50:09Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -19,15 +37,6 @@
       "pushed_at": "2026-08-28T13:40:18Z",
       "html_url": "https://github.com/vj0246/NLP_Blog",
       "homepage": "",
-      "stars": 0
-    },
-    {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-08-28T02:16:22Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -65,32 +74,28 @@
       "html_url": "https://github.com/vj0246/Overnight-Return-Predictor",
       "homepage": "",
       "stars": 0
-    },
-    {
-      "name": "College",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-08-06T06:23:54Z",
-      "html_url": "https://github.com/vj0246/College",
-      "homepage": "",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
+      "name": "Video_Generative_AI_Blog",
+      "language": "",
+      "pushed_at": "2026-08-29T16:57:38Z"
+    },
+    {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-28T21:43:34Z"
+      "pushed_at": "2026-08-29T16:12:59Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-08-29T01:50:09Z"
     },
     {
       "name": "NLP_Blog",
       "language": "",
       "pushed_at": "2026-08-28T13:40:18Z"
-    },
-    {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-08-28T02:16:22Z"
     },
     {
       "name": "Overnight-Alpha-Tester",
