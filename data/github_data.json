@@ -1,14 +1,23 @@
 {
-  "generated_at": "2026-08-28T02:16:21.181272+00:00",
+  "generated_at": "2026-08-29T01:50:08.514361+00:00",
   "username": "vj0246",
-  "public_repo_count": 36,
+  "public_repo_count": 37,
   "recent_pushes": [
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-08-27T21:46:20Z",
+      "pushed_at": "2026-08-28T21:43:34Z",
       "html_url": "https://github.com/vj0246/vj0246",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "NLP_Blog",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-08-28T13:40:18Z",
+      "html_url": "https://github.com/vj0246/NLP_Blog",
       "homepage": "",
       "stars": 0
     },
@@ -16,7 +25,7 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-08-26T20:37:00Z",
+      "pushed_at": "2026-08-28T02:16:22Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
@@ -65,27 +74,23 @@
       "html_url": "https://github.com/vj0246/College",
       "homepage": "",
       "stars": 0
-    },
-    {
-      "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-07-31T13:16:37Z",
-      "html_url": "https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
-      "homepage": "https://multi-horizon-transformer-for-syste.vercel.app",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-08-27T21:46:20Z"
+      "pushed_at": "2026-08-28T21:43:34Z"
+    },
+    {
+      "name": "NLP_Blog",
+      "language": "",
+      "pushed_at": "2026-08-28T13:40:18Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-08-26T20:37:00Z"
+      "pushed_at": "2026-08-28T02:16:22Z"
     },
     {
       "name": "Overnight-Alpha-Tester",
