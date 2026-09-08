@@ -149,12 +149,15 @@ still appears in the contents, just without the trailing note.
 
 | `kind` | Colour |
 |---|---|
-| `live` | green, PnL positive |
-| `progress` | amber |
-| `research` | sky |
-| `published` | blue |
+| `live` | muted green, positive |
+| `progress` | muted sand |
+| `research` | slate-blue, the page accent |
+| `published` | slate-blue |
 | `freelance` | grey |
-| `intern` | red |
+| `intern` | muted red |
+
+The palette is deliberately narrow: one slate-blue accent, desaturated green and red for signed
+numbers, grey for everything else. Do not introduce a new hue for a new badge.
 
 `text` is free-form, so `● Live · Operated` and `v0.1 · Alpha` are both fine.
 
@@ -171,8 +174,9 @@ Do not hand-edit a `<details class="proj-card">` block in `index.html`. Everythi
 `build.py` will overwrite it. CI fails the commit if the two ever disagree
 (`python scripts/build.py --check`).
 
-Everything else about a card — the `◆ tearsheet` label, the gradient edge, scroll reveal, 3D tilt,
-expand and collapse — comes from existing CSS selectors. That is why every card looks consistent.
+Everything else about a card — the hairline frame, the scroll reveal, expand and collapse — comes
+from existing CSS selectors. That is why every card looks consistent. The `◆ tearsheet` label, the
+gradient edge and the 3D tilt were removed in the paper redesign.
 
 ---
 
