@@ -1,0 +1,16 @@
+# Normalise line endings in the repository to LF, whatever the checkout does.
+#
+# Without this, core.autocrlf=true on Windows rewrites the working tree to CRLF
+# and every file looks modified to tools that read bytes. build.py hashes the
+# CSS and JS to version their URLs, and that hash has to match in CI.
+* text=auto eol=lf
+
+# Binary, never touch
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary

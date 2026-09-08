@@ -433,7 +433,10 @@ def stamp_assets(html: str) -> str:
         path = ROOT / asset
         if not path.exists():
             raise BuildError(f"versioned asset missing: {asset}")
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()[:8]
+        # Normalise line endings before hashing. git's autocrlf rewrites the
+        # working tree on checkout, so hashing raw bytes produces a different
+        # digest on Windows than in CI and --check fails for no real reason.
+        digest = hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:8]
         html = re.sub(
             r'(?P<attr>href|src)="%s(?:\?v=[0-9a-f]+)?"' % re.escape(asset),
             lambda m: f'{m.group("attr")}="{asset}?v={digest}"',
