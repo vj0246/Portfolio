@@ -1,33 +1,42 @@
 {
-  "generated_at": "2026-09-07T08:28:06.724812+00:00",
+  "generated_at": "2026-09-08T10:10:09.069706+00:00",
   "username": "vj0246",
   "public_repo_count": 39,
   "recent_pushes": [
     {
-      "name": "vj0246",
+      "name": "Portfolio",
       "description": "",
-      "language": "",
-      "pushed_at": "2026-09-07T02:55:57Z",
-      "html_url": "https://github.com/vj0246/vj0246",
-      "homepage": "",
+      "language": "HTML",
+      "pushed_at": "2026-09-08T10:09:53Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
       "name": "Backtesting-Framework",
       "description": "",
       "language": "Python",
-      "pushed_at": "2026-09-06T21:23:43Z",
+      "pushed_at": "2026-09-08T09:40:44Z",
       "html_url": "https://github.com/vj0246/Backtesting-Framework",
       "homepage": "",
       "stars": 0
     },
     {
-      "name": "Portfolio",
+      "name": "artha",
       "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-09-06T20:40:54Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
+      "language": "Python",
+      "pushed_at": "2026-09-08T09:05:53Z",
+      "html_url": "https://github.com/vj0246/artha",
+      "homepage": "https://artha-quant.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "vj0246",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-09-08T03:05:53Z",
+      "html_url": "https://github.com/vj0246/vj0246",
+      "homepage": "",
       "stars": 0
     },
     {
@@ -65,32 +74,28 @@
       "html_url": "https://github.com/vj0246/QuantStorm",
       "homepage": "",
       "stars": 0
-    },
-    {
-      "name": "quantstorm-ps",
-      "description": "The Official QuantStorm 2026 repo hosted by QATC IITD X FEC IITG X Quant Club IITB",
-      "language": "",
-      "pushed_at": "2026-08-16T18:33:59Z",
-      "html_url": "https://github.com/vj0246/quantstorm-ps",
-      "homepage": "",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
-      "name": "vj0246",
-      "language": "",
-      "pushed_at": "2026-09-07T02:55:57Z"
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-09-08T10:09:53Z"
     },
     {
       "name": "Backtesting-Framework",
       "language": "Python",
-      "pushed_at": "2026-09-06T21:23:43Z"
+      "pushed_at": "2026-09-08T09:40:44Z"
     },
     {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-09-06T20:40:54Z"
+      "name": "artha",
+      "language": "Python",
+      "pushed_at": "2026-09-08T09:05:53Z"
+    },
+    {
+      "name": "vj0246",
+      "language": "",
+      "pushed_at": "2026-09-08T03:05:53Z"
     },
     {
       "name": "Video_Generative_AI_Blog",
@@ -131,11 +136,6 @@
       "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
       "language": "Python",
       "pushed_at": "2026-07-31T13:16:37Z"
-    },
-    {
-      "name": "artha",
-      "language": "Python",
-      "pushed_at": "2026-07-22T09:53:02Z"
     },
     {
       "name": "MindVault",
