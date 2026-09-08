@@ -1,0 +1,116 @@
+{
+  "section": "frontier",
+  "order": 10,
+  "id": "creditscore",
+  "name": "Cost Sensitive Deep Learning for Credit Scoring",
+  "badge": {
+    "kind": "research",
+    "text": "ACM Research · 2025"
+  },
+  "tagline": "A novel deep learning architecture that learns non linear latent borrower risk embeddings, models temporal debt acceleration, optimises for economic loss (not AUC), and produces regulator grade explanations, built in, not post hoc.",
+  "tags": [
+    "Deep Learning",
+    "Credit Risk",
+    "Cost Sensitive Learning",
+    "XAI",
+    "Latent Embeddings",
+    "FinTech"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "The problem",
+      "paras": [
+        "Credit scoring sits at an intersection of three unsolved problems. First, high performing deep models learn complex non linear borrower representations that are impossible to explain to risk teams or satisfy regulators, explainability is now a legal requirement under frameworks like Basel and GDPR, and post hoc methods like SHAP produce approximations, not faithful explanations. Second, misclassification costs in lending are fundamentally asymmetric and instance dependent: rejecting a creditworthy borrower costs differently to approving a defaulter, and that ratio varies per loan. Optimising for AUC ignores this entirely. Third, existing models treat borrower risk as stationary, they miss that financial distress typically accelerates non linearly before a default event.",
+        "This research addresses all three with one unified architecture: learn latent risk embeddings, explicitly model debt acceleration dynamics, optimise directly on economic loss with an instance dependent cost function, and keep the decision process inherently interpretable."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flows": [
+        [
+          "Borrower Features|financial + behavioural",
+          "->",
+          "*Deep Feature Extractor|non linear representations",
+          "->",
+          "*Latent Risk Embeddings|borrower risk manifold"
+        ],
+        [
+          "Debt History|temporal sequence",
+          "->",
+          "*Debt Acceleration Module|rate of change dynamics",
+          "->",
+          "*Cost Sensitive Layer|instance dependent asymmetric loss",
+          "->",
+          "Credit Decision|+ inherent XAI"
+        ]
+      ],
+      "note": "The cost sensitive decision layer uses an instance dependent asymmetric loss, the false negative penalty (approving a defaulter) vs. false positive penalty (rejecting a good borrower) is not a global constant but varies per borrower based on loan amount and risk profile.\nThe explainability layer is inherently interpretable by design: predictions decompose into feature level contributions directly from the architecture's forward pass, not SHAP approximations."
+    },
+    {
+      "type": "bullets",
+      "h": "Three original contributions",
+      "items": [
+        "Non linear latent risk embeddings, the model learns a borrower risk manifold from raw financial and behavioural inputs rather than relying on hand crafted credit features, capturing interaction effects that linear scorecards cannot represent",
+        "Temporal debt acceleration modelling, explicitly models the rate of change of debt accumulation over time; financial distress rarely appears suddenly, it accelerates, and this module learns those pre default dynamics from borrower history",
+        "Instance dependent cost sensitive optimisation, trained directly on economic loss where the asymmetric cost ratio is per borrower, not a fixed global hyperparameter; makes the learning objective match what a lender actually cares about",
+        "Inherently interpretable architecture, explainability is built into the model's forward computation, not added as a post hoc approximation; explanations are faithful to what the model actually computed, satisfying regulatory interpretability requirements"
+      ]
+    },
+    {
+      "type": "text",
+      "h": "Why AUC is the wrong metric here",
+      "paras": [
+        "A model that correctly identifies 90% of defaults but misclassifies every large loan defaulter as creditworthy scores well on AUC and is catastrophic in practice. This research trains directly on business loss: the asymmetric financial cost of each misclassification type, weighted by the specific borrower's loan profile. The evaluation metric is expected economic loss on the held out set, not AUC."
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Research org",
+      "type": "tags",
+      "items": [
+        "ACM Research Core",
+        "October 2025"
+      ]
+    },
+    {
+      "label": "Domains",
+      "type": "tags",
+      "items": [
+        "AI in Credit Scoring",
+        "Cost Sensitive Learning",
+        "Deep Representation Learning",
+        "Explainable AI (XAI)",
+        "Temporal Modelling"
+      ]
+    },
+    {
+      "label": "Progress",
+      "type": "metrics",
+      "items": [
+        [
+          "Dataset",
+          "Confirmed",
+          "pos"
+        ],
+        [
+          "Base paper",
+          "Found",
+          "pos"
+        ],
+        [
+          "Architecture",
+          "Designed",
+          "pos"
+        ],
+        [
+          "Implementation",
+          "In progress",
+          "amber"
+        ]
+      ]
+    }
+  ]
+}

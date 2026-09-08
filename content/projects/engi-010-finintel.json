@@ -1,0 +1,120 @@
+{
+  "section": "engineering",
+  "order": 10,
+  "id": "finintel",
+  "name": "FinIntel — Agentic Equity Desk",
+  "badge": {
+    "kind": "live",
+    "text": "● Live"
+  },
+  "tagline": "An agentic AI equity research desk for Indian markets (NSE): six specialised LLM agents grounded in live market data, LangGraph human in the loop approval gates, a mandatory compliance pipeline, and deterministic Python maths so the model interprets numbers rather than inventing them.",
+  "tags": [
+    "LangGraph",
+    "FastAPI",
+    "Groq",
+    "React · Vite",
+    "yfinance · NSE",
+    "Supabase"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "FinIntel is a multi agent system for equity research on India's National Stock Exchange. A fleet of specialised LLM agents, each grounded in live market data, lets a user analyse a single stock, screen the market by custom criteria, audit portfolio risk, or request a full research report. A five question suitability profile gates every recommendation against the user's stated risk tolerance, and human in the loop approval gates keep a person in control of consequential steps.",
+        "Every output passes a mandatory compliance pipeline: input validation, semantic screening, grounded rewrites that avoid fabrication, PII scrubbing, and SEBI style disclaimers. Deterministic mathematics (volatility, Sharpe, beta, drawdown, CAGR, XIRR, stress tests) is computed in Python; the LLM interprets the results rather than performing the arithmetic, which removes a whole class of hallucination."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Agentic architecture",
+      "flow": [
+        "Query|React · SSE",
+        "->",
+        "Rate limit + Auth|PBKDF2 · Supabase",
+        "->",
+        "*6 Agents|ReAct · 31 tools",
+        "->",
+        "*LangGraph|interrupt() human gate",
+        "->",
+        "*Compliance|PII scrub · SEBI",
+        "->",
+        "Response|streamed · sourced"
+      ],
+      "note": "LangGraph StateGraph checkpoints state and calls interrupt() to pause for human approval; the user approves, redirects, or stops via Command(resume=...) on four agents (desk, war room, portfolio auditor, task).\nDeterministic maths runs in Python behind a TTL cache; the LLM only interprets the numbers, never computes them.\nGroq multi key failover pool for resilience; data from yfinance, Screener.in, and NSE with labelled sample fallback when live feeds are unreachable."
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth",
+      "items": [
+        "Six interactive agents (Analyst, Brief, Discover, Portfolio, War Room, Report) across a seven tab desk; the ReAct chat agent exposes 31 grounded tools",
+        "LangGraph StateGraph with interrupt() / Command(resume=...) human in the loop on four agents: the graph checkpoints, pauses for approval, and resumes without losing state",
+        "Mandatory compliance pipeline on every output: input validation, semantic screening, grounded rewrite of unsourced claims, PII scrubbing, and SEBI style disclaimers",
+        "Deterministic quant maths in Python (volatility, Sharpe, beta, RSI, drawdown, CAGR, XIRR, stress test factors); the LLM interprets results rather than doing arithmetic, cutting hallucination risk",
+        "Five question suitability questionnaire builds a per user risk profile that gates recommendations; a Groq multi key failover pool and a TTL cache for deterministic calls keep it resilient and cheap"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "FastAPI",
+        "LangGraph",
+        "Groq",
+        "React",
+        "Vite",
+        "SSE",
+        "yfinance",
+        "Screener.in",
+        "NSE India",
+        "Supabase",
+        "PBKDF2",
+        "Render",
+        "Vercel"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "Interactive agents",
+          "6"
+        ],
+        [
+          "ReAct tools",
+          "31"
+        ],
+        [
+          "Human in the loop agents",
+          "4"
+        ],
+        [
+          "Desk tabs",
+          "7"
+        ],
+        [
+          "Suitability questions",
+          "5"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/FinIntel"
+        ],
+        [
+          "Live Demo",
+          "https://mumpy-demo.vercel.app"
+        ]
+      ]
+    }
+  ]
+}

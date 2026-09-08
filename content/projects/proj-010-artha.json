@@ -1,0 +1,206 @@
+{
+  "section": "projects",
+  "order": 10,
+  "id": "artha",
+  "name": "Artha · Systematic Equity Trading System",
+  "badge": {
+    "kind": "live",
+    "text": "● Live · Operated"
+  },
+  "tagline": "A weekly cross sectional momentum book on Indian equities: researched, validated, and actually operated, on zero paid data. Net Sharpe 1.02 and 13.7% CAGR across 2012 to 2026 after the complete Indian cost stack. It runs itself at 19:00 every evening, it knows when it has been fooled, and its most valuable output is a documented list of things that do not work.",
+  "tags": [
+    "Point in Time NSE Panel",
+    "Ledoit-Wolf Min-Var",
+    "Purged CV · CPCV",
+    "Deflated Sharpe · SPA",
+    "Live Execution"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "Artha builds a point in time NSE panel from primary bhavcopy and declared corporate actions, delistings included, ranks the cross section on weekly momentum, constructs a 25 name book with Ledoit-Wolf minimum variance weights and Gârleanu-Pedersen partial adjustment, targets volatility, caps participation against ADV, and executes at the T+1 close. The full Indian cost stack is charged: STT, stamp duty, exchange and SEBI fees, GST, flat DP charges, and square root market impact.",
+        "The larger half of the project is proving the result is not luck. Validation is purged walk forward plus combinatorially purged cross validation, deflated Sharpe measured against an append only trial ledger, White's Reality Check and Hansen's SPA. The live layer holds backtest and engine parity as a CI gate, uses deterministic idempotent order ids, enforces drawdown rails, and runs a heartbeat that alarms on silence rather than only on failure. One line: a research lab that happens to trade, built so its own results cannot lie to it."
+      ]
+    },
+    {
+      "type": "table",
+      "h": "Results, net of the complete Indian cost stack, 2012 to 2026",
+      "cols": [
+        "Configuration",
+        "CAGR",
+        "Sharpe",
+        "Max DD",
+        "Turnover"
+      ],
+      "rows": [
+        [
+          "*LW min-var + GP τ0.5 · live config",
+          "13.7%",
+          "1.02|pos",
+          "−28%|neg",
+          "4.2×"
+        ],
+        [
+          "Equal weight + no-trade bands",
+          "12.8%",
+          "0.96",
+          "−27%|neg",
+          "5.2×"
+        ],
+        [
+          "Naive momentum 12-1",
+          "23.6%",
+          "0.96",
+          "−49%|neg",
+          "·"
+        ],
+        [
+          "NIFTY 500 synthetic TRI",
+          "14.97%",
+          "0.94",
+          "−38%|neg",
+          "·"
+        ]
+      ],
+      "caption": "Performance by portfolio construction",
+      "note": "Naive momentum earns a far higher CAGR at a −49% drawdown; the shipped configuration trades return for a drawdown a real book can survive.\nThe point of the table is its last row: after costs, most of what looks like alpha is the index. The number that matters is the one that survives being counted, which is why the deflated Sharpe is computed against every configuration ever tried, not just the shipped one."
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flow": [
+        "NSE Bhavcopy|corporate actions · F&amp;O · news",
+        "->",
+        "*Point in Time Panel|sha256 manifest · CA sanity gate",
+        "->",
+        "*Validation|purged CV · CPCV · PBO · DSR · SPA",
+        "->",
+        "*Construction|LW min-var · GP τ · vol target",
+        "->",
+        "*Live Engine|parity gate in CI · OMS",
+        "->",
+        "Monitoring|IC decay · PSI drift · heartbeat"
+      ],
+      "note": "Five scheduled jobs: trade at 19:00, a 21:00 heartbeat that asks whether any of that actually happened, a weekly live versus research divergence check, monthly research screens, and quarterly re-validation. A shipped configuration must re-earn its seat.\nEvery alarm is written durably to disk before any push channel is attempted, because the loudest failure mode is silence, and silence has its own dedicated watchdog. Nothing auto remediates: alarms inform, humans decide.\nA research agent proposes features through an AST sandboxed DSL, screens them under the standard protocol, and keeps a Thompson sampling posterior over which families of idea have historically paid off. It has demonstrably changed its mind, reordering what it tries next after two negative liquidity screens, and it never touches the live book."
+    },
+    {
+      "type": "nulls",
+      "h": "The nulls are the contribution",
+      "label": "Seven results that did not work, published rather than buried",
+      "items": [
+        "Machine learning does not beat momentum. Ridge, LightGBM, MLP and a Transformer under one purged protocol: PBO 0.86, meaning the in sample winner is overfit in 24 of 28 splits",
+        "Post earnings drift runs backwards in India. Across 1.48M timestamped exchange announcements the biggest positive surprises reverse, t = −6.9, and event features add no weekly alpha",
+        "The single name model zoo loses to buy and hold. GRU, LSTM, Transformer and ensemble all land under half the always long floor after costs, under both retraining schemes. Retraining cadence turned out irrelevant: the problem is absence of signal, not staleness",
+        "News sentiment gating subtracts value, 0.06 against 0.58 Sharpe, consistent with the inverted drift above",
+        "A learned trading speed policy ties the fixed constant. LinUCB over 728 weekly decisions returns PBO 0.93 and near uniform action counts: the agent itself reporting that the objective surface is flat and the Gârleanu-Pedersen constant is already near optimal",
+        "Momentum crash regime gates add nothing beyond the volatility targeting already shipped, and EWMA covariance does not beat Ledoit-Wolf, paying for faster adaptation in churn"
+      ],
+      "after": [
+        "<strong style=\"color:var(--white)\">The headline finding, written up as a working paper: decomposition preprocessing is look ahead.</strong> A large literature reports Sharpe 3+ on daily equity forecasting after EMD or CEEMDAN preprocessing. Artha reproduced those numbers exactly, IC 0.41 and Sharpe 3.6, then recomputed the identical transform causally so no future data could touch any training input. The entire edge vanished, IC −0.04. The leaky minus causal gap is the published result, and it is what a global transform applied before a temporal split does to you."
+      ]
+    },
+    {
+      "type": "bullets",
+      "h": "Things that went wrong, and were fixed in public",
+      "items": [
+        "The data feed lied. The declared corporate action feed carried a 1:5 TVSMOTOR split that never happened, manufacturing a +398% phantom return. The adjuster now verifies every declared factor against the ex day price in both directions and has caught 14 phantom events across the history",
+        "A headline was caught being inflated by its own author. Construction v2 first measured Sharpe 1.119 at −21% drawdown; internal code review found a position cap bug silently parking gross in cash, which is accidental de-risking. Corrected to 1.018, and both numbers stay in the record",
+        "A significance claim was corrected downward. The claim that the family beats the index at SPA p = 0.0415 turned out to be carried by a naive fully invested baseline inside that family; across constructed configurations alone, p = 0.655",
+        "A promising upgrade was refused. A momentum plus low volatility blend scored Sharpe 1.30 against the live 1.02, then failed two of four pre registered gates, PBO 0.500 and SPA 0.655. It was held, not shipped, and the friendlier re-test that might have rescued it was deliberately not run"
+      ]
+    },
+    {
+      "type": "text",
+      "h": "Disclosed limitations",
+      "paras": [
+        "Synthetic total return benchmark because no free NIFTY 500 TRI exists; a static current sector map; cash earns 0%; hedge margin financing unmodelled; paper slippage degenerate until live quotes arrive; an announcement taxonomy audited at 81% accuracy; GDELT news coverage reaching 72 of 115 months before the free API rate limited it; and a deflated Sharpe of 0.20 that counts every single name experiment against the cross sectional book, which is deliberately conservative. Each one is tracked with a confirmation date, because a limitation you disclose cannot ambush you later."
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "uv",
+        "NSE Bhavcopy",
+        "Ledoit-Wolf",
+        "Gârleanu-Pedersen",
+        "CPCV",
+        "Deflated Sharpe",
+        "Hansen SPA",
+        "White Reality Check",
+        "LinUCB",
+        "Thompson Sampling",
+        "Zerodha Kite",
+        "GitHub Actions CI"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "Net Sharpe",
+          "1.02",
+          "pos"
+        ],
+        [
+          "Net CAGR",
+          "13.7%",
+          "pos"
+        ],
+        [
+          "Max drawdown",
+          "−28%",
+          "neg"
+        ],
+        [
+          "Turnover",
+          "4.2×"
+        ],
+        [
+          "Backtest span",
+          "2012–2026"
+        ],
+        [
+          "Book size",
+          "25 names"
+        ],
+        [
+          "Tests in CI",
+          "243"
+        ],
+        [
+          "Documented nulls",
+          "7"
+        ],
+        [
+          "Recorded ADRs",
+          "13"
+        ],
+        [
+          "Paid data cost",
+          "₹0"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/artha"
+        ],
+        [
+          "Research Site",
+          "https://artha-quant.vercel.app"
+        ]
+      ]
+    }
+  ]
+}

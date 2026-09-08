@@ -1,0 +1,108 @@
+{
+  "_readme": [
+    "Copy this file to add a project. Name it <section>-<order>-<id>.json, e.g. proj-050-quantstorm.json.",
+    "Files starting with _ are ignored by the build. Delete this _readme key in your copy.",
+    "Then run: python scripts/build.py   (or python scripts/publish.py to build, check, and push)",
+    "",
+    "section  projects = Quantitative Research (numbered 01, 02...)",
+    "         frontier = Research (numbered R1, R2...)",
+    "         engineering = Engineering (numbered E1, E2...)",
+    "order    sort key within the section. Use gaps of 10 so you can insert later without renumbering.",
+    "         Card numbers are derived from position, never written by hand.",
+    "id       becomes id=\"proj-<id>\". Must be unique across all files.",
+    "badge    kind is one of live, progress, research, published, freelance, intern. Text is free-form.",
+    "         Omit the whole badge key for no badge.",
+    "",
+    "String values are emitted as HTML, so <code>x</code>, <strong>x</strong> and &amp; all work.",
+    "",
+    "BLOCK TYPES (blocks array, rendered top to bottom):",
+    "  text     paras: [...]                      prose paragraphs",
+    "  bullets  items: [...]                      the standard dotted list",
+    "  arch     flow: [...] or flows: [[...],...]  architecture diagram, note is optional",
+    "           flow entries: \"Label|small text\", \"*Label|small\" for a highlighted box,",
+    "           \"->\" for an arrow, \"+\" for parallel inputs merging",
+    "  table    cols, rows, caption, note          results table; prefix a row's first cell with *",
+    "           to highlight it; append |pos |neg |flat |amber to any cell to colour it",
+    "  nulls    label, items, after               red-ruled callout for negative results.",
+    "           items and after are both optional, but you need at least one.",
+    "  html     raw: \"...\"                        escape hatch for anything the schema misses",
+    "",
+    "SIDEBAR TYPES:",
+    "  tags     items: [...]                      chip list",
+    "  metrics  items: [[label, value, tone?]]    tone is pos, neg, flat or amber",
+    "  links    items: [[text, url]]              opens in a new tab"
+  ],
+
+  "section": "projects",
+  "order": 50,
+  "id": "example",
+  "name": "Project Name",
+  "badge": { "kind": "live", "text": "● Live" },
+  "tagline": "One or two sentences: what it is, and why it is worth a reader's time.",
+  "tags": ["Python", "Something", "Something Else"],
+
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "First paragraph.",
+        "Second paragraph."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flow": [
+        "Input|where data comes from",
+        "->",
+        "*Core Step|the interesting part",
+        "->",
+        "Output|what comes out"
+      ],
+      "note": "One idea per line.\nEach line renders as its own sentence in the note block."
+    },
+    {
+      "type": "table",
+      "h": "Results",
+      "caption": "What this table shows",
+      "cols": ["Configuration", "CAGR", "Sharpe"],
+      "rows": [
+        ["*The shipped config", "13.7%", "1.02|pos"],
+        ["A baseline", "12.8%", "0.96"]
+      ],
+      "note": "Optional line under the table."
+    },
+    {
+      "type": "nulls",
+      "h": "What did not work",
+      "label": "Negative results, published rather than buried",
+      "items": ["The thing that failed, and the number that says so"],
+      "after": ["Optional closing paragraph."]
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth",
+      "items": [
+        "One decision per bullet, with the reason it was made"
+      ]
+    }
+  ],
+
+  "sidebar": [
+    { "label": "Stack", "type": "tags", "items": ["Python", "NumPy"] },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        ["Metric name", "1.02", "pos"],
+        ["Another", "42"]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [["GitHub Repository", "https://github.com/vj0246/REPO"]]
+    }
+  ]
+}

@@ -3,30 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vivaan Jain, AI·ML Engineer</title>
-  <meta name="description" content="Vivaan Jain, CS student at DJSCE Mumbai building RAG systems, custom Transformers, and production AI applications." />
+  <title>Vivaan Jain, Quantitative Researcher</title>
+  <meta name="description" content="Vivaan Jain, Computer Engineering undergraduate at DJSCE Mumbai. Systematic equity research on Indian markets: point-in-time data, purged walk-forward validation, deflated Sharpe, and documented null results." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="theme-color" content="#07080d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xf1dtnla6j");
+  <noscript>
+    <style>
+      /* Without JS nothing dismisses the intro and nothing adds .in, so the
+         reveal animation would leave the page blank behind a permanent overlay. */
+      #intro, #neural-bg, #scroll-progress { display: none !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      .proj-detail { display: grid !important; }
+    </style>
+  </noscript>
+  <link rel="canonical" href="https://vivaan-jain-portfolio.vercel.app/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Vivaan Jain" />
+  <meta property="og:title" content="Vivaan Jain, Quantitative Researcher" />
+  <meta property="og:description" content="Systematic equity research on Indian markets: point in time data, purged walk forward validation, deflated Sharpe, and documented null results." />
+  <meta property="og:url" content="https://vivaan-jain-portfolio.vercel.app/" />
+  <meta property="og:image" content="https://vivaan-jain-portfolio.vercel.app/assets/vivaan.png" />
+  <meta property="og:image:alt" content="Vivaan Jain" />
+  <meta property="profile:first_name" content="Vivaan" />
+  <meta property="profile:last_name" content="Jain" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Vivaan Jain, Quantitative Researcher" />
+  <meta name="twitter:description" content="Systematic equity research on Indian markets: point in time data, purged walk forward validation, deflated Sharpe, and documented null results." />
+  <meta name="twitter:image" content="https://vivaan-jain-portfolio.vercel.app/assets/vivaan.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vivaan Jain",
+    "url": "https://vivaan-jain-portfolio.vercel.app/",
+    "image": "https://vivaan-jain-portfolio.vercel.app/assets/vivaan.png",
+    "email": "mailto:vivaan.jain246@gmail.com",
+    "jobTitle": "Quantitative Researcher",
+    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Dwarkadas J. Sanghvi College of Engineering",
+      "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" }
+    },
+    "knowsAbout": [
+      "Systematic equity research",
+      "Portfolio construction",
+      "Backtest validation",
+      "Deflated Sharpe ratio",
+      "Machine learning",
+      "Retrieval augmented generation"
+    ],
+    "sameAs": [
+      "https://github.com/vj0246",
+      "https://www.linkedin.com/in/vivaan-jain-398160279",
+      "https://medium.com/@vivaan.jain246",
+      "https://codeforces.com/profile/Vj0246"
+    ]
+  }
   </script>
 </head>
 <body>
+
+<a class="skip-link" href="#hero">Skip to content</a>
 
 <!-- ═══ CINEMATIC INTRO ═════════════════════════ -->
 <div id="intro" aria-hidden="true">
   <div class="intro-inner">
     <div class="intro-mark"><span class="intro-dot"></span></div>
     <div class="intro-name">Vivaan Jain</div>
-    <div class="intro-tag">AI·ML Engineer · Building shipped systems</div>
+    <div class="intro-tag">Quantitative Researcher · Systematic equity, honestly validated</div>
     <div class="intro-bar"><span></span></div>
     <div class="intro-skip">click anywhere to skip</div>
   </div>
@@ -37,18 +89,19 @@
 <div id="scroll-progress"></div>
 
 <!-- ═══ NAV ═════════════════════════════════════ -->
-<nav>
+<nav aria-label="Primary">
   <div class="nav-inner">
     <a class="nav-name" href="#hero"><img src="assets/vivaan.png" class="nav-avatar" alt="" />Vivaan Jain</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
     <div class="nav-links" id="navLinks">
       <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research</a>
+      <a href="#projects">Research</a>
+      <a href="#frontier">Frontier</a>
+      <a href="#engineering">Engineering</a>
       <a href="#skills">Skills</a>
-      <a href="#blog">Blog</a>
+      <a href="#blog">Writing</a>
       <a href="#contact">Contact</a>
-      <button class="nav-resume" onclick="document.getElementById('resumeModal').classList.add('open')">Resume ↓</button>
+      <button class="nav-resume" id="resumeOpen" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="resumeModal">Resume ↓</button>
     </div>
   </div>
 </nav>
@@ -61,15 +114,19 @@
     <p class="section-eyebrow hero-eyebrow">Layer 00 · Input</p>
     <div class="status-pill">
       <span class="status-dot"></span>
-      Open to internships and research roles
+      Open to quant research internships
     </div>
     <h1 class="hero-name"><span class="grad-text">Vivaan Jain</span></h1>
-    <p class="hero-role">Agentic AI &nbsp;·&nbsp; Quant · Fintech &nbsp;·&nbsp; Gen AI · RAG</p>
+    <p class="hero-role">Systematic Equity Research &nbsp;·&nbsp; Alpha Validation &nbsp;·&nbsp; Execution Infrastructure</p>
     <p class="hero-bio">
-      Computer Engineering student at DJSCE Mumbai (Class of 2028, CGPA 9.4/10)
-      building end to end AI systems, from RAG pipelines and custom Transformer
-      architectures to production applications used by real people. Every project
-      here is shipped, not just a notebook.
+      I build and operate systematic equity strategies on Indian markets, and I own the
+      whole chain: point in time data from primary NSE sources, cross sectional signals,
+      portfolio construction under the full cost stack, and the validation machinery that
+      decides whether a result is skill or luck. Purged walk forward, CPCV, deflated
+      Sharpe, White Reality Check, Hansen SPA. One book trades itself nightly against real
+      closes and alarms when it goes quiet. The most valuable thing I have produced is a
+      documented list of what does not work, which is the part most people leave out.
+      Computer Engineering at DJSCE Mumbai, Class of 2028, CGPA 9.4/10.
     </p>
     <div class="hero-ctas">
       <a href="https://github.com/vj0246" target="_blank" rel="noopener" class="btn-primary">GitHub ↗</a>
@@ -83,13 +140,13 @@
       <img src="assets/vivaan.png" alt="Vivaan Jain" class="avatar" loading="lazy" />
       <div>
         <div class="sid-name">Vivaan Jain</div>
-        <div class="sid-role">AI·ML Engineer</div>
+        <div class="sid-role">Quantitative Researcher</div>
       </div>
     </div>
     <hr class="info-div">
     <div class="info-row">
       <div class="info-label">Status</div>
-      <div class="info-val">Open to work · AI·ML Intern roles</div>
+      <div class="info-val">Open to work · Quant Research internships</div>
     </div>
     <hr class="info-div">
     <div class="info-row">
@@ -99,7 +156,7 @@
     <hr class="info-div">
     <div class="info-row">
       <div class="info-label">Focus</div>
-      <div class="info-val">Agentic AI<br>Quant · Fintech<br>Gen AI · RAG</div>
+      <div class="info-val">Systematic Equity<br>Alpha Validation<br>Execution Infra</div>
     </div>
     <hr class="info-div">
     <div class="info-row">
@@ -115,19 +172,19 @@
   <div class="highlights">
     <div class="hl-card" data-reveal>
       <div class="hl-num grad-text" data-count="9.4" data-suffix="/10">0</div>
-      <div class="hl-label">CGPA · CS @ DJSCE Mumbai</div>
+      <div class="hl-label">CGPA · Computer Engineering @ DJSCE Mumbai</div>
     </div>
     <div class="hl-card d1" data-reveal>
-      <div class="hl-num grad-text" data-count="13" data-suffix="+">0</div>
-      <div class="hl-label">Indian languages in prod ASR pipeline</div>
+      <div class="hl-num grad-text" data-count="1.02">0</div>
+      <div class="hl-label">Net Sharpe · Artha live config, 2012 to 2026, after the full Indian cost stack</div>
     </div>
     <div class="hl-card d2" data-reveal>
-      <div class="hl-num grad-text">IIT-M</div>
-      <div class="hl-label">Intern @ Zeex AI · IIT Madras incubated startup</div>
+      <div class="hl-num grad-text" data-count="13.7" data-suffix="%">0</div>
+      <div class="hl-label">Net CAGR over the same period, −28% max drawdown</div>
     </div>
     <div class="hl-card d3" data-reveal>
-      <div class="hl-num grad-text" data-count="90" data-suffix="%">0</div>
-      <div class="hl-label">Manual effort cut by agentic system</div>
+      <div class="hl-num grad-text" data-count="7">0</div>
+      <div class="hl-label">Documented null results, including one written up as a working paper</div>
     </div>
   </div>
 </section>
@@ -146,7 +203,7 @@
         <div class="exp-period">Apr 2026 to Present<br>Full Stack AI Intern</div>
       </div>
       <div class="exp-right">
-        <div class="exp-title">Full Stack AI Intern</div>
+        <div class="exp-title" role="heading" aria-level="3">Full Stack AI Intern</div>
         <div class="exp-company">Zeex AI &nbsp;·&nbsp; AI startup, incubated at IIT Madras &nbsp;·&nbsp; Mumbai</div>
         <p class="exp-desc">
           Architected and built a production grade, end to end audio intelligence pipeline on AWS
@@ -170,7 +227,7 @@
         <div class="exp-period">2025<br>Sole Developer</div>
       </div>
       <div class="exp-right">
-        <div class="exp-title">Full Stack Developer</div>
+        <div class="exp-title" role="heading" aria-level="3">Full Stack Developer</div>
         <div class="exp-company">Shakti Alloys Pvt Ltd &nbsp;·&nbsp; <a href="https://www.shaktialloys.in" target="_blank" rel="noopener">shaktialloys.in ↗</a></div>
         <p class="exp-desc">
           Took a real manufacturing business from zero web presence to a fully operational
@@ -193,14 +250,23 @@
 
 
 <section id="projects">
-  <p class="section-eyebrow">Layer 02 · Activation</p>
-  <h2 class="section-title">Projects</h2>
-  <p class="section-sub">Click any card to see the architecture, technical decisions, and what was actually built.</p>
+  <p class="section-eyebrow">Layer 02 · Alpha</p>
+  <h2 class="section-title">Quantitative Research</h2>
+  <p class="section-sub">Systematic equity work on Indian markets: point in time data, cross sectional signals, portfolio construction under real costs, and the validation that decides whether any of it is skill. Click any card for the protocol, the numbers, and the results that did not work.</p>
+
+  <div class="tape" data-reveal>
+    <div class="tape-item"><div class="tape-key">Live book · net Sharpe</div><div class="tape-val pos">1.02</div><div class="tape-note">Artha, 2012 to 2026, after the full Indian cost stack</div></div>
+    <div class="tape-item"><div class="tape-key">Net CAGR</div><div class="tape-val pos">13.7%</div><div class="tape-note">against a 14.97% synthetic NIFTY 500 TRI</div></div>
+    <div class="tape-item"><div class="tape-key">Max drawdown</div><div class="tape-val neg">−28%</div><div class="tape-note">naive momentum reaches −49% for the same Sharpe</div></div>
+    <div class="tape-item"><div class="tape-key">PBO · ML study</div><div class="tape-val amber">0.86</div><div class="tape-note">in sample winner overfit in 24 of 28 splits</div></div>
+    <div class="tape-item"><div class="tape-key">Documented nulls</div><div class="tape-val">7</div><div class="tape-note">one written up as a working paper</div></div>
+    <div class="tape-item"><div class="tape-key">Tests in CI</div><div class="tape-val">243</div><div class="tape-note">unit, look ahead, and backtest engine parity</div></div>
+  </div>
 
   <div class="gh-strip" data-reveal>
     <span class="gh-dot" aria-hidden="true"></span>
     <span class="gh-strip-label">Live from GitHub</span>
-    <span class="gh-stat"><b id="gh-repo-count">25+</b> public repos</span>
+    <span class="gh-stat"><b id="gh-repo-count">39</b> public repos</span>
     <span class="gh-sep">·</span>
     <span class="gh-updated" id="gh-updated">auto-synced daily</span>
     <div class="gh-recent" id="gh-recent"></div>
@@ -208,20 +274,21 @@
 
   <div class="proj-list">
 
-    <details class="proj-card" id="proj-applypilot">
+    <!-- CARDS:START projects -->
+    <details class="proj-card" id="proj-artha">
       <summary class="proj-summary">
         <div class="ps-left">
           <span class="proj-num">01</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">ApplyPilot AI</span>
-              <span class="badge live">● Live</span>
+              <span class="proj-name" role="heading" aria-level="3">Artha · Systematic Equity Trading System</span>
+              <span class="badge live">● Live · Operated</span>
             </div>
-            <p class="proj-tagline">A full stack AI application copilot: upload a resume, paste a job post, and get a tailored cover letter, application email, fit score, and reworded resume bullets in 10 to 20 seconds. Three tier app on Groq Llama 3.3 70B, no paid API.</p>
+            <p class="proj-tagline">A weekly cross sectional momentum book on Indian equities: researched, validated, and actually operated, on zero paid data. Net Sharpe 1.02 and 13.7% CAGR across 2012 to 2026 after the complete Indian cost stack. It runs itself at 19:00 every evening, it knows when it has been fooled, and its most valuable output is a documented list of things that do not work.</p>
             <div class="proj-tags">
-              <span class="tag">FastAPI</span><span class="tag">Next.js 14</span>
-              <span class="tag">PostgreSQL</span><span class="tag">Groq · Llama 3.3 70B</span>
-              <span class="tag">Docker</span>
+              <span class="tag">Point in Time NSE Panel</span><span class="tag">Ledoit-Wolf Min-Var</span>
+              <span class="tag">Purged CV · CPCV</span><span class="tag">Deflated Sharpe · SPA</span>
+              <span class="tag">Live Execution</span>
             </div>
           </div>
         </div>
@@ -236,41 +303,83 @@
           <div class="detail-block">
             <div class="detail-h">What it does</div>
             <div class="detail-text">
-              <p>Upload a resume, paste a job posting, and in 10 to 20 seconds ApplyPilot returns a cover letter, an application email, a fit score, adapted resume bullets, and grounded answers to custom application questions. Resume and job parsing extract structured profiles; the fit score is computed in plain Python before any model call; generation runs through Groq's free Llama 3.3 70B. A real status pipeline (ready → approved → submitted → interviewing → offered/rejected) tracks every application.</p>
-              <p>The AI never invents experience. Resume adaptation carries explicit prompt level constraints: reword existing bullets to hit JD keywords, never add a skill or change a date. It was tested specifically by feeding a resume missing an obvious JD keyword to confirm it reframes rather than fabricates.</p>
+              <p>Artha builds a point in time NSE panel from primary bhavcopy and declared corporate actions, delistings included, ranks the cross section on weekly momentum, constructs a 25 name book with Ledoit-Wolf minimum variance weights and Gârleanu-Pedersen partial adjustment, targets volatility, caps participation against ADV, and executes at the T+1 close. The full Indian cost stack is charged: STT, stamp duty, exchange and SEBI fees, GST, flat DP charges, and square root market impact.</p>
+              <p>The larger half of the project is proving the result is not luck. Validation is purged walk forward plus combinatorially purged cross validation, deflated Sharpe measured against an append only trial ledger, White's Reality Check and Hansen's SPA. The live layer holds backtest and engine parity as a CI gate, uses deterministic idempotent order ids, enforces drawdown rails, and runs a heartbeat that alarms on silence rather than only on failure. One line: a research lab that happens to trade, built so its own results cannot lie to it.</p>
             </div>
           </div>
-
+          <div class="detail-block">
+            <div class="detail-h">Results, net of the complete Indian cost stack, 2012 to 2026</div>
+            <div class="perf-wrap">
+              <table class="perf-table">
+                <caption>Performance by portfolio construction</caption>
+                <thead><tr><th>Configuration</th><th>CAGR</th><th>Sharpe</th><th>Max DD</th><th>Turnover</th></tr></thead>
+                <tbody>
+                  <tr class="hi"><td>LW min-var + GP τ0.5 · live config</td><td>13.7%</td><td class="pos">1.02</td><td class="neg">−28%</td><td>4.2×</td></tr>
+                  <tr><td>Equal weight + no-trade bands</td><td>12.8%</td><td>0.96</td><td class="neg">−27%</td><td>5.2×</td></tr>
+                  <tr><td>Naive momentum 12-1</td><td>23.6%</td><td>0.96</td><td class="neg">−49%</td><td>·</td></tr>
+                  <tr><td>NIFTY 500 synthetic TRI</td><td>14.97%</td><td>0.94</td><td class="neg">−38%</td><td>·</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="arch-note">
+              Naive momentum earns a far higher CAGR at a −49% drawdown; the shipped configuration trades return for a drawdown a real book can survive.
+              The point of the table is its last row: after costs, most of what looks like alpha is the index. The number that matters is the one that survives being counted, which is why the deflated Sharpe is computed against every configuration ever tried, not just the shipped one.
+            </div>
+          </div>
           <div class="detail-block">
             <div class="detail-h">Architecture</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">Next.js 14<br><small>upload · paste JD</small></div>
+                <div class="arch-node">NSE Bhavcopy<br><small>corporate actions · F&amp;O · news</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">FastAPI<br><small>JWT REST · BackgroundTasks</small></div>
+                <div class="arch-node key">Point in Time Panel<br><small>sha256 manifest · CA sanity gate</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">Groq · Llama 3.3 70B<br><small>3 sequential calls</small></div>
+                <div class="arch-node key">Validation<br><small>purged CV · CPCV · PBO · DSR · SPA</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">PostgreSQL<br><small>profiles · application state</small></div>
+                <div class="arch-node key">Construction<br><small>LW min-var · GP τ · vol target</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Live Engine<br><small>parity gate in CI · OMS</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Monitoring<br><small>IC decay · PSI drift · heartbeat</small></div>
               </div>
               <div class="arch-note">
-                Fit scoring is pure Python skill set intersection before any LLM call: transparent and fast, and it tells the user exactly why the score is what it is.
-                Three Groq calls per application (cover letter, email, resume adaptation) run sequentially inside one FastAPI BackgroundTask: no queue, no broker.
-                The whole stack runs in three Docker containers via Docker Compose; PostgreSQL persists profiles, documents, and lifecycle across five tables.
-                Groq free tier (Llama 3.3 70B) for every generation: no OpenAI key, no per call cost.
+                Five scheduled jobs: trade at 19:00, a 21:00 heartbeat that asks whether any of that actually happened, a weekly live versus research divergence check, monthly research screens, and quarterly re-validation. A shipped configuration must re-earn its seat.
+                Every alarm is written durably to disk before any push channel is attempted, because the loudest failure mode is silence, and silence has its own dedicated watchdog. Nothing auto remediates: alarms inform, humans decide.
+                A research agent proposes features through an AST sandboxed DSL, screens them under the standard protocol, and keeps a Thompson sampling posterior over which families of idea have historically paid off. It has demonstrably changed its mind, reordering what it tries next after two negative liquidity screens, and it never touches the live book.
               </div>
             </div>
           </div>
-
           <div class="detail-block">
-            <div class="detail-h">Technical depth</div>
+            <div class="detail-h">The nulls are the contribution</div>
+            <div class="null-box">
+              <div class="nb-label">Seven results that did not work, published rather than buried</div>
+              <ul class="detail-bullets">
+                <li>Machine learning does not beat momentum. Ridge, LightGBM, MLP and a Transformer under one purged protocol: PBO 0.86, meaning the in sample winner is overfit in 24 of 28 splits</li>
+                <li>Post earnings drift runs backwards in India. Across 1.48M timestamped exchange announcements the biggest positive surprises reverse, t = −6.9, and event features add no weekly alpha</li>
+                <li>The single name model zoo loses to buy and hold. GRU, LSTM, Transformer and ensemble all land under half the always long floor after costs, under both retraining schemes. Retraining cadence turned out irrelevant: the problem is absence of signal, not staleness</li>
+                <li>News sentiment gating subtracts value, 0.06 against 0.58 Sharpe, consistent with the inverted drift above</li>
+                <li>A learned trading speed policy ties the fixed constant. LinUCB over 728 weekly decisions returns PBO 0.93 and near uniform action counts: the agent itself reporting that the objective surface is flat and the Gârleanu-Pedersen constant is already near optimal</li>
+                <li>Momentum crash regime gates add nothing beyond the volatility targeting already shipped, and EWMA covariance does not beat Ledoit-Wolf, paying for faster adaptation in churn</li>
+              </ul>
+              <div class="detail-text" style="margin-top:14px">
+                <p><strong style="color:var(--white)">The headline finding, written up as a working paper: decomposition preprocessing is look ahead.</strong> A large literature reports Sharpe 3+ on daily equity forecasting after EMD or CEEMDAN preprocessing. Artha reproduced those numbers exactly, IC 0.41 and Sharpe 3.6, then recomputed the identical transform causally so no future data could touch any training input. The entire edge vanished, IC −0.04. The leaky minus causal gap is the published result, and it is what a global transform applied before a temporal split does to you.</p>
+              </div>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Things that went wrong, and were fixed in public</div>
             <ul class="detail-bullets">
-              <li>Three tier app: Next.js 14 frontend with polling based state, JWT secured REST to a FastAPI backend, PostgreSQL for persistence: no unnecessary moving parts</li>
-              <li>Fit score is deterministic Python (skill set intersection) computed before any LLM call: transparent and explainable rather than an opaque embedding similarity</li>
-              <li>Three Groq calls per application run sequentially inside one FastAPI BackgroundTask: no Celery, no Redis, no broker: genuinely sufficient at this scale</li>
-              <li>Original design used Celery + Redis + LangGraph + Ollama: scrapped after testing because five extra containers and a message broker added complexity with no benefit, cut to BackgroundTasks + Groq</li>
-              <li>Resume adaptation is constrained at the prompt level to reword existing bullets only, never fabricate skills or dates: verified by adversarial testing with a missing keyword</li>
+              <li>The data feed lied. The declared corporate action feed carried a 1:5 TVSMOTOR split that never happened, manufacturing a +398% phantom return. The adjuster now verifies every declared factor against the ex day price in both directions and has caught 14 phantom events across the history</li>
+              <li>A headline was caught being inflated by its own author. Construction v2 first measured Sharpe 1.119 at −21% drawdown; internal code review found a position cap bug silently parking gross in cash, which is accidental de-risking. Corrected to 1.018, and both numbers stay in the record</li>
+              <li>A significance claim was corrected downward. The claim that the family beats the index at SPA p = 0.0415 turned out to be carried by a naive fully invested baseline inside that family; across constructed configurations alone, p = 0.655</li>
+              <li>A promising upgrade was refused. A momentum plus low volatility blend scored Sharpe 1.30 against the live 1.02, then failed two of four pre registered gates, PBO 0.500 and SPA 0.655. It was held, not shipped, and the friendlier re-test that might have rescued it was deliberately not run</li>
             </ul>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Disclosed limitations</div>
+            <div class="detail-text">
+              <p>Synthetic total return benchmark because no free NIFTY 500 TRI exists; a static current sector map; cash earns 0%; hedge margin financing unmodelled; paper slippage degenerate until live quotes arrive; an announcement taxonomy audited at 81% accuracy; GDELT news coverage reaching 72 of 115 months before the free API rate limited it; and a deflated Sharpe of 0.20 that counts every single name experiment against the cross sectional book, which is deliberately conservative. Each one is tracked with a confirmation date, because a limitation you disclose cannot ambush you later.</p>
+            </div>
           </div>
         </div>
 
@@ -278,46 +387,53 @@
           <div class="sidebar-block">
             <div class="sb-label">Stack</div>
             <div class="sb-tags">
-              <span class="tag">FastAPI</span><span class="tag">SQLAlchemy 2</span>
-              <span class="tag">PostgreSQL 16</span><span class="tag">Next.js 14</span>
-              <span class="tag">TypeScript</span><span class="tag">React Query</span>
-              <span class="tag">Zustand</span><span class="tag">Tailwind</span>
-              <span class="tag">Groq · Llama 3.3 70B</span>
-              <span class="tag">Docker Compose</span><span class="tag">JWT</span>
+              <span class="tag">Python</span><span class="tag">uv</span>
+              <span class="tag">NSE Bhavcopy</span><span class="tag">Ledoit-Wolf</span>
+              <span class="tag">Gârleanu-Pedersen</span><span class="tag">CPCV</span>
+              <span class="tag">Deflated Sharpe</span><span class="tag">Hansen SPA</span>
+              <span class="tag">White Reality Check</span><span class="tag">LinUCB</span>
+              <span class="tag">Thompson Sampling</span><span class="tag">Zerodha Kite</span>
+              <span class="tag">GitHub Actions CI</span>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Key metrics</div>
             <div class="sb-metrics">
-              <div class="metric-row"><span class="metric-label">Time per application</span><span class="metric-val">10–20s</span></div>
-              <div class="metric-row"><span class="metric-label">Groq calls / application</span><span class="metric-val">3</span></div>
-              <div class="metric-row"><span class="metric-label">Free tier throughput</span><span class="metric-val">14,400 req/min</span></div>
-              <div class="metric-row"><span class="metric-label">Containers</span><span class="metric-val">3</span></div>
+              <div class="metric-row"><span class="metric-label">Net Sharpe</span><span class="metric-val pos">1.02</span></div>
+              <div class="metric-row"><span class="metric-label">Net CAGR</span><span class="metric-val pos">13.7%</span></div>
+              <div class="metric-row"><span class="metric-label">Max drawdown</span><span class="metric-val neg">−28%</span></div>
+              <div class="metric-row"><span class="metric-label">Turnover</span><span class="metric-val">4.2×</span></div>
+              <div class="metric-row"><span class="metric-label">Backtest span</span><span class="metric-val">2012–2026</span></div>
+              <div class="metric-row"><span class="metric-label">Book size</span><span class="metric-val">25 names</span></div>
+              <div class="metric-row"><span class="metric-label">Tests in CI</span><span class="metric-val">243</span></div>
+              <div class="metric-row"><span class="metric-label">Documented nulls</span><span class="metric-val">7</span></div>
+              <div class="metric-row"><span class="metric-label">Recorded ADRs</span><span class="metric-val">13</span></div>
+              <div class="metric-row"><span class="metric-label">Paid data cost</span><span class="metric-val">₹0</span></div>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Links</div>
-            <a href="https://github.com/vj0246/ApplyPilot-AI" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
-            <a href="https://applypilot.vercel.app" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
+            <a href="https://github.com/vj0246/artha" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+            <a href="https://artha-quant.vercel.app" target="_blank" rel="noopener" class="sb-link">Research Site <span>↗</span></a>
           </div>
         </div>
       </div>
     </details>
 
-    <details class="proj-card" id="proj-mindvault">
+    <details class="proj-card" id="proj-fullbacktester">
       <summary class="proj-summary">
         <div class="ps-left">
           <span class="proj-num">02</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">MindVault</span>
-              <span class="badge live">● Live</span>
+              <span class="proj-name" role="heading" aria-level="3">FullBacktester · Leakage Resistant Backtesting Framework</span>
+              <span class="badge progress">v0.1 · Alpha</span>
             </div>
-            <p class="proj-tagline">Production grade multi tenant RAG system with hybrid retrieval (semantic + BM25 + FlashRank reranking via Reciprocal Rank Fusion), real time streaming, multimodal ingestion, and RAGAS validated quality across 25+ test cases.</p>
+            <p class="proj-tagline">A Python backtesting library for people who have been burned by backtests. Point in time data access that makes look ahead a construction error rather than a discipline problem, an AST scanner and a perturbation tester for leakage in strategy code, two execution engines whose disagreement is itself the diagnostic, and performance statistics that account for how many strategies you tried before picking this one.</p>
             <div class="proj-tags">
-              <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
-              <span class="tag">RAGAS</span><span class="tag">FastAPI</span>
-              <span class="tag">Next.js</span><span class="tag">Supabase/pgvector</span>
+              <span class="tag">Python Package</span><span class="tag">Point in Time PanelView</span>
+              <span class="tag">AST Leakage Scanner</span><span class="tag">Dual Engine Parity</span>
+              <span class="tag">Deflated Sharpe · PBO</span>
             </div>
           </div>
         </div>
@@ -332,43 +448,63 @@
           <div class="detail-block">
             <div class="detail-h">What it does</div>
             <div class="detail-text">
-              <p>A multi tenant RAG system where users upload documents and query them with natural language. Under the hood it uses three retrieval methods fused together: semantic vector search, BM25 keyword matching, and FlashRank cross encoder reranking combined via Reciprocal Rank Fusion. This eliminates the blind spots that any single retrieval method has. Real time streaming responses, multimodal document and image ingestion, shareable conversation links.</p>
-              <p>Built to run reliably on constrained 512MB infrastructure. Diagnosed and resolved 6+ critical production incidents including memory leaks, race conditions, and rate limit cascades. RAGAS evaluation suite covers faithfulness, context precision, and context recall across 25+ test cases.</p>
+              <p>Most backtesting frameworks leave the hard part to the user's discipline: not reading the future, not trusting a fill that would never happen, not forgetting how many strategies were tried before this one looked good. FullBacktester moves each of those from a habit into a construction constraint. A strategy never receives a full price history, only a <code>PanelView</code> of bars up to and including the current one, with read only arrays and bars stamped at their close instant in UTC, so a daily bar is not knowable until the exchange has actually closed.</p>
+              <p>Every strategy in an <code>Arena</code> runs against the same panel, the same execution config, and the same battery of checks, and the overfitting statistics use the number of entries as the number of trials. The summary reports CAGR, Sharpe, deflated Sharpe given that trial count, max drawdown, turnover, cost drag, and the Sharpe gap between the idealized and realistic engines, with every HIGH severity validation finding printed underneath.</p>
             </div>
           </div>
-
+          <div class="detail-block">
+            <div class="detail-h">What it defends against</div>
+            <div class="perf-wrap">
+              <table class="perf-table">
+                <caption>Pitfall and defence</caption>
+                <thead><tr><th>Pitfall</th><th>Defence</th></tr></thead>
+                <tbody>
+                  <tr><td>Look ahead through the data</td><td>PanelView ends at the current bar; UTC close stamping</td></tr>
+                  <tr><td>Look ahead in strategy code</td><td>StaticScanner AST patterns + FutureLeakTester perturbation</td></tr>
+                  <tr><td>Look ahead in ML training</td><td>Embargoed WalkForwardMLStrategy + PurgedKFold</td></tr>
+                  <tr><td>Unrealistic execution</td><td>Event driven engine, cash ledger, next open fills, participation caps</td></tr>
+                  <tr><td>Vectorized wishful thinking</td><td>Same cost model, checked against the event driven engine</td></tr>
+                  <tr><td>Trying many strategies</td><td>Deflated Sharpe and CSCV probability of backtest overfitting</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="arch-note">
+              StaticScanner flags negative shifts, centred rolling windows, backward fills, and fitting before the split. FutureLeakTester reruns the strategy twice, once with bars after t replaced by noise and once with the history truncated at t: a decision at t that changes was reading the future.
+              Under idealized settings the two engines agree to 1e-9; under realistic settings the gap between them is reported as implementation risk rather than hidden.
+            </div>
+          </div>
           <div class="detail-block">
             <div class="detail-h">Architecture</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">Document<br><small>PDF · image · text</small></div>
+                <div class="arch-node">DataSource<br><small>yfinance · NSE bhavcopy · local</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">Chunker<br><small>500 chars</small></div>
+                <div class="arch-node key">Panel · PanelView<br><small>read only, ends at bar t</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">3 Retrievers<br><small>FAISS · BM25 · FlashRank</small></div>
+                <div class="arch-node">Strategy<br><small>weights or on_bar</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">RRF Fusion<br><small>Reciprocal Rank Fusion</small></div>
+                <div class="arch-node key">Two Engines<br><small>event driven · vectorized</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">LLM<br><small>streaming</small></div>
+                <div class="arch-node key">Validation<br><small>AST · perturbation · parity · data QA</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Arena Report<br><small>DSR · PBO · cost drag</small></div>
               </div>
               <div class="arch-note">
-                Parallel async retrieval across all three methods, selective LLM call pruning on low confidence chunks: 40% reduction in query latency.
-                Intent classification and context aware query rewriting before retrieval. Cross session conversational memory with rolling summarisation.
-                Knowledge graph layer (NetworkX) extracts typed entity relationships across 50+ concept nodes per document, rendered as interactive graph UI.
-                Multi tenant: Supabase/pgvector with row level security, every query scoped to authenticated user at database level.
+                A signal computed from bar t's close executes at bar t+1's open. SAME_CLOSE fill timing exists for market on close strategies and is flagged as optimistic in every report that sees it. Limit and stop orders are evaluated against the next bar's range with conservative fill prices.
+                Annualization comes from the panel's market and bar frequency: 252 US sessions, 250 Indian sessions, 365 crypto days, and intraday multiples of each. Undefined statistics are NaN, never zero.
+                The NSE bhavcopy source is unadjusted and survivorship free, so it is the right source for universe membership and volume checks, and the wrong one for returns. The framework declares that per source rather than letting the user guess.
               </div>
             </div>
           </div>
-
           <div class="detail-block">
             <div class="detail-h">Technical depth</div>
             <ul class="detail-bullets">
-              <li>Hybrid retrieval via Reciprocal Rank Fusion: FAISS semantic search, BM25 keyword matching, and FlashRank cross encoder reranking each run in parallel, results fused to eliminate single method blind spots</li>
-              <li>40% query latency reduction through parallel async retrieval and selective LLM call pruning on chunks below a confidence threshold</li>
-              <li>RAGAS evaluation suite: automated faithfulness, context precision, and context recall scoring across 25+ curated test cases, run on every significant change</li>
-              <li>6+ critical production incidents resolved: memory leaks from embedding model loading, race conditions in concurrent session writes, rate limit cascades under burst load: zero downtime reliability on 512MB infrastructure</li>
-              <li>Knowledge graph construction from LLM extracted typed entity relationships across 50+ concept nodes, stored in NetworkX, rendered as interactive node graph in Next.js frontend</li>
-              <li>Intent classification chain rewrites ambiguous or context dependent queries before retrieval, improving relevance without the user needing to rephrase</li>
+              <li>Point in time by construction: <code>PanelView</code> exposes bars [0, t] as read only arrays, so look ahead is a type of code that cannot be written rather than a mistake to be caught in review</li>
+              <li>Two independent leakage detectors: a static AST scanner over strategy source, and a dynamic perturbation tester that corrupts the future and checks whether the present decision moves</li>
+              <li>Dual engine design where agreement is the test: the vectorized engine exists for speed and shares the cost model exactly, and any divergence from the event driven ledger is surfaced as implementation risk</li>
+              <li>Multiple testing taken seriously: <code>probabilistic_sharpe_ratio</code>, <code>deflated_sharpe_ratio</code>, <code>minimum_backtest_length</code>, and CSCV <code>probability_of_backtest_overfitting</code> are first class metrics, not an appendix</li>
+              <li>Packaging verified the way users experience it: a clean room script builds the wheel, installs it into a fresh virtualenv with the source tree off the path, and exercises the installed copy, which catches a module missing from the wheel, a lost <code>py.typed</code> marker, or an extra that is not really optional</li>
+              <li>Limitations stated in the README rather than discovered later: corporate actions are not modelled point in time, intraday fills assume the bar's open is attainable, the leakage tests cannot see a strategy that reads the future from a global, and no options, futures margining, borrow costs or FX in v0.1</li>
             </ul>
           </div>
         </div>
@@ -377,40 +513,466 @@
           <div class="sidebar-block">
             <div class="sb-label">Stack</div>
             <div class="sb-tags">
-              <span class="tag">Python</span><span class="tag">FastAPI</span>
-              <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
-              <span class="tag">BM25</span><span class="tag">FlashRank</span>
-              <span class="tag">RAGAS</span><span class="tag">NetworkX</span>
-              <span class="tag">Pydantic</span><span class="tag">Ollama</span>
-              <span class="tag">Next.js</span><span class="tag">TypeScript</span>
-              <span class="tag">Supabase/pgvector</span><span class="tag">Vercel</span>
+              <span class="tag">Python 3.11+</span><span class="tag">NumPy</span>
+              <span class="tag">Pandas</span><span class="tag">Parquet cache</span>
+              <span class="tag">Hypothesis</span><span class="tag">pytest</span>
+              <span class="tag">mypy</span><span class="tag">ruff</span>
+              <span class="tag">yfinance</span><span class="tag">NSE Bhavcopy</span>
+              <span class="tag">GitHub Actions CI</span>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Key metrics</div>
             <div class="sb-metrics">
-              <div class="metric-row"><span class="metric-label">Query latency</span><span class="metric-val">40% faster</span></div>
-              <div class="metric-row"><span class="metric-label">RAGAS test cases</span><span class="metric-val">25+</span></div>
-              <div class="metric-row"><span class="metric-label">Prod incidents fixed</span><span class="metric-val">6+</span></div>
-              <div class="metric-row"><span class="metric-label">Concept nodes</span><span class="metric-val">50+</span></div>
+              <div class="metric-row"><span class="metric-label">Engine agreement</span><span class="metric-val">1e-9</span></div>
+              <div class="metric-row"><span class="metric-label">Test suite</span><span class="metric-val">~80</span></div>
+              <div class="metric-row"><span class="metric-label">Python versions in CI</span><span class="metric-val">3.11–3.13</span></div>
+              <div class="metric-row"><span class="metric-label">OS legs in CI</span><span class="metric-val">3</span></div>
+              <div class="metric-row"><span class="metric-label">Leakage detectors</span><span class="metric-val">2</span></div>
+              <div class="metric-row"><span class="metric-label">Markets supported</span><span class="metric-val">US · IN · Crypto</span></div>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Links</div>
-            <a href="https://github.com/vj0246/MindVault" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
-            <a href="https://mind-vault-red.vercel.app/" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
+            <a href="https://github.com/vj0246/Backtesting-Framework" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
           </div>
         </div>
       </div>
     </details>
 
-    <details class="proj-card" id="proj-finintel">
+    <details class="proj-card" id="proj-ml-research">
       <summary class="proj-summary">
         <div class="ps-left">
           <span class="proj-num">03</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">FinIntel — Agentic Equity Desk</span>
+              <span class="proj-name" role="heading" aria-level="3">ML Research: Equity Forecasting + Sentiment Alpha</span>
+              <span class="badge research">Research</span>
+            </div>
+            <p class="proj-tagline">Two related quantitative finance ML projects: a custom Transformer for multi horizon Nifty 50 direction forecasting (0.62 AUC, 0.6+ Sharpe), and a controlled experiment testing whether news sentiment provides incremental alpha beyond price.</p>
+            <div class="proj-tags">
+              <span class="tag">TensorFlow</span><span class="tag">FinBERT</span>
+              <span class="tag">XGBoost</span><span class="tag">yfinance</span>
+              <span class="tag">Pandas</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">Project 1: Multi Horizon Transformer for Nifty 50</div>
+            <div class="detail-text">
+              <p>A Transformer encoder built from scratch in TensorFlow that outputs directional forecasts for 4 horizons simultaneously: 1, 5, 10, and 20 trading days: from one forward pass. Trained on 4,900+ trading days (Jan 2006–Feb 2026). FinBERT news sentiment fused as a parallel signal. Achieved 0.62 AUC and 0.6+ non overlapping long short Sharpe on the held out test set.</p>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Architecture: Transformer</div>
+            <div class="arch-diagram">
+              <div class="arch-flow">
+                <div class="arch-node">18yr OHLCV<br><small>Jan 2006 to Feb 2026</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">16 Features<br><small>OHLCV + technicals</small></div>
+                <span class="arch-plus">+</span>
+                <div class="arch-node key">FinBERT<br><small>sentiment score</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Transformer Encoder<br><small>60-day self attention · TensorFlow</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">4 Outputs<br><small>1/5/10/20d · 0.62 AUC</small></div>
+              </div>
+              <div class="arch-note">
+                Fully vectorized long short backtesting engine validates economic performance beyond drift.
+                Walk forward validation and decile based strategy evaluation ensure no temporal leakage.
+                Leakage free scaling applied to all features. 16 quantitative technical factors engineered.
+                Compared against XGBoost baseline on same features. 0.6+ non overlapping long short Sharpe.
+              </div>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Project 2: Sentiment Driven Quantitative Alpha Modeling</div>
+            <div class="detail-text">
+              <p>A rigorous controlled experiment testing a specific hypothesis: does news sentiment provide incremental predictive signal beyond pure price based models in financial markets? Pipeline fuses historical price, volume, and API sourced news sentiment. Found a 5-day return correlation improvement from 0.43 to 0.46 using sentiment features, supported by MAE and RMSE diagnostics and shuffle testing. Conclusion: gains were modest, unstable, and highly sensitive to validation design: which is itself a meaningful finding about the fragile nature of financial signals.</p>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Technical depth across both projects</div>
+            <ul class="detail-bullets">
+              <li>TensorFlow throughout: Transformer encoder built from scratch, custom multi head attention, positional encoding, 60-day temporal context window</li>
+              <li>Fully vectorized backtesting engine: long short strategy evaluated at decile level without any lookahead: the backtester was built from scratch, not a library</li>
+              <li>Walk forward validation: multiple expanding train windows evaluated in sequence, not a single temporal split, providing more robust out of sample estimates</li>
+              <li>Leakage free scaling: mean and std computed only on training windows, applied to val/test: prevents a common source of overly optimistic results in finance ML</li>
+              <li>Sentiment alpha experiment designed to falsify, not confirm: MAE/RMSE diagnostics and shuffle testing specifically to distinguish genuine signal from validation artefacts</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Stack</div>
+            <div class="sb-tags">
+              <span class="tag">Python</span><span class="tag">TensorFlow</span>
+              <span class="tag">FinBERT</span><span class="tag">XGBoost</span>
+              <span class="tag">Pandas</span><span class="tag">NumPy</span>
+              <span class="tag">scikit-learn</span><span class="tag">yfinance</span>
+              <span class="tag">quantstats</span><span class="tag">Jupyter</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">AUC (Transformer)</span><span class="metric-val">0.62</span></div>
+              <div class="metric-row"><span class="metric-label">L/S Sharpe</span><span class="metric-val">0.6+</span></div>
+              <div class="metric-row"><span class="metric-label">Training days</span><span class="metric-val">4,900+</span></div>
+              <div class="metric-row"><span class="metric-label">Features</span><span class="metric-val">16</span></div>
+              <div class="metric-row"><span class="metric-label">Sentiment correlation</span><span class="metric-val">0.43 → 0.46</span></div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Links</div>
+            <a href="https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting" target="_blank" rel="noopener" class="sb-link">Transformer GitHub <span>↗</span></a>
+            <a href="https://github.com/vj0246/Text-Sentiment-Classification-System" target="_blank" rel="noopener" class="sb-link">Sentiment GitHub <span>↗</span></a>
+            <a href="https://multi-horizon-transformer-for-syste.vercel.app" target="_blank" rel="noopener" class="sb-link">Results Dashboard <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="proj-card" id="proj-overnight">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">04</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name" role="heading" aria-level="3">Overnight Return Prediction · Quant Research Submission</span>
+              <span class="badge research">Research</span>
+            </div>
+            <p class="proj-tagline">Predicting the overnight gap into the next open across 208 NSE symbols: move size, direction, and calibrated confidence as four independently fitted models rather than one model wearing four hats. Pooled rank IC 0.178 at t = 24.5, and a residual direction score of 0.0001 that the write up leads with instead of burying.</p>
+            <div class="proj-tags">
+              <span class="tag">LightGBM</span><span class="tag">Isotonic Calibration</span>
+              <span class="tag">Walk Forward Splits</span><span class="tag">Cross Sectional Features</span>
+              <span class="tag">208 NSE Symbols</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">What it does</div>
+            <div class="detail-text">
+              <p>Given the close on day T for roughly 208 NSE stocks, the pipeline predicts the overnight gap into the open on day T+1: how large the move will be, which direction it goes, and how confident the model is about each. These are four separate, independently fitted models. Magnitude is a LightGBM regressor on <code>log1p(|return|)</code>, log space because the target is right skewed and a handful of genuinely extreme moves sit far out in the tail. Direction is a separate LightGBM classifier with its own features and its own hyperparameters, trained independently rather than derived from magnitude.</p>
+              <p>Direction confidence is deliberately not the classifier's raw probability, because tree ensemble probabilities are typically miscalibrated. Magnitude confidence is fitted on genuinely out of fold errors via a walk forward split on train, never on in sample residuals, because in sample residuals answer an easier question than the one that matters at prediction time.</p>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Results on the held out test split</div>
+            <div class="perf-wrap">
+              <table class="perf-table">
+                <caption>Pooled versus residual, after subtracting the common market move</caption>
+                <thead><tr><th>Metric</th><th>Pooled</th><th>Residual</th></tr></thead>
+                <tbody>
+                  <tr class="hi"><td>rank_ic (t = 24.5)</td><td class="pos">0.1782</td><td>·</td></tr>
+                  <tr><td>magnitude_score</td><td>0.2401</td><td>0.2245</td></tr>
+                  <tr><td>conf_magnitude_score</td><td>0.2340</td><td class="pos">0.2696</td></tr>
+                  <tr><td>direction_score</td><td>0.2414</td><td class="neg">0.0001</td></tr>
+                  <tr><td>ece_10 · calibration error</td><td>0.0211</td><td>·</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="arch-note">
+              The magnitude numbers are close to each other pooled and residual, which means the model differentiates between stocks rather than only reading the volatility regime. Confidence about magnitude is more informative residually than pooled, the opposite of the direction story, and worth stating for exactly that contrast.
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">The result the submission leads with</div>
+            <div class="null-box">
+              <div class="nb-label">Residual direction skill is indistinguishable from zero</div>
+              <div class="detail-text">
+                <p>Pooled direction looks strong. After subtracting the common market wide move, it is 0.0001. Rather than average that away, three explanations were checked with the actual numbers printed at each step. Is the classifier degenerate? No, raw probabilities have genuine two sided spread and hundreds of rows score below 0.5 before calibration. Is the calibrator broken? No, bucketing the validation split into deciles and checking the realized up rate in each shows even the lowest decile is well above 50% on held out data, so the calibrated output is reflecting reality rather than fighting it. Is the confidence flip rule over triggering? No, the calibrated probability never dropped below 0.5 on test before that rule ran.</p>
+                <p>Overnight returns in this dataset are up 67 to 73% of the time across all three chronological splits. A correctly calibrated model has limited honest basis to call down. Forcing more down calls would have produced better looking recall and a less truthful model.</p>
+              </div>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Diagnosing it rather than accepting it</div>
+            <ul class="detail-bullets">
+              <li>Feature importance showed <code>breadth_pos_frac</code> and <code>xs_dispersion</code>, pure market regime indicators identical across all 208 stocks on a given day, dominating the direction model, while the one feature capturing a stock's standing against its peers ranked 15th and was barely used</li>
+              <li>Rank and z score versions of two absolute features tied to the overnight persistence mechanism were added and the model retrained. Down calls on test went from zero to 103 genuine ones, and the fraction of stocks beating their own naive always up rate moved off zero for the first time, to 0.029</li>
+              <li>Breadth reported with the same honesty: 204 of 208 stocks clear a 50% hit rate, but since the direction model calls up on nearly every row, a stock's hit rate is mechanically close to its own historical up rate, and the correlation between the two is effectively 1.0. The meaningful breadth result is the magnitude side, where all 208 beat the naive baseline and that does not reduce to the always up mechanism</li>
+              <li>A separate model trained directly on the residual target, the sign of a stock's return minus the universe mean, showed real skill on its own terms: 56.6% hit rate on a genuinely near even target, and a 0.183 mean daily cross sectional rank correlation between its confidence and which stocks actually beat the market across 282 test days</li>
+              <li>That model was tested for inclusion and then left out. On the 60% of test rows where the two models disagree, the primary model is right 64% of the time. The combination was measured rather than assumed, found not to help, and not shipped</li>
+              <li>Reproducibility as a checked property, not a claim: a single seed threaded through every model's <code>random_state</code> and the walk forward splitter, verified by two independent fresh runs producing byte identical <code>predictions.csv</code> and <code>statistics.csv</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Stack</div>
+            <div class="sb-tags">
+              <span class="tag">Python</span><span class="tag">LightGBM</span>
+              <span class="tag">Isotonic Regression</span><span class="tag">Pandas</span>
+              <span class="tag">NumPy</span><span class="tag">Parquet</span>
+              <span class="tag">scikit-learn</span><span class="tag">YAML config</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">rank_ic (t = 24.5)</span><span class="metric-val pos">0.1782</span></div>
+              <div class="metric-row"><span class="metric-label">magnitude_score</span><span class="metric-val">0.2401</span></div>
+              <div class="metric-row"><span class="metric-label">conf_magnitude residual</span><span class="metric-val pos">0.2696</span></div>
+              <div class="metric-row"><span class="metric-label">direction residual</span><span class="metric-val neg">0.0001</span></div>
+              <div class="metric-row"><span class="metric-label">Calibration error</span><span class="metric-val">0.0211</span></div>
+              <div class="metric-row"><span class="metric-label">Symbols</span><span class="metric-val">208</span></div>
+              <div class="metric-row"><span class="metric-label">Models fitted</span><span class="metric-val">4</span></div>
+              <div class="metric-row"><span class="metric-label">Reruns byte identical</span><span class="metric-val pos">Yes</span></div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Links</div>
+            <a href="https://github.com/vj0246/Overnight-Return-Predictor" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+    <!-- CARDS:END projects -->
+
+  </div>
+</section>
+
+
+<section id="frontier">
+  <p class="section-eyebrow">Layer 03 · Frontier</p>
+  <h2 class="section-title">Research</h2>
+  <p class="section-sub">Independent research under the ACM Research Core programme, and the conventional baseline it is defined against. The second card is on the page precisely because the first one exists to break it.</p>
+
+  <div class="proj-list">
+
+    <!-- CARDS:START frontier -->
+    <details class="proj-card" id="proj-creditscore">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">R1</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name" role="heading" aria-level="3">Cost Sensitive Deep Learning for Credit Scoring</span>
+              <span class="badge research">ACM Research · 2025</span>
+            </div>
+            <p class="proj-tagline">A novel deep learning architecture that learns non linear latent borrower risk embeddings, models temporal debt acceleration, optimises for economic loss (not AUC), and produces regulator grade explanations, built in, not post hoc.</p>
+            <div class="proj-tags">
+              <span class="tag">Deep Learning</span><span class="tag">Credit Risk</span>
+              <span class="tag">Cost Sensitive Learning</span><span class="tag">XAI</span>
+              <span class="tag">Latent Embeddings</span><span class="tag">FinTech</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">The problem</div>
+            <div class="detail-text">
+              <p>Credit scoring sits at an intersection of three unsolved problems. First, high performing deep models learn complex non linear borrower representations that are impossible to explain to risk teams or satisfy regulators, explainability is now a legal requirement under frameworks like Basel and GDPR, and post hoc methods like SHAP produce approximations, not faithful explanations. Second, misclassification costs in lending are fundamentally asymmetric and instance dependent: rejecting a creditworthy borrower costs differently to approving a defaulter, and that ratio varies per loan. Optimising for AUC ignores this entirely. Third, existing models treat borrower risk as stationary, they miss that financial distress typically accelerates non linearly before a default event.</p>
+              <p>This research addresses all three with one unified architecture: learn latent risk embeddings, explicitly model debt acceleration dynamics, optimise directly on economic loss with an instance dependent cost function, and keep the decision process inherently interpretable.</p>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Architecture</div>
+            <div class="arch-diagram">
+              <div class="arch-flow">
+                <div class="arch-node">Borrower Features<br><small>financial + behavioural</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Deep Feature Extractor<br><small>non linear representations</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Latent Risk Embeddings<br><small>borrower risk manifold</small></div>
+              </div>
+              <div class="arch-flow" style="margin-top:8px">
+                <div class="arch-node">Debt History<br><small>temporal sequence</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Debt Acceleration Module<br><small>rate of change dynamics</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Cost Sensitive Layer<br><small>instance dependent asymmetric loss</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Credit Decision<br><small>+ inherent XAI</small></div>
+              </div>
+              <div class="arch-note">
+                The cost sensitive decision layer uses an instance dependent asymmetric loss, the false negative penalty (approving a defaulter) vs. false positive penalty (rejecting a good borrower) is not a global constant but varies per borrower based on loan amount and risk profile.
+                The explainability layer is inherently interpretable by design: predictions decompose into feature level contributions directly from the architecture's forward pass, not SHAP approximations.
+              </div>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Three original contributions</div>
+            <ul class="detail-bullets">
+              <li>Non linear latent risk embeddings, the model learns a borrower risk manifold from raw financial and behavioural inputs rather than relying on hand crafted credit features, capturing interaction effects that linear scorecards cannot represent</li>
+              <li>Temporal debt acceleration modelling, explicitly models the rate of change of debt accumulation over time; financial distress rarely appears suddenly, it accelerates, and this module learns those pre default dynamics from borrower history</li>
+              <li>Instance dependent cost sensitive optimisation, trained directly on economic loss where the asymmetric cost ratio is per borrower, not a fixed global hyperparameter; makes the learning objective match what a lender actually cares about</li>
+              <li>Inherently interpretable architecture, explainability is built into the model's forward computation, not added as a post hoc approximation; explanations are faithful to what the model actually computed, satisfying regulatory interpretability requirements</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Why AUC is the wrong metric here</div>
+            <div class="detail-text">
+              <p>A model that correctly identifies 90% of defaults but misclassifies every large loan defaulter as creditworthy scores well on AUC and is catastrophic in practice. This research trains directly on business loss: the asymmetric financial cost of each misclassification type, weighted by the specific borrower's loan profile. The evaluation metric is expected economic loss on the held out set, not AUC.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Research org</div>
+            <div class="sb-tags">
+              <span class="tag">ACM Research Core</span><span class="tag">October 2025</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Domains</div>
+            <div class="sb-tags">
+              <span class="tag">AI in Credit Scoring</span><span class="tag">Cost Sensitive Learning</span>
+              <span class="tag">Deep Representation Learning</span><span class="tag">Explainable AI (XAI)</span>
+              <span class="tag">Temporal Modelling</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Progress</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Dataset</span><span class="metric-val pos">Confirmed</span></div>
+              <div class="metric-row"><span class="metric-label">Base paper</span><span class="metric-val pos">Found</span></div>
+              <div class="metric-row"><span class="metric-label">Architecture</span><span class="metric-val pos">Designed</span></div>
+              <div class="metric-row"><span class="metric-label">Implementation</span><span class="metric-val amber">In progress</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="proj-card" id="proj-loanrisk">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">R2</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name" role="heading" aria-level="3">Automated Credit Risk Evaluation for Loan Approval</span>
+              <span class="badge freelance">Foundation work</span>
+            </div>
+            <p class="proj-tagline">Binary classification on historical loan applications: income, loan amount, credit history, education, employment and property area in, an approve or reject decision out. A full supervised pipeline from EDA through feature engineering to a Flask app that serves the trained model. This is the standard formulation of credit scoring, and it is here because the research above exists to attack what it gets wrong.</p>
+            <div class="proj-tags">
+              <span class="tag">Binary Classification</span><span class="tag">Feature Engineering</span>
+              <span class="tag">Flask</span><span class="tag">scikit-learn</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">What it does</div>
+            <div class="detail-text">
+              <p>An end to end supervised learning pipeline over historical loan application data: exploratory analysis, preprocessing, feature engineering, and a binary classifier that predicts whether an application should be approved. A Flask interface wraps the trained model so applicant details can be entered and scored directly, which is the part that turns a notebook into something a person can actually use.</p>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Pipeline</div>
+            <div class="arch-diagram">
+              <div class="arch-flow">
+                <div class="arch-node">Loan Applications<br><small>applicant + loan features</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">EDA · Preprocessing<br><small>missing values · encoding</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Classifier<br><small>approve / reject</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">Flask App<br><small>form in, prediction out</small></div>
+              </div>
+              <div class="arch-note">
+                Deliberately the textbook formulation: one dataset, a symmetric objective, and accuracy style classification metrics. Stated plainly rather than dressed up, because the interesting question is what that formulation cannot do.
+              </div>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Why it sits next to the research</div>
+            <div class="null-box">
+              <div class="nb-label">Three assumptions this model makes that lending does not support</div>
+              <ul class="detail-bullets">
+                <li>It optimises a symmetric objective. Approving a defaulter and rejecting a creditworthy borrower cost different amounts, and the ratio moves with the size of the loan. R1 replaces this with an instance dependent asymmetric loss trained directly on economic loss</li>
+                <li>It treats borrower risk as stationary. A single snapshot of features carries no notion of debt accumulating faster over time, which is how distress actually shows up before a default. R1 adds an explicit debt acceleration module</li>
+                <li>Whatever explanation it offers is post hoc. A classifier plus SHAP produces an approximation of a decision, not the decision itself, which is the wrong side of the line for a regulated credit decision. R1 makes interpretability part of the forward pass</li>
+              </ul>
+              <div class="detail-text" style="margin-top:14px">
+                <p>Kept on the page for that contrast. The honest description is a competent, conventional credit scoring pipeline with a working demo, and the value of having built it is knowing precisely which of its assumptions to go after.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Stack</div>
+            <div class="sb-tags">
+              <span class="tag">Python</span><span class="tag">scikit-learn</span>
+              <span class="tag">Pandas</span><span class="tag">NumPy</span>
+              <span class="tag">Matplotlib</span><span class="tag">Flask</span>
+              <span class="tag">Jupyter</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Scope</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Task</span><span class="metric-val">Binary</span></div>
+              <div class="metric-row"><span class="metric-label">Objective</span><span class="metric-val flat">Symmetric</span></div>
+              <div class="metric-row"><span class="metric-label">Temporal modelling</span><span class="metric-val flat">None</span></div>
+              <div class="metric-row"><span class="metric-label">Explainability</span><span class="metric-val flat">Post hoc</span></div>
+              <div class="metric-row"><span class="metric-label">Served via</span><span class="metric-val">Flask</span></div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Links</div>
+            <a href="https://github.com/vj0246/Automated-Credit-Risk-Evaluation-for-Loan-Approval" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+    <!-- CARDS:END frontier -->
+
+  </div>
+</section>
+
+
+<section id="engineering">
+  <p class="section-eyebrow">Layer 04 · Execution</p>
+  <h2 class="section-title">Engineering</h2>
+  <p class="section-sub">Production systems built alongside the research: agentic finance tooling, retrieval infrastructure, and multilingual speech pipelines. These are shipped applications rather than research, and they are here because the research above needs someone who can also build the thing.</p>
+
+  <div class="proj-list">
+
+    <!-- CARDS:START engineering -->
+    <details class="proj-card" id="proj-finintel">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">E1</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name" role="heading" aria-level="3">FinIntel — Agentic Equity Desk</span>
               <span class="badge live">● Live</span>
             </div>
             <p class="proj-tagline">An agentic AI equity research desk for Indian markets (NSE): six specialised LLM agents grounded in live market data, LangGraph human in the loop approval gates, a mandatory compliance pipeline, and deterministic Python maths so the model interprets numbers rather than inventing them.</p>
@@ -436,7 +998,6 @@
               <p>Every output passes a mandatory compliance pipeline: input validation, semantic screening, grounded rewrites that avoid fabrication, PII scrubbing, and SEBI style disclaimers. Deterministic mathematics (volatility, Sharpe, beta, drawdown, CAGR, XIRR, stress tests) is computed in Python; the LLM interprets the results rather than performing the arithmetic, which removes a whole class of hallucination.</p>
             </div>
           </div>
-
           <div class="detail-block">
             <div class="detail-h">Agentic architecture</div>
             <div class="arch-diagram">
@@ -460,7 +1021,6 @@
               </div>
             </div>
           </div>
-
           <div class="detail-block">
             <div class="detail-h">Technical depth</div>
             <ul class="detail-bullets">
@@ -505,19 +1065,20 @@
       </div>
     </details>
 
-    <details class="proj-card" id="proj-ml-research">
+    <details class="proj-card" id="proj-mindvault">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">04</span>
+          <span class="proj-num">E2</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">ML Research: Equity Forecasting + Sentiment Alpha</span>
-              <span class="badge research">Research</span>
+              <span class="proj-name" role="heading" aria-level="3">MindVault</span>
+              <span class="badge live">● Live</span>
             </div>
-            <p class="proj-tagline">Two related quantitative finance ML projects: a custom Transformer for multi horizon Nifty 50 direction forecasting (0.62 AUC, 0.6+ Sharpe), and a controlled experiment testing whether news sentiment provides incremental alpha beyond price.</p>
+            <p class="proj-tagline">Production grade multi tenant RAG system with hybrid retrieval (semantic + BM25 + FlashRank reranking via Reciprocal Rank Fusion), real time streaming, multimodal ingestion, and RAGAS validated quality across 25+ test cases.</p>
             <div class="proj-tags">
-              <span class="tag">TensorFlow</span><span class="tag">FinBERT</span>
-              <span class="tag">XGBoost</span><span class="tag">yfinance</span><span class="tag">Pandas</span>
+              <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
+              <span class="tag">RAGAS</span><span class="tag">FastAPI</span>
+              <span class="tag">Next.js</span><span class="tag">Supabase/pgvector</span>
             </div>
           </div>
         </div>
@@ -530,50 +1091,43 @@
       <div class="proj-detail">
         <div>
           <div class="detail-block">
-            <div class="detail-h">Project 1: Multi Horizon Transformer for Nifty 50</div>
+            <div class="detail-h">What it does</div>
             <div class="detail-text">
-              <p>A Transformer encoder built from scratch in TensorFlow that outputs directional forecasts for 4 horizons simultaneously: 1, 5, 10, and 20 trading days: from one forward pass. Trained on 4,900+ trading days (Jan 2006–Feb 2026). FinBERT news sentiment fused as a parallel signal. Achieved 0.62 AUC and 0.6+ non overlapping long short Sharpe on the held out test set.</p>
+              <p>A multi tenant RAG system where users upload documents and query them with natural language. Under the hood it uses three retrieval methods fused together: semantic vector search, BM25 keyword matching, and FlashRank cross encoder reranking combined via Reciprocal Rank Fusion. This eliminates the blind spots that any single retrieval method has. Real time streaming responses, multimodal document and image ingestion, shareable conversation links.</p>
+              <p>Built to run reliably on constrained 512MB infrastructure. Diagnosed and resolved 6+ critical production incidents including memory leaks, race conditions, and rate limit cascades. RAGAS evaluation suite covers faithfulness, context precision, and context recall across 25+ test cases.</p>
             </div>
           </div>
-
           <div class="detail-block">
-            <div class="detail-h">Architecture: Transformer</div>
+            <div class="detail-h">Architecture</div>
             <div class="arch-diagram">
               <div class="arch-flow">
-                <div class="arch-node">18yr OHLCV<br><small>Jan 2006 to Feb 2026</small></div>
+                <div class="arch-node">Document<br><small>PDF · image · text</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">16 Features<br><small>OHLCV + technicals</small></div>
-                <span class="arch-plus">+</span>
-                <div class="arch-node key">FinBERT<br><small>sentiment score</small></div>
+                <div class="arch-node">Chunker<br><small>500 chars</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node key">Transformer Encoder<br><small>60-day self attention · TensorFlow</small></div>
+                <div class="arch-node key">3 Retrievers<br><small>FAISS · BM25 · FlashRank</small></div>
                 <span class="arch-arr">→</span>
-                <div class="arch-node">4 Outputs<br><small>1/5/10/20d · 0.62 AUC</small></div>
+                <div class="arch-node key">RRF Fusion<br><small>Reciprocal Rank Fusion</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">LLM<br><small>streaming</small></div>
               </div>
               <div class="arch-note">
-                Fully vectorized long short backtesting engine validates economic performance beyond drift.
-                Walk forward validation and decile based strategy evaluation ensure no temporal leakage.
-                Leakage free scaling applied to all features. 16 quantitative technical factors engineered.
-                Compared against XGBoost baseline on same features. 0.6+ non overlapping long short Sharpe.
+                Parallel async retrieval across all three methods, selective LLM call pruning on low confidence chunks: 40% reduction in query latency.
+                Intent classification and context aware query rewriting before retrieval. Cross session conversational memory with rolling summarisation.
+                Knowledge graph layer (NetworkX) extracts typed entity relationships across 50+ concept nodes per document, rendered as interactive graph UI.
+                Multi tenant: Supabase/pgvector with row level security, every query scoped to authenticated user at database level.
               </div>
             </div>
           </div>
-
           <div class="detail-block">
-            <div class="detail-h">Project 2: Sentiment Driven Quantitative Alpha Modeling</div>
-            <div class="detail-text">
-              <p>A rigorous controlled experiment testing a specific hypothesis: does news sentiment provide incremental predictive signal beyond pure price based models in financial markets? Pipeline fuses historical price, volume, and API sourced news sentiment. Found a 5-day return correlation improvement from 0.43 to 0.46 using sentiment features, supported by MAE and RMSE diagnostics and shuffle testing. Conclusion: gains were modest, unstable, and highly sensitive to validation design: which is itself a meaningful finding about the fragile nature of financial signals.</p>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">Technical depth across both projects</div>
+            <div class="detail-h">Technical depth</div>
             <ul class="detail-bullets">
-              <li>TensorFlow throughout: Transformer encoder built from scratch, custom multi head attention, positional encoding, 60-day temporal context window</li>
-              <li>Fully vectorized backtesting engine: long short strategy evaluated at decile level without any lookahead: the backtester was built from scratch, not a library</li>
-              <li>Walk forward validation: multiple expanding train windows evaluated in sequence, not a single temporal split, providing more robust out of sample estimates</li>
-              <li>Leakage free scaling: mean and std computed only on training windows, applied to val/test: prevents a common source of overly optimistic results in finance ML</li>
-              <li>Sentiment alpha experiment designed to falsify, not confirm: MAE/RMSE diagnostics and shuffle testing specifically to distinguish genuine signal from validation artefacts</li>
+              <li>Hybrid retrieval via Reciprocal Rank Fusion: FAISS semantic search, BM25 keyword matching, and FlashRank cross encoder reranking each run in parallel, results fused to eliminate single method blind spots</li>
+              <li>40% query latency reduction through parallel async retrieval and selective LLM call pruning on chunks below a confidence threshold</li>
+              <li>RAGAS evaluation suite: automated faithfulness, context precision, and context recall scoring across 25+ curated test cases, run on every significant change</li>
+              <li>6+ critical production incidents resolved: memory leaks from embedding model loading, race conditions in concurrent session writes, rate limit cascades under burst load: zero downtime reliability on 512MB infrastructure</li>
+              <li>Knowledge graph construction from LLM extracted typed entity relationships across 50+ concept nodes, stored in NetworkX, rendered as interactive node graph in Next.js frontend</li>
+              <li>Intent classification chain rewrites ambiguous or context dependent queries before retrieval, improving relevance without the user needing to rephrase</li>
             </ul>
           </div>
         </div>
@@ -582,27 +1136,122 @@
           <div class="sidebar-block">
             <div class="sb-label">Stack</div>
             <div class="sb-tags">
-              <span class="tag">Python</span><span class="tag">TensorFlow</span>
-              <span class="tag">FinBERT</span><span class="tag">XGBoost</span>
-              <span class="tag">Pandas</span><span class="tag">NumPy</span>
-              <span class="tag">scikit-learn</span><span class="tag">yfinance</span>
-              <span class="tag">quantstats</span><span class="tag">Jupyter</span>
+              <span class="tag">Python</span><span class="tag">FastAPI</span>
+              <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
+              <span class="tag">BM25</span><span class="tag">FlashRank</span>
+              <span class="tag">RAGAS</span><span class="tag">NetworkX</span>
+              <span class="tag">Pydantic</span><span class="tag">Ollama</span>
+              <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+              <span class="tag">Supabase/pgvector</span><span class="tag">Vercel</span>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Key metrics</div>
             <div class="sb-metrics">
-              <div class="metric-row"><span class="metric-label">AUC (Transformer)</span><span class="metric-val">0.62</span></div>
-              <div class="metric-row"><span class="metric-label">L/S Sharpe</span><span class="metric-val">0.6+</span></div>
-              <div class="metric-row"><span class="metric-label">Training days</span><span class="metric-val">4,900+</span></div>
-              <div class="metric-row"><span class="metric-label">Features</span><span class="metric-val">16</span></div>
-              <div class="metric-row"><span class="metric-label">Sentiment correlation</span><span class="metric-val">0.43 → 0.46</span></div>
+              <div class="metric-row"><span class="metric-label">Query latency</span><span class="metric-val">40% faster</span></div>
+              <div class="metric-row"><span class="metric-label">RAGAS test cases</span><span class="metric-val">25+</span></div>
+              <div class="metric-row"><span class="metric-label">Prod incidents fixed</span><span class="metric-val">6+</span></div>
+              <div class="metric-row"><span class="metric-label">Concept nodes</span><span class="metric-val">50+</span></div>
             </div>
           </div>
           <div class="sidebar-block">
             <div class="sb-label">Links</div>
-            <a href="https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting" target="_blank" rel="noopener" class="sb-link">Transformer GitHub <span>↗</span></a>
-            <a href="https://github.com/vj0246/Text-Sentiment-Classification-System" target="_blank" rel="noopener" class="sb-link">Sentiment GitHub <span>↗</span></a>
+            <a href="https://github.com/vj0246/MindVault" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+            <a href="https://mind-vault-red.vercel.app/" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="proj-card" id="proj-applypilot">
+      <summary class="proj-summary">
+        <div class="ps-left">
+          <span class="proj-num">E3</span>
+          <div class="proj-info">
+            <div class="proj-title-row">
+              <span class="proj-name" role="heading" aria-level="3">ApplyPilot AI</span>
+              <span class="badge live">● Live</span>
+            </div>
+            <p class="proj-tagline">A full stack AI application copilot: upload a resume, paste a job post, and get a tailored cover letter, application email, fit score, and reworded resume bullets in 10 to 20 seconds. Three tier app on Groq Llama 3.3 70B, no paid API.</p>
+            <div class="proj-tags">
+              <span class="tag">FastAPI</span><span class="tag">Next.js 14</span>
+              <span class="tag">PostgreSQL</span><span class="tag">Groq · Llama 3.3 70B</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+        <span class="expand-label">
+          <span class="close-text">View details ↓</span>
+          <span class="open-text">Close ↑</span>
+        </span>
+      </summary>
+
+      <div class="proj-detail">
+        <div>
+          <div class="detail-block">
+            <div class="detail-h">What it does</div>
+            <div class="detail-text">
+              <p>Upload a resume, paste a job posting, and in 10 to 20 seconds ApplyPilot returns a cover letter, an application email, a fit score, adapted resume bullets, and grounded answers to custom application questions. Resume and job parsing extract structured profiles; the fit score is computed in plain Python before any model call; generation runs through Groq's free Llama 3.3 70B. A real status pipeline (ready → approved → submitted → interviewing → offered/rejected) tracks every application.</p>
+              <p>The AI never invents experience. Resume adaptation carries explicit prompt level constraints: reword existing bullets to hit JD keywords, never add a skill or change a date. It was tested specifically by feeding a resume missing an obvious JD keyword to confirm it reframes rather than fabricates.</p>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Architecture</div>
+            <div class="arch-diagram">
+              <div class="arch-flow">
+                <div class="arch-node">Next.js 14<br><small>upload · paste JD</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">FastAPI<br><small>JWT REST · BackgroundTasks</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node key">Groq · Llama 3.3 70B<br><small>3 sequential calls</small></div>
+                <span class="arch-arr">→</span>
+                <div class="arch-node">PostgreSQL<br><small>profiles · application state</small></div>
+              </div>
+              <div class="arch-note">
+                Fit scoring is pure Python skill set intersection before any LLM call: transparent and fast, and it tells the user exactly why the score is what it is.
+                Three Groq calls per application (cover letter, email, resume adaptation) run sequentially inside one FastAPI BackgroundTask: no queue, no broker.
+                The whole stack runs in three Docker containers via Docker Compose; PostgreSQL persists profiles, documents, and lifecycle across five tables.
+                Groq free tier (Llama 3.3 70B) for every generation: no OpenAI key, no per call cost.
+              </div>
+            </div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-h">Technical depth</div>
+            <ul class="detail-bullets">
+              <li>Three tier app: Next.js 14 frontend with polling based state, JWT secured REST to a FastAPI backend, PostgreSQL for persistence: no unnecessary moving parts</li>
+              <li>Fit score is deterministic Python (skill set intersection) computed before any LLM call: transparent and explainable rather than an opaque embedding similarity</li>
+              <li>Three Groq calls per application run sequentially inside one FastAPI BackgroundTask: no Celery, no Redis, no broker: genuinely sufficient at this scale</li>
+              <li>Original design used Celery + Redis + LangGraph + Ollama: scrapped after testing because five extra containers and a message broker added complexity with no benefit, cut to BackgroundTasks + Groq</li>
+              <li>Resume adaptation is constrained at the prompt level to reword existing bullets only, never fabricate skills or dates: verified by adversarial testing with a missing keyword</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="sidebar-block">
+            <div class="sb-label">Stack</div>
+            <div class="sb-tags">
+              <span class="tag">FastAPI</span><span class="tag">SQLAlchemy 2</span>
+              <span class="tag">PostgreSQL 16</span><span class="tag">Next.js 14</span>
+              <span class="tag">TypeScript</span><span class="tag">React Query</span>
+              <span class="tag">Zustand</span><span class="tag">Tailwind</span>
+              <span class="tag">Groq · Llama 3.3 70B</span><span class="tag">Docker Compose</span>
+              <span class="tag">JWT</span>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Key metrics</div>
+            <div class="sb-metrics">
+              <div class="metric-row"><span class="metric-label">Time per application</span><span class="metric-val">10–20s</span></div>
+              <div class="metric-row"><span class="metric-label">Groq calls / application</span><span class="metric-val">3</span></div>
+              <div class="metric-row"><span class="metric-label">Free tier throughput</span><span class="metric-val">14,400 req/min</span></div>
+              <div class="metric-row"><span class="metric-label">Containers</span><span class="metric-val">3</span></div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sb-label">Links</div>
+            <a href="https://github.com/vj0246/ApplyPilot-AI" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
+            <a href="https://apply-pilot-ai.vercel.app" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
           </div>
         </div>
       </div>
@@ -611,10 +1260,10 @@
     <details class="proj-card" id="proj-auditmind">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">05</span>
+          <span class="proj-num">E4</span>
           <div class="proj-info">
             <div class="proj-title-row">
-              <span class="proj-name">AuditMind AI</span>
+              <span class="proj-name" role="heading" aria-level="3">AuditMind AI</span>
               <span class="badge progress">In Development</span>
             </div>
             <p class="proj-tagline">End to end multilingual audio intelligence pipeline for 13 Indian languages. Processes noisy field interview audio through ASR (Whisper large-v3), speaker diarization (SpeechBrain ECAPA-TDNN), and semantic question mapping: speaker labelled transcripts, zero paid API dependency.</p>
@@ -629,6 +1278,7 @@
           <span class="open-text">Close ↑</span>
         </span>
       </summary>
+
       <div class="proj-detail">
         <div>
           <div class="detail-block">
@@ -667,6 +1317,7 @@
             </ul>
           </div>
         </div>
+
         <div class="detail-sidebar">
           <div class="sidebar-block">
             <div class="sb-label">Stack</div>
@@ -684,130 +1335,119 @@
         </div>
       </div>
     </details>
+    <!-- CARDS:END engineering -->
 
   </div>
 </section>
 
 
-<section id="research">
-  <p class="section-eyebrow">Layer 03 · Frontier</p>
-  <h2 class="section-title">Research</h2>
-  <p class="section-sub">Independent research in applied AI, under ACM Research Core programme.</p>
+<section id="skills">
+  <p class="section-eyebrow">Layer 05 · Weights</p>
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">Aggregated from research and shipped work, grouped by domain. Quantitative methods first, because that is what the rest of this page is in service of.</p>
 
-  <div class="proj-list">
-    <details class="proj-card" id="proj-creditscore">
-      <summary class="proj-summary">
-        <div class="ps-left">
-          <span class="proj-num">R1</span>
-          <div class="proj-info">
-            <div class="proj-title-row">
-              <span class="proj-name">Cost Sensitive Deep Learning for Credit Scoring</span>
-              <span class="badge research">ACM Research · 2025</span>
-            </div>
-            <p class="proj-tagline">A novel deep learning architecture that learns non linear latent borrower risk embeddings, models temporal debt acceleration, optimises for economic loss (not AUC), and produces regulator grade explanations, built in, not post hoc.</p>
-            <div class="proj-tags">
-              <span class="tag">Deep Learning</span><span class="tag">Credit Risk</span>
-              <span class="tag">Cost Sensitive Learning</span><span class="tag">XAI</span>
-              <span class="tag">Latent Embeddings</span><span class="tag">FinTech</span>
-            </div>
-          </div>
-        </div>
-        <span class="expand-label">
-          <span class="close-text">View details ↓</span>
-          <span class="open-text">Close ↑</span>
-        </span>
-      </summary>
+  <div class="skills-grid">
 
-      <div class="proj-detail">
-        <div>
-          <div class="detail-block">
-            <div class="detail-h">The problem</div>
-            <div class="detail-text">
-              <p>Credit scoring sits at an intersection of three unsolved problems. First, high performing deep models learn complex non linear borrower representations that are impossible to explain to risk teams or satisfy regulators, explainability is now a legal requirement under frameworks like Basel and GDPR, and post hoc methods like SHAP produce approximations, not faithful explanations. Second, misclassification costs in lending are fundamentally asymmetric and instance dependent: rejecting a creditworthy borrower costs differently to approving a defaulter, and that ratio varies per loan. Optimising for AUC ignores this entirely. Third, existing models treat borrower risk as stationary, they miss that financial distress typically accelerates non linearly before a default event.</p>
-              <p>This research addresses all three with one unified architecture: learn latent risk embeddings, explicitly model debt acceleration dynamics, optimise directly on economic loss with an instance dependent cost function, and keep the decision process inherently interpretable.</p>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">Architecture</div>
-            <div class="arch-diagram">
-              <div class="arch-flow">
-                <div class="arch-node">Borrower Features<br><small>financial + behavioural</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">Deep Feature Extractor<br><small>non linear representations</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">Latent Risk Embeddings<br><small>borrower risk manifold</small></div>
-              </div>
-              <div class="arch-flow" style="margin-top:8px">
-                <div class="arch-node">Debt History<br><small>temporal sequence</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">Debt Acceleration Module<br><small>rate of change dynamics</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">Cost Sensitive Layer<br><small>instance dependent asymmetric loss</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Credit Decision<br><small>+ inherent XAI</small></div>
-              </div>
-              <div class="arch-note">
-                The cost sensitive decision layer uses an instance dependent asymmetric loss, the false negative penalty (approving a defaulter) vs. false positive penalty (rejecting a good borrower) is not a global constant but varies per borrower based on loan amount and risk profile.
-                The explainability layer is inherently interpretable by design: predictions decompose into feature level contributions directly from the architecture's forward pass, not SHAP approximations.
-              </div>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">Three original contributions</div>
-            <ul class="detail-bullets">
-              <li>Non linear latent risk embeddings, the model learns a borrower risk manifold from raw financial and behavioural inputs rather than relying on hand crafted credit features, capturing interaction effects that linear scorecards cannot represent</li>
-              <li>Temporal debt acceleration modelling, explicitly models the rate of change of debt accumulation over time; financial distress rarely appears suddenly, it accelerates, and this module learns those pre default dynamics from borrower history</li>
-              <li>Instance dependent cost sensitive optimisation, trained directly on economic loss where the asymmetric cost ratio is per borrower, not a fixed global hyperparameter; makes the learning objective match what a lender actually cares about</li>
-              <li>Inherently interpretable architecture, explainability is built into the model's forward computation, not added as a post hoc approximation; explanations are faithful to what the model actually computed, satisfying regulatory interpretability requirements</li>
-            </ul>
-          </div>
-
-          <div class="detail-block">
-            <div class="detail-h">Why AUC is the wrong metric here</div>
-            <div class="detail-text">
-              <p>A model that correctly identifies 90% of defaults but misclassifies every large loan defaulter as creditworthy scores well on AUC and is catastrophic in practice. This research trains directly on business loss: the asymmetric financial cost of each misclassification type, weighted by the specific borrower's loan profile. The evaluation metric is expected economic loss on the held out set, not AUC.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="detail-sidebar">
-          <div class="sidebar-block">
-            <div class="sb-label">Research org</div>
-            <div class="sb-tags">
-              <span class="tag">ACM Research Core</span>
-              <span class="tag">October 2025</span>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Domains</div>
-            <div class="sb-tags">
-              <span class="tag">AI in Credit Scoring</span>
-              <span class="tag">Cost Sensitive Learning</span>
-              <span class="tag">Deep Representation Learning</span>
-              <span class="tag">Explainable AI (XAI)</span>
-              <span class="tag">Temporal Modelling</span>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Progress</div>
-            <div class="sb-metrics">
-              <div class="metric-row"><span class="metric-label">Dataset</span><span class="metric-val" style="color:var(--green)">Confirmed</span></div>
-              <div class="metric-row"><span class="metric-label">Base paper</span><span class="metric-val" style="color:var(--green)">Found</span></div>
-              <div class="metric-row"><span class="metric-label">Architecture</span><span class="metric-val" style="color:var(--green)">Designed</span></div>
-              <div class="metric-row"><span class="metric-label">Implementation</span><span class="metric-val" style="color:var(--amber)">In progress</span></div>
-            </div>
-          </div>
+      <div class="skill-group">
+        <div class="sg-name">Quantitative Research &amp; Validation</div>
+        <div class="sg-tags">
+          <span class="sg-tag">Purged Walk Forward</span><span class="sg-tag">CPCV</span>
+          <span class="sg-tag">Probability of Backtest Overfitting</span><span class="sg-tag">Deflated Sharpe</span>
+          <span class="sg-tag">Probabilistic Sharpe</span><span class="sg-tag">White Reality Check</span>
+          <span class="sg-tag">Hansen SPA</span><span class="sg-tag">Bonferroni · Benjamini-Hochberg</span>
+          <span class="sg-tag">Bootstrap Confidence Intervals</span><span class="sg-tag">Spearman IC</span>
+          <span class="sg-tag">Look Ahead Detection</span><span class="sg-tag">Point in Time Data</span>
+          <span class="sg-tag">Survivorship Bias Control</span>
         </div>
       </div>
-    </details>
-  </div>
+
+      <div class="skill-group">
+        <div class="sg-name">Portfolio Construction &amp; Execution</div>
+        <div class="sg-tags">
+          <span class="sg-tag">Ledoit-Wolf Shrinkage</span><span class="sg-tag">Minimum Variance</span>
+          <span class="sg-tag">Gârleanu-Pedersen Partial Adjustment</span><span class="sg-tag">Volatility Targeting</span>
+          <span class="sg-tag">Cross Sectional Momentum</span><span class="sg-tag">Transaction Cost Modelling</span>
+          <span class="sg-tag">Square Root Market Impact</span><span class="sg-tag">ADV Participation Caps</span>
+          <span class="sg-tag">Event Driven Backtesting</span><span class="sg-tag">Drawdown Rails</span>
+          <span class="sg-tag">Idempotent Order Management</span><span class="sg-tag">Zerodha Kite</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-name">Data Science &amp; Market Data</div>
+        <div class="sg-tags">
+          <span class="sg-tag">NumPy</span><span class="sg-tag">Pandas</span>
+          <span class="sg-tag">Matplotlib</span><span class="sg-tag">NSE Bhavcopy</span>
+          <span class="sg-tag">Corporate Action Adjustment</span><span class="sg-tag">yfinance</span>
+          <span class="sg-tag">quantstats</span><span class="sg-tag">TA-Lib</span>
+          <span class="sg-tag">Parquet</span><span class="sg-tag">Jupyter</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-name">ML &amp; Deep Learning</div>
+        <div class="sg-tags">
+          <span class="sg-tag">TensorFlow</span><span class="sg-tag">Keras</span>
+          <span class="sg-tag">PyTorch</span><span class="sg-tag">Whisper large-v3</span>
+          <span class="sg-tag">SpeechBrain</span><span class="sg-tag">scikit-learn</span>
+          <span class="sg-tag">XGBoost</span><span class="sg-tag">NLTK</span>
+          <span class="sg-tag">SpaCy</span><span class="sg-tag">MLflow</span>
+          <span class="sg-tag">FinBERT</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-name">Generative AI &amp; LLMs</div>
+        <div class="sg-tags">
+          <span class="sg-tag">LangChain</span><span class="sg-tag">LangGraph</span>
+          <span class="sg-tag">LangChain LCEL</span><span class="sg-tag">RAG Pipelines</span>
+          <span class="sg-tag">FAISS</span><span class="sg-tag">RAGAS</span>
+          <span class="sg-tag">BM25</span><span class="sg-tag">FlashRank</span>
+          <span class="sg-tag">Ollama</span><span class="sg-tag">Groq</span>
+          <span class="sg-tag">NetworkX</span><span class="sg-tag">Pydantic</span>
+          <span class="sg-tag">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-name">Backend &amp; APIs</div>
+        <div class="sg-tags">
+          <span class="sg-tag">FastAPI</span><span class="sg-tag">Flask</span>
+          <span class="sg-tag">async SQLAlchemy</span><span class="sg-tag">PostgreSQL</span>
+          <span class="sg-tag">Supabase</span><span class="sg-tag">MySQL</span>
+          <span class="sg-tag">REST APIs</span><span class="sg-tag">Streamlit</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-name">Frontend</div>
+        <div class="sg-tags">
+          <span class="sg-tag">Next.js 14</span><span class="sg-tag">React 18</span>
+          <span class="sg-tag">TypeScript</span><span class="sg-tag">Tailwind CSS</span>
+          <span class="sg-tag">Vite</span><span class="sg-tag">React Query</span>
+          <span class="sg-tag">Zustand</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-name">Languages, Tools &amp; Infrastructure</div>
+        <div class="sg-tags">
+          <span class="sg-tag">Python</span><span class="sg-tag">C/C++</span>
+          <span class="sg-tag">Java</span><span class="sg-tag">MySQL</span>
+          <span class="sg-tag">TypeScript</span><span class="sg-tag">Docker</span>
+          <span class="sg-tag">Kubernetes</span><span class="sg-tag">AWS</span>
+          <span class="sg-tag">Git</span><span class="sg-tag">GitHub</span>
+          <span class="sg-tag">Vercel</span><span class="sg-tag">Linux</span>
+          <span class="sg-tag">VS Code</span>
+        </div>
+      </div>
+
+    </div>
 </section>
 
 
 <section id="education">
-  <p class="section-eyebrow">Layer 04 · Foundation</p>
+  <p class="section-eyebrow">Layer 06 · Foundation</p>
   <h2 class="section-title">Education</h2>
 
   <div class="edu-card">
@@ -820,16 +1460,15 @@
       </div>
     </div>
     <div class="edu-right">
-      <div class="edu-degree">B.Tech. Computer Engineering <span style="font-weight:500;font-size:15px;color:var(--blue)">· Honours in Data Science</span></div>
+      <div class="edu-degree" role="heading" aria-level="3">B.Tech. Computer Engineering <span style="font-weight:500;font-size:15px;color:var(--blue)">· Honours in Data Science</span></div>
         <div class="edu-school" style="font-size:13px;color:var(--g400);margin-bottom:2px;font-family:var(--mono);">Honours in Data Science</div>
       <div class="edu-school">Dwarkadas J. Sanghvi College of Engineering (DJSCE), Mumbai</div>
       <p class="edu-desc">
         One of Mumbai's top engineering colleges, affiliated with the University of Mumbai.
-        Building strong fundamentals in data structures, algorithms, operating systems,
-        computer networks, and database systems, alongside independent AI·ML research
-        that goes significantly beyond the curriculum. Current CGPA 9.4/10.
-        Every project on this portfolio was conceived, built, and shipped during undergraduate study.
-        Coursework is the floor, not the ceiling.
+        The degree supplies the fundamentals, data structures, algorithms, operating systems,
+        computer networks, and database systems, and it is not where the work on this page
+        came from. Every project here was scoped, built, validated, and shipped alongside it,
+        under nobody's syllabus. Current CGPA 9.4/10. Coursework is the floor.
       </p>
     </div>
   </div>
@@ -837,8 +1476,8 @@
 
 
 <section id="blog">
-  <p class="section-eyebrow">Layer 05 · Broadcast</p>
-  <h2 class="section-title">Blog</h2>
+  <p class="section-eyebrow">Layer 07 · Broadcast</p>
+  <h2 class="section-title">Writing</h2>
   <p class="section-sub">Technical articles published on Medium.</p>
 
   <div class="blog-grid">
@@ -885,88 +1524,8 @@
 </section>
 
 
-<section id="skills">
-  <p class="section-eyebrow">Layer 06 · Weights</p>
-  <h2 class="section-title">Skills</h2>
-  <p class="section-sub">Aggregated from all projects and work, grouped by domain.</p>
-
-  <div class="skills-grid">
-
-      <div class="skill-group">
-        <div class="sg-name">Generative AI &amp; LLMs</div>
-        <div class="sg-tags">
-          <span class="sg-tag">LangChain</span><span class="sg-tag">LangGraph</span>
-          <span class="sg-tag">LangChain LCEL</span><span class="sg-tag">RAG Pipelines</span>
-          <span class="sg-tag">FAISS</span><span class="sg-tag">RAGAS</span>
-          <span class="sg-tag">BM25</span><span class="sg-tag">FlashRank</span>
-          <span class="sg-tag">Ollama</span><span class="sg-tag">Groq</span>
-          <span class="sg-tag">NetworkX</span><span class="sg-tag">Pydantic</span>
-          <span class="sg-tag">Prompt Engineering</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-name">ML &amp; Deep Learning</div>
-        <div class="sg-tags">
-          <span class="sg-tag">TensorFlow</span><span class="sg-tag">Keras</span>
-          <span class="sg-tag">PyTorch</span><span class="sg-tag">Whisper large-v3</span>
-          <span class="sg-tag">SpeechBrain</span><span class="sg-tag">scikit-learn</span>
-          <span class="sg-tag">XGBoost</span><span class="sg-tag">NLTK</span>
-          <span class="sg-tag">SpaCy</span><span class="sg-tag">MLflow</span>
-          <span class="sg-tag">FinBERT</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-name">Data Science &amp; Quantitative Finance</div>
-        <div class="sg-tags">
-          <span class="sg-tag">NumPy</span><span class="sg-tag">Pandas</span>
-          <span class="sg-tag">Matplotlib</span><span class="sg-tag">yfinance</span>
-          <span class="sg-tag">quantstats</span><span class="sg-tag">TA-Lib</span>
-          <span class="sg-tag">Spearman IC</span><span class="sg-tag">Sharpe Ratio</span>
-          <span class="sg-tag">Walk Forward Validation</span><span class="sg-tag">Jupyter</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-name">Backend &amp; APIs</div>
-        <div class="sg-tags">
-          <span class="sg-tag">FastAPI</span><span class="sg-tag">Flask</span>
-          <span class="sg-tag">async SQLAlchemy</span><span class="sg-tag">PostgreSQL</span>
-          <span class="sg-tag">Supabase</span><span class="sg-tag">MySQL</span>
-          <span class="sg-tag">REST APIs</span><span class="sg-tag">Streamlit</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-name">Frontend</div>
-        <div class="sg-tags">
-          <span class="sg-tag">Next.js 14</span><span class="sg-tag">React 18</span>
-          <span class="sg-tag">TypeScript</span><span class="sg-tag">Tailwind CSS</span>
-          <span class="sg-tag">Vite</span><span class="sg-tag">React Query</span>
-          <span class="sg-tag">Zustand</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-name">Languages, Tools &amp; Infrastructure</div>
-        <div class="sg-tags">
-          <span class="sg-tag">Python</span><span class="sg-tag">C/C++</span>
-          <span class="sg-tag">Java</span><span class="sg-tag">MySQL</span>
-          <span class="sg-tag">TypeScript</span><span class="sg-tag">Docker</span>
-          <span class="sg-tag">Kubernetes</span><span class="sg-tag">AWS</span>
-          <span class="sg-tag">Git</span><span class="sg-tag">GitHub</span>
-          <span class="sg-tag">Vercel</span><span class="sg-tag">Linux</span>
-          <span class="sg-tag">VS Code</span>
-        </div>
-      </div>
-
-    </div>
-</section>
-
-
 <section id="achievements">
-  <p class="section-eyebrow">Layer 07 · Output</p>
+  <p class="section-eyebrow">Layer 08 · Output</p>
   <h2 class="section-title">Achievements</h2>
 
   <div class="achievement-grid">
@@ -975,7 +1534,7 @@
       <div class="achievement-type-label">Competition</div>
     </div>
     <div>
-      <div class="achievement-title">Urban Empire</div>
+      <div class="achievement-title" role="heading" aria-level="3">Urban Empire</div>
       <div class="achievement-subtitle">Data driven strategy competition</div>
       <p class="achievement-desc">Built a winning data driven city budget allocation strategy, placing first in the competition.</p>
     </div>
@@ -984,15 +1543,16 @@
 
 
 <section id="contact">
-  <p class="section-eyebrow">Layer 08 · Connect</p>
+  <p class="section-eyebrow">Layer 09 · Connect</p>
   <h2 class="section-title">Contact</h2>
 
   <div class="contact-wrap">
     <div>
       <p class="contact-intro">
-        Open to AI·ML internships, research collaborations, and interesting problems.
-        Email is fastest. If you're a recruiter, include the role and what the team works
-        on, saves time for both of us.
+        Open to quantitative research internships, research collaborations, and problems
+        where nobody already knows the answer. Email is fastest, and I read all of it.
+        If you're hiring, tell me what the desk actually trades and what the first six
+        months look like, and skip the pitch. It saves time for both of us.
       </p>
     </div>
     <div class="contact-links">
@@ -1041,17 +1601,17 @@
 </footer>
 
 <!-- ═══ RESUME MODAL ════════════════════════════ -->
-<div class="modal-bd" id="resumeModal" onclick="if(event.target===this)this.classList.remove('open')">
+<div class="modal-bd" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" aria-hidden="true">
   <div class="modal">
-    <div class="modal-title">Download Resume</div>
+    <h2 class="modal-title" id="resumeModalTitle">Download Resume</h2>
     <div class="modal-sub">Saves as PDF directly, no Overleaf, no sign in needed.</div>
     <div class="resume-opts">
-      <a class="resume-opt" href="resumes/resume-aiml.pdf" download="Vivaan_Jain_AIML.pdf">
-        <div><div class="ro-name">AI·ML Engineer</div><div class="ro-desc">LLMs · RAG · Transformers · PyTorch · LangChain</div></div>
+      <a class="resume-opt" href="resumes/resume-quant.pdf" download="Vivaan_Jain_Quant.pdf">
+        <div><div class="ro-name">Quantitative Researcher</div><div class="ro-desc">Systematic equity · Validation · Backtesting infrastructure</div></div>
         <span class="ro-arr">⬇</span>
       </a>
-      <a class="resume-opt" href="resumes/resume-quant.pdf" download="Vivaan_Jain_Quant.pdf">
-        <div><div class="ro-name">Quant · Fintech</div><div class="ro-desc">Transformer research · Financial modelling · FinBERT</div></div>
+      <a class="resume-opt" href="resumes/resume-aiml.pdf" download="Vivaan_Jain_AIML.pdf">
+        <div><div class="ro-name">AI·ML Engineer</div><div class="ro-desc">LLMs · RAG · Transformers · PyTorch · LangChain</div></div>
         <span class="ro-arr">⬇</span>
       </a>
       <a class="resume-opt" href="resumes/resume-swe.pdf" download="Vivaan_Jain_SWE.pdf">
@@ -1059,167 +1619,13 @@
         <span class="ro-arr">⬇</span>
       </a>
     </div>
-    <button class="modal-close" onclick="document.getElementById('resumeModal').classList.remove('open')">Close</button>
+    <button class="modal-close" type="button">Close</button>
   </div>
 </div>
 
 
-<!-- ═══ SCRIPT ════════ -->
-<script>
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ── Cinematic intro ──
-  (function () {
-    const intro = document.getElementById('intro');
-    if (!intro) return;
-    const dismiss = () => { intro.classList.add('gone'); document.body.style.overflow = ''; setTimeout(() => intro.remove(), 700); };
-    if (reduceMotion || sessionStorage.getItem('introSeen')) { intro.remove(); return; }
-    sessionStorage.setItem('introSeen', '1');
-    document.body.style.overflow = 'hidden';
-    const timer = setTimeout(dismiss, 2400);
-    intro.addEventListener('click', () => { clearTimeout(timer); dismiss(); });
-  })();
-
-  // ── Auto-tag reveal targets ──
-  document.querySelectorAll(
-    '.section-eyebrow, .section-title, .section-sub, .hero-left, .hero-sidebar, .hl-card, .exp-card, .proj-card, ' +
-    '.edu-card, .blog-card, .skill-group, .achievement-grid, .contact-intro, .contact-link'
-  ).forEach(el => { if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', ''); });
-
-  // ── Scroll reveal ──
-  const revealIo = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealIo.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('[data-reveal]').forEach(el => revealIo.observe(el));
-
-  // ── Animated counters ──
-  const animateCount = (el) => {
-    const target = parseFloat(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const decimals = (el.dataset.count.split('.')[1] || '').length;
-    const dur = 1400, t0 = performance.now();
-    const tick = (now) => {
-      const p = Math.min((now - t0) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = (target * eased).toFixed(decimals) + (p === 1 ? suffix : '');
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  const countIo = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      if (reduceMotion) e.target.textContent = e.target.dataset.count + (e.target.dataset.suffix || '');
-      else animateCount(e.target);
-      countIo.unobserve(e.target);
-    });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('[data-count]').forEach(c => countIo.observe(c));
-
-  // ── Scroll progress bar ──
-  const progress = document.getElementById('scroll-progress');
-  const onScrollProgress = () => {
-    const h = document.documentElement;
-    const max = h.scrollHeight - h.clientHeight;
-    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-  };
-
-  // ── Nav active link ──
-  const sections = [...document.querySelectorAll('main.page > section[id]')];
-  const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-
-  const setActive = (id) => {
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-  };
-  const sectionIo = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
-  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-  sections.forEach(s => sectionIo.observe(s));
-
-  window.addEventListener('scroll', () => requestAnimationFrame(onScrollProgress), { passive: true });
-  onScrollProgress();
-
-  // ── Mobile menu ──
-  const hamburger = document.getElementById('hamburger');
-  const navLinksWrap = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinksWrap.classList.toggle('mobile-open');
-  });
-  navLinksWrap.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    hamburger.classList.remove('active'); navLinksWrap.classList.remove('mobile-open');
-  }));
-
-  // ── 3D tilt on cards ──
-  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.hl-card, .exp-card, .edu-card, .blog-card, .skill-group, .achievement-grid, .hero-sidebar').forEach(card => {
-      card.addEventListener('mousemove', (ev) => {
-        const r = card.getBoundingClientRect();
-        const px = (ev.clientX - r.left) / r.width - 0.5;
-        const py = (ev.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `perspective(900px) rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg) translateY(-4px)`;
-      });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    });
-  }
-
-  // ── Global neural-network field ──
-  (function () {
-    const canvas = document.getElementById('neural-bg');
-    if (!canvas || reduceMotion) return;
-    const ctx = canvas.getContext('2d');
-    let w, h, dpr, nodes = [];
-    const mouse = { x: -9999, y: -9999 };
-    const DIST = 124;
-
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = window.innerWidth; h = window.innerHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(78, Math.floor(w * h / 21000));
-      nodes = Array.from({ length: count }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22
-      }));
-    };
-    resize();
-    window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-    window.addEventListener('mouseout', () => { mouse.x = mouse.y = -9999; });
-
-    const draw = () => {
-      ctx.clearRect(0, 0, w, h);
-      for (const n of nodes) {
-        n.x += n.vx; n.y += n.vy;
-        if (n.x < 0 || n.x > w) n.vx *= -1;
-        if (n.y < 0 || n.y > h) n.vy *= -1;
-        const dm = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-        if (dm < 150) { n.x += (n.x - mouse.x) / dm * 0.7; n.y += (n.y - mouse.y) / dm * 0.7; }
-      }
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const a = nodes[i], b = nodes[j];
-          const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < DIST) {
-            ctx.strokeStyle = `rgba(45,212,191,${(1 - d / DIST) * 0.16})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-          }
-        }
-      }
-      for (const n of nodes) {
-        const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < DIST;
-        ctx.fillStyle = near ? 'rgba(34,211,238,.85)' : 'rgba(94,234,212,.4)';
-        ctx.beginPath(); ctx.arc(n.x, n.y, near ? 2.4 : 1.5, 0, Math.PI * 2); ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    };
-    draw();
-  })();
-</script>
-
-<script src="js/github.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/github.js" defer></script>
 
 </body>
 </html>

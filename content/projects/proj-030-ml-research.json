@@ -1,0 +1,123 @@
+{
+  "section": "projects",
+  "order": 30,
+  "id": "ml-research",
+  "name": "ML Research: Equity Forecasting + Sentiment Alpha",
+  "badge": {
+    "kind": "research",
+    "text": "Research"
+  },
+  "tagline": "Two related quantitative finance ML projects: a custom Transformer for multi horizon Nifty 50 direction forecasting (0.62 AUC, 0.6+ Sharpe), and a controlled experiment testing whether news sentiment provides incremental alpha beyond price.",
+  "tags": [
+    "TensorFlow",
+    "FinBERT",
+    "XGBoost",
+    "yfinance",
+    "Pandas"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "Project 1: Multi Horizon Transformer for Nifty 50",
+      "paras": [
+        "A Transformer encoder built from scratch in TensorFlow that outputs directional forecasts for 4 horizons simultaneously: 1, 5, 10, and 20 trading days: from one forward pass. Trained on 4,900+ trading days (Jan 2006–Feb 2026). FinBERT news sentiment fused as a parallel signal. Achieved 0.62 AUC and 0.6+ non overlapping long short Sharpe on the held out test set."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Architecture: Transformer",
+      "flow": [
+        "18yr OHLCV|Jan 2006 to Feb 2026",
+        "->",
+        "*16 Features|OHLCV + technicals",
+        "+",
+        "*FinBERT|sentiment score",
+        "->",
+        "*Transformer Encoder|60-day self attention · TensorFlow",
+        "->",
+        "4 Outputs|1/5/10/20d · 0.62 AUC"
+      ],
+      "note": "Fully vectorized long short backtesting engine validates economic performance beyond drift.\nWalk forward validation and decile based strategy evaluation ensure no temporal leakage.\nLeakage free scaling applied to all features. 16 quantitative technical factors engineered.\nCompared against XGBoost baseline on same features. 0.6+ non overlapping long short Sharpe."
+    },
+    {
+      "type": "text",
+      "h": "Project 2: Sentiment Driven Quantitative Alpha Modeling",
+      "paras": [
+        "A rigorous controlled experiment testing a specific hypothesis: does news sentiment provide incremental predictive signal beyond pure price based models in financial markets? Pipeline fuses historical price, volume, and API sourced news sentiment. Found a 5-day return correlation improvement from 0.43 to 0.46 using sentiment features, supported by MAE and RMSE diagnostics and shuffle testing. Conclusion: gains were modest, unstable, and highly sensitive to validation design: which is itself a meaningful finding about the fragile nature of financial signals."
+      ]
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth across both projects",
+      "items": [
+        "TensorFlow throughout: Transformer encoder built from scratch, custom multi head attention, positional encoding, 60-day temporal context window",
+        "Fully vectorized backtesting engine: long short strategy evaluated at decile level without any lookahead: the backtester was built from scratch, not a library",
+        "Walk forward validation: multiple expanding train windows evaluated in sequence, not a single temporal split, providing more robust out of sample estimates",
+        "Leakage free scaling: mean and std computed only on training windows, applied to val/test: prevents a common source of overly optimistic results in finance ML",
+        "Sentiment alpha experiment designed to falsify, not confirm: MAE/RMSE diagnostics and shuffle testing specifically to distinguish genuine signal from validation artefacts"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "TensorFlow",
+        "FinBERT",
+        "XGBoost",
+        "Pandas",
+        "NumPy",
+        "scikit-learn",
+        "yfinance",
+        "quantstats",
+        "Jupyter"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "AUC (Transformer)",
+          "0.62"
+        ],
+        [
+          "L/S Sharpe",
+          "0.6+"
+        ],
+        [
+          "Training days",
+          "4,900+"
+        ],
+        [
+          "Features",
+          "16"
+        ],
+        [
+          "Sentiment correlation",
+          "0.43 → 0.46"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "Transformer GitHub",
+          "https://github.com/vj0246/Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting"
+        ],
+        [
+          "Sentiment GitHub",
+          "https://github.com/vj0246/Text-Sentiment-Classification-System"
+        ],
+        [
+          "Results Dashboard",
+          "https://multi-horizon-transformer-for-syste.vercel.app"
+        ]
+      ]
+    }
+  ]
+}

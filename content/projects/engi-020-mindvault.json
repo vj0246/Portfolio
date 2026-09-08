@@ -1,0 +1,115 @@
+{
+  "section": "engineering",
+  "order": 20,
+  "id": "mindvault",
+  "name": "MindVault",
+  "badge": {
+    "kind": "live",
+    "text": "● Live"
+  },
+  "tagline": "Production grade multi tenant RAG system with hybrid retrieval (semantic + BM25 + FlashRank reranking via Reciprocal Rank Fusion), real time streaming, multimodal ingestion, and RAGAS validated quality across 25+ test cases.",
+  "tags": [
+    "LangChain LCEL",
+    "FAISS",
+    "RAGAS",
+    "FastAPI",
+    "Next.js",
+    "Supabase/pgvector"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "A multi tenant RAG system where users upload documents and query them with natural language. Under the hood it uses three retrieval methods fused together: semantic vector search, BM25 keyword matching, and FlashRank cross encoder reranking combined via Reciprocal Rank Fusion. This eliminates the blind spots that any single retrieval method has. Real time streaming responses, multimodal document and image ingestion, shareable conversation links.",
+        "Built to run reliably on constrained 512MB infrastructure. Diagnosed and resolved 6+ critical production incidents including memory leaks, race conditions, and rate limit cascades. RAGAS evaluation suite covers faithfulness, context precision, and context recall across 25+ test cases."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flow": [
+        "Document|PDF · image · text",
+        "->",
+        "Chunker|500 chars",
+        "->",
+        "*3 Retrievers|FAISS · BM25 · FlashRank",
+        "->",
+        "*RRF Fusion|Reciprocal Rank Fusion",
+        "->",
+        "LLM|streaming"
+      ],
+      "note": "Parallel async retrieval across all three methods, selective LLM call pruning on low confidence chunks: 40% reduction in query latency.\nIntent classification and context aware query rewriting before retrieval. Cross session conversational memory with rolling summarisation.\nKnowledge graph layer (NetworkX) extracts typed entity relationships across 50+ concept nodes per document, rendered as interactive graph UI.\nMulti tenant: Supabase/pgvector with row level security, every query scoped to authenticated user at database level."
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth",
+      "items": [
+        "Hybrid retrieval via Reciprocal Rank Fusion: FAISS semantic search, BM25 keyword matching, and FlashRank cross encoder reranking each run in parallel, results fused to eliminate single method blind spots",
+        "40% query latency reduction through parallel async retrieval and selective LLM call pruning on chunks below a confidence threshold",
+        "RAGAS evaluation suite: automated faithfulness, context precision, and context recall scoring across 25+ curated test cases, run on every significant change",
+        "6+ critical production incidents resolved: memory leaks from embedding model loading, race conditions in concurrent session writes, rate limit cascades under burst load: zero downtime reliability on 512MB infrastructure",
+        "Knowledge graph construction from LLM extracted typed entity relationships across 50+ concept nodes, stored in NetworkX, rendered as interactive node graph in Next.js frontend",
+        "Intent classification chain rewrites ambiguous or context dependent queries before retrieval, improving relevance without the user needing to rephrase"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "FastAPI",
+        "LangChain LCEL",
+        "FAISS",
+        "BM25",
+        "FlashRank",
+        "RAGAS",
+        "NetworkX",
+        "Pydantic",
+        "Ollama",
+        "Next.js",
+        "TypeScript",
+        "Supabase/pgvector",
+        "Vercel"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "Query latency",
+          "40% faster"
+        ],
+        [
+          "RAGAS test cases",
+          "25+"
+        ],
+        [
+          "Prod incidents fixed",
+          "6+"
+        ],
+        [
+          "Concept nodes",
+          "50+"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/MindVault"
+        ],
+        [
+          "Live Demo",
+          "https://mind-vault-red.vercel.app/"
+        ]
+      ]
+    }
+  ]
+}

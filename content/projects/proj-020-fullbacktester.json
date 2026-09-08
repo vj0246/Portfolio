@@ -1,0 +1,153 @@
+{
+  "section": "projects",
+  "order": 20,
+  "id": "fullbacktester",
+  "name": "FullBacktester · Leakage Resistant Backtesting Framework",
+  "badge": {
+    "kind": "progress",
+    "text": "v0.1 · Alpha"
+  },
+  "tagline": "A Python backtesting library for people who have been burned by backtests. Point in time data access that makes look ahead a construction error rather than a discipline problem, an AST scanner and a perturbation tester for leakage in strategy code, two execution engines whose disagreement is itself the diagnostic, and performance statistics that account for how many strategies you tried before picking this one.",
+  "tags": [
+    "Python Package",
+    "Point in Time PanelView",
+    "AST Leakage Scanner",
+    "Dual Engine Parity",
+    "Deflated Sharpe · PBO"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "Most backtesting frameworks leave the hard part to the user's discipline: not reading the future, not trusting a fill that would never happen, not forgetting how many strategies were tried before this one looked good. FullBacktester moves each of those from a habit into a construction constraint. A strategy never receives a full price history, only a <code>PanelView</code> of bars up to and including the current one, with read only arrays and bars stamped at their close instant in UTC, so a daily bar is not knowable until the exchange has actually closed.",
+        "Every strategy in an <code>Arena</code> runs against the same panel, the same execution config, and the same battery of checks, and the overfitting statistics use the number of entries as the number of trials. The summary reports CAGR, Sharpe, deflated Sharpe given that trial count, max drawdown, turnover, cost drag, and the Sharpe gap between the idealized and realistic engines, with every HIGH severity validation finding printed underneath."
+      ]
+    },
+    {
+      "type": "table",
+      "h": "What it defends against",
+      "cols": [
+        "Pitfall",
+        "Defence"
+      ],
+      "rows": [
+        [
+          "Look ahead through the data",
+          "PanelView ends at the current bar; UTC close stamping"
+        ],
+        [
+          "Look ahead in strategy code",
+          "StaticScanner AST patterns + FutureLeakTester perturbation"
+        ],
+        [
+          "Look ahead in ML training",
+          "Embargoed WalkForwardMLStrategy + PurgedKFold"
+        ],
+        [
+          "Unrealistic execution",
+          "Event driven engine, cash ledger, next open fills, participation caps"
+        ],
+        [
+          "Vectorized wishful thinking",
+          "Same cost model, checked against the event driven engine"
+        ],
+        [
+          "Trying many strategies",
+          "Deflated Sharpe and CSCV probability of backtest overfitting"
+        ]
+      ],
+      "caption": "Pitfall and defence",
+      "note": "StaticScanner flags negative shifts, centred rolling windows, backward fills, and fitting before the split. FutureLeakTester reruns the strategy twice, once with bars after t replaced by noise and once with the history truncated at t: a decision at t that changes was reading the future.\nUnder idealized settings the two engines agree to 1e-9; under realistic settings the gap between them is reported as implementation risk rather than hidden."
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flow": [
+        "DataSource|yfinance · NSE bhavcopy · local",
+        "->",
+        "*Panel · PanelView|read only, ends at bar t",
+        "->",
+        "Strategy|weights or on_bar",
+        "->",
+        "*Two Engines|event driven · vectorized",
+        "->",
+        "*Validation|AST · perturbation · parity · data QA",
+        "->",
+        "Arena Report|DSR · PBO · cost drag"
+      ],
+      "note": "A signal computed from bar t's close executes at bar t+1's open. SAME_CLOSE fill timing exists for market on close strategies and is flagged as optimistic in every report that sees it. Limit and stop orders are evaluated against the next bar's range with conservative fill prices.\nAnnualization comes from the panel's market and bar frequency: 252 US sessions, 250 Indian sessions, 365 crypto days, and intraday multiples of each. Undefined statistics are NaN, never zero.\nThe NSE bhavcopy source is unadjusted and survivorship free, so it is the right source for universe membership and volume checks, and the wrong one for returns. The framework declares that per source rather than letting the user guess."
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth",
+      "items": [
+        "Point in time by construction: <code>PanelView</code> exposes bars [0, t] as read only arrays, so look ahead is a type of code that cannot be written rather than a mistake to be caught in review",
+        "Two independent leakage detectors: a static AST scanner over strategy source, and a dynamic perturbation tester that corrupts the future and checks whether the present decision moves",
+        "Dual engine design where agreement is the test: the vectorized engine exists for speed and shares the cost model exactly, and any divergence from the event driven ledger is surfaced as implementation risk",
+        "Multiple testing taken seriously: <code>probabilistic_sharpe_ratio</code>, <code>deflated_sharpe_ratio</code>, <code>minimum_backtest_length</code>, and CSCV <code>probability_of_backtest_overfitting</code> are first class metrics, not an appendix",
+        "Packaging verified the way users experience it: a clean room script builds the wheel, installs it into a fresh virtualenv with the source tree off the path, and exercises the installed copy, which catches a module missing from the wheel, a lost <code>py.typed</code> marker, or an extra that is not really optional",
+        "Limitations stated in the README rather than discovered later: corporate actions are not modelled point in time, intraday fills assume the bar's open is attainable, the leakage tests cannot see a strategy that reads the future from a global, and no options, futures margining, borrow costs or FX in v0.1"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python 3.11+",
+        "NumPy",
+        "Pandas",
+        "Parquet cache",
+        "Hypothesis",
+        "pytest",
+        "mypy",
+        "ruff",
+        "yfinance",
+        "NSE Bhavcopy",
+        "GitHub Actions CI"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "Engine agreement",
+          "1e-9"
+        ],
+        [
+          "Test suite",
+          "~80"
+        ],
+        [
+          "Python versions in CI",
+          "3.11–3.13"
+        ],
+        [
+          "OS legs in CI",
+          "3"
+        ],
+        [
+          "Leakage detectors",
+          "2"
+        ],
+        [
+          "Markets supported",
+          "US · IN · Crypto"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/Backtesting-Framework"
+        ]
+      ]
+    }
+  ]
+}

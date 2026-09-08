@@ -2,178 +2,228 @@
 
 How to add a project, and how the automation actually works.
 
-This site is a **static single page** (`index.html` + `css/style.css` + a little vanilla JS).
-No framework, no build step. You edit HTML, push, and Vercel redeploys.
+The site is a **static single page** — `index.html` + `css/style.css` + two small vanilla JS
+files. No framework and no bundler. The one build step renders project cards from JSON.
 
 ---
 
-## The two automations (do not confuse them)
-
-There are two completely independent systems:
-
-| System | What it does | Involved when adding a project? |
-|--------|--------------|--------------------------------|
-| **Vercel auto-deploy** | Watches the GitHub repo. Every push to `main` triggers an automatic rebuild + redeploy (~30s). This is the only thing that publishes your changes. | **Yes** — push = live. |
-| **GitHub Action (`sync.yml`)** | Runs `scripts/fetch_data.py`, which writes `data/github_data.json` (repo count, recent pushes, READMEs). Feeds the "Live from GitHub" strip under the Projects heading. | **No** — it powers the live strip, not the project cards. |
-
-### What the GitHub Action feeds
-
-`index.html` loads `js/github.js`, which fetches `data/github_data.json` and fills the
-**"Live from GitHub"** strip under the Projects heading (`#gh-repo-count`, `#gh-updated`,
-`#gh-recent`). So the Action keeps that strip current — public repo count, "synced Xh ago",
-and the most recent pushes — with zero manual work.
-
-It does **not** touch your project cards. **Adding a project is still 100% a manual HTML edit.**
-
-Mental model:
-
-```
-You edit index.html  --push-->  Vercel redeploys  -->  LIVE            (this is "adding a project")
-sync.yml (daily)     -->  refreshes data/github_data.json  --push-->  Vercel redeploys
-                     -->  js/github.js reads it  -->  "Live from GitHub" strip updates itself
-```
-
----
-
-## Part 1 — Add a new project (the manual part)
-
-### Step 1: Study the repo's README first
-
-Pull these out of the project's `README.md`, **verbatim — never invent numbers**:
-
-- One-line what-it-does → **tagline**
-- Real tech stack → **tags** + **sidebar Stack**
-- Hard numbers (latency, test cases, tools, users, accuracy…) → **Key metrics**
-- The pipeline / data flow → **Architecture** nodes
-- Live URL + GitHub URL → **Links**
-- Status (live / in progress / research) → **badge**
-
-### Step 2: Copy an existing card
-
-Each project is one `<details class="proj-card" id="proj-XXX"> … </details>` block inside
-`<section id="projects">` → `<div class="proj-list">`.
-
-- Has a live demo → copy `proj-finintel` or `proj-applypilot` (GitHub + Live links).
-- No demo → copy `proj-auditmind` (GitHub link only).
-
-### Step 3: Paste in the position you want
-
-Order on the page = top-to-bottom order of the blocks in the file. Drop the copy where it should appear.
-
-### Step 4: Change exactly these fields
-
-```html
-<details class="proj-card" id="proj-YOURNAME">        <!-- unique id -->
-  ...
-  <span class="proj-num">06</span>                    <!-- sequence number -->
-  <span class="proj-name">Project Name</span>         <!-- title -->
-  <span class="badge live">● Live</span>              <!-- badge: see table below -->
-  <p class="proj-tagline">One sentence: what it is + why it matters.</p>
-  <div class="proj-tags">                              <!-- 4-6 chips -->
-    <span class="tag">FastAPI</span><span class="tag">Groq</span>
-  </div>
-  ...
-  <!-- "What it does": 1-2 <p> paragraphs -->
-  <!-- "Architecture": arch-node boxes (see reference below) -->
-  <!-- "Technical depth": <li> bullets in <ul class="detail-bullets"> -->
-  <!-- Sidebar: Stack tags, Key metrics rows, Links -->
-  <a href="https://github.com/vj0246/REPO" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
-  <a href="https://YOURAPP.vercel.app" target="_blank" rel="noopener" class="sb-link">Live Demo <span>↗</span></a>
-</details>
-```
-
-### Step 5: Renumber
-
-If you inserted in the middle, fix `<span class="proj-num">NN</span>` on the cards below so the
-sequence stays 01, 02, 03…
-
-### Step 6: What you do NOT touch
-
-Nothing else. No JS, no `data/`, no CSS. The `◆ model-card` badge, gradient edge, scroll-reveal,
-3D tilt, and expand/collapse all auto-apply from existing selectors. That is why every card looks
-consistent.
-
-### Step 7: Test, then ship
+## Add a project
 
 ```bash
-# Preview locally first: open v5/index.html in your browser, click the new card.
 cd "C:/Users/vivaa/OneDrive/Desktop/Personal Projects/Portfolio/v5"
-git add index.html
-git commit -m "feat(projects): add <Name> project card"
-git pull --rebase origin main   # CI commits data back; always rebase first
-git push
+
+cp content/projects/_TEMPLATE.json content/projects/proj-050-quantstorm.json
+# edit that file
+python scripts/publish.py
 ```
 
-Push → Vercel redeploys in ~30s → live.
+That is the whole workflow. `publish.py` builds the cards, runs the checks, shows you the diff,
+asks once, then commits, rebases, and pushes. Vercel redeploys about 30 seconds later.
 
-> Research-section project? Same block, but paste inside `<section id="research">`,
-> use `badge research`, and number it `R2`, `R3`, …
+### Step 1 — read the repo's README first
+
+Pull these out of the project's own `README.md`, **verbatim, never invent numbers**:
+
+| From the README | Goes into |
+|---|---|
+| One-line what-it-does | `tagline` |
+| Real tech stack | `tags` and the `Stack` sidebar block |
+| Hard numbers (Sharpe, latency, test count, accuracy) | a `table` block, and the `Key metrics` sidebar |
+| The pipeline or data flow | an `arch` block |
+| Results that did **not** work | a `nulls` block — on a quant page these carry more weight than the wins |
+| Live URL and GitHub URL | the `Links` sidebar block |
+| Status | `badge` |
+
+READMEs drift. A number that the repo now contradicts is worse than no number. Check the live
+README, not an older copy of this site.
+
+Verify every demo URL before writing it in:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" -L https://your-demo.vercel.app
+```
+
+`python scripts/validate.py --links` does this for every link on the page at once.
+
+### Step 2 — name the file
+
+`<section>-<order>-<id>.json`, for example `proj-050-quantstorm.json`.
+
+| `section` | Renders in | Numbered |
+|---|---|---|
+| `projects` | Quantitative Research | `01`, `02`, `03`… |
+| `frontier` | Research | `R1`, `R2`… |
+| `engineering` | Engineering | `E1`, `E2`… |
+
+The site leads with quant. A project belongs in `projects` only if it is quantitative research;
+shipped applications go in `engineering`.
+
+`order` is the sort key inside its section. Existing cards use gaps of 10, so to slot a project
+between `010` and `020` give it `015` — no other file needs touching. **Card numbers are derived
+from position, so renumbering happens on its own.**
+
+Files beginning with `_` are ignored by the build, which is why `_TEMPLATE.json` is safe to leave
+in place.
+
+### Step 3 — fill in the fields
+
+`_TEMPLATE.json` carries the full schema in its `_readme` key, with every block type and every
+option. Delete that key in your copy. The short version:
+
+```jsonc
+{
+  "section": "projects",
+  "order": 50,
+  "id": "quantstorm",                                  // becomes id="proj-quantstorm", must be unique
+  "name": "QuantStorm 2026",
+  "badge": { "kind": "research", "text": "Competition" },
+  "tagline": "One or two sentences.",
+  "tags": ["Python", "Game Theory"],
+  "blocks":  [ /* text | bullets | arch | table | nulls | html */ ],
+  "sidebar": [ /* tags | metrics | links */ ]
+}
+```
+
+String values are emitted as HTML, so `<code>`, `<strong>` and `&amp;` all work inside them.
+The content is authored in this repo and never comes from a visitor, so nothing is escaped.
+
+### Step 4 — build and look at it
+
+```bash
+python scripts/build.py     # rewrites the card lists in index.html
+python scripts/validate.py  # tag balance, anchors, duplicate ids, numbering, assets
+```
+
+Then open `index.html` in a browser and click the new card. `publish.py` runs both scripts for
+you, but running them directly is the faster loop while you are still editing.
+
+### Step 5 — ship
+
+```bash
+python scripts/publish.py              # build, check, diff, confirm, push
+python scripts/publish.py --links      # ...and verify every external URL first
+python scripts/publish.py --dry-run    # everything except commit and push
+python scripts/publish.py -m "feat(projects): add QuantStorm card"
+```
+
+It refuses to run off `main`, never force-pushes, and if the rebase conflicts it stops and leaves
+your commit intact for you to finish by hand.
 
 ---
 
-## Reference: card building blocks
+## Block types
 
-### Badge options (pick one)
+Full details in `_TEMPLATE.json`. Summary:
 
-| Class | Renders |
-|-------|---------|
-| `badge live` | ● Live |
-| `badge progress` | In Development |
-| `badge research` | Research |
+| Type | Renders |
+|---|---|
+| `text` | prose paragraphs |
+| `bullets` | the standard dotted list |
+| `arch` | architecture diagram |
+| `table` | results table |
+| `nulls` | red-ruled callout for negative results |
+| `html` | escape hatch, raw markup for anything the schema misses |
 
-### Architecture flow pieces (inside `.arch-flow`)
+**`arch` flow shorthand** — one array, read left to right:
 
-| Markup | Purpose |
-|--------|---------|
-| `<div class="arch-node">Label<br><small>detail</small></div>` | Normal box |
-| `<div class="arch-node key">…</div>` | Highlighted (teal) box — use for the important steps |
-| `<span class="arch-arr">→</span>` | Arrow between boxes |
-| `<span class="arch-plus">+</span>` | Plus sign (for parallel inputs merging) |
-
-### Metric row (inside `.sb-metrics`)
-
-```html
-<div class="metric-row"><span class="metric-label">Query latency</span><span class="metric-val">40% faster</span></div>
+```json
+"flow": ["NSE Bhavcopy|corporate actions", "->", "*Validation|purged CV · CPCV", "->", "Book"]
 ```
+
+`Label|small text` is a normal box, a leading `*` makes it a highlighted box, `->` is an arrow, and
+`+` is a plus for parallel inputs merging. Use `"flows": [[...], [...]]` for more than one row.
+
+**`table` cells** — prefix a row's first cell with `*` to highlight the row; append `|pos`, `|neg`,
+`|flat` or `|amber` to any cell to colour it like a PnL readout.
+
+**Sidebar metrics** take the same tones: `["Net Sharpe", "1.02", "pos"]`.
+
+### Badges
+
+| `kind` | Colour |
+|---|---|
+| `live` | green, PnL positive |
+| `progress` | amber |
+| `research` | sky |
+| `published` | blue |
+| `freelance` | grey |
+| `intern` | red |
+
+`text` is free-form, so `● Live · Operated` and `v0.1 · Alpha` are both fine.
 
 ---
 
-## Part 2 — How the GitHub Action works (`.github/workflows/sync.yml`)
+## What you do **not** touch
 
-```
-Triggers:  daily 18:30 UTC (cron)
-           manual  (GitHub → Actions tab → "Sync Portfolio Data" → Run workflow)
-           push to main  (skipped for pushes that only touch data/** or *.md)
+Do not hand-edit a `<details class="proj-card">` block in `index.html`. Everything between the
+`<!-- CARDS:START ... -->` and `<!-- CARDS:END ... -->` markers is generated, and the next
+`build.py` will overwrite it. CI fails the commit if the two ever disagree
+(`python scripts/build.py --check`).
 
-Steps:     checkout → set up Python 3.11 → pip install requests
-           → run scripts/fetch_data.py   (env: GITHUB_TOKEN, GITHUB_USERNAME=vj0246)
-           → if data/github_data.json changed → commit "[skip ci]" → push
-
-Hardening: permissions: contents: write   (least privilege — only needs to commit data back)
-           concurrency group                (a scheduled run and a push run never race on git push)
-```
-
-`scripts/fetch_data.py` calls the GitHub API, paginates your public repos, and writes
-`data/github_data.json`: public repo count, 8 most recent pushes, all repos, and the READMEs of the
-repos listed in `KEY_REPOS`.
-
-### The "Live from GitHub" strip (wired)
-
-`js/github.js` reads this JSON and populates the strip under the Projects heading. It is XSS-safe:
-values are set with `textContent` / `replaceChildren` (never `innerHTML`), and repo URLs are
-allow-listed to `https://github.com/` before use. If the fetch ever fails, the static fallback text
-in `index.html` (`25+ public repos · auto-synced daily`) stays in place, so it never looks broken.
-
-The strip updates on its own: the daily cron rewrites `data/github_data.json` → the commit push
-triggers a Vercel redeploy → the new JSON is served → the strip shows fresh numbers. No action needed.
-
-If you add a big new project and want its README pulled into the data file, add its repo name to the
-`KEY_REPOS` list in `scripts/fetch_data.py`.
+Everything else about a card — the `◆ tearsheet` label, the gradient edge, scroll reveal, 3D tilt,
+expand and collapse — comes from existing CSS selectors. That is why every card looks consistent.
 
 ---
 
-## Security / headers
+## Front-end conventions
 
-Security headers (CSP, HSTS, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy) are set in
-`vercel.json`. If you add a new external resource (a font host, a script, an analytics tag), you must
-add its origin to the matching CSP directive in `vercel.json`, or the browser will block it.
+`index.html` carries **no inline JavaScript and no inline event handlers** (`onclick=` and friends).
+All behaviour lives in `js/main.js`, loaded with `defer`; the GitHub strip lives in `js/github.js`.
+For a new interaction, add a small `init*()` function in `main.js` and call it from the boot block
+at the bottom. `validate.py` fails the build if an inline handler reappears.
+
+The one remaining inline `<script>` is the JSON-LD `Person` block in `<head>`, which is data, not
+code. That is also why `script-src` still carries `'unsafe-inline'`: browsers apply it to
+`application/ld+json` too, so removing it would drop the structured data.
+
+Accessibility invariants worth not breaking: a skip link is the first tab stop, `:focus-visible`
+gives every interactive element a visible ring, the resume modal traps focus and restores it on
+close, and card titles carry `role="heading" aria-level="3"`. A `<noscript>` block in `<head>`
+disables the intro overlay and forces `[data-reveal]` content visible, so the page still reads
+with JavaScript off.
+
+---
+
+## The automation
+
+Three independent systems. Do not confuse them.
+
+| System | What it does | Involved when adding a project? |
+|---|---|---|
+| **Vercel auto-deploy** | Watches the repo. Every push to `main` rebuilds and redeploys in ~30s. The only thing that publishes changes. | **Yes** — push means live. |
+| **CI (`ci.yml`)** | On every push and PR: `build.py --check`, `validate.py`, and `node --check` on both JS files. | Only as a safety net. |
+| **Sync (`sync.yml`)** | Daily at 18:30 UTC, runs `scripts/fetch_data.py` to rewrite `data/github_data.json`, which feeds the "Live from GitHub" strip. | **No** — it powers the strip, not the cards. |
+
+```
+edit content/projects/*.json  ->  publish.py  ->  Vercel redeploys  ->  LIVE
+sync.yml (daily)              ->  data/github_data.json  ->  js/github.js  ->  strip updates itself
+```
+
+### The "Live from GitHub" strip
+
+`scripts/fetch_data.py` calls the GitHub API, paginates the public repos, and writes
+`data/github_data.json`: repo count, the 8 most recent pushes, all repos, and the READMEs of the
+repos listed in `KEY_REPOS`. `js/github.js` reads it and fills `#gh-repo-count`, `#gh-updated` and
+`#gh-recent`.
+
+It is XSS-safe: values are set with `textContent` / `replaceChildren`, never `innerHTML`, and repo
+URLs are allow-listed to `https://github.com/` before use. If the fetch fails, the static fallback
+text in `index.html` stays in place, so it never looks broken.
+
+Adding a big project? Add its repo name to `KEY_REPOS` in `scripts/fetch_data.py` so its README
+gets pulled into the data file.
+
+---
+
+## Security and headers
+
+`vercel.json` sets CSP, HSTS, `X-Frame-Options`, `nosniff`, `Referrer-Policy`, `Permissions-Policy`
+and `X-Robots-Tag: all`. **Adding a new external resource — a font host, a script, an analytics tag
+— means adding its origin to the matching CSP directive, or the browser silently blocks it.**
+
+Static assets are cached at the CDN with `s-maxage` and revalidated by the browser. They are *not*
+`immutable`: filenames are not content-hashed, so an immutable header would pin stale CSS in
+visitors' browsers across deploys.
+
+`robots.txt` allows everything, and names the AI and LLM crawlers explicitly so a crawler that
+defaults to deny-unless-listed still resolves to allow.

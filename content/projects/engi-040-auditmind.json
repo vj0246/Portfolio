@@ -1,0 +1,77 @@
+{
+  "section": "engineering",
+  "order": 40,
+  "id": "auditmind",
+  "name": "AuditMind AI",
+  "badge": {
+    "kind": "progress",
+    "text": "In Development"
+  },
+  "tagline": "End to end multilingual audio intelligence pipeline for 13 Indian languages. Processes noisy field interview audio through ASR (Whisper large-v3), speaker diarization (SpeechBrain ECAPA-TDNN), and semantic question mapping: speaker labelled transcripts, zero paid API dependency.",
+  "tags": [
+    "PyTorch",
+    "Whisper large-v3",
+    "SpeechBrain ECAPA-TDNN",
+    "13 Indian languages"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "Processes noisy field interview recordings in 13 Indian languages into clean, speaker labelled transcripts with zero paid API dependency. Raw audio goes through signal preprocessing, ASR via Whisper large-v3, speaker diarization via SpeechBrain ECAPA-TDNN, and semantic question mapping to produce structured outputs from unstructured conversational audio at scale."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flow": [
+        "Raw Audio|noisy field recordings",
+        "->",
+        "*Signal Preprocessing|bandpass · noise reduction · RMS norm",
+        "->",
+        "*Whisper large-v3|ASR · 13 Indian languages",
+        "->",
+        "*SpeechBrain ECAPA-TDNN|speaker diarization",
+        "->",
+        "Structured Transcript|speaker labelled output"
+      ],
+      "note": "Preprocessing evaluator tests 16 signal processing configurations (bandpass, noise reduction, RMS normalisation) scored via Whisper confidence metrics to identify the optimal variant per audio condition automatically.\nNo paid API at any stage: Whisper and SpeechBrain run fully on PyTorch locally."
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth",
+      "items": [
+        "Whisper large-v3 for multilingual ASR across 13 Indian languages including dialects where cloud APIs degrade on noisy field recordings; runs entirely locally with no per call cost",
+        "SpeechBrain ECAPA-TDNN separates overlapping speech and assigns speaker identities so transcripts are labelled by who said what, not just a flat stream of text",
+        "16-configuration preprocessing evaluator: systematic search over combinations of bandpass filters, noise reduction, and RMS normalisation; selects the best scoring variant per input using Whisper confidence as the objective metric",
+        "Semantic question mapping layer maps transcript segments to structured question slots, enabling downstream analysis without manual review of raw transcripts"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "PyTorch",
+        "Whisper large-v3",
+        "SpeechBrain",
+        "ECAPA-TDNN",
+        "SoundFile",
+        "NoiseReduce"
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/auditmind-ai"
+        ]
+      ]
+    }
+  ]
+}

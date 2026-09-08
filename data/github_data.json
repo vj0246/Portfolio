@@ -1,101 +1,161 @@
 {
-  "generated_at": "2026-07-07T17:46:27.243749+00:00",
+  "generated_at": "2026-09-07T08:28:06.724812+00:00",
   "username": "vj0246",
-  "public_repo_count": 26,
+  "public_repo_count": 39,
   "recent_pushes": [
-    {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-07-07T17:46:10Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "ApplyPilot-AI",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-07-07T17:02:43Z",
-      "html_url": "https://github.com/vj0246/ApplyPilot-AI",
-      "homepage": "https://apply-pilot-ai.vercel.app",
-      "stars": 0
-    },
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-07-07T14:29:42Z",
+      "pushed_at": "2026-09-07T02:55:57Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
       "stars": 0
     },
     {
-      "name": "MindVault",
+      "name": "Backtesting-Framework",
       "description": "",
       "language": "Python",
-      "pushed_at": "2026-07-07T12:53:40Z",
-      "html_url": "https://github.com/vj0246/MindVault",
-      "homepage": "https://mind-vault-backend-seven.vercel.app",
+      "pushed_at": "2026-09-06T21:23:43Z",
+      "html_url": "https://github.com/vj0246/Backtesting-Framework",
+      "homepage": "",
       "stars": 0
     },
     {
-      "name": "FinIntel",
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-09-06T20:40:54Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "Video_Generative_AI_Blog",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-08-30T18:40:04Z",
+      "html_url": "https://github.com/vj0246/Video_Generative_AI_Blog",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "NLP_Blog",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-08-28T13:40:18Z",
+      "html_url": "https://github.com/vj0246/NLP_Blog",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Overnight-Alpha-Tester",
+      "description": "",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2026-08-23T18:47:39Z",
+      "html_url": "https://github.com/vj0246/Overnight-Alpha-Tester",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "QuantStorm",
       "description": "",
       "language": "Python",
-      "pushed_at": "2026-07-06T17:37:33Z",
-      "html_url": "https://github.com/vj0246/FinIntel",
-      "homepage": "https://mumpy-demo.vercel.app",
+      "pushed_at": "2026-08-19T19:29:01Z",
+      "html_url": "https://github.com/vj0246/QuantStorm",
+      "homepage": "",
       "stars": 0
     },
     {
-      "name": "Shakti-Site",
-      "description": "",
-      "language": "TypeScript",
-      "pushed_at": "2026-07-03T05:24:24Z",
-      "html_url": "https://github.com/vj0246/Shakti-Site",
-      "homepage": "https://shakti-alloys-site.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "darexai",
-      "description": "",
-      "language": "TypeScript",
-      "pushed_at": "2026-07-02T12:18:25Z",
-      "html_url": "https://github.com/vj0246/darexai",
-      "homepage": "https://darexai.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "internovo",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-06-22T19:52:34Z",
-      "html_url": "https://github.com/vj0246/internovo",
-      "homepage": "https://internovo.vercel.app",
+      "name": "quantstorm-ps",
+      "description": "The Official QuantStorm 2026 repo hosted by QATC IITD X FEC IITG X Quant Club IITB",
+      "language": "",
+      "pushed_at": "2026-08-16T18:33:59Z",
+      "html_url": "https://github.com/vj0246/quantstorm-ps",
+      "homepage": "",
       "stars": 0
     }
   ],
   "all_repos": [
     {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-07-07T17:46:10Z"
-    },
-    {
-      "name": "ApplyPilot-AI",
-      "language": "Python",
-      "pushed_at": "2026-07-07T17:02:43Z"
-    },
-    {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-07-07T14:29:42Z"
+      "pushed_at": "2026-09-07T02:55:57Z"
+    },
+    {
+      "name": "Backtesting-Framework",
+      "language": "Python",
+      "pushed_at": "2026-09-06T21:23:43Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-09-06T20:40:54Z"
+    },
+    {
+      "name": "Video_Generative_AI_Blog",
+      "language": "",
+      "pushed_at": "2026-08-30T18:40:04Z"
+    },
+    {
+      "name": "NLP_Blog",
+      "language": "",
+      "pushed_at": "2026-08-28T13:40:18Z"
+    },
+    {
+      "name": "Overnight-Alpha-Tester",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2026-08-23T18:47:39Z"
+    },
+    {
+      "name": "QuantStorm",
+      "language": "Python",
+      "pushed_at": "2026-08-19T19:29:01Z"
+    },
+    {
+      "name": "quantstorm-ps",
+      "language": "",
+      "pushed_at": "2026-08-16T18:33:59Z"
+    },
+    {
+      "name": "Overnight-Return-Predictor",
+      "language": "Python",
+      "pushed_at": "2026-08-16T04:54:04Z"
+    },
+    {
+      "name": "College",
+      "language": "Python",
+      "pushed_at": "2026-08-06T06:23:54Z"
+    },
+    {
+      "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
+      "language": "Python",
+      "pushed_at": "2026-07-31T13:16:37Z"
+    },
+    {
+      "name": "artha",
+      "language": "Python",
+      "pushed_at": "2026-07-22T09:53:02Z"
     },
     {
       "name": "MindVault",
       "language": "Python",
-      "pushed_at": "2026-07-07T12:53:40Z"
+      "pushed_at": "2026-07-22T09:52:14Z"
+    },
+    {
+      "name": "Shakti-Site",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-15T08:26:35Z"
+    },
+    {
+      "name": "AI-Web-Surfer-Agent",
+      "language": "Python",
+      "pushed_at": "2026-07-14T14:58:35Z"
+    },
+    {
+      "name": "ApplyPilot-AI",
+      "language": "Python",
+      "pushed_at": "2026-07-10T17:36:07Z"
     },
     {
       "name": "FinIntel",
@@ -103,14 +163,14 @@
       "pushed_at": "2026-07-06T17:37:33Z"
     },
     {
-      "name": "Shakti-Site",
-      "language": "TypeScript",
-      "pushed_at": "2026-07-03T05:24:24Z"
-    },
-    {
       "name": "darexai",
       "language": "TypeScript",
       "pushed_at": "2026-07-02T12:18:25Z"
+    },
+    {
+      "name": "fashion-outfit-system",
+      "language": "Python",
+      "pushed_at": "2026-06-24T18:19:35Z"
     },
     {
       "name": "internovo",
@@ -131,11 +191,6 @@
       "name": "vedaai",
       "language": "TypeScript",
       "pushed_at": "2026-05-30T14:41:20Z"
-    },
-    {
-      "name": "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
-      "language": "Jupyter Notebook",
-      "pushed_at": "2026-05-21T16:25:31Z"
     },
     {
       "name": "Sentiment-Driven-Quantitative-Alpha-Modeling",
@@ -188,6 +243,16 @@
       "pushed_at": "2026-01-19T07:51:00Z"
     },
     {
+      "name": "vj0246.github.io",
+      "language": "",
+      "pushed_at": "2025-12-06T19:39:48Z"
+    },
+    {
+      "name": "ML-Project1",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-12-05T08:03:25Z"
+    },
+    {
       "name": "djsacm-research.github.io",
       "language": "TypeScript",
       "pushed_at": "2025-10-15T13:07:58Z"
@@ -209,8 +274,12 @@
     }
   ],
   "readmes": {
-    "MindVault": "# MindVault\n\n**A multi-user, production-deployed RAG system that lets people upload their own documents and have grounded, cited conversations with them — built and operated end-to-end, including the parts that don't make it into tutorials.**\n\n🔗 Live: [mind-vault-red.vercel.app](https://mind-vault-red.vercel.app) · Backend: FastAPI on Render · Frontend: Next.js on Vercel\n\n---\n\n## 30-second summary\n\nI built a RAG (Retrieval-Augmented Generation) platform from scratch — not a LangChain quickstart wrapped in a chat UI, but a real multi-tenant product with hybrid retrieval (semantic + keyword search fused via Reciprocal Rank Fusion), cross-encoder reranking, automated accuracy evaluation with RAGAS, streaming responses, multimodal ingestion, and a knowledge graph layer. It's been live, used, and broken in real ways — memory leaks, rate-limit cascades, silent data-corruption bugs — and I fixed every one of them in production, not in a clean rewrite.\n\nIf you read nothing else: this project demonstrates I can take a RAG system from \"it works on my machine\" to \"it works for multiple real users on a free-tier server with 512MB of RAM,\" which is a much harder and more honest engineering problem than most portfolio RAG projects attempt.\n\n---\n\n## Architecture\n\n```\n┌─────────────────────────────────────────────────────────────────────┐\n│                         USER BROWSER (Vercel)                       │\n│   Next.js 14 · App Router · Multi-session chat UI · SSE streaming   │\n└───────────────┬───────────────────────────────────┬─────────────────┘\n                │                                   │\n                │ Login/Signup                      │ All other requests\n                ▼                                   ▼\n┌─────────────────────────┐         ┌─────────────────────────────────┐\n│   Supabase Auth (JWT)    │         │     FastAPI Backend (Render)     │\n│   direct from browser    │         │     verifies JWT on every route  │\n└─────────────────────────┘         └───────────────┬───────────────────┘\n                                                     │\n                  ┌──────────────────────────────────┼──────────────────────────────────┐\n                  ▼                                  ▼                                  ▼\n      ┌───────────────────────┐      ┌────────────────────────────┐      ┌──────────────────────┐\n      │   Supabase Postgres    │      │        Groq Cloud           │      │   Local CPU Inference  │\n      │   + pgvector            │      │  llama-3.3-70b-versatile    │      │   fastembed (bge-small) │\n      │   chunks · documents    │      │  → auto-fallback to         │      │   FlashRank reranker    │\n      │   sessions · graph      │      │    llama-3.1-8b-instant     │      │   (ONNX, ~23MB, no torch)│\n      │   chat_sessions         │      │   on rate-limit             │      │                        │\n      │   RLS on every table    │      └────────────────────────────┘      └──────────────────────┘\n      └───────────────────────┘\n```\n\n### What happens when you ask a question\n\nThis is the part most RAG tutorials skip, and it's where most of the actual engineering lives:\n\n1. **Question embedded locally** via `fastembed` (BAAI/bge-small-en-v1.5, 384-dim) — no API call, runs on the Render server itself.\n2. **Two retrieval methods fire in parallel** (via `ThreadPoolExecutor`, not sequentially):\n   - **Semantic search** — cosine similarity against `pgvector`, via a Postgres RPC function (`match_chunks`)\n   - **Keyword search** — PostgreSQL full-text search (`tsvector` + GIN index, `ts_rank`, BM25-style) via a second RPC function (`keyword_search_chunks`)\n3. **Results fused with Reciprocal Rank Fusion (RRF)** — not a naive concatenation. Each chunk's score is `1/(60+rank)` per list it appears in, so a chunk that both methods agree on outranks a chunk only one method found. This is the actual fix for the classic RAG failure mode where semantic search misses exact terms (acronyms, proper nouns, number",
-    "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting": "# Multi-Horizon Transformer for Systematic Equity Direction Forecasting\r\n\r\n> **A deep learning system that predicts the directional movement of the Nifty 50 index simultaneously across 20 distinct future time horizons — from next-day to 20-day forward — using a custom Transformer encoder trained on 18+ years of Indian equity market data.**\r\n\r\n---\r\n\r\n## Technical Summary\r\n\r\nThis project builds a **multi-output binary classification Transformer** to answer one question with 20 simultaneous answers: *Will the Nifty 50 close higher than today — 1 day, 2 days, 3 days... all the way to 20 days from now?*\r\n\r\nThe system ingests raw OHLCV data for `^NSEI` (Nifty 50) going back to 2006, engineers 16 time-series features capturing price momentum, rolling volatility, volume dynamics, and mean reversion signals, constructs 60-day sliding window sequences, and feeds them into a 2-block Transformer encoder with sinusoidal positional encoding. The model outputs 20 independent logits — one per forecast horizon — each representing the probability that the index will be higher at that future point.\r\n\r\nTraining uses strict temporal split (70/15/15 — no look-ahead leakage), StandardScaler fitted exclusively on training data, binary cross-entropy loss with AUC as the primary metric, and early stopping with patience=7. Post-training evaluation goes beyond classification metrics: the model's raw logits are used directly as alpha signals, tested via Spearman IC, sign-strategy Sharpe, quantile long-short Sharpe, and decile return attribution — all on held-out test data.\r\n\r\n**The project is research-grade, not production-deployed.** Source modules for news ingestion (NewsAPI), FinBERT sentiment, and an XGBoost baseline exist in the codebase as parallel development tracks. The Transformer is the primary model.\r\n\r\n---\r\n\r\n## Repository Structure\r\n\r\n```\r\nMulti-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting/\r\n│\r\n├── Data/\r\n│   ├── Raw_Data/\r\n│   │   └── ^NSEI_daily.csv          # 18+ years of Nifty 50 OHLCV (2006–2026)\r\n│   └── Processed_Data               # Placeholder — generated at runtime\r\n│\r\n├── Notebooks/\r\n│   └── Notebooks/\r\n│       └── Eda.ipynb                # Primary research notebook (97 cells)\r\n│                                    # EDA → Feature Engineering → Model → Backtest\r\n│\r\n├── Source/\r\n│   ├── Ingestion/\r\n│   │   └── Fetch_Market_Data.py     # yfinance-based OHLCV downloader\r\n│   ├── Features/\r\n│   │   ├── Returns.py               # (Stub — return feature logic)\r\n│   │   └── Volatility.py            # (Stub — volatility feature logic)\r\n│   ├── Models/\r\n│   │   └── train_model              # XGBoost baseline with mean-centering trick\r\n│   ├── News/\r\n│   │   ├── fetch_news.py            # NewsAPI ingestion (100 articles/call)\r\n│   │   ├── process_news.py          # Daily article count aggregation\r\n│   │   └── sentiment.py            # FinBERT sentiment scoring per headline\r\n│   ├── Risk/\r\n│   │   └── Placeholder.txt          # Risk module (in progress)\r\n│   └── Api/\r\n│       └── Placeholder.txt          # API serving layer (in progress)\r\n│\r\n├── config.yaml                      # Config (empty — hyperparams hardcoded in notebook)\r\n├── requirements.txt                 # Full research-grade dependency stack\r\n└── README.md\r\n```\r\n\r\n---\r\n\r\n## Architecture\r\n\r\n### Data Flow\r\n\r\n```\r\n^NSEI Raw OHLCV (2006–2026, ~4,900 trading days)\r\n        ↓\r\n  Feature Engineering (16 features per day)\r\n        ↓\r\n  Sliding Window Construction (lookback = 60 days)\r\n  → Tensor shape: (N, 60, 16)\r\n        ↓\r\n  Temporal Train/Val/Test Split (70/15/15)\r\n        ↓\r\n  StandardScaler (fit on train only)\r\n        ↓\r\n  Transformer Encoder (2 blocks)\r\n        ↓\r\n  GlobalAveragePooling1D\r\n        ↓\r\n  Dense(20) → 20 binary logits\r\n        ↓\r\n  20 horizon outputs: P(close_t+h > close_t) for h ∈ {1..20}\r\n```\r\n\r\n### Transformer Architecture\r\n\r\n| Component | Detail |\r\n|---|---|\r\n| Input shape | `(batch, 60, 16)` |\r\n| Linear projection | `Dense(64)` → maps 16 feat",
+    "artha": "# Artha\n\n[![ci](https://github.com/vj0246/artha/actions/workflows/ci.yml/badge.svg)](https://github.com/vj0246/artha/actions/workflows/ci.yml)\n\n**A systematic equity trading system for Indian markets — researched,\nvalidated, and actually operated, on ₹0 of paid data.**\n\nIt runs by itself at 7pm every evening. It knows when it has been\nfooled. And the most valuable thing it produced is a list of things\nthat *don't* work.\n\n---\n\n## Start here: what is this, really?\n\n**If you've never traded:** imagine a machine that reads every price on\nIndia's largest stock exchange each evening, decides which 25 companies\nto hold, places the orders, checks its own books, and messages you if\nanything looks wrong. Now imagine the harder part — proving the machine\nis actually skilled rather than lucky, because financial data will hand\nyou a beautiful-looking answer that is completely false if you aren't\ncareful. Most of this project is the proving.\n\n**If you trade:** point-in-time NSE panel from primary bhavcopy +\ndeclared corporate actions (delistings included, CA feed verified\nagainst ex-day prices in both directions), weekly cross-sectional\nmomentum, Ledoit-Wolf minimum-variance construction with\nGârleanu-Pedersen partial adjustment, vol targeting, ADV participation\ncaps, T+1-close execution, full Indian cost stack (STT, stamp,\nexchange, GST, flat DP charges, sqrt impact). Validation is purged\nwalk-forward + CPCV, deflated Sharpe against an append-only trial\nledger, White Reality Check and Hansen SPA. The live layer has\nbacktest/engine parity as a CI gate, deterministic idempotent order\nids, enforced drawdown rails, and a heartbeat that alarms on silence.\n\n**One line:** a research lab that happens to trade, built so its own\nresults can't lie to it.\n\n---\n\n## The results\n\nNet of the complete Indian cost stack, 2012–2026:\n\n| Portfolio | CAGR | Sharpe | MaxDD | Turnover |\n|---|---|---|---|---|\n| **LW min-var + GP τ0.5 — the live config** | 13.7% | **1.02** | −28% | 4.2× |\n| Equal-weight + no-trade bands (previous) | 12.8% | 0.96 | −27% | 5.2× |\n| Naive momentum 12-1 | 23.6% | 0.96 | −49% | — |\n| NIFTY 500 (synthetic TRI) | 14.97% | 0.94 | −38% | — |\n\n**Read that table the way the project does:** the live book earns *less\nraw return* than the index (13.7% vs 14.97%) at *lower volatility* —\nwhich is why its Sharpe is higher. It is a risk-adjusted win, not a\nreturn win. After Indian short-term capital-gains tax the CAGR is\n11.0%. And deflated against all ~100 experiments in the trial ledger,\nthe significance of that Sharpe is **0.20** — economically attractive,\nstatistically unproven, and stated exactly that way everywhere here.\n\nThat last number is the point. Most projects report the best figure\nthey found. This one reports the figure that survives being counted.\n\n---\n\n## Seven things that didn't work (the actual contribution)\n\nNulls are the expensive, useful output of research. These are ours:\n\n1. **Machine learning doesn't beat momentum.** Ridge, LightGBM, MLP and\n   a transformer under one purged protocol. PBO 0.86 — the in-sample\n   winner is overfit 24 times out of 28 splits.\n2. **Post-earnings drift runs *backwards* in India.** 1.48M timestamped\n   exchange announcements; the biggest positive surprises **reverse**\n   (t = −6.9). Event features add no weekly alpha.\n3. **Momentum-crash regime gates add nothing** beyond the volatility\n   targeting already shipped.\n4. **The single-name model zoo loses to buy-and-hold.** GRU, LSTM,\n   transformer, ensemble — all under half the always-long floor after\n   costs, under both retraining schemes. Retraining cadence turned out\n   irrelevant: the problem is absence of signal, not staleness.\n5. **News sentiment gating subtracts value** (0.06 vs 0.58 Sharpe),\n   consistent with the inverted drift in #2.\n6. **EWMA covariance doesn't beat Ledoit-Wolf** — faster adaptation,\n   paid for in churn.\n7. **A learned trading-speed policy ties the fixed constant.** LinUCB\n   over 728 weekly decisions: PBO 0.93 and near-",
+    "Backtesting-Framework": "# FullBacktester\n\n[![CI](https://github.com/vj0246/Backtesting-Framework/actions/workflows/ci.yml/badge.svg)](https://github.com/vj0246/Backtesting-Framework/actions/workflows/ci.yml)\n\nBacktesting for people who have been burned by backtests.\n\n`fullbacktester` runs trading strategies through a gauntlet of checks that most\nframeworks leave to the user's discipline: point-in-time data access that makes\nlook-ahead a construction error, two execution engines whose disagreement is\nitself a diagnostic, static and behavioural leakage detectors, data-quality and\nsurvivorship flags, and performance statistics that account for how many\nstrategies you tried before picking this one.\n\n> Status: alpha. The core engine, validation, and metrics are tested; the data\n> sources are thin adapters over free APIs. Read *Limitations* before trusting a\n> number.\n\n## What it defends against\n\n| Pitfall | Defense |\n|---|---|\n| Look-ahead through the data | Strategies only ever receive a `PanelView` that ends at the current bar. Bars are stamped at their **close** instant in UTC, so a daily bar is not \"known\" until the exchange actually closed. |\n| Look-ahead in strategy code | `StaticScanner` (AST patterns: negative `shift`, centred `rolling`, backward fill, fit-before-split) plus `FutureLeakTester`, which reruns the strategy with bars after `t` replaced by noise and with the history truncated at `t`; a decision at `t` that changes was reading the future. |\n| Look-ahead in ML training | `WalkForwardMLStrategy` only trains on samples whose label window closed at least `embargo` bars before the decision, and logs the cutoff at every refit so a test can prove it. `PurgedKFold` for offline model selection. |\n| Unrealistic execution | Event-driven engine with a cash ledger, next-open fills, limit/stop orders, commission and volume-dependent slippage, lot rounding, participation caps, leverage caps, short restrictions. |\n| Vectorized wishful thinking | The vectorized engine exists for speed, uses the *same* cost model, and is checked against the event-driven engine. Under idealized settings they agree to 1e-9; under realistic settings the gap is reported as implementation risk. |\n| Survivorship bias | Every source declares whether its universe is survivorship-free; the report says so. NSE's official archive gives the full listed universe per day. |\n| Bad data | Schema validation on entry (no NaN closes, no negative volume, OHLC consistent), plus quality flags for missing sessions, zero volume, suspected unadjusted splits, stale prices. |\n| Overfitting / selection | Deflated Sharpe Ratio with the number of trials, Probabilistic Sharpe Ratio, minimum backtest length, and Probability of Backtest Overfitting via CSCV across the strategies in an `Arena`. |\n\n## Install\n\n```bash\npip install FullBacktester                 # core: numpy, pandas, pyarrow\npip install \"FullBacktester[yfinance]\"     # Yahoo Finance adapter (US, India .NS/.BO, crypto)\npip install \"FullBacktester[nse]\"          # NSE India official bhavcopy adapter\npip install \"FullBacktester[calendars]\"    # holiday-aware session counts via exchange_calendars\npip install \"FullBacktester[all]\"\n```\n\nPython 3.11 or newer. The distribution is `FullBacktester`; the import is\n`fullbacktester`, lowercase, because Python module names have to be.\n\n## Quickstart\n\n```python\nimport fullbacktester as fbt\n\n# 1. Data. Daily bars for two US names, cached locally as Parquet after the first pull.\npanel = fbt.load_panel([\"AAPL\", \"MSFT\", \"GOOGL\"], \"2018-01-01\", \"2024-12-31\", market=\"US\")\n\n# 2. A strategy: target weights from everything known at the current bar.\ndef momentum(view: fbt.PanelView) -> dict[str, float]:\n    close = view.close\n    up = (close.iloc[-1] / close.iloc[-126] - 1.0 > 0).astype(float)\n    return (up / max(up.sum(), 1.0)).to_dict()\n\n# 3. Execution assumptions, shared by every strategy you compare.\nconfig = fbt.EngineConfig(\n    initial_cash=1_000_000,\n    cost_model=fbt.CostModel(\n        commission=fbt.Bp",
+    "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting": "# Multi-Horizon Transformer for Systematic Equity Direction Forecasting\r\n\r\n> **A deep learning system that predicts the directional movement of the Nifty 50 index simultaneously across 20 distinct future time horizons — from next-day to 20-day forward — using a custom Transformer encoder trained on 18+ years of Indian equity market data.**\r\n\r\n---\r\n\r\n## 📚 Full Documentation\r\n\r\n**→ [`Documentation/`](Documentation/README.md)** — complete guide written so that\r\nanyone can understand every file and reproduce every number without asking a\r\nquestion.\r\n\r\n| Doc | Answers |\r\n|-----|---------|\r\n| [Overview](Documentation/01-overview.md) | What this is, what it found, why the finding is negative |\r\n| [Getting Started](Documentation/02-getting-started.md) | Install, run, regenerate every artifact, GPU setup |\r\n| [Data](Documentation/03-data.md) | Every source, schema, and the 8 leakage rules |\r\n| [Architecture](Documentation/04-architecture.md) | Pipeline + model diagrams, layer by layer |\r\n| [File Reference](Documentation/05-file-reference.md) | Every file, what it does, how to run it |\r\n| [Evaluation](Documentation/06-evaluation.md) | Every metric and formula, and 3 bugs that faked skill |\r\n| [Results](Documentation/07-results.md) | The actual numbers with confidence intervals |\r\n| [Instrument Choice](Documentation/08-instrument-choice.md) | Why `^NSEI`, and whether a single stock is better |\r\n| [Research Gaps](Documentation/09-research-gaps.md) | Literature critique vs what is implemented |\r\n| [Adaptive Retraining](Documentation/10-adaptive-retraining.md) | Drift detection, model versioning, champion/challenger gate |\r\n| [Journal & Advisor](Documentation/11-journal-and-advisor.md) | P&L attribution, why not RL, the bandit, LLM guardrails |\r\n| [Intraday & Sentiment](Documentation/12-intraday-and-sentiment.md) | Why hourly not 5-min, cost vs power, GDELT news tone |\r\n| [Data Sources](Documentation/13-data-sources.md) | Five free sources and the routing rule |\r\n| [Full Evaluation](Documentation/14-full-evaluation.md) | Every track, every number, four bugs that faked skill |\r\n\r\n---\r\n\r\n## Technical Summary\r\n\r\nThis project builds a **multi-output binary classification Transformer** to answer one question with 20 simultaneous answers: *Will the Nifty 50 close higher than today — 1 day, 2 days, 3 days... all the way to 20 days from now?*\r\n\r\nThe system ingests raw OHLCV data for `^NSEI` (Nifty 50) going back to 2007, engineers 16 time-series features capturing price momentum, rolling volatility, volume dynamics, and mean reversion signals, and feeds the **11 stationary ones** (raw price levels are excluded — see below) as 60-day sliding window sequences into a 2-block Transformer encoder with sinusoidal positional encoding and learned attention pooling. The model outputs 20 independent logits — one per forecast horizon — each representing the probability that the index will be higher at that future point.\r\n\r\nTraining uses strict temporal split (70/15/15 — no look-ahead leakage), StandardScaler fitted exclusively on training data, binary cross-entropy loss with AUC as the primary metric, and early stopping with patience=7. Post-training evaluation goes beyond classification metrics: the model's raw logits are used directly as alpha signals, tested via Spearman IC, sign-strategy Sharpe, quantile long-short Sharpe, and decile return attribution — all on held-out test data.\r\n\r\n**The project is research-grade, not production-deployed.** A FinBERT news-sentiment track (`Source/News/`) and LightGBM baselines (`scripts/gbdt_*.py`) exist as parallel tracks. The Transformer is the primary model.\r\n\r\n---\r\n\r\n## Live Demo\r\n\r\n**→ [multi-horizon-transformer-for-syste.vercel.app](https://multi-horizon-transformer-for-syste.vercel.app)**\r\n\r\nA static Next.js dashboard (in `frontend/`) visualizes the **real, regenerated** backtest results — per-horizon AUC/IC, the cost-aware equity curve, walk-forward folds, the cross-sectional track, attention distribution, and t",
+    "Overnight-Return-Predictor": "# Astratinvest Quant Intern — Overnight Return Prediction\n\nSubmission by Vivaan Jain. This README explains how to run the code, what each\nmodel does and why, and — as much as anything — what I got wrong along the way\nand how I found it. If you want the full write-up with charts, see\n`research.pdf` one directory up.\n\n## How to run it\n\n```bash\ncd code\npip install -r requirements.txt\npython main.py --config config.yaml\n```\n\nOne command, one entry point, exactly as required. It builds features for all\n208 symbols (~11–20 minutes depending on machine), trains all four models,\nand writes `predictions.csv`, `actuals.csv`, `statistics.csv` into\n`../outputs/`. Total runtime was ~25–30 minutes on the machine I built this\non, and I re-ran it twice from a clean state to confirm two fresh runs\nproduce byte-identical output — same seed, same result, every time.\n\nYou need the daily and minute parquet data yourself (not redistributed per\nthe assignment's rules) at `../data/raw/daily/` and `../data/raw/minute/`\nrelative to `code/`, and `../data/universe.json` (included in this\nsubmission — the 208 symbol names, one per line, no other content).\nEverything else resolves relative to `config.yaml`'s own location, not the\nworking directory, so it runs the same regardless of where you call it from.\n\n## What the four outputs actually are\n\nGiven close(T) for ~208 NSE stocks, the pipeline predicts the overnight gap\ninto open(T+1): how big the move will be, which direction, and how confident\nthe model is about each — as four separate, independently-fitted models, not\none model wearing four hats.\n\n**Magnitude** — LightGBM regressor on `log1p(|actual_return_pct|)`. Log-space\nbecause the target is right-skewed (a handful of genuinely extreme moves,\nlike a stock reopening after a trading halt, sit far out in the tail).\n\n**Direction** — a separate LightGBM classifier, its own features, its own\nhyperparameters, trained independently rather than derived from magnitude.\n\n**conf_direction** — the direction classifier's raw probability is *not*\nused directly as the confidence output. Tree-ensemble probabilities are\ntypically miscalibrated, and the assignment says so explicitly. Instead an\nisotonic regression is fit on the validation split (data the classifier\nnever trained on), learning the real mapping from \"the model said 0.7\" to\n\"and it was actually right that often.\" `pred_direction` and `conf_direction`\nare both derived from this one calibrated number, so they can't disagree\nabout where 50/50 sits.\n\n**conf_magnitude** — a second model predicting the *magnitude model's own\nexpected error* — \"how hard is this specific prediction\" — using a smaller,\ndifferent feature set (recent volatility regime, illiquidity, days since an\nextreme move) than the magnitude model itself. Trained on genuinely\nout-of-fold errors via a walk-forward split on train, never on in-sample\nresiduals, because that would be answering an easier question than the one\nthat matters at prediction time.\n\n## The headline result, and the one thing I want you to read before the numbers\n\nPooled `direction_score` on test is 0.2414, and `rank_ic` is 0.1782 with a\nt-stat of 24.5 — real, statistically significant skill. But residual\n`direction_score` (after subtracting the common market-wide move) is\n**0.0001, indistinguishable from zero**. I did not average that away or\nbury it. Here is the honest reason, fully investigated rather than assumed:\n\nThe direction model predicts \"up\" on 99.82% of test rows (99.9%/99.97% on\ntrain/valid) — not literally every row anymore (an earlier version of this\nmodel, before a later feature addition described below, really was exactly\n100.0% on test with zero down-calls; the current version genuinely produces\n103 down-calls on test, a real, if small, change I'll return to). I checked\nthree separate explanations for why the model is still this skewed before\naccepting it, printing the actual numbers at each step rather than guessing:\n\n1. **Is the classifier itself degenerate",
+    "FinIntel": "# FinIntel — Agentic Equity Desk\n\nAn agentic AI platform for Indian (NSE) equity research: a fleet of specialised\nLLM agents — each grounded in live market data, each gated by a human-in-the-loop\napproval step, all under a shared SEC/SEBI-style compliance guardrail — sharing\none desk.\n\n**Not investment advice.** Every generated answer carries a mandatory disclaimer;\nthis is a demonstration of agentic architecture, not a trading tool.\n\n## What's on the desk\n\n| Tab | Agent | What it does |\n|---|---|---|\n| 📊 **Analyst** | task agent + chat | Pick a stock, ask anything. The task agent proposes one step at a time (Approve / Redirect / Stop); the side chat is a 31-tool ReAct agent that answers instantly, self-reviews its own draft, and screens every reply for compliance. |\n| 🌅 **Brief** | morning brief | A saved watchlist (per-browser) plus global market cues (US/Asia/USD-INR/Brent/Gold) and Indian indices, written up as a daily brief. |\n| 🔎 **Discover** | screener | Plain-English stock screens (\"IT stocks, ROE>20, PE<30, FIIs buying\") parsed into a validated filter plan, swept deterministically across a curated NSE universe. |\n| 💼 **Portfolio** | risk auditor | Paste holdings or upload a broker CSV. Parallel per-stock analysis, portfolio-level risk flags, a rebalance proposal gate, a paper-trading ledger, and a scenario **stress test** (2008 crisis, COVID crash, rate shocks, or custom). |\n| ⚔️ **War Room** | orchestrated debate | A Chief Analyst plans the research and deploys specialists (quant / fundamental / news / risk) in parallel; a Bull and a Bear argue the case; a Judge rules — with your sign-off. |\n| 🕸️ **Ecosystem** | company map | Who a company competes with, sells to, buys from and partners with — competitors priced live for a real comparison table. |\n| 📑 **Report** | research report | One click orchestrates every engine (quant, financials, shareholding, ecosystem, bull/bear, desk verdict) into a single printable research note. |\n| ⏳ **Backtest** | what-if engine | Lumpsum vs SIP vs a NIFTY 50 benchmark over any window, with dividends, brokerage, step-up SIPs and XIRR/CAGR/drawdown — every number computed in Python, never by the LLM. |\n\nSign in (email + password) to keep your **risk profile** — a five-question\nsuitability questionnaire — against your account; every agent judges its\nanswers against it (a stock's volatility/beta/drawdown vs. your stated\ntolerance).\n\n## Architecture\n\n```\n                    FRONTEND (React + Vite, code-split per tab)\n                              │  Server-Sent Events\n                    FastAPI (app_multi.py) — rate-limited, guarded\n     ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐\n   chat_agent  desk      war_room  portfolio  discover   report / brief\n   (ReAct,     (LangGraph (LangGraph (LangGraph  (screen   / backtest /\n   31 tools)   StateGraph, StateGraph, StateGraph universe) ecosystem /\n               interrupt) interrupt) interrupt)            stress\n     └──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘\n                              │\n              market.py / quant.py / screener.py / nse.py\n              (yfinance + Screener.in + NSE, cached, sample fallback)\n                              │\n                    guardrails.py (compliance pipeline)\n                    groq_pool.py  (multi-key failover)\n                    llm_cache.py  (TTL cache on repeat LLM calls)\n                    session_registry.py (bounded per-thread eviction)\n                    auth.py       (PBKDF2 + signed tokens, Supabase-backed)\n```\n\n**Human-in-the-loop is LangGraph-native.** The four interactive agents (desk,\nwar room, portfolio auditor, task agent) are each a single checkpointed\n`StateGraph`. The approval gate calls LangGraph's `interrupt()` — the graph\nliterally pauses and checkpoints itself; your approve/reject/revise resumes it\nwith `Command(resume=...)`. No hand-rolled pending-request dictionaries.\n\n**Compliance pipeline** on every LLM output: hardcoded f",
+    "MindVault": "# MindVault\n\n**A multi-user, production-deployed RAG system that lets people upload their own documents and have grounded, cited conversations with them — built and operated end-to-end, including the parts that don't make it into tutorials.**\n\n🔗 Live: [mind-vault-red.vercel.app](https://mind-vault-red.vercel.app) · Backend: FastAPI on Render · Frontend: Next.js on Vercel\n\n---\n\n## 30-second summary\n\nI built a RAG (Retrieval-Augmented Generation) platform from scratch — not a LangChain quickstart wrapped in a chat UI, but a real multi-tenant product with hybrid retrieval (semantic + keyword search fused via Reciprocal Rank Fusion), cross-encoder reranking, automated accuracy evaluation with RAGAS, streaming responses, multimodal ingestion, and a knowledge graph layer. It's been live, used, and broken in real ways — memory leaks, rate-limit cascades, silent data-corruption bugs — and I fixed every one of them in production, not in a clean rewrite.\n\nIf you read nothing else: this project demonstrates I can take a RAG system from \"it works on my machine\" to \"it works for multiple real users on a free-tier server with 512MB of RAM,\" which is a much harder and more honest engineering problem than most portfolio RAG projects attempt.\n\n---\n\n## Architecture\n\n```\n┌─────────────────────────────────────────────────────────────────────┐\n│                         USER BROWSER (Vercel)                       │\n│   Next.js 14 · App Router · Multi-session chat UI · SSE streaming   │\n└───────────────┬───────────────────────────────────┬─────────────────┘\n                │                                   │\n                │ Login/Signup                      │ All other requests\n                ▼                                   ▼\n┌─────────────────────────┐         ┌─────────────────────────────────┐\n│   Supabase Auth (JWT)    │         │     FastAPI Backend (Render)     │\n│   direct from browser    │         │     verifies JWT on every route  │\n└─────────────────────────┘         └───────────────┬───────────────────┘\n                                                     │\n                  ┌──────────────────────────────────┼──────────────────────────────────┐\n                  ▼                                  ▼                                  ▼\n      ┌───────────────────────┐      ┌────────────────────────────┐      ┌──────────────────────┐\n      │   Supabase Postgres    │      │        Groq Cloud           │      │   Local CPU Inference  │\n      │   + pgvector            │      │  llama-3.3-70b-versatile    │      │   fastembed (bge-small) │\n      │   chunks · documents    │      │  → auto-fallback to         │      │   FlashRank reranker    │\n      │   sessions · graph      │      │    llama-3.1-8b-instant     │      │   (ONNX, ~23MB, no torch)│\n      │   chat_sessions         │      │   on rate-limit             │      │                        │\n      │   RLS on every table    │      └────────────────────────────┘      └──────────────────────┘\n      └───────────────────────┘\n```\n\n### What happens when you ask a question — the request loop\n\nThis is the part most RAG tutorials skip, and it's where most of the actual engineering lives. Every step below is a real branch in the code (`backend/rag/retrieve1.py`), not a simplification — including exactly where an LLM gets called and where it deliberately doesn't.\n\n```\n                              ┌───────────────────────────┐\n                              │   User submits a question  │\n                              └─────────────┬───────────────┘\n                                            ▼\n                       ┌─────────────────────────────────────────┐\n                       │ Does it reference prior conversation     │\n              ┌───NO───│ (\"that\", \"elaborate\") OR is it <=4 words │───YES──┐\n              │        │ (likely under-specified)?                │        │\n              │        └───────────────────────────────────────────┘        │\n              ▼                           ",
     "auditmind-ai": "# auditmind-ai",
     "Shakti-Site": "# ⚙️ Shakti Alloys Private Limited — Corporate Website\n\n<div align=\"center\">\n\n**🌐 Live Site → [www.shaktialloys.in](https://www.shaktialloys.in)**\n\n![Status](https://img.shields.io/badge/Status-Live-brightgreen?style=for-the-badge)\n![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)\n![React](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react)\n![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)\n![Vite](https://img.shields.io/badge/Vite-4.4-646CFF?style=for-the-badge&logo=vite)\n\n</div>\n\n---\n\n## 📋 Executive Summary\n\nCorporate website for **Shakti Alloys Private Limited** — a Mumbai-based ISO 9001:2015 certified aluminium alloy ingot manufacturer with 14+ years of experience, supplying foundries across **52+ nations on 6 continents**.\n\nBuilt ground-up with a bespoke editorial design system — no templates, no UI kits. Features animated counters, scroll-reveal sections, an 18-grade interactive alloy catalogue, region-based global presence cards, and a contact form backed by a **serverless API** (Vercel Functions + Resend) — no email credentials ever ship to the browser.\n\n| Property | Value |\n|---|---|\n| **Live URL** | https://www.shaktialloys.in |\n| **Stack** | React 18 + TypeScript + Vite |\n| **Hosting** | Vercel (Production) |\n| **Domain Registrar** | GoDaddy |\n| **Form Backend** | Vercel Serverless Function + Resend API |\n| **Analytics** | Vercel Analytics + Google Analytics 4 |\n| **Fonts** | Outfit · Lora · IBM Plex Mono |\n\n---\n\n## 🏗️ Architecture\n\n```\nBrowser\n  │\n  ├── Static site (Vercel Edge CDN)\n  │     dist/ built by Vite · security headers via vercel.json\n  │     CSP · HSTS · X-Frame-Options · nosniff · Referrer-Policy\n  │\n  ├── POST /api/send-enquiry  (Vercel Serverless Function)\n  │     input validation · honeypot anti-spam · HTML escaping\n  │     → Resend API (RESEND_API_KEY server-side env var only)\n  │     → shaktialloys123@gmail.com\n  │\n  └── Analytics\n        Vercel Analytics (built-in) + GA4 (conditional loader)\n```\n\n**Deploy pipeline:** push to `main` → Vercel CI builds (`vite build`) → Edge CDN. DNS via GoDaddy (`A @ → Vercel`, `CNAME www → vercel-dns`).\n\n---\n\n## 🔐 Production Hardening\n\n- **No secrets in the client bundle.** The enquiry form posts to `/api/send-enquiry`; the Resend API key lives only in Vercel environment variables.\n- **Anti-spam:** hidden honeypot field, silently dropped server-side; server-side validation and length caps on all fields; HTML escaping before email render.\n- **Security headers** (see `shakti-site-clean/vercel.json`): Content-Security-Policy, Strict-Transport-Security (2y, preload), X-Frame-Options DENY, X-Content-Type-Options nosniff, Referrer-Policy, Permissions-Policy.\n- **SEO:** OpenGraph + Twitter cards, canonical URL, Organization + LocalBusiness JSON-LD structured data, `sitemap.xml`, `robots.txt`.\n- **Performance:** hero image preload + `fetchPriority`, lazy-loaded below-fold images, font preconnect, immutable caching for hashed assets. 66 KB gzipped JS.\n- **Reliability:** custom 404 page, full favicon set + webmanifest.\n\nSetup steps for env vars, Resend, GA4, Search Console: **[`shakti-site-clean/DEPLOYMENT.md`](shakti-site-clean/DEPLOYMENT.md)**\n\n---\n\n## 📁 Project Structure\n\n```\nshakti-site-clean/\n│\n├── api/\n│   └── send-enquiry.ts          # Serverless form handler (Resend)\n│\n├── public/                       # Static assets served at root\n│   ├── foundry-hero.png          # Hero image\n│   ├── og-image.jpg              # Social share preview (1200×630)\n│   ├── favicon-*.png, icon-*.png # Favicon set\n│   ├── 404.html                  # Custom not-found page\n│   ├── sitemap.xml · robots.txt · site.webmanifest\n│   └── shakti-alloys-brochure.pdf\n│\n├── src/\n│   ├── main.tsx                  # Entry + Vercel Analytics\n│   ├── lib/analytics.ts          # GA4 event helper (trackEvent)\n│   ├── app/\n│   │   ├── App.tsx               # Root + scroll-reveal obser",
     "ApplyPilot-AI": "<div align=\"center\">\n\n# ApplyPilot\n\n**An AI job application assistant that fills real application forms and mails tailored applications — with a human reviewing every step.**\n\n[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)\n[![Next.js 14](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org)\n[![FastAPI](https://img.shields.io/badge/FastAPI-async-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)\n[![Groq](https://img.shields.io/badge/AI-Groq-F55036)](https://groq.com)\n\n</div>\n\n---\n\n## What it does\n\nA user builds a profile once — resume, a personal knowledge graph, an\noptional email connection — then does two core things:\n\n1. **Fill a form.** Paste a real Google Forms or Microsoft Forms link and\n   get back a pre-filled link with every field answered from the resume and\n   knowledge graph. The user reviews it and submits it themselves.\n2. **Mail an application.** A tailored application email is drafted from the\n   job description, then sent from the user's own address with the resume\n   attached.\n\n**Human in the loop, by design.** Nothing is ever submitted or sent\nautomatically. Autofill never clicks submit. Drafting and sending an email\nare two separate, explicit steps. The AI gets it most of the way; the\nperson owns the final action.\n\n## Stack\n\n| Layer    | Choice                                                            |\n| -------- | ---------------------------------------------------------------- |\n| Backend  | FastAPI, async SQLAlchemy 2, asyncpg, Python 3.11                 |\n| Browser  | Playwright (headless Chromium) drives the real form pages         |\n| AI       | Groq (`openai/gpt-oss-120b`), every function has a regex fallback |\n| Frontend | Next.js 14 App Router, React Query, Zustand, Tailwind, TypeScript |\n| Database | Postgres (Neon in production)                                    |\n| Deploy   | Backend on Render (Docker), frontend on Vercel, database on Neon  |\n\n## Architecture\n\n```\nBrowser (Next.js, JWT in Authorization header)\n      │  REST\nFastAPI backend\n      ├── routers: auth · profile · resumes · jobs · applications · autofill · email\n      ├── FastAPI BackgroundTasks (no Celery/Redis) for the slow work\n      └── services:\n             ai_service        every Groq call + a regex fallback each\n             autofill_service  Playwright scrape + fill, SSRF-guarded URL allowlist\n             email_service      MIME build, SMTP / relay send\n             gmail_service      Gmail OAuth HTTPS send\n             resume_service     PDF/DOCX/TXT text extraction\n      │\n      ├── Groq API (openai/gpt-oss-120b)\n      └── PostgreSQL — users · profiles · resumes · jobs · applications · autofill_runs · email_sends\n```\n\nEvery AI function keeps a non-AI fallback, so a Groq outage degrades\nquality, never availability.\n\n## Security posture\n\nWritten for reviewers — the controls that are actually in the code:\n\n- **Authentication** — bcrypt password hashing; JWT bearer tokens carried\n  in the `Authorization` header and held in `sessionStorage`, not cookies.\n- **Access control** — every protected route resolves the user from the\n  token server side, and every resource query is scoped to that user's id\n  (no object reference is trusted from the client).\n- **Secrets at rest** — the stored email app password and the Gmail refresh\n  token are Fernet encrypted (`app/core/crypto.py`). Startup **fails** in\n  production if `SECRET_KEY` is the shipped development default or shorter\n  than 32 characters (`app/core/config.py`).\n- **SSRF boundary** — the form URL that drives a Playwright navigation is\n  validated by exact hostname allowlist over `https` only, never a\n  substring match (`autofill_service.is_supported_form_url`).\n- **Security headers** — `X-Content-Type-Options`, `X-Frame-Options`,\n  `Referrer-Policy`, `Cross-Origin-Opener-Policy`, and HSTS in production.\n- **Reduced surface in production** — interactive docs, ReDo"

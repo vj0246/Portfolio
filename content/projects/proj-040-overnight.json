@@ -1,0 +1,155 @@
+{
+  "section": "projects",
+  "order": 40,
+  "id": "overnight",
+  "name": "Overnight Return Prediction · Quant Research Submission",
+  "badge": {
+    "kind": "research",
+    "text": "Research"
+  },
+  "tagline": "Predicting the overnight gap into the next open across 208 NSE symbols: move size, direction, and calibrated confidence as four independently fitted models rather than one model wearing four hats. Pooled rank IC 0.178 at t = 24.5, and a residual direction score of 0.0001 that the write up leads with instead of burying.",
+  "tags": [
+    "LightGBM",
+    "Isotonic Calibration",
+    "Walk Forward Splits",
+    "Cross Sectional Features",
+    "208 NSE Symbols"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "Given the close on day T for roughly 208 NSE stocks, the pipeline predicts the overnight gap into the open on day T+1: how large the move will be, which direction it goes, and how confident the model is about each. These are four separate, independently fitted models. Magnitude is a LightGBM regressor on <code>log1p(|return|)</code>, log space because the target is right skewed and a handful of genuinely extreme moves sit far out in the tail. Direction is a separate LightGBM classifier with its own features and its own hyperparameters, trained independently rather than derived from magnitude.",
+        "Direction confidence is deliberately not the classifier's raw probability, because tree ensemble probabilities are typically miscalibrated. Magnitude confidence is fitted on genuinely out of fold errors via a walk forward split on train, never on in sample residuals, because in sample residuals answer an easier question than the one that matters at prediction time."
+      ]
+    },
+    {
+      "type": "table",
+      "h": "Results on the held out test split",
+      "cols": [
+        "Metric",
+        "Pooled",
+        "Residual"
+      ],
+      "rows": [
+        [
+          "*rank_ic (t = 24.5)",
+          "0.1782|pos",
+          "·"
+        ],
+        [
+          "magnitude_score",
+          "0.2401",
+          "0.2245"
+        ],
+        [
+          "conf_magnitude_score",
+          "0.2340",
+          "0.2696|pos"
+        ],
+        [
+          "direction_score",
+          "0.2414",
+          "0.0001|neg"
+        ],
+        [
+          "ece_10 · calibration error",
+          "0.0211",
+          "·"
+        ]
+      ],
+      "caption": "Pooled versus residual, after subtracting the common market move",
+      "note": "The magnitude numbers are close to each other pooled and residual, which means the model differentiates between stocks rather than only reading the volatility regime. Confidence about magnitude is more informative residually than pooled, the opposite of the direction story, and worth stating for exactly that contrast."
+    },
+    {
+      "type": "nulls",
+      "h": "The result the submission leads with",
+      "label": "Residual direction skill is indistinguishable from zero",
+      "after": [
+        "Pooled direction looks strong. After subtracting the common market wide move, it is 0.0001. Rather than average that away, three explanations were checked with the actual numbers printed at each step. Is the classifier degenerate? No, raw probabilities have genuine two sided spread and hundreds of rows score below 0.5 before calibration. Is the calibrator broken? No, bucketing the validation split into deciles and checking the realized up rate in each shows even the lowest decile is well above 50% on held out data, so the calibrated output is reflecting reality rather than fighting it. Is the confidence flip rule over triggering? No, the calibrated probability never dropped below 0.5 on test before that rule ran.",
+        "Overnight returns in this dataset are up 67 to 73% of the time across all three chronological splits. A correctly calibrated model has limited honest basis to call down. Forcing more down calls would have produced better looking recall and a less truthful model."
+      ]
+    },
+    {
+      "type": "bullets",
+      "h": "Diagnosing it rather than accepting it",
+      "items": [
+        "Feature importance showed <code>breadth_pos_frac</code> and <code>xs_dispersion</code>, pure market regime indicators identical across all 208 stocks on a given day, dominating the direction model, while the one feature capturing a stock's standing against its peers ranked 15th and was barely used",
+        "Rank and z score versions of two absolute features tied to the overnight persistence mechanism were added and the model retrained. Down calls on test went from zero to 103 genuine ones, and the fraction of stocks beating their own naive always up rate moved off zero for the first time, to 0.029",
+        "Breadth reported with the same honesty: 204 of 208 stocks clear a 50% hit rate, but since the direction model calls up on nearly every row, a stock's hit rate is mechanically close to its own historical up rate, and the correlation between the two is effectively 1.0. The meaningful breadth result is the magnitude side, where all 208 beat the naive baseline and that does not reduce to the always up mechanism",
+        "A separate model trained directly on the residual target, the sign of a stock's return minus the universe mean, showed real skill on its own terms: 56.6% hit rate on a genuinely near even target, and a 0.183 mean daily cross sectional rank correlation between its confidence and which stocks actually beat the market across 282 test days",
+        "That model was tested for inclusion and then left out. On the 60% of test rows where the two models disagree, the primary model is right 64% of the time. The combination was measured rather than assumed, found not to help, and not shipped",
+        "Reproducibility as a checked property, not a claim: a single seed threaded through every model's <code>random_state</code> and the walk forward splitter, verified by two independent fresh runs producing byte identical <code>predictions.csv</code> and <code>statistics.csv</code>"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "LightGBM",
+        "Isotonic Regression",
+        "Pandas",
+        "NumPy",
+        "Parquet",
+        "scikit-learn",
+        "YAML config"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "rank_ic (t = 24.5)",
+          "0.1782",
+          "pos"
+        ],
+        [
+          "magnitude_score",
+          "0.2401"
+        ],
+        [
+          "conf_magnitude residual",
+          "0.2696",
+          "pos"
+        ],
+        [
+          "direction residual",
+          "0.0001",
+          "neg"
+        ],
+        [
+          "Calibration error",
+          "0.0211"
+        ],
+        [
+          "Symbols",
+          "208"
+        ],
+        [
+          "Models fitted",
+          "4"
+        ],
+        [
+          "Reruns byte identical",
+          "Yes",
+          "pos"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/Overnight-Return-Predictor"
+        ]
+      ]
+    }
+  ]
+}

@@ -76,8 +76,12 @@ def main():
 
     # Key repos to fetch READMEs for (update this list as you add projects)
     KEY_REPOS = [
-        "MindVault",
+        "artha",
+        "Backtesting-Framework",
         "Multi-Horizon-Transformer-for-Systematic-Equity-Direction-Forecasting",
+        "Overnight-Return-Predictor",
+        "FinIntel",
+        "MindVault",
         "auditmind-ai",
         "Shakti-Site",
         "ApplyPilot-AI",

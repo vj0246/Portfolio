@@ -1,0 +1,107 @@
+{
+  "section": "frontier",
+  "order": 20,
+  "id": "loanrisk",
+  "name": "Automated Credit Risk Evaluation for Loan Approval",
+  "badge": {
+    "kind": "freelance",
+    "text": "Foundation work"
+  },
+  "tagline": "Binary classification on historical loan applications: income, loan amount, credit history, education, employment and property area in, an approve or reject decision out. A full supervised pipeline from EDA through feature engineering to a Flask app that serves the trained model. This is the standard formulation of credit scoring, and it is here because the research above exists to attack what it gets wrong.",
+  "tags": [
+    "Binary Classification",
+    "Feature Engineering",
+    "Flask",
+    "scikit-learn"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "An end to end supervised learning pipeline over historical loan application data: exploratory analysis, preprocessing, feature engineering, and a binary classifier that predicts whether an application should be approved. A Flask interface wraps the trained model so applicant details can be entered and scored directly, which is the part that turns a notebook into something a person can actually use."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Pipeline",
+      "flow": [
+        "Loan Applications|applicant + loan features",
+        "->",
+        "EDA · Preprocessing|missing values · encoding",
+        "->",
+        "*Classifier|approve / reject",
+        "->",
+        "Flask App|form in, prediction out"
+      ],
+      "note": "Deliberately the textbook formulation: one dataset, a symmetric objective, and accuracy style classification metrics. Stated plainly rather than dressed up, because the interesting question is what that formulation cannot do."
+    },
+    {
+      "type": "nulls",
+      "h": "Why it sits next to the research",
+      "label": "Three assumptions this model makes that lending does not support",
+      "items": [
+        "It optimises a symmetric objective. Approving a defaulter and rejecting a creditworthy borrower cost different amounts, and the ratio moves with the size of the loan. R1 replaces this with an instance dependent asymmetric loss trained directly on economic loss",
+        "It treats borrower risk as stationary. A single snapshot of features carries no notion of debt accumulating faster over time, which is how distress actually shows up before a default. R1 adds an explicit debt acceleration module",
+        "Whatever explanation it offers is post hoc. A classifier plus SHAP produces an approximation of a decision, not the decision itself, which is the wrong side of the line for a regulated credit decision. R1 makes interpretability part of the forward pass"
+      ],
+      "after": [
+        "Kept on the page for that contrast. The honest description is a competent, conventional credit scoring pipeline with a working demo, and the value of having built it is knowing precisely which of its assumptions to go after."
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "Python",
+        "scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Flask",
+        "Jupyter"
+      ]
+    },
+    {
+      "label": "Scope",
+      "type": "metrics",
+      "items": [
+        [
+          "Task",
+          "Binary"
+        ],
+        [
+          "Objective",
+          "Symmetric",
+          "flat"
+        ],
+        [
+          "Temporal modelling",
+          "None",
+          "flat"
+        ],
+        [
+          "Explainability",
+          "Post hoc",
+          "flat"
+        ],
+        [
+          "Served via",
+          "Flask"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/Automated-Credit-Risk-Evaluation-for-Loan-Approval"
+        ]
+      ]
+    }
+  ]
+}

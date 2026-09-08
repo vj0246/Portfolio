@@ -1,0 +1,108 @@
+{
+  "section": "engineering",
+  "order": 30,
+  "id": "applypilot",
+  "name": "ApplyPilot AI",
+  "badge": {
+    "kind": "live",
+    "text": "● Live"
+  },
+  "tagline": "A full stack AI application copilot: upload a resume, paste a job post, and get a tailored cover letter, application email, fit score, and reworded resume bullets in 10 to 20 seconds. Three tier app on Groq Llama 3.3 70B, no paid API.",
+  "tags": [
+    "FastAPI",
+    "Next.js 14",
+    "PostgreSQL",
+    "Groq · Llama 3.3 70B",
+    "Docker"
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "h": "What it does",
+      "paras": [
+        "Upload a resume, paste a job posting, and in 10 to 20 seconds ApplyPilot returns a cover letter, an application email, a fit score, adapted resume bullets, and grounded answers to custom application questions. Resume and job parsing extract structured profiles; the fit score is computed in plain Python before any model call; generation runs through Groq's free Llama 3.3 70B. A real status pipeline (ready → approved → submitted → interviewing → offered/rejected) tracks every application.",
+        "The AI never invents experience. Resume adaptation carries explicit prompt level constraints: reword existing bullets to hit JD keywords, never add a skill or change a date. It was tested specifically by feeding a resume missing an obvious JD keyword to confirm it reframes rather than fabricates."
+      ]
+    },
+    {
+      "type": "arch",
+      "h": "Architecture",
+      "flow": [
+        "Next.js 14|upload · paste JD",
+        "->",
+        "*FastAPI|JWT REST · BackgroundTasks",
+        "->",
+        "*Groq · Llama 3.3 70B|3 sequential calls",
+        "->",
+        "PostgreSQL|profiles · application state"
+      ],
+      "note": "Fit scoring is pure Python skill set intersection before any LLM call: transparent and fast, and it tells the user exactly why the score is what it is.\nThree Groq calls per application (cover letter, email, resume adaptation) run sequentially inside one FastAPI BackgroundTask: no queue, no broker.\nThe whole stack runs in three Docker containers via Docker Compose; PostgreSQL persists profiles, documents, and lifecycle across five tables.\nGroq free tier (Llama 3.3 70B) for every generation: no OpenAI key, no per call cost."
+    },
+    {
+      "type": "bullets",
+      "h": "Technical depth",
+      "items": [
+        "Three tier app: Next.js 14 frontend with polling based state, JWT secured REST to a FastAPI backend, PostgreSQL for persistence: no unnecessary moving parts",
+        "Fit score is deterministic Python (skill set intersection) computed before any LLM call: transparent and explainable rather than an opaque embedding similarity",
+        "Three Groq calls per application run sequentially inside one FastAPI BackgroundTask: no Celery, no Redis, no broker: genuinely sufficient at this scale",
+        "Original design used Celery + Redis + LangGraph + Ollama: scrapped after testing because five extra containers and a message broker added complexity with no benefit, cut to BackgroundTasks + Groq",
+        "Resume adaptation is constrained at the prompt level to reword existing bullets only, never fabricate skills or dates: verified by adversarial testing with a missing keyword"
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "label": "Stack",
+      "type": "tags",
+      "items": [
+        "FastAPI",
+        "SQLAlchemy 2",
+        "PostgreSQL 16",
+        "Next.js 14",
+        "TypeScript",
+        "React Query",
+        "Zustand",
+        "Tailwind",
+        "Groq · Llama 3.3 70B",
+        "Docker Compose",
+        "JWT"
+      ]
+    },
+    {
+      "label": "Key metrics",
+      "type": "metrics",
+      "items": [
+        [
+          "Time per application",
+          "10–20s"
+        ],
+        [
+          "Groq calls / application",
+          "3"
+        ],
+        [
+          "Free tier throughput",
+          "14,400 req/min"
+        ],
+        [
+          "Containers",
+          "3"
+        ]
+      ]
+    },
+    {
+      "label": "Links",
+      "type": "links",
+      "items": [
+        [
+          "GitHub Repository",
+          "https://github.com/vj0246/ApplyPilot-AI"
+        ],
+        [
+          "Live Demo",
+          "https://apply-pilot-ai.vercel.app"
+        ]
+      ]
+    }
+  ]
+}
