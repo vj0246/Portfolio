@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin · Vivaan Jain</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-left">
+    <span class="bar-title">Portfolio admin</span>
+    <span class="bar-repo" id="repoLabel"></span>
+  </div>
+  <div class="bar-right">
+    <span class="who" id="who"></span>
+    <button type="button" class="btn ghost" id="logout" hidden>Sign out</button>
+  </div>
+</header>
+
+<!-- Signed out -->
+<section class="gate" id="gate" hidden>
+  <h1>Sign in</h1>
+  <p>
+    This page edits the live site. Sign in with GitHub; only
+    <code id="allowedLogin">vj0246</code> is accepted.
+  </p>
+  <p class="gate-error" id="gateError" hidden></p>
+  <a class="btn primary" href="/api/auth/login">Continue with GitHub</a>
+</section>
+
+<!-- Signed in -->
+<main class="app" id="app" hidden>
+
+  <aside class="list">
+    <div class="list-head">
+      <span>Cards</span>
+      <button type="button" class="btn small" id="newCard">New</button>
+    </div>
+    <div id="cardList" class="card-list"></div>
+
+    <div class="list-head" style="margin-top:22px">Resume</div>
+    <div class="resume-box">
+      <label class="field">
+        <span>Slot</span>
+        <select id="resumeSlot">
+          <option value="quant">Quantitative Researcher</option>
+          <option value="aiml">AI·ML Engineer</option>
+          <option value="swe">Software Engineer</option>
+        </select>
+      </label>
+      <input type="file" id="resumeFile" accept="application/pdf" />
+      <button type="button" class="btn" id="resumeUpload">Upload PDF</button>
+      <p class="hint" id="resumeStatus"></p>
+    </div>
+  </aside>
+
+  <section class="editor">
+    <div class="editor-empty" id="editorEmpty">
+      <p>Select a card on the left, or create a new one.</p>
+    </div>
+
+    <form class="editor-form" id="editorForm" hidden>
+      <div class="row three">
+        <label class="field">
+          <span>Section</span>
+          <select id="fSection">
+            <option value="projects">§1 Quantitative Research</option>
+            <option value="frontier">§2 Research</option>
+            <option value="engineering">§3 Engineering</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Order</span>
+          <input type="number" id="fOrder" step="5" />
+        </label>
+        <label class="field">
+          <span>Id</span>
+          <input type="text" id="fId" placeholder="quantstorm" />
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Name</span>
+        <input type="text" id="fName" />
+      </label>
+
+      <label class="field">
+        <span>Lede <em>shown in the contents list</em></span>
+        <input type="text" id="fLede" placeholder="net Sharpe 1.02, operated live" />
+      </label>
+
+      <div class="row two">
+        <label class="field">
+          <span>Badge kind</span>
+          <select id="fBadgeKind">
+            <option value="">none</option>
+            <option value="live">live</option>
+            <option value="progress">progress</option>
+            <option value="research">research</option>
+            <option value="published">published</option>
+            <option value="freelance">freelance</option>
+            <option value="intern">intern</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Badge text</span>
+          <input type="text" id="fBadgeText" placeholder="● Live" />
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Tagline</span>
+        <textarea id="fTagline" rows="3"></textarea>
+      </label>
+
+      <label class="field">
+        <span>Tags <em>comma separated</em></span>
+        <input type="text" id="fTags" />
+      </label>
+
+      <label class="field">
+        <span>Blocks <em>JSON array — see _TEMPLATE.json for every block type</em></span>
+        <textarea id="fBlocks" rows="14" spellcheck="false"></textarea>
+      </label>
+
+      <label class="field">
+        <span>Sidebar <em>JSON array — tags, metrics, links</em></span>
+        <textarea id="fSidebar" rows="10" spellcheck="false"></textarea>
+      </label>
+
+      <div class="preview" id="preview"></div>
+
+      <p class="errors" id="errors" hidden></p>
+
+      <div class="actions">
+        <button type="submit" class="btn primary" id="save">Save and publish</button>
+        <button type="button" class="btn danger" id="delete">Delete</button>
+        <span class="hint" id="status"></span>
+      </div>
+
+      <p class="hint">
+        Saving commits to <code>content/projects/</code>. A GitHub Action re-renders
+        <code>index.html</code> and Vercel redeploys, so the change is live in about
+        ninety seconds.
+      </p>
+    </form>
+  </section>
+
+</main>
+
+<script src="/admin/admin.js" defer></script>
+</body>
+</html>

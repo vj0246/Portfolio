@@ -180,6 +180,23 @@ gradient edge and the 3D tilt were removed in the paper redesign.
 
 ---
 
+## The admin
+
+`/admin` edits cards and replaces resume PDFs from a browser, on any device.
+Setup, and the security model, are in [`admin/SETUP.md`](admin/SETUP.md).
+
+Sign-in is GitHub OAuth restricted to a single account. Writes use the signed-in
+user's own token, so there is no long-lived credential on the server. The admin
+commits **only** `content/projects/*.json` and `resumes/*.pdf`; the "Rebuild cards"
+Action renders `index.html` from that JSON and commits it. That is deliberate:
+`content/projects/` stays the single source of truth no matter where an edit came
+from.
+
+`api/_lib.js` carries a JavaScript copy of the card validation rules. **If you add
+a block type or a badge kind to `build.py`, add it there too**, or the admin will
+reject a card the build would happily render. The lists to keep in step are
+`SECTIONS`, `BADGE_KINDS`, `BLOCK_TYPES` and `SIDEBAR_TYPES`.
+
 ## Front-end conventions
 
 `index.html` carries **no inline JavaScript and no inline event handlers** (`onclick=` and friends).

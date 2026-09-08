@@ -1,6 +1,8 @@
-# All crawlers, full access.
+# All crawlers, full access to the site. The admin is not public content.
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 # AI and LLM crawlers, named explicitly so a default-deny policy on their side
 # still resolves to allow. Same access as everyone else.

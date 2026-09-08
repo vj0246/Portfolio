@@ -1,0 +1,46 @@
+name: Rebuild cards
+
+# The admin writes card JSON straight to content/projects and never touches
+# index.html, so something has to render it. That is this. It keeps
+# content/projects as the single source of truth: whatever is committed there
+# is what the page shows, whether it arrived from the admin or from a laptop.
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/projects/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# A rebuild and the data sync must never race on git push
+concurrency:
+  group: portfolio-write
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Render cards into index.html
+        run: python scripts/build.py
+
+      - name: Validate the result
+        run: python scripts/validate.py
+
+      - name: Commit index.html if it changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "chore(build): render cards [skip ci]"
+          git push

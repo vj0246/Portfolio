@@ -100,6 +100,49 @@ def check_contents_matches_cards(html: str) -> list[str]:
     return problems
 
 
+def check_admin_rules_in_sync() -> list[str]:
+    """The admin validates cards in JavaScript before committing them.
+
+    That is a second copy of rules that live in build.py, so it can drift: add a
+    block type to the build and the admin starts rejecting cards the site would
+    render perfectly. Compare the lists rather than trust anyone to remember.
+    """
+    lib = ROOT / "api" / "_lib.js"
+    if not lib.exists():
+        return []  # admin not deployed in this checkout
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from build import BADGE_KINDS, BLOCK_RENDERERS, SECTIONS  # noqa: PLC0415
+
+    source = lib.read_text(encoding="utf-8")
+
+    def js_list(name: str) -> set[str]:
+        m = re.search(r"const %s = \[(.*?)\];" % re.escape(name), source, re.S)
+        return set(re.findall(r"'([^']+)'", m.group(1))) if m else set()
+
+    expected = {
+        "SECTIONS": set(SECTIONS),
+        "BADGE_KINDS": set(BADGE_KINDS),
+        "BLOCK_TYPES": set(BLOCK_RENDERERS),
+    }
+
+    problems = []
+    for name, want in expected.items():
+        got = js_list(name)
+        if not got:
+            problems.append(f"api/_lib.js: could not find {name}")
+        elif got != want:
+            missing = sorted(want - got)
+            extra = sorted(got - want)
+            detail = []
+            if missing:
+                detail.append(f"missing {missing}")
+            if extra:
+                detail.append(f"unknown {extra}")
+            problems.append(f"api/_lib.js {name} out of sync with build.py: {', '.join(detail)}")
+    return problems
+
+
 def check_duplicate_ids(html: str) -> list[str]:
     ids = re.findall(r'\sid="([^"]+)"', html)
     dupes = sorted({i for i in ids if ids.count(i) > 1})
@@ -152,6 +195,7 @@ def run(check_links: bool = False) -> list[tuple[str, list[str]]]:
         ("card numbering", check_card_numbering(html)),
         ("contents matches cards", check_contents_matches_cards(html)),
         ("local assets", check_local_assets(html)),
+        ("admin rules in sync", check_admin_rules_in_sync()),
     ]
     if check_links:
         checks.append(("external links", check_external_links(html)))

@@ -140,6 +140,7 @@ commit if `index.html` ever disagrees with the JSON it came from.
 | `scripts/publish.py` | Build, validate, diff, confirm, rebase, push |
 | `scripts/fetch_data.py` | Daily GitHub API pull for the activity strip |
 | `js/main.js` | All page behaviour. No inline script, no inline handlers |
+| `api/` + `admin/` | A GitHub-OAuth admin for editing cards and resumes from a browser |
 | `PIPELINE.md` | The full maintenance guide |
 
 Design is deliberately narrow: near-black slate, one muted slate-blue accent, desaturated green and
