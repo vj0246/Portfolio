@@ -109,7 +109,7 @@ def check_duplicate_ids(html: str) -> list[str]:
 def check_local_assets(html: str) -> list[str]:
     problems = []
     for ref in set(re.findall(r'(?:src|href)="((?!https?:|mailto:|#|//)[^"]+)"', html)):
-        target = ROOT / ref.lstrip("/")
+        target = ROOT / ref.split("?", 1)[0].lstrip("/")
         if not target.exists():
             problems.append(f"missing local file: {ref}")
     return problems

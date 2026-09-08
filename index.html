@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=a9e94f8f" />
   <noscript>
     <style>
       /* Without JS nothing dismisses the intro and nothing adds .in, so the
@@ -105,24 +105,14 @@
   <div class="abstract" data-reveal>
     <p>
       <span class="abstract-label">Abstract.</span>
-      I build and operate systematic equity strategies on Indian markets, and I own the whole
-      chain: point in time data from primary NSE sources, cross sectional signals, portfolio
-      construction under the full cost stack, and the validation machinery that decides whether
-      a result is skill or luck. Purged walk forward, CPCV, deflated Sharpe, White Reality Check,
-      Hansen SPA. One book trades itself nightly against real closes and alarms when it goes
-      quiet. The most valuable thing I have produced is a documented list of what does not work,
-      which is the part most people leave out.
-    </p>
-    <p class="abstract-note">
-      Mathematics came first and everything here is downstream of it: olympiad rounds at school,
-      then the mathematics papers, and now the parts of the degree the work actually runs on,
-      statistical modelling and operational research. Markets are what I point it at. The habit
-      that carried over is the useful one, which is treating a result as unproven until the
-      protocol says otherwise.
+      I build and operate systematic equity strategies on Indian markets: point in time data,
+      cross sectional signals, portfolio construction under the full cost stack, and the
+      validation that separates skill from luck. One book trades itself nightly against real
+      closes. The most useful thing I have produced is a documented list of what does not work.
     </p>
     <p class="abstract-meta">
-      Computer Engineering, DJSCE Mumbai &nbsp;·&nbsp; Class of 2028 &nbsp;·&nbsp; CGPA 9.25/10
-      &nbsp;·&nbsp; 10/10 in Mathematics I, Mathematics II, Statistical Modelling
+      Mathematics first, markets second &nbsp;·&nbsp; Computer Engineering, DJSCE Mumbai &nbsp;·&nbsp;
+      Class of 2028 &nbsp;·&nbsp; CGPA 9.25/10
     </p>
   </div>
 
@@ -202,15 +192,19 @@
   <h2 class="section-title">Quantitative Research</h2>
   <p class="section-sub">Point in time data, cross sectional signals, portfolio construction under real costs, and the validation that decides whether any of it is skill. Each entry expands into the protocol, the numbers, and the results that did not work.</p>
 
-
-  <div class="gh-strip" data-reveal>
-    <span class="gh-dot" aria-hidden="true"></span>
-    <span class="gh-strip-label">Live from GitHub</span>
-    <span class="gh-stat"><b id="gh-repo-count">39</b> public repos</span>
-    <span class="gh-sep">·</span>
-    <span class="gh-updated" id="gh-updated">auto-synced daily</span>
-    <div class="gh-recent" id="gh-recent"></div>
+  <div class="notation" data-reveal>
+    <div class="notation-h">Notation used below</div>
+    <dl class="notation-list">
+      <div><dt>IC</dt><dd>Spearman rank correlation between a signal and the forward return it is meant to predict.</dd></div>
+      <div><dt>Sharpe</dt><dd>Annualised mean excess return divided by its standard deviation, always quoted net of costs here.</dd></div>
+      <div><dt>DSR</dt><dd>Deflated Sharpe. The Sharpe discounted for how many configurations were tried before this one. Below 0.95 is not an edge.</dd></div>
+      <div><dt>PBO</dt><dd>Probability of backtest overfitting. The share of splits where the in sample winner loses out of sample. 0.5 is a coin flip.</dd></div>
+      <div><dt>CPCV</dt><dd>Combinatorially purged cross validation. Train and test blocks separated by a purge and an embargo so overlapping labels cannot leak.</dd></div>
+      <div><dt>SPA</dt><dd>Hansen's Superior Predictive Ability test, for whether the best strategy in a family beats the benchmark once the whole family is counted.</dd></div>
+    </dl>
   </div>
+
+
 
   <div class="proj-list">
 
@@ -225,6 +219,7 @@
               <span class="badge live">● Live · Operated</span>
             </div>
             <p class="proj-tagline">A weekly cross sectional momentum book on Indian equities: researched, validated, and actually operated, on zero paid data. Net Sharpe 1.02 and 13.7% CAGR across 2012 to 2026 after the complete Indian cost stack. It runs itself at 19:00 every evening, it knows when it has been fooled, and its most valuable output is a documented list of things that do not work.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Net Sharpe</span><span class="fig-val pos">1.02</span></span><span class="fig"><span class="fig-label">Net CAGR</span><span class="fig-val pos">13.7%</span></span><span class="fig"><span class="fig-label">Max drawdown</span><span class="fig-val neg">−28%</span></span></div>
             <div class="proj-tags">
               <span class="tag">Point in Time NSE Panel</span><span class="tag">Ledoit-Wolf Min-Var</span>
               <span class="tag">Purged CV · CPCV</span><span class="tag">Deflated Sharpe · SPA</span>
@@ -370,6 +365,7 @@
               <span class="badge progress">v0.1 · Alpha</span>
             </div>
             <p class="proj-tagline">A Python backtesting library for people who have been burned by backtests. Point in time data access that makes look ahead a construction error rather than a discipline problem, an AST scanner and a perturbation tester for leakage in strategy code, two execution engines whose disagreement is itself the diagnostic, and performance statistics that account for how many strategies you tried before picking this one.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Engine agreement</span><span class="fig-val">1e-9</span></span><span class="fig"><span class="fig-label">Test suite</span><span class="fig-val">~80</span></span><span class="fig"><span class="fig-label">Python versions in CI</span><span class="fig-val">3.11–3.13</span></span></div>
             <div class="proj-tags">
               <span class="tag">Python Package</span><span class="tag">Point in Time PanelView</span>
               <span class="tag">AST Leakage Scanner</span><span class="tag">Dual Engine Parity</span>
@@ -490,6 +486,7 @@
               <span class="badge research">Research</span>
             </div>
             <p class="proj-tagline">Two related quantitative finance ML projects: a custom Transformer for multi horizon Nifty 50 direction forecasting (0.62 AUC, 0.6+ Sharpe), and a controlled experiment testing whether news sentiment provides incremental alpha beyond price.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">AUC (Transformer)</span><span class="fig-val">0.62</span></span><span class="fig"><span class="fig-label">L/S Sharpe</span><span class="fig-val">0.6+</span></span><span class="fig"><span class="fig-label">Training days</span><span class="fig-val">4,900+</span></span></div>
             <div class="proj-tags">
               <span class="tag">TensorFlow</span><span class="tag">FinBERT</span>
               <span class="tag">XGBoost</span><span class="tag">yfinance</span>
@@ -592,6 +589,7 @@
               <span class="badge research">Research</span>
             </div>
             <p class="proj-tagline">Predicting the overnight gap into the next open across 208 NSE symbols: move size, direction, and calibrated confidence as four independently fitted models rather than one model wearing four hats. Pooled rank IC 0.178 at t = 24.5, and a residual direction score of 0.0001 that the write up leads with instead of burying.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">rank_ic (t = 24.5)</span><span class="fig-val pos">0.1782</span></span><span class="fig"><span class="fig-label">magnitude_score</span><span class="fig-val">0.2401</span></span><span class="fig"><span class="fig-label">conf_magnitude residual</span><span class="fig-val pos">0.2696</span></span></div>
             <div class="proj-tags">
               <span class="tag">LightGBM</span><span class="tag">Isotonic Calibration</span>
               <span class="tag">Walk Forward Splits</span><span class="tag">Cross Sectional Features</span>
@@ -710,6 +708,7 @@
               <span class="badge research">ACM Research · 2025</span>
             </div>
             <p class="proj-tagline">A novel deep learning architecture that learns non linear latent borrower risk embeddings, models temporal debt acceleration, optimises for economic loss (not AUC), and produces regulator grade explanations, built in, not post hoc.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Dataset</span><span class="fig-val pos">Confirmed</span></span><span class="fig"><span class="fig-label">Base paper</span><span class="fig-val pos">Found</span></span><span class="fig"><span class="fig-label">Architecture</span><span class="fig-val pos">Designed</span></span></div>
             <div class="proj-tags">
               <span class="tag">Deep Learning</span><span class="tag">Credit Risk</span>
               <span class="tag">Cost Sensitive Learning</span><span class="tag">XAI</span>
@@ -812,6 +811,7 @@
               <span class="badge freelance">Foundation work</span>
             </div>
             <p class="proj-tagline">Binary classification on historical loan applications: income, loan amount, credit history, education, employment and property area in, an approve or reject decision out. A full supervised pipeline from EDA through feature engineering to a Flask app that serves the trained model. This is the standard formulation of credit scoring, and it is here because the research above exists to attack what it gets wrong.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Task</span><span class="fig-val">Binary</span></span><span class="fig"><span class="fig-label">Objective</span><span class="fig-val flat">Symmetric</span></span><span class="fig"><span class="fig-label">Temporal modelling</span><span class="fig-val flat">None</span></span></div>
             <div class="proj-tags">
               <span class="tag">Binary Classification</span><span class="tag">Feature Engineering</span>
               <span class="tag">Flask</span><span class="tag">scikit-learn</span>
@@ -916,6 +916,7 @@
               <span class="badge live">● Live</span>
             </div>
             <p class="proj-tagline">An agentic AI equity research desk for Indian markets (NSE): six specialised LLM agents grounded in live market data, LangGraph human in the loop approval gates, a mandatory compliance pipeline, and deterministic Python maths so the model interprets numbers rather than inventing them.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Interactive agents</span><span class="fig-val">6</span></span><span class="fig"><span class="fig-label">ReAct tools</span><span class="fig-val">31</span></span><span class="fig"><span class="fig-label">Human in the loop agents</span><span class="fig-val">4</span></span></div>
             <div class="proj-tags">
               <span class="tag">LangGraph</span><span class="tag">FastAPI</span>
               <span class="tag">Groq</span><span class="tag">React · Vite</span>
@@ -1015,6 +1016,7 @@
               <span class="badge live">● Live</span>
             </div>
             <p class="proj-tagline">Production grade multi tenant RAG system with hybrid retrieval (semantic + BM25 + FlashRank reranking via Reciprocal Rank Fusion), real time streaming, multimodal ingestion, and RAGAS validated quality across 25+ test cases.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Query latency</span><span class="fig-val">40% faster</span></span><span class="fig"><span class="fig-label">RAGAS test cases</span><span class="fig-val">25+</span></span><span class="fig"><span class="fig-label">Prod incidents fixed</span><span class="fig-val">6+</span></span></div>
             <div class="proj-tags">
               <span class="tag">LangChain LCEL</span><span class="tag">FAISS</span>
               <span class="tag">RAGAS</span><span class="tag">FastAPI</span>
@@ -1113,6 +1115,7 @@
               <span class="badge live">● Live</span>
             </div>
             <p class="proj-tagline">A full stack AI application copilot: upload a resume, paste a job post, and get a tailored cover letter, application email, fit score, and reworded resume bullets in 10 to 20 seconds. Three tier app on Groq Llama 3.3 70B, no paid API.</p>
+            <div class="proj-figures"><span class="fig"><span class="fig-label">Time per application</span><span class="fig-val">10–20s</span></span><span class="fig"><span class="fig-label">Groq calls / application</span><span class="fig-val">3</span></span><span class="fig"><span class="fig-label">Free tier throughput</span><span class="fig-val">14,400 req/min</span></span></div>
             <div class="proj-tags">
               <span class="tag">FastAPI</span><span class="tag">Next.js 14</span>
               <span class="tag">PostgreSQL</span><span class="tag">Groq · Llama 3.3 70B</span>
@@ -1675,6 +1678,14 @@
 
 </main><!-- /page -->
 
+  <div class="gh-strip">
+    <span class="gh-dot" aria-hidden="true"></span>
+    <span class="gh-strip-label">Live from GitHub</span>
+    <span class="gh-stat"><b id="gh-repo-count">39</b> public repos</span>
+    <span class="gh-sep">·</span>
+    <span class="gh-updated" id="gh-updated">auto-synced daily</span>
+    <div class="gh-recent" id="gh-recent"></div>
+  </div>
 <footer>
   <div class="footer-links">
     <a href="https://github.com/vj0246" target="_blank" rel="noopener">GitHub</a>
@@ -1708,8 +1719,8 @@
 </div>
 
 
-<script src="js/main.js" defer></script>
-<script src="js/github.js" defer></script>
+<script src="js/main.js?v=1278dc73" defer></script>
+<script src="js/github.js?v=6d7bf83e" defer></script>
 
 </body>
 </html>

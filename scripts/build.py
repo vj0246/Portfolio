@@ -9,9 +9,13 @@ only the surrounding page; the card lists are regenerated between these markers:
     <!-- CARDS:START frontier -->  ...  <!-- CARDS:END frontier -->
     <!-- CARDS:START engineering -->  ...  <!-- CARDS:END engineering -->
 
-Card numbers are derived, never hand-written: 01, 02, 03 in projects, R1, R2 in
-frontier, E1, E2 in engineering, ordered by each card's "order" field. Adding a
+Card numbers are derived, never hand-written: a card is numbered <section>.<n>,
+so the third card in §2 is 2.3. Section numbers come from PAGE_SECTIONS. Adding a
 project in the middle renumbers everything below it automatically.
+
+The contents list on the first screen is generated from the same files, and every
+local stylesheet and script URL is stamped with a content hash so a deploy can
+never leave a visitor holding last version's CSS.
 
 Usage:
     python scripts/build.py            # rewrite index.html
@@ -25,6 +29,7 @@ to this repo, never third-party input, so there is nothing to sanitize against.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -280,6 +285,21 @@ def render_card(card: dict, number: str) -> str:
         f"              {''.join(chips[i:i + 2])}" for i in range(0, len(chips), 2)
     )
 
+    # The first few sidebar metrics are lifted onto the closed card, so the
+    # headline numbers are readable without anyone having to expand anything.
+    figures = ""
+    metrics = next((b["items"] for b in card["sidebar"] if b["type"] == "metrics"), [])
+    if metrics:
+        parts = []
+        for item in metrics[:3]:
+            label, value = item[0], item[1]
+            tone = item[2] if len(item) > 2 else ""
+            parts.append(
+                f'<span class="fig"><span class="fig-label">{label}</span>'
+                f'<span class="{cls("fig-val", tone)}">{value}</span></span>'
+            )
+        figures = '\n            <div class="proj-figures">' + "".join(parts) + "</div>"
+
     blocks = []
     for block in card["blocks"]:
         renderer = BLOCK_RENDERERS.get(block["type"])
@@ -297,7 +317,7 @@ def render_card(card: dict, number: str) -> str:
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">{card['name']}</span>{badge}
             </div>
-            <p class="proj-tagline">{card['tagline']}</p>
+            <p class="proj-tagline">{card['tagline']}</p>{figures}
             <div class="proj-tags">
 {tag_lines}
             </div>
@@ -397,6 +417,31 @@ def render_contents(by_section: dict[str, list[dict]]) -> str:
     return "\n".join(out)
 
 
+# ── asset cache busting ───────────────────────────────────────────────────────
+
+VERSIONED_ASSETS = ("css/style.css", "js/main.js", "js/github.js")
+
+
+def stamp_assets(html: str) -> str:
+    """Append a content hash to every local stylesheet and script URL.
+
+    Filenames are not hashed, so without this a visitor keeps whatever copy their
+    browser already has after a deploy. That is not hypothetical: it shipped a
+    page whose HTML and CSS were from different versions.
+    """
+    for asset in VERSIONED_ASSETS:
+        path = ROOT / asset
+        if not path.exists():
+            raise BuildError(f"versioned asset missing: {asset}")
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()[:8]
+        html = re.sub(
+            r'(?P<attr>href|src)="%s(?:\?v=[0-9a-f]+)?"' % re.escape(asset),
+            lambda m: f'{m.group("attr")}="{asset}?v={digest}"',
+            html,
+        )
+    return html
+
+
 def apply_to_index(html: str, by_section: dict[str, list[dict]]) -> str:
     for section in SECTIONS:
         start = f"<!-- CARDS:START {section} -->"
@@ -415,7 +460,7 @@ def apply_to_index(html: str, by_section: dict[str, list[dict]]) -> str:
     contents = render_contents(by_section)
     html = pattern.sub(lambda _m: f"{start}\n{contents}\n      {end}", html, count=1)
 
-    return html
+    return stamp_assets(html)
 
 
 def main() -> int:

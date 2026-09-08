@@ -193,37 +193,30 @@ section { padding: var(--s6) 0; }
 
 .hero-ctas { display: flex; gap: var(--s1); flex-wrap: wrap; margin-bottom: var(--s5); }
 
-/* ── Contents ── */
+/* ── Contents: a plain index, aligned on the numbers ── */
 .contents { border-top: 1px solid var(--line2); padding-top: var(--s3); }
 .contents-h {
   font-family: var(--mono); font-size: 10px; font-weight: 700;
   letter-spacing: 2.2px; text-transform: uppercase; color: var(--g400);
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s2);
 }
-.toc { list-style: none; columns: 2; column-gap: var(--s5); }
-.toc-section { break-inside: avoid; margin-bottom: var(--s3); }
-.toc a { display: flex; align-items: baseline; gap: 10px; color: var(--g300); padding: 3px 0; }
+.toc { list-style: none; max-width: 74ch; }
+.toc-section { margin-bottom: var(--s2); }
+.toc a {
+  display: grid; grid-template-columns: 3.2em 1fr; align-items: baseline;
+  gap: 12px; color: var(--g300); padding: 3px 0;
+}
 .toc a:hover { color: var(--white); }
-.toc-section > a { color: var(--white); font-size: 17px; font-weight: 600; }
-.toc-section > a:hover .toc-title { text-decoration: underline; text-underline-offset: 3px; }
+.toc-section > a { color: var(--white); font-size: 16px; font-weight: 600; padding-bottom: 5px; }
 .toc-num {
-  font-family: var(--mono); font-size: 11.5px; color: var(--g400);
-  font-variant-numeric: tabular-nums; min-width: 30px; flex-shrink: 0;
+  font-family: var(--mono); font-size: 12px; color: var(--g400);
+  font-variant-numeric: tabular-nums;
 }
 .toc-section > a .toc-num { color: var(--cyan); }
-.toc-cards { list-style: none; margin: 4px 0 0; }
-.toc-cards a { font-size: 14.5px; }
-.toc-name { flex-shrink: 0; }
-/* The dotted leader, as a printed contents page has */
-.toc-lede {
-  flex: 1; min-width: 0; color: var(--g400); font-size: 12.5px; font-style: italic;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.toc-lede::before {
-  content: ''; display: inline-block; width: 100%; max-width: 60px;
-  margin: 0 8px 0 2px; border-bottom: 1px dotted var(--line2);
-  transform: translateY(-3px);
-}
+.toc-cards { list-style: none; margin: 0 0 var(--s2); }
+.toc-cards a { font-size: 14.5px; padding: 2px 0; }
+.toc-name { color: inherit; }
+.toc-lede { display: block; font-size: 12.5px; color: var(--g400); font-style: italic; }
 
 /* ── PROJECTS ─────────────────────────────────── */
 .proj-list { display: flex; flex-direction: column; gap: 14px; }
@@ -724,3 +717,52 @@ details.proj-card[open] { border-color: var(--line2); box-shadow: none; }
   font-size: 15px; line-height: 1.75; color: var(--g500);
   margin-top: var(--s2); padding-left: var(--s2); border-left: 1px solid var(--line2);
 }
+
+
+/* ── Notation: the definitions the rest of the page leans on ── */
+.notation {
+  border: 1px solid var(--line); border-left: 2px solid var(--cyan);
+  background: var(--bg2); padding: var(--s3); margin-bottom: var(--s4);
+}
+.notation-h {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 1.8px; text-transform: uppercase; color: var(--g400); margin-bottom: var(--s2);
+}
+.notation-list { display: grid; gap: 9px; }
+.notation-list > div { display: grid; grid-template-columns: 5.5em 1fr; gap: var(--s2); align-items: baseline; }
+.notation-list dt {
+  font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--cyan);
+}
+.notation-list dd { font-size: 14px; color: var(--g500); line-height: 1.6; }
+
+/* The GitHub strip now sits above the footer, so it should read quietly */
+.gh-strip { max-width: 1160px; margin: 0 auto; padding: var(--s3) 40px 0; }
+
+@media (max-width: 700px) {
+  .notation-list > div { grid-template-columns: 1fr; gap: 2px; }
+  .toc a { grid-template-columns: 3em 1fr; gap: 8px; }
+}
+
+
+/* ── Headline numbers on the closed card ── */
+.proj-figures {
+  display: flex; flex-wrap: wrap; gap: 4px 22px;
+  margin: 0 0 12px; padding: 9px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.fig { display: inline-flex; align-items: baseline; gap: 7px; }
+.fig-label {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase; color: var(--g400);
+}
+.fig-val {
+  font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+.fig-val.pos { color: var(--green); }
+.fig-val.neg { color: var(--red); }
+.fig-val.flat, .fig-val.amber { color: var(--g300); }
+
+/* Keep the closed card to a glanceable height */
+.proj-tagline { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+details.proj-card[open] .proj-tagline { -webkit-line-clamp: unset; overflow: visible; }
