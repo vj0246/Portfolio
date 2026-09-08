@@ -51,9 +51,12 @@ curl -s -o /dev/null -w "%{http_code}\n" -L https://your-demo.vercel.app
 
 | `section` | Renders in | Numbered |
 |---|---|---|
-| `projects` | Quantitative Research | `01`, `02`, `03`… |
-| `frontier` | Research | `R1`, `R2`… |
-| `engineering` | Engineering | `E1`, `E2`… |
+| `projects` | §1 Quantitative Research | `1.1`, `1.2`, `1.3`… |
+| `frontier` | §2 Research | `2.1`, `2.2`… |
+| `engineering` | §3 Engineering | `3.1`, `3.2`… |
+
+Section numbers come from `PAGE_SECTIONS` in `build.py`, which lists every section on the page in
+order. Reordering sections there renumbers both the headings and every card under them.
 
 The site leads with quant. A project belongs in `projects` only if it is quantitative research;
 shipped applications go in `engineering`.
@@ -138,6 +141,10 @@ Full details in `_TEMPLATE.json`. Summary:
 
 **Sidebar metrics** take the same tones: `["Net Sharpe", "1.02", "pos"]`.
 
+**`lede`** is the one-line summary shown next to the card in the contents list on the first screen.
+Keep it short: it sits after a dotted leader and is truncated if it runs long. Omit it and the card
+still appears in the contents, just without the trailing note.
+
 ### Badges
 
 | `kind` | Colour |
@@ -154,6 +161,10 @@ Full details in `_TEMPLATE.json`. Summary:
 ---
 
 ## What you do **not** touch
+
+The contents list on the first screen is generated from the same card files, between
+`<!-- CONTENTS:START -->` and `<!-- CONTENTS:END -->`. `validate.py` fails if a card exists without
+a contents entry, or the reverse.
 
 Do not hand-edit a `<details class="proj-card">` block in `index.html`. Everything between the
 `<!-- CARDS:START ... -->` and `<!-- CARDS:END ... -->` markers is generated, and the next

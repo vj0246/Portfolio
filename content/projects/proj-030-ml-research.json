@@ -3,6 +3,7 @@
   "order": 30,
   "id": "ml-research",
   "name": "ML Research: Equity Forecasting + Sentiment Alpha",
+  "lede": "multi horizon direction forecasting",
   "badge": {
     "kind": "research",
     "text": "Research"

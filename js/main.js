@@ -1,6 +1,10 @@
 /* main.js
-   Page behaviour for the portfolio: intro, scroll reveal, counters, nav state,
-   mobile menu, card tilt, resume modal, and the neural background field.
+   Page behaviour for the portfolio: scroll reveal, counters, scroll progress,
+   nav state, mobile menu, and the resume modal.
+
+   Deliberately small. The intro overlay, the 3D card tilt and the animated
+   neural-field canvas were removed with the paper redesign: the first screen is
+   meant to be read, not watched.
 
    No inline script and no inline event handlers anywhere in index.html, so the
    Content-Security-Policy in vercel.json can refuse inline <script> outright.
@@ -13,7 +17,6 @@
   'use strict';
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const canHover = window.matchMedia('(hover: hover)').matches;
 
   /* ── Microsoft Clarity ──
      Loaded here rather than as an inline <script> in the document head so that
@@ -26,41 +29,9 @@
     document.head.appendChild(tag);
   };
 
-  /* ── Cinematic intro ──
-     Shown once per session. Dismissed by click, by Escape, or on a timer. */
-  const initIntro = () => {
-    const intro = document.getElementById('intro');
-    if (!intro) return;
-
-    let seen = false;
-    try { seen = sessionStorage.getItem('introSeen') === '1'; } catch { /* storage blocked */ }
-
-    if (reduceMotion || seen) { intro.remove(); return; }
-    try { sessionStorage.setItem('introSeen', '1'); } catch { /* storage blocked */ }
-
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
-    let done = false;
-    const dismiss = () => {
-      if (done) return;
-      done = true;
-      clearTimeout(timer);
-      document.removeEventListener('keydown', onKey);
-      intro.classList.add('gone');
-      document.body.style.overflow = prevOverflow;
-      setTimeout(() => intro.remove(), 700);
-    };
-    const onKey = (e) => { if (e.key === 'Escape') dismiss(); };
-
-    const timer = setTimeout(dismiss, 2400);
-    intro.addEventListener('click', dismiss);
-    document.addEventListener('keydown', onKey);
-  };
-
   /* ── Scroll reveal ── */
   const REVEAL_SELECTOR =
-    '.section-eyebrow, .section-title, .section-sub, .hero-left, .hero-sidebar, .hl-card, ' +
+    '.section-eyebrow, .section-title, .section-sub, ' +
     '.exp-card, .proj-card, .edu-card, .blog-card, .skill-group, .achievement-grid, ' +
     '.contact-intro, .contact-link';
 
@@ -199,8 +170,8 @@
      on close. Escape closes. Backdrop click closes. */
   const initResumeModal = () => {
     const modal = document.getElementById('resumeModal');
-    const openBtn = document.getElementById('resumeOpen');
-    if (!modal || !openBtn) return;
+    const triggers = [...document.querySelectorAll('[data-resume-open]')];
+    if (!modal || !triggers.length) return;
 
     const closeBtn = modal.querySelector('.modal-close');
     const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -210,7 +181,7 @@
       lastFocused = document.activeElement;
       modal.classList.add('open');
       modal.removeAttribute('aria-hidden');
-      openBtn.setAttribute('aria-expanded', 'true');
+      triggers.forEach((t) => t.setAttribute('aria-expanded', 'true'));
       const first = modal.querySelector(FOCUSABLE);
       if (first) first.focus();
     };
@@ -218,7 +189,7 @@
     const close = () => {
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
-      openBtn.setAttribute('aria-expanded', 'false');
+      triggers.forEach((t) => t.setAttribute('aria-expanded', 'false'));
       if (lastFocused instanceof HTMLElement) lastFocused.focus();
     };
 
@@ -232,7 +203,7 @@
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     };
 
-    openBtn.addEventListener('click', open);
+    triggers.forEach((t) => t.addEventListener('click', open));
     if (closeBtn) closeBtn.addEventListener('click', close);
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
     document.addEventListener('keydown', (e) => {
@@ -242,119 +213,11 @@
     });
   };
 
-  /* ── 3D tilt on cards ── */
-  const TILT_SELECTOR =
-    '.hl-card, .exp-card, .edu-card, .blog-card, .skill-group, .achievement-grid, .hero-sidebar';
-
-  const initTilt = () => {
-    if (reduceMotion || !canHover) return;
-
-    document.querySelectorAll(TILT_SELECTOR).forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width - 0.5;
-        const py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform =
-          `perspective(900px) rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg) translateY(-4px)`;
-      });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    });
-  };
-
-  /* ── Neural background field ──
-     The animation loop stops when the tab is hidden, so a backgrounded page
-     costs nothing. Node count scales with viewport area and is capped. */
-  const initNeuralField = () => {
-    const canvas = document.getElementById('neural-bg');
-    if (!canvas || reduceMotion) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const LINK_DIST = 124;
-    const MAX_NODES = 78;
-    const mouse = { x: -9999, y: -9999 };
-    let width = 0, height = 0, nodes = [], frame = null;
-
-    const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const count = Math.min(MAX_NODES, Math.floor((width * height) / 21000));
-      nodes = Array.from({ length: count }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22
-      }));
-    };
-
-    const step = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      for (const n of nodes) {
-        n.x += n.vx; n.y += n.vy;
-        if (n.x < 0 || n.x > width) n.vx *= -1;
-        if (n.y < 0 || n.y > height) n.vy *= -1;
-
-        const d = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-        if (d < 150 && d > 0) {
-          n.x += ((n.x - mouse.x) / d) * 0.7;
-          n.y += ((n.y - mouse.y) / d) * 0.7;
-        }
-      }
-
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const a = nodes[i], b = nodes[j];
-          const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d >= LINK_DIST) continue;
-          ctx.strokeStyle = `rgba(245,181,68,${(1 - d / LINK_DIST) * 0.15})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-
-      for (const n of nodes) {
-        const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < LINK_DIST;
-        ctx.fillStyle = near ? 'rgba(255,200,87,.9)' : 'rgba(245,181,68,.4)';
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, near ? 2.4 : 1.5, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      frame = requestAnimationFrame(step);
-    };
-
-    const start = () => { if (frame === null) frame = requestAnimationFrame(step); };
-    const stop = () => { if (frame !== null) { cancelAnimationFrame(frame); frame = null; } };
-
-    resize();
-    start();
-
-    window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-    window.addEventListener('mouseout', () => { mouse.x = mouse.y = -9999; });
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stop(); else start();
-    });
-  };
-
   /* ── Boot ── */
   initClarity('xf1dtnla6j');
-  initIntro();
   initReveal();
   initCounters();
   initScrollProgress();
   initNav();
   initResumeModal();
-  initTilt();
-  initNeuralField();
 })();

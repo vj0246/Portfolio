@@ -3,6 +3,7 @@
   "order": 20,
   "id": "loanrisk",
   "name": "Automated Credit Risk Evaluation for Loan Approval",
+  "lede": "the baseline the research is defined against",
   "badge": {
     "kind": "freelance",
     "text": "Foundation work"

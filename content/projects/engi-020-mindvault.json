@@ -3,6 +3,7 @@
   "order": 20,
   "id": "mindvault",
   "name": "MindVault",
+  "lede": "hybrid retrieval fused by RRF",
   "badge": {
     "kind": "live",
     "text": "● Live"

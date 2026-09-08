@@ -3,6 +3,7 @@
   "order": 10,
   "id": "creditscore",
   "name": "Cost Sensitive Deep Learning for Credit Scoring",
+  "lede": "cost sensitive, interpretable by design",
   "badge": {
     "kind": "research",
     "text": "ACM Research · 2025"

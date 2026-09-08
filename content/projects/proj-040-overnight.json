@@ -3,6 +3,7 @@
   "order": 40,
   "id": "overnight",
   "name": "Overnight Return Prediction · Quant Research Submission",
+  "lede": "208 NSE symbols, calibrated confidence",
   "badge": {
     "kind": "research",
     "text": "Research"

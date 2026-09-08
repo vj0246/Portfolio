@@ -34,6 +34,21 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content" / "projects"
 INDEX = ROOT / "index.html"
 
+# Every section on the page, in the order it appears. The index in this list is
+# the section's number, so §1 is Quantitative Research. Sections that hold cards
+# are the ones listed in SECTIONS below; the rest are static prose.
+PAGE_SECTIONS = (
+    ("projects", "Quantitative Research"),
+    ("frontier", "Research"),
+    ("engineering", "Engineering"),
+    ("skills", "Skills"),
+    ("education", "Education"),
+    ("experience", "Experience"),
+    ("blog", "Writing"),
+    ("achievements", "Achievements"),
+    ("contact", "Contact"),
+)
+
 SECTIONS = ("projects", "frontier", "engineering")
 BADGE_KINDS = ("live", "progress", "research", "published", "freelance", "intern")
 METRIC_TONES = ("pos", "neg", "flat", "amber")
@@ -43,14 +58,18 @@ class BuildError(Exception):
     """A card file is malformed. The message names the file and the field."""
 
 
-# ── card numbering ────────────────────────────────────────────────────────────
+# ── numbering ─────────────────────────────────────────────────────────────────
+
+def section_number(section: str) -> int:
+    for i, (name, _title) in enumerate(PAGE_SECTIONS, start=1):
+        if name == section:
+            return i
+    raise BuildError(f"section {section!r} is not in PAGE_SECTIONS")
+
 
 def card_number(section: str, position: int) -> str:
-    if section == "frontier":
-        return f"R{position}"
-    if section == "engineering":
-        return f"E{position}"
-    return f"{position:02d}"
+    """Cards are numbered like a paper: §2's third card is 2.3."""
+    return f"{section_number(section)}.{position}"
 
 
 # ── small helpers ─────────────────────────────────────────────────────────────
@@ -345,6 +364,39 @@ def render_section(cards: list[dict]) -> str:
     return "\n\n".join(render_card(c, card_number(c["section"], i + 1)) for i, c in enumerate(cards))
 
 
+# ── table of contents ─────────────────────────────────────────────────────────
+
+def render_contents(by_section: dict[str, list[dict]]) -> str:
+    """The contents list on the first screen.
+
+    Generated from the same card files as the cards themselves, so the two can
+    never drift. Sections without cards still get a line, because the point of
+    the list is to show the shape of the whole page without scrolling.
+    """
+    out = []
+    for index, (section, title) in enumerate(PAGE_SECTIONS, start=1):
+        out.append(
+            f'        <li class="toc-section">\n'
+            f'          <a href="#{section}">'
+            f'<span class="toc-num">{index}</span>'
+            f'<span class="toc-title">{title}</span></a>'
+        )
+        cards = by_section.get(section, [])
+        if cards:
+            out.append('          <ul class="toc-cards">')
+            for position, card in enumerate(cards, start=1):
+                lede = card.get("lede", "")
+                leader = f'<span class="toc-lede">{lede}</span>' if lede else ""
+                out.append(
+                    f'            <li><a href="#proj-{card["id"]}">'
+                    f'<span class="toc-num">{card_number(section, position)}</span>'
+                    f'<span class="toc-name">{card["name"]}</span>{leader}</a></li>'
+                )
+            out.append("          </ul>")
+        out.append("        </li>")
+    return "\n".join(out)
+
+
 def apply_to_index(html: str, by_section: dict[str, list[dict]]) -> str:
     for section in SECTIONS:
         start = f"<!-- CARDS:START {section} -->"
@@ -355,6 +407,14 @@ def apply_to_index(html: str, by_section: dict[str, list[dict]]) -> str:
         body = render_section(by_section[section])
         replacement = f"{start}\n{body}\n    {end}" if body else f"{start}\n    {end}"
         html = pattern.sub(lambda _m: replacement, html, count=1)
+
+    start, end = "<!-- CONTENTS:START -->", "<!-- CONTENTS:END -->"
+    pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
+    if not pattern.search(html):
+        raise BuildError("contents markers not found in index.html")
+    contents = render_contents(by_section)
+    html = pattern.sub(lambda _m: f"{start}\n{contents}\n      {end}", html, count=1)
+
     return html
 
 

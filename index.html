@@ -6,16 +6,16 @@
   <title>Vivaan Jain, Quantitative Researcher</title>
   <meta name="description" content="Vivaan Jain, Computer Engineering undergraduate at DJSCE Mumbai. Systematic equity research on Indian markets: point-in-time data, purged walk-forward validation, deflated Sharpe, and documented null results." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="theme-color" content="#07080d" />
+  <meta name="theme-color" content="#0b0d10" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <noscript>
     <style>
       /* Without JS nothing dismisses the intro and nothing adds .in, so the
          reveal animation would leave the page blank behind a permanent overlay. */
-      #intro, #neural-bg, #scroll-progress { display: none !important; }
+      #scroll-progress { display: none !important; }
       [data-reveal] { opacity: 1 !important; transform: none !important; }
       .proj-detail { display: grid !important; }
     </style>
@@ -73,19 +73,6 @@
 
 <a class="skip-link" href="#hero">Skip to content</a>
 
-<!-- ═══ CINEMATIC INTRO ═════════════════════════ -->
-<div id="intro" aria-hidden="true">
-  <div class="intro-inner">
-    <div class="intro-mark"><span class="intro-dot"></span></div>
-    <div class="intro-name">Vivaan Jain</div>
-    <div class="intro-tag">Quantitative Researcher · Systematic equity, honestly validated</div>
-    <div class="intro-bar"><span></span></div>
-    <div class="intro-skip">click anywhere to skip</div>
-  </div>
-</div>
-
-<!-- ═══ NEURAL FIELD (global animated bg) ═══════ -->
-<canvas id="neural-bg" aria-hidden="true"></canvas>
 <div id="scroll-progress"></div>
 
 <!-- ═══ NAV ═════════════════════════════════════ -->
@@ -94,14 +81,13 @@
     <a class="nav-name" href="#hero"><img src="assets/vivaan.png" class="nav-avatar" alt="" />Vivaan Jain</a>
     <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
     <div class="nav-links" id="navLinks">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Research</a>
-      <a href="#frontier">Frontier</a>
-      <a href="#engineering">Engineering</a>
-      <a href="#skills">Skills</a>
-      <a href="#blog">Writing</a>
-      <a href="#contact">Contact</a>
-      <button class="nav-resume" id="resumeOpen" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="resumeModal">Resume ↓</button>
+      <a href="#projects"><span class="nav-num">1</span>Research</a>
+      <a href="#frontier"><span class="nav-num">2</span>Frontier</a>
+      <a href="#engineering"><span class="nav-num">3</span>Engineering</a>
+      <a href="#skills"><span class="nav-num">4</span>Skills</a>
+      <a href="#experience"><span class="nav-num">6</span>Experience</a>
+      <a href="#contact"><span class="nav-num">9</span>Contact</a>
+      <button class="nav-resume" data-resume-open type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="resumeModal">Resume ↓</button>
     </div>
   </div>
 </nav>
@@ -110,158 +96,112 @@
 
 <!-- ═══ HERO ════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-left" data-reveal>
-    <p class="section-eyebrow hero-eyebrow">Layer 00 · Input</p>
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      Open to quant research internships
-    </div>
-    <h1 class="hero-name"><span class="grad-text">Vivaan Jain</span></h1>
-    <p class="hero-role">Systematic Equity Research &nbsp;·&nbsp; Alpha Validation &nbsp;·&nbsp; Execution Infrastructure</p>
-    <p class="hero-bio">
-      I build and operate systematic equity strategies on Indian markets, and I own the
-      whole chain: point in time data from primary NSE sources, cross sectional signals,
-      portfolio construction under the full cost stack, and the validation machinery that
-      decides whether a result is skill or luck. Purged walk forward, CPCV, deflated
-      Sharpe, White Reality Check, Hansen SPA. One book trades itself nightly against real
-      closes and alarms when it goes quiet. The most valuable thing I have produced is a
-      documented list of what does not work, which is the part most people leave out.
-      Computer Engineering at DJSCE Mumbai, Class of 2028, CGPA 9.4/10.
+  <header class="paper-head" data-reveal>
+    <h1 class="hero-name">Vivaan Jain</h1>
+    <p class="hero-role">Quantitative Researcher &nbsp;·&nbsp; Systematic Equity &nbsp;·&nbsp; Mumbai, India</p>
+    <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Open to quant research internships</p>
+  </header>
+
+  <div class="abstract" data-reveal>
+    <p>
+      <span class="abstract-label">Abstract.</span>
+      I build and operate systematic equity strategies on Indian markets, and I own the whole
+      chain: point in time data from primary NSE sources, cross sectional signals, portfolio
+      construction under the full cost stack, and the validation machinery that decides whether
+      a result is skill or luck. Purged walk forward, CPCV, deflated Sharpe, White Reality Check,
+      Hansen SPA. One book trades itself nightly against real closes and alarms when it goes
+      quiet. The most valuable thing I have produced is a documented list of what does not work,
+      which is the part most people leave out.
     </p>
-    <div class="hero-ctas">
-      <a href="https://github.com/vj0246" target="_blank" rel="noopener" class="btn-primary">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/vivaan-jain-398160279" target="_blank" rel="noopener" class="btn-outline">LinkedIn ↗</a>
-      <a href="mailto:vivaan.jain246@gmail.com" class="btn-outline">Email</a>
-      <a href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener" class="btn-outline">Medium ↗</a>
-    </div>
-  </div>
-  <div class="hero-sidebar d1" data-reveal>
-    <div class="sidebar-id">
-      <img src="assets/vivaan.png" alt="Vivaan Jain" class="avatar" loading="lazy" />
-      <div>
-        <div class="sid-name">Vivaan Jain</div>
-        <div class="sid-role">Quantitative Researcher</div>
-      </div>
-    </div>
-    <hr class="info-div">
-    <div class="info-row">
-      <div class="info-label">Status</div>
-      <div class="info-val">Open to work · Quant Research internships</div>
-    </div>
-    <hr class="info-div">
-    <div class="info-row">
-      <div class="info-label">Location</div>
-      <div class="info-val">Mumbai, India</div>
-    </div>
-    <hr class="info-div">
-    <div class="info-row">
-      <div class="info-label">Focus</div>
-      <div class="info-val">Systematic Equity<br>Alpha Validation<br>Execution Infra</div>
-    </div>
-    <hr class="info-div">
-    <div class="info-row">
-      <div class="info-label">Links</div>
-      <div class="info-val">
-        <a href="https://github.com/vj0246" target="_blank" rel="noopener">github.com/vj0246</a><br>
-        <a href="https://codeforces.com/profile/Vj0246" target="_blank" rel="noopener">codeforces/Vj0246</a><br>
-        <a href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener">medium/@vivaan.jain246</a>
-      </div>
-    </div>
+    <p class="abstract-note">
+      Mathematics came first and everything here is downstream of it: olympiad rounds at school,
+      then the mathematics papers, and now the parts of the degree the work actually runs on,
+      statistical modelling and operational research. Markets are what I point it at. The habit
+      that carried over is the useful one, which is treating a result as unproven until the
+      protocol says otherwise.
+    </p>
+    <p class="abstract-meta">
+      Computer Engineering, DJSCE Mumbai &nbsp;·&nbsp; Class of 2028 &nbsp;·&nbsp; CGPA 9.25/10
+      &nbsp;·&nbsp; 10/10 in Mathematics I, Mathematics II, Statistical Modelling
+    </p>
   </div>
 
-  <div class="highlights">
-    <div class="hl-card" data-reveal>
-      <div class="hl-num grad-text" data-count="9.4" data-suffix="/10">0</div>
-      <div class="hl-label">CGPA · Computer Engineering @ DJSCE Mumbai</div>
-    </div>
-    <div class="hl-card d1" data-reveal>
-      <div class="hl-num grad-text" data-count="1.02">0</div>
-      <div class="hl-label">Net Sharpe · Artha live config, 2012 to 2026, after the full Indian cost stack</div>
-    </div>
-    <div class="hl-card d2" data-reveal>
-      <div class="hl-num grad-text" data-count="13.7" data-suffix="%">0</div>
-      <div class="hl-label">Net CAGR over the same period, −28% max drawdown</div>
-    </div>
-    <div class="hl-card d3" data-reveal>
-      <div class="hl-num grad-text" data-count="7">0</div>
-      <div class="hl-label">Documented null results, including one written up as a working paper</div>
-    </div>
+  <dl class="keyfacts" data-reveal>
+    <div class="kf"><dt>Net Sharpe</dt><dd class="pos">1.02</dd></div>
+    <div class="kf"><dt>Net CAGR</dt><dd class="pos">13.7%</dd></div>
+    <div class="kf"><dt>Max drawdown</dt><dd class="neg">−28%</dd></div>
+    <div class="kf"><dt>PBO, ML study</dt><dd>0.86</dd></div>
+    <div class="kf"><dt>Documented nulls</dt><dd>7</dd></div>
+    <div class="kf"><dt>Tests in CI</dt><dd>243</dd></div>
+  </dl>
+  <p class="keyfacts-note" data-reveal>Live book, 2012 to 2026, net of the complete Indian cost stack.</p>
+
+  <div class="hero-ctas" data-reveal>
+    <a href="https://github.com/vj0246" target="_blank" rel="noopener" class="btn-primary">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/vivaan-jain-398160279" target="_blank" rel="noopener" class="btn-outline">LinkedIn ↗</a>
+    <a href="mailto:vivaan.jain246@gmail.com" class="btn-outline">Email</a>
+    <a href="https://medium.com/@vivaan.jain246" target="_blank" rel="noopener" class="btn-outline">Medium ↗</a>
+    <button class="btn-outline" data-resume-open type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="resumeModal">Resume ↓</button>
   </div>
-</section>
 
-
-<section id="experience">
-  <p class="section-eyebrow">Layer 01 · Signal</p>
-  <h2 class="section-title">Experience</h2>
-
-  <div class="exp-list">
-
-    <!-- Zeex AI -->
-    <div class="exp-card">
-      <div class="exp-left">
-        <span class="exp-badge intern">Internship</span>
-        <div class="exp-period">Apr 2026 to Present<br>Full Stack AI Intern</div>
-      </div>
-      <div class="exp-right">
-        <div class="exp-title" role="heading" aria-level="3">Full Stack AI Intern</div>
-        <div class="exp-company">Zeex AI &nbsp;·&nbsp; AI startup, incubated at IIT Madras &nbsp;·&nbsp; Mumbai</div>
-        <p class="exp-desc">
-          Architected and built a production grade, end to end audio intelligence pipeline on AWS
-          that transforms unstructured conversational audio into structured outputs at scale.
-          Pipeline covers audio preprocessing, Automatic Speech Recognition, speaker diarization,
-          and semantic question mapping across 13+ Indian languages.
-        </p>
-        <ul class="exp-bullets">
-          <li>Built the full pipeline end to end: audio preprocessing, ASR, speaker diarization, semantic question mapping: all integrated and deployed to production on AWS</li>
-          <li>Improved question mapping accuracy by 20% and transcription quality by 15% through preprocessing optimisation, architecture level experimentation, and speaker segmentation refinement</li>
-          <li>Reduced overall pipeline latency by 30% through integration of speech processing frameworks and targeted bottleneck analysis</li>
-          <li>Extended question mapping to 13+ Indian languages: built and tested the multilingual pipeline from preprocessing through to structured output</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Shakti Alloys -->
-    <div class="exp-card">
-      <div class="exp-left">
-        <span class="exp-badge freelance">Freelance</span>
-        <div class="exp-period">2025<br>Sole Developer</div>
-      </div>
-      <div class="exp-right">
-        <div class="exp-title" role="heading" aria-level="3">Full Stack Developer</div>
-        <div class="exp-company">Shakti Alloys Pvt Ltd &nbsp;·&nbsp; <a href="https://www.shaktialloys.in" target="_blank" rel="noopener">shaktialloys.in ↗</a></div>
-        <p class="exp-desc">
-          Took a real manufacturing business from zero web presence to a fully operational
-          production site: sole developer across design, build, and deployment.
-          The brief was a professional catalogue site that the client could own permanently
-          without needing a developer on retainer.
-        </p>
-        <ul class="exp-bullets">
-          <li>Chose React 18 with TypeScript and Vite for a maintainable, type safe codebase that any developer could pick up later without context; Tailwind for rapid iteration without fighting a CSS framework</li>
-          <li>Designed a product catalogue system for 18 alloy grades (ADC12, A380, A413, 6061, 6063 and more) with individual spec pages, built so adding a new grade requires editing one data file</li>
-          <li>Wired EmailJS for the contact form so enquiries go directly to the client without any backend to maintain or server costs to worry about</li>
-          <li>Built scroll reveal animations and animated counters with IntersectionObserver, no libraries, keeping bundle size minimal and load time fast</li>
-          <li>Deployed on Vercel with a custom domain, configured DNS, and handed over with documentation so the client can manage content changes without developer involvement</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+  <nav class="contents" aria-labelledby="contents-h" data-reveal>
+    <h2 class="contents-h" id="contents-h">Contents</h2>
+    <ul class="toc">
+      <!-- CONTENTS:START -->
+        <li class="toc-section">
+          <a href="#projects"><span class="toc-num">1</span><span class="toc-title">Quantitative Research</span></a>
+          <ul class="toc-cards">
+            <li><a href="#proj-artha"><span class="toc-num">1.1</span><span class="toc-name">Artha · Systematic Equity Trading System</span><span class="toc-lede">net Sharpe 1.02, operated live</span></a></li>
+            <li><a href="#proj-fullbacktester"><span class="toc-num">1.2</span><span class="toc-name">FullBacktester · Leakage Resistant Backtesting Framework</span><span class="toc-lede">look-ahead as a construction error</span></a></li>
+            <li><a href="#proj-ml-research"><span class="toc-num">1.3</span><span class="toc-name">ML Research: Equity Forecasting + Sentiment Alpha</span><span class="toc-lede">multi horizon direction forecasting</span></a></li>
+            <li><a href="#proj-overnight"><span class="toc-num">1.4</span><span class="toc-name">Overnight Return Prediction · Quant Research Submission</span><span class="toc-lede">208 NSE symbols, calibrated confidence</span></a></li>
+          </ul>
+        </li>
+        <li class="toc-section">
+          <a href="#frontier"><span class="toc-num">2</span><span class="toc-title">Research</span></a>
+          <ul class="toc-cards">
+            <li><a href="#proj-creditscore"><span class="toc-num">2.1</span><span class="toc-name">Cost Sensitive Deep Learning for Credit Scoring</span><span class="toc-lede">cost sensitive, interpretable by design</span></a></li>
+            <li><a href="#proj-loanrisk"><span class="toc-num">2.2</span><span class="toc-name">Automated Credit Risk Evaluation for Loan Approval</span><span class="toc-lede">the baseline the research is defined against</span></a></li>
+          </ul>
+        </li>
+        <li class="toc-section">
+          <a href="#engineering"><span class="toc-num">3</span><span class="toc-title">Engineering</span></a>
+          <ul class="toc-cards">
+            <li><a href="#proj-finintel"><span class="toc-num">3.1</span><span class="toc-name">FinIntel — Agentic Equity Desk</span><span class="toc-lede">six agents, human in the loop</span></a></li>
+            <li><a href="#proj-mindvault"><span class="toc-num">3.2</span><span class="toc-name">MindVault</span><span class="toc-lede">hybrid retrieval fused by RRF</span></a></li>
+            <li><a href="#proj-applypilot"><span class="toc-num">3.3</span><span class="toc-name">ApplyPilot AI</span><span class="toc-lede">three tier, Groq Llama 3.3 70B</span></a></li>
+            <li><a href="#proj-auditmind"><span class="toc-num">3.4</span><span class="toc-name">AuditMind AI</span><span class="toc-lede">13 Indian languages, no paid API</span></a></li>
+          </ul>
+        </li>
+        <li class="toc-section">
+          <a href="#skills"><span class="toc-num">4</span><span class="toc-title">Skills</span></a>
+        </li>
+        <li class="toc-section">
+          <a href="#education"><span class="toc-num">5</span><span class="toc-title">Education</span></a>
+        </li>
+        <li class="toc-section">
+          <a href="#experience"><span class="toc-num">6</span><span class="toc-title">Experience</span></a>
+        </li>
+        <li class="toc-section">
+          <a href="#blog"><span class="toc-num">7</span><span class="toc-title">Writing</span></a>
+        </li>
+        <li class="toc-section">
+          <a href="#achievements"><span class="toc-num">8</span><span class="toc-title">Achievements</span></a>
+        </li>
+        <li class="toc-section">
+          <a href="#contact"><span class="toc-num">9</span><span class="toc-title">Contact</span></a>
+        </li>
+      <!-- CONTENTS:END -->
+    </ul>
+  </nav>
 </section>
 
 
 <section id="projects">
-  <p class="section-eyebrow">Layer 02 · Alpha</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>1</p>
   <h2 class="section-title">Quantitative Research</h2>
-  <p class="section-sub">Systematic equity work on Indian markets: point in time data, cross sectional signals, portfolio construction under real costs, and the validation that decides whether any of it is skill. Click any card for the protocol, the numbers, and the results that did not work.</p>
+  <p class="section-sub">Point in time data, cross sectional signals, portfolio construction under real costs, and the validation that decides whether any of it is skill. Each entry expands into the protocol, the numbers, and the results that did not work.</p>
 
-  <div class="tape" data-reveal>
-    <div class="tape-item"><div class="tape-key">Live book · net Sharpe</div><div class="tape-val pos">1.02</div><div class="tape-note">Artha, 2012 to 2026, after the full Indian cost stack</div></div>
-    <div class="tape-item"><div class="tape-key">Net CAGR</div><div class="tape-val pos">13.7%</div><div class="tape-note">against a 14.97% synthetic NIFTY 500 TRI</div></div>
-    <div class="tape-item"><div class="tape-key">Max drawdown</div><div class="tape-val neg">−28%</div><div class="tape-note">naive momentum reaches −49% for the same Sharpe</div></div>
-    <div class="tape-item"><div class="tape-key">PBO · ML study</div><div class="tape-val amber">0.86</div><div class="tape-note">in sample winner overfit in 24 of 28 splits</div></div>
-    <div class="tape-item"><div class="tape-key">Documented nulls</div><div class="tape-val">7</div><div class="tape-note">one written up as a working paper</div></div>
-    <div class="tape-item"><div class="tape-key">Tests in CI</div><div class="tape-val">243</div><div class="tape-note">unit, look ahead, and backtest engine parity</div></div>
-  </div>
 
   <div class="gh-strip" data-reveal>
     <span class="gh-dot" aria-hidden="true"></span>
@@ -278,7 +218,7 @@
     <details class="proj-card" id="proj-artha">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">01</span>
+          <span class="proj-num">1.1</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">Artha · Systematic Equity Trading System</span>
@@ -423,7 +363,7 @@
     <details class="proj-card" id="proj-fullbacktester">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">02</span>
+          <span class="proj-num">1.2</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">FullBacktester · Leakage Resistant Backtesting Framework</span>
@@ -543,7 +483,7 @@
     <details class="proj-card" id="proj-ml-research">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">03</span>
+          <span class="proj-num">1.3</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">ML Research: Equity Forecasting + Sentiment Alpha</span>
@@ -645,7 +585,7 @@
     <details class="proj-card" id="proj-overnight">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">04</span>
+          <span class="proj-num">1.4</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">Overnight Return Prediction · Quant Research Submission</span>
@@ -753,7 +693,7 @@
 
 
 <section id="frontier">
-  <p class="section-eyebrow">Layer 03 · Frontier</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>2</p>
   <h2 class="section-title">Research</h2>
   <p class="section-sub">Independent research under the ACM Research Core programme, and the conventional baseline it is defined against. The second card is on the page precisely because the first one exists to break it.</p>
 
@@ -763,7 +703,7 @@
     <details class="proj-card" id="proj-creditscore">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">R1</span>
+          <span class="proj-num">2.1</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">Cost Sensitive Deep Learning for Credit Scoring</span>
@@ -865,7 +805,7 @@
     <details class="proj-card" id="proj-loanrisk">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">R2</span>
+          <span class="proj-num">2.2</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">Automated Credit Risk Evaluation for Loan Approval</span>
@@ -959,7 +899,7 @@
 
 
 <section id="engineering">
-  <p class="section-eyebrow">Layer 04 · Execution</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>3</p>
   <h2 class="section-title">Engineering</h2>
   <p class="section-sub">Production systems built alongside the research: agentic finance tooling, retrieval infrastructure, and multilingual speech pipelines. These are shipped applications rather than research, and they are here because the research above needs someone who can also build the thing.</p>
 
@@ -969,7 +909,7 @@
     <details class="proj-card" id="proj-finintel">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">E1</span>
+          <span class="proj-num">3.1</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">FinIntel — Agentic Equity Desk</span>
@@ -1068,7 +1008,7 @@
     <details class="proj-card" id="proj-mindvault">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">E2</span>
+          <span class="proj-num">3.2</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">MindVault</span>
@@ -1166,7 +1106,7 @@
     <details class="proj-card" id="proj-applypilot">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">E3</span>
+          <span class="proj-num">3.3</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">ApplyPilot AI</span>
@@ -1260,7 +1200,7 @@
     <details class="proj-card" id="proj-auditmind">
       <summary class="proj-summary">
         <div class="ps-left">
-          <span class="proj-num">E4</span>
+          <span class="proj-num">3.4</span>
           <div class="proj-info">
             <div class="proj-title-row">
               <span class="proj-name" role="heading" aria-level="3">AuditMind AI</span>
@@ -1342,7 +1282,7 @@
 
 
 <section id="skills">
-  <p class="section-eyebrow">Layer 05 · Weights</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>4</p>
   <h2 class="section-title">Skills</h2>
   <p class="section-sub">Aggregated from research and shipped work, grouped by domain. Quantitative methods first, because that is what the rest of this page is in service of.</p>
 
@@ -1447,7 +1387,7 @@
 
 
 <section id="education">
-  <p class="section-eyebrow">Layer 06 · Foundation</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>5</p>
   <h2 class="section-title">Education</h2>
 
   <div class="edu-card">
@@ -1455,7 +1395,7 @@
       <span class="edu-badge">Undergraduate</span>
       <div class="edu-period">2024 to 2028<br>Mumbai, India</div>
       <div class="edu-cgpa">
-        <strong>9.4</strong>
+        <strong>9.25</strong>
         <span>/ 10 CGPA</span>
       </div>
     </div>
@@ -1468,15 +1408,96 @@
         The degree supplies the fundamentals, data structures, algorithms, operating systems,
         computer networks, and database systems, and it is not where the work on this page
         came from. Every project here was scoped, built, validated, and shipped alongside it,
-        under nobody's syllabus. Current CGPA 9.4/10. Coursework is the floor.
+        under nobody's syllabus. Current CGPA 9.25/10. Coursework is the floor.
       </p>
+
+      <div class="grades">
+        <div class="grades-h">Mathematics and quantitative coursework</div>
+        <div class="perf-wrap">
+          <table class="perf-table">
+            <caption>Grade points, out of 10</caption>
+            <thead><tr><th>Course</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr class="hi"><td>Mathematics I</td><td class="pos">10</td></tr>
+              <tr class="hi"><td>Mathematics II</td><td class="pos">10</td></tr>
+              <tr class="hi"><td>Statistical Modelling</td><td class="pos">10</td></tr>
+              <tr><td>Operational Research</td><td>9</td></tr>
+              <tr><td>Advanced Operational Research</td><td>9</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="grades-note">
+          The five courses closest to what this work actually runs on. Statistical modelling and
+          operational research are where the portfolio construction and the validation protocol
+          come from, rather than from anything a framework hands you.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 
+<section id="experience">
+  <p class="section-eyebrow"><span class="sec-sign">§</span>6</p>
+  <h2 class="section-title">Experience</h2>
+
+  <div class="exp-list">
+
+    <!-- Zeex AI -->
+    <div class="exp-card">
+      <div class="exp-left">
+        <span class="exp-badge intern">Internship</span>
+        <div class="exp-period">Apr 2026 to Present<br>Full Stack AI Intern</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-title" role="heading" aria-level="3">Full Stack AI Intern</div>
+        <div class="exp-company">Zeex AI &nbsp;·&nbsp; AI startup, incubated at IIT Madras &nbsp;·&nbsp; Mumbai</div>
+        <p class="exp-desc">
+          Architected and built a production grade, end to end audio intelligence pipeline on AWS
+          that transforms unstructured conversational audio into structured outputs at scale.
+          Pipeline covers audio preprocessing, Automatic Speech Recognition, speaker diarization,
+          and semantic question mapping across 13+ Indian languages.
+        </p>
+        <ul class="exp-bullets">
+          <li>Built the full pipeline end to end: audio preprocessing, ASR, speaker diarization, semantic question mapping: all integrated and deployed to production on AWS</li>
+          <li>Improved question mapping accuracy by 20% and transcription quality by 15% through preprocessing optimisation, architecture level experimentation, and speaker segmentation refinement</li>
+          <li>Reduced overall pipeline latency by 30% through integration of speech processing frameworks and targeted bottleneck analysis</li>
+          <li>Extended question mapping to 13+ Indian languages: built and tested the multilingual pipeline from preprocessing through to structured output</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Shakti Alloys -->
+    <div class="exp-card">
+      <div class="exp-left">
+        <span class="exp-badge freelance">Freelance</span>
+        <div class="exp-period">2025<br>Sole Developer</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-title" role="heading" aria-level="3">Full Stack Developer</div>
+        <div class="exp-company">Shakti Alloys Pvt Ltd &nbsp;·&nbsp; <a href="https://www.shaktialloys.in" target="_blank" rel="noopener">shaktialloys.in ↗</a></div>
+        <p class="exp-desc">
+          Took a real manufacturing business from zero web presence to a fully operational
+          production site: sole developer across design, build, and deployment.
+          The brief was a professional catalogue site that the client could own permanently
+          without needing a developer on retainer.
+        </p>
+        <ul class="exp-bullets">
+          <li>Chose React 18 with TypeScript and Vite for a maintainable, type safe codebase that any developer could pick up later without context; Tailwind for rapid iteration without fighting a CSS framework</li>
+          <li>Designed a product catalogue system for 18 alloy grades (ADC12, A380, A413, 6061, 6063 and more) with individual spec pages, built so adding a new grade requires editing one data file</li>
+          <li>Wired EmailJS for the contact form so enquiries go directly to the client without any backend to maintain or server costs to worry about</li>
+          <li>Built scroll reveal animations and animated counters with IntersectionObserver, no libraries, keeping bundle size minimal and load time fast</li>
+          <li>Deployed on Vercel with a custom domain, configured DNS, and handed over with documentation so the client can manage content changes without developer involvement</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <section id="blog">
-  <p class="section-eyebrow">Layer 07 · Broadcast</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>7</p>
   <h2 class="section-title">Writing</h2>
   <p class="section-sub">Technical articles published on Medium.</p>
 
@@ -1525,25 +1546,88 @@
 
 
 <section id="achievements">
-  <p class="section-eyebrow">Layer 08 · Output</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>8</p>
   <h2 class="section-title">Achievements</h2>
+  <p class="section-sub">Mathematics came first and everything on this page is downstream of it. The results below are the record of that, in the order it happened.</p>
 
-  <div class="achievement-grid">
-    <div class="achievement-left">
-      <span class="achievement-badge-pill">First Prize</span>
-      <div class="achievement-type-label">Competition</div>
-    </div>
-    <div>
-      <div class="achievement-title" role="heading" aria-level="3">Urban Empire</div>
-      <div class="achievement-subtitle">Data driven strategy competition</div>
-      <p class="achievement-desc">Built a winning data driven city budget allocation strategy, placing first in the competition.</p>
-    </div>
-  </div>
+  <ol class="ach-list">
+
+    <li class="ach">
+      <div class="ach-left">
+        <span class="ach-year">School</span>
+        <span class="ach-kind">Olympiad</span>
+      </div>
+      <div class="ach-body">
+        <div class="achievement-title" role="heading" aria-level="3">Second prize, SOF International Mathematical Olympiad</div>
+        <div class="achievement-subtitle">School level, Science Olympiad Foundation</div>
+        <p class="achievement-desc">
+          A placed result in the olympiad round, sat over several years. Not the IMO proper,
+          and worth naming precisely: this is the SOF school olympiad, which is where the
+          habit of treating a problem as something to be proved rather than guessed started.
+        </p>
+      </div>
+    </li>
+
+    <li class="ach">
+      <div class="ach-left">
+        <span class="ach-year">2024</span>
+        <span class="ach-kind">Entrance</span>
+      </div>
+      <div class="ach-body">
+        <div class="achievement-title" role="heading" aria-level="3">MHT-CET &nbsp;·&nbsp; 99 overall, 98.6 in mathematics</div>
+        <div class="achievement-subtitle">Maharashtra Common Entrance Test, percentile</div>
+        <div class="perf-wrap">
+          <table class="perf-table">
+            <thead><tr><th>Examination</th><th>Mathematics</th><th>Overall</th></tr></thead>
+            <tbody>
+              <tr class="hi"><td>MHT-CET</td><td class="pos">98.6</td><td class="pos">99</td></tr>
+              <tr><td>JEE Main</td><td>95.4</td><td>·</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="achievement-desc">
+          Percentile in both cases. The mathematics section is the one that mattered to me and
+          it is the one I optimised for.
+        </p>
+      </div>
+    </li>
+
+    <li class="ach">
+      <div class="ach-left">
+        <span class="ach-year">2025</span>
+        <span class="ach-kind">Competition</span>
+      </div>
+      <div class="ach-body">
+        <div class="achievement-title" role="heading" aria-level="3">First prize, Urban Empire</div>
+        <div class="achievement-subtitle">Data driven strategy competition</div>
+        <p class="achievement-desc">
+          Built a winning data driven city budget allocation strategy: a constrained allocation
+          problem under a fixed budget, which is the same shape as sizing a book.
+        </p>
+      </div>
+    </li>
+
+    <li class="ach">
+      <div class="ach-left">
+        <span class="ach-year">Ongoing</span>
+        <span class="ach-kind">Coursework</span>
+      </div>
+      <div class="ach-body">
+        <div class="achievement-title" role="heading" aria-level="3">10/10 in Mathematics I, Mathematics II and Statistical Modelling</div>
+        <div class="achievement-subtitle">Full grade points, with 9/10 in both Operational Research courses</div>
+        <p class="achievement-desc">
+          Listed in full under <a href="#education">§5 Education</a>. The five courses that the
+          research on this page actually runs on, rather than the five that were easiest.
+        </p>
+      </div>
+    </li>
+
+  </ol>
 </section>
 
 
 <section id="contact">
-  <p class="section-eyebrow">Layer 09 · Connect</p>
+  <p class="section-eyebrow"><span class="sec-sign">§</span>9</p>
   <h2 class="section-title">Contact</h2>
 
   <div class="contact-wrap">

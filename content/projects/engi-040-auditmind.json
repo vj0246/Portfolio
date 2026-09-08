@@ -3,6 +3,7 @@
   "order": 40,
   "id": "auditmind",
   "name": "AuditMind AI",
+  "lede": "13 Indian languages, no paid API",
   "badge": {
     "kind": "progress",
     "text": "In Development"

@@ -67,17 +67,36 @@ def check_json_ld(html: str) -> list[str]:
 
 
 def check_card_numbering(html: str) -> list[str]:
+    """Cards are numbered like a paper: the third card in §2 is 2.3.
+
+    The expected numbers come from build.py rather than a second copy of the
+    rule, so the two can never disagree about the scheme.
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from build import SECTIONS, card_number  # noqa: PLC0415 - avoids a hard import at module load
+
     problems = []
-    expected = {"projects": lambda i: f"{i:02d}", "frontier": lambda i: f"R{i}", "engineering": lambda i: f"E{i}"}
-    for section, fmt in expected.items():
+    for section in SECTIONS:
         m = re.search(r'<section id="%s">(.*?)\n</section>' % section, html, re.S)
         if not m:
             problems.append(f"section #{section} is missing")
             continue
         nums = re.findall(r'<span class="proj-num">([^<]+)</span>', m.group(1))
-        want = [fmt(i) for i in range(1, len(nums) + 1)]
+        want = [card_number(section, i) for i in range(1, len(nums) + 1)]
         if nums != want:
             problems.append(f"#{section} card numbers are {nums}, expected {want}")
+    return problems
+
+
+def check_contents_matches_cards(html: str) -> list[str]:
+    """Every card on the page must appear in the contents list, and vice versa."""
+    cards = set(re.findall(r'<details class="proj-card" id="(proj-[^"]+)"', html))
+    m = re.search(r"<!-- CONTENTS:START -->(.*?)<!-- CONTENTS:END -->", html, re.S)
+    if not m:
+        return ["contents block is missing"]
+    listed = set(re.findall(r'href="#(proj-[^"]+)"', m.group(1)))
+    problems = [f"{c} has a card but no contents entry" for c in sorted(cards - listed)]
+    problems += [f"{c} is in the contents but has no card" for c in sorted(listed - cards)]
     return problems
 
 
@@ -131,6 +150,7 @@ def run(check_links: bool = False) -> list[tuple[str, list[str]]]:
         ("no inline handlers", check_no_inline_handlers(html)),
         ("JSON-LD", check_json_ld(html)),
         ("card numbering", check_card_numbering(html)),
+        ("contents matches cards", check_contents_matches_cards(html)),
         ("local assets", check_local_assets(html)),
     ]
     if check_links:

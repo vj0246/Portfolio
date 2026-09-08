@@ -3,6 +3,7 @@
   "order": 10,
   "id": "finintel",
   "name": "FinIntel — Agentic Equity Desk",
+  "lede": "six agents, human in the loop",
   "badge": {
     "kind": "live",
     "text": "● Live"

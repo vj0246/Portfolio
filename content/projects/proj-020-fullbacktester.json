@@ -3,6 +3,7 @@
   "order": 20,
   "id": "fullbacktester",
   "name": "FullBacktester · Leakage Resistant Backtesting Framework",
+  "lede": "look-ahead as a construction error",
   "badge": {
     "kind": "progress",
     "text": "v0.1 · Alpha"

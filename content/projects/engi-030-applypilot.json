@@ -3,6 +3,7 @@
   "order": 30,
   "id": "applypilot",
   "name": "ApplyPilot AI",
+  "lede": "three tier, Groq Llama 3.3 70B",
   "badge": {
     "kind": "live",
     "text": "● Live"

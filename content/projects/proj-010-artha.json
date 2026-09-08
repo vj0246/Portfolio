@@ -3,6 +3,7 @@
   "order": 10,
   "id": "artha",
   "name": "Artha · Systematic Equity Trading System",
+  "lede": "net Sharpe 1.02, operated live",
   "badge": {
     "kind": "live",
     "text": "● Live · Operated"
