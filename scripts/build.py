@@ -394,7 +394,12 @@ def render_contents(by_section: dict[str, list[dict]]) -> str:
     the list is to show the shape of the whole page without scrolling.
     """
     out = []
+    rest = []
     for index, (section, title) in enumerate(PAGE_SECTIONS, start=1):
+        if section not in SECTIONS:
+            # prose sections get one compact line between them, not a row each
+            rest.append(f'<a href="#{section}"><span class="toc-num">{index}</span>{title}</a>')
+            continue
         out.append(
             f'        <li class="toc-section">\n'
             f'          <a href="#{section}">'
@@ -414,6 +419,8 @@ def render_contents(by_section: dict[str, list[dict]]) -> str:
                 )
             out.append("          </ul>")
         out.append("        </li>")
+    if rest:
+        out.append('        <li class="toc-rest">' + "".join(rest) + "</li>")
     return "\n".join(out)
 
 
