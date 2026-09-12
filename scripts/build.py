@@ -445,42 +445,115 @@ def stamp_assets(html: str) -> str:
     return html
 
 
-def apply_to_index(html: str, by_section: dict[str, list[dict]]) -> str:
-    for section in SECTIONS:
-        start = f"<!-- CARDS:START {section} -->"
-        end = f"<!-- CARDS:END {section} -->"
-        pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
-        if not pattern.search(html):
-            raise BuildError(f"markers for section {section!r} not found in index.html")
-        body = render_section(by_section[section])
-        replacement = f"{start}\n{body}\n    {end}" if body else f"{start}\n    {end}"
-        html = pattern.sub(lambda _m: replacement, html, count=1)
+# ── experience ────────────────────────────────────────────────────────────────
+#
+# One JSON file per role in content/experience/, rendered between
+# <!-- EXPERIENCE:START --> and <!-- EXPERIENCE:END -->. Same idea as the cards:
+# the admin edits the JSON, and this turns it into the page.
 
-    start, end = "<!-- CONTENTS:START -->", "<!-- CONTENTS:END -->"
+EXPERIENCE_DIR = ROOT / "content" / "experience"
+EXPERIENCE_KINDS = ("intern", "freelance", "fulltime", "research")
+
+
+def load_experience() -> list[dict]:
+    """Experience entries sorted by their "order" field."""
+    if not EXPERIENCE_DIR.is_dir():
+        return []
+
+    items: list[dict] = []
+    seen: dict[str, str] = {}
+    for path in sorted(EXPERIENCE_DIR.glob("*.json")):
+        if path.name.startswith("_"):
+            continue
+        try:
+            entry = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise BuildError(f"{path.name}: invalid JSON, {e}") from e
+
+        for field in ("order", "id", "kind", "badge", "period", "role", "company", "bullets"):
+            if field not in entry:
+                raise BuildError(f"{path.name}: missing required field {field!r}")
+        if entry["kind"] not in EXPERIENCE_KINDS:
+            raise BuildError(f"{path.name}: kind must be one of {EXPERIENCE_KINDS}")
+        if entry["id"] in seen:
+            raise BuildError(f"{path.name}: duplicate id {entry['id']!r}, already used by {seen[entry['id']]}")
+
+        seen[entry["id"]] = path.name
+        entry["_file"] = path.name
+        items.append(entry)
+
+    items.sort(key=lambda e: (e["order"], e["_file"]))
+    return items
+
+
+def render_experience(items: list[dict]) -> str:
+    out = []
+    for e in items:
+        period = e["period"] + (f"<br>{e['period_note']}" if e.get("period_note") else "")
+        # the JSON separates parts of the company line with a plain " · "
+        company = e["company"].replace(" · ", " &nbsp;·&nbsp; ")
+        if e.get("link"):
+            link = e["link"]
+            company += f' &nbsp;·&nbsp; <a href="{link["url"]}" target="_blank" rel="noopener">{link["text"]}</a>'
+
+        lines = [
+            f'    <div class="exp-card" id="exp-{e["id"]}">',
+            '      <div class="exp-left">',
+            f'        <span class="exp-badge {e["kind"]}">{e["badge"]}</span>',
+            f'        <div class="exp-period">{period}</div>',
+            "      </div>",
+            '      <div class="exp-right">',
+            f'        <div class="exp-title" role="heading" aria-level="3">{e["role"]}</div>',
+            f'        <div class="exp-company">{company}</div>',
+        ]
+        if e.get("summary"):
+            lines += ['        <p class="exp-desc">', f'          {e["summary"]}', "        </p>"]
+        if e["bullets"]:
+            lines.append('        <ul class="exp-bullets">')
+            lines += [f"          <li>{b}</li>" for b in e["bullets"]]
+            lines.append("        </ul>")
+        lines += ["      </div>", "    </div>"]
+        out.append("\n".join(lines))
+    return "\n\n".join(out)
+
+
+# ── writing into index.html ───────────────────────────────────────────────────
+
+def replace_between(html: str, start: str, end: str, body: str, indent: str) -> str:
     pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
     if not pattern.search(html):
-        raise BuildError("contents markers not found in index.html")
-    contents = render_contents(by_section)
-    html = pattern.sub(lambda _m: f"{start}\n{contents}\n      {end}", html, count=1)
+        raise BuildError(f"marker {start!r} not found in index.html")
+    replacement = f"{start}\n{body}\n{indent}{end}" if body else f"{start}\n{indent}{end}"
+    return pattern.sub(lambda _m: replacement, html, count=1)
 
+
+def apply_to_index(html: str, by_section: dict[str, list[dict]], experience: list[dict]) -> str:
+    for section in SECTIONS:
+        html = replace_between(html, f"<!-- CARDS:START {section} -->", f"<!-- CARDS:END {section} -->",
+                               render_section(by_section[section]), "    ")
+    html = replace_between(html, "<!-- EXPERIENCE:START -->", "<!-- EXPERIENCE:END -->",
+                           render_experience(experience), "    ")
+    html = replace_between(html, "<!-- CONTENTS:START -->", "<!-- CONTENTS:END -->",
+                           render_contents(by_section), "      ")
     return stamp_assets(html)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Render project cards into index.html")
+    parser = argparse.ArgumentParser(description="Render project cards and experience into index.html")
     parser.add_argument("--check", action="store_true",
                         help="do not write; exit 1 if index.html is out of date")
     args = parser.parse_args()
 
     try:
         by_section = load_cards()
+        experience = load_experience()
         current = INDEX.read_text(encoding="utf-8")
-        rebuilt = apply_to_index(current, by_section)
+        rebuilt = apply_to_index(current, by_section, experience)
     except BuildError as e:
         print(f"build failed: {e}", file=sys.stderr)
         return 1
 
-    counts = " | ".join(f"{s} {len(by_section[s])}" for s in SECTIONS)
+    counts = " | ".join(f"{s} {len(by_section[s])}" for s in SECTIONS) + f" | experience {len(experience)}"
     total = sum(len(v) for v in by_section.values())
 
     if args.check:

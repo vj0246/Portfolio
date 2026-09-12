@@ -9,7 +9,7 @@
 
 'use strict';
 
-const { requireSession, getFile, putFile, readJsonBody } = require('./_lib');
+const { requireSession, getFile, putFile, readJsonBody, describeGitHubError } = require('./_lib');
 
 const SLOTS = {
   quant: 'resumes/resume-quant.pdf',
@@ -17,7 +17,9 @@ const SLOTS = {
   swe: 'resumes/resume-swe.pdf',
 };
 
-const MAX_BYTES = 6 * 1024 * 1024;
+// Vercel caps a function request body at 4.5MB and base64 inflates by a third,
+// so a PDF much above 3MB would be rejected by the platform before reaching us.
+const MAX_BYTES = 3 * 1024 * 1024;
 
 module.exports = async (req, res) => {
   const session = requireSession(req, res);
@@ -48,7 +50,7 @@ module.exports = async (req, res) => {
 
     if (!bytes.length) { res.status(400).json({ error: 'file is empty' }); return; }
     if (bytes.length > MAX_BYTES) {
-      res.status(413).json({ error: `file is ${(bytes.length / 1e6).toFixed(1)}MB, limit is 6MB` });
+      res.status(413).json({ error: `file is ${(bytes.length / 1e6).toFixed(1)}MB, limit is 3MB` });
       return;
     }
     if (bytes.subarray(0, 5).toString('latin1') !== '%PDF-') {
@@ -69,6 +71,6 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ ok: true, file: target, bytes: bytes.length });
   } catch (e) {
-    res.status(e.status && e.status < 500 ? e.status : 500).json({ error: e.message });
+    res.status(...describeGitHubError(e, req.method));
   }
 };

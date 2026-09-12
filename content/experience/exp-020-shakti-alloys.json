@@ -1,0 +1,22 @@
+{
+  "order": 20,
+  "id": "shakti-alloys",
+  "kind": "freelance",
+  "badge": "Freelance",
+  "period": "2025",
+  "period_note": "Sole Developer",
+  "role": "Full Stack Developer",
+  "company": "Shakti Alloys Pvt Ltd",
+  "link": {
+    "text": "shaktialloys.in ↗",
+    "url": "https://www.shaktialloys.in"
+  },
+  "summary": "Took a real manufacturing business from zero web presence to a fully operational production site: sole developer across design, build, and deployment. The brief was a professional catalogue site that the client could own permanently without needing a developer on retainer.",
+  "bullets": [
+    "Chose React 18 with TypeScript and Vite for a maintainable, type safe codebase that any developer could pick up later without context; Tailwind for rapid iteration without fighting a CSS framework",
+    "Designed a product catalogue system for 18 alloy grades (ADC12, A380, A413, 6061, 6063 and more) with individual spec pages, built so adding a new grade requires editing one data file",
+    "Wired EmailJS for the contact form so enquiries go directly to the client without any backend to maintain or server costs to worry about",
+    "Built scroll reveal animations and animated counters with IntersectionObserver, no libraries, keeping bundle size minimal and load time fast",
+    "Deployed on Vercel with a custom domain, configured DNS, and handed over with documentation so the client can manage content changes without developer involvement"
+  ]
+}

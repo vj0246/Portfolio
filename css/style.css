@@ -766,3 +766,7 @@ details.proj-card[open] { border-color: var(--line2); box-shadow: none; }
 /* Keep the closed card to a glanceable height */
 .proj-tagline { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 details.proj-card[open] .proj-tagline { -webkit-line-clamp: unset; overflow: visible; }
+
+/* Experience badge kinds beyond internship and freelance */
+.exp-badge.fulltime { background: var(--grn-bg); color: var(--green); border: 1px solid var(--grn-bd); }
+.exp-badge.research { background: var(--blue-bg); color: var(--cyan); border: 1px solid var(--blue-bd); }

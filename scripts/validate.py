@@ -112,7 +112,7 @@ def check_admin_rules_in_sync() -> list[str]:
         return []  # admin not deployed in this checkout
 
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from build import BADGE_KINDS, BLOCK_RENDERERS, SECTIONS  # noqa: PLC0415
+    from build import BADGE_KINDS, BLOCK_RENDERERS, EXPERIENCE_KINDS, SECTIONS  # noqa: PLC0415
 
     source = lib.read_text(encoding="utf-8")
 
@@ -124,6 +124,7 @@ def check_admin_rules_in_sync() -> list[str]:
         "SECTIONS": set(SECTIONS),
         "BADGE_KINDS": set(BADGE_KINDS),
         "BLOCK_TYPES": set(BLOCK_RENDERERS),
+        "EXPERIENCE_KINDS": set(EXPERIENCE_KINDS),
     }
 
     problems = []

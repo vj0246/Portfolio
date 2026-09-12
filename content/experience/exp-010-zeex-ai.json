@@ -1,0 +1,17 @@
+{
+  "order": 10,
+  "id": "zeex-ai",
+  "kind": "intern",
+  "badge": "Internship",
+  "period": "Apr 2026 to Present",
+  "period_note": "Full Stack AI Intern",
+  "role": "Full Stack AI Intern",
+  "company": "Zeex AI · AI startup, incubated at IIT Madras · Mumbai",
+  "summary": "Architected and built a production grade, end to end audio intelligence pipeline on AWS that transforms unstructured conversational audio into structured outputs at scale. Pipeline covers audio preprocessing, Automatic Speech Recognition, speaker diarization, and semantic question mapping across 13+ Indian languages.",
+  "bullets": [
+    "Built the full pipeline end to end: audio preprocessing, ASR, speaker diarization, semantic question mapping: all integrated and deployed to production on AWS",
+    "Improved question mapping accuracy by 20% and transcription quality by 15% through preprocessing optimisation, architecture level experimentation, and speaker segmentation refinement",
+    "Reduced overall pipeline latency by 30% through integration of speech processing frameworks and targeted bottleneck analysis",
+    "Extended question mapping to 13+ Indian languages: built and tested the multilingual pipeline from preprocessing through to structured output"
+  ]
+}

@@ -10,6 +10,9 @@ on:
     paths-ignore:
       - 'data/**'
       - '**.md'
+      # content-only pushes (the admin) are built and validated by rebuild.yml;
+      # checking them here would fail until that job has committed index.html
+      - 'content/**'
   pull_request:
   workflow_dispatch:
 

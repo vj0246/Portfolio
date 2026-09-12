@@ -2,14 +2,14 @@
 
 'use strict';
 
-const { readSession, ALLOWED_LOGIN, REPO, BRANCH } = require('./_lib');
+const { readSession, REPO_OWNER, REPO, BRANCH } = require('./_lib');
 
 module.exports = async (req, res) => {
   const session = readSession(req);
   res.status(200).json({
     signedIn: Boolean(session),
     login: session ? session.login : null,
-    repo: `${ALLOWED_LOGIN}/${REPO}`,
+    repo: `${REPO_OWNER}/${REPO}`,
     branch: BRANCH,
   });
 };

@@ -182,20 +182,29 @@ gradient edge and the 3D tilt were removed in the paper redesign.
 
 ## The admin
 
-`/admin` edits cards and replaces resume PDFs from a browser, on any device.
-Setup, and the security model, are in [`admin/SETUP.md`](admin/SETUP.md).
+`/admin` edits projects and experience and replaces resume PDFs from a browser,
+on any device, through plain forms. It is meant to be usable by someone who is not
+an engineer. Setup, the guide for editors, and the security model are in
+[`admin/SETUP.md`](admin/SETUP.md).
 
-Sign-in is GitHub OAuth restricted to a single account. Writes use the signed-in
+Sign-in is GitHub OAuth restricted to an allow-list (`GITHUB_ALLOWED_LOGINS`,
+defaulting to the owner). Writes use the signed-in
 user's own token, so there is no long-lived credential on the server. The admin
-commits **only** `content/projects/*.json` and `resumes/*.pdf`; the "Rebuild cards"
-Action renders `index.html` from that JSON and commits it. That is deliberate:
-`content/projects/` stays the single source of truth no matter where an edit came
-from.
+commits **only** `content/projects/*.json`, `content/experience/*.json` and
+`resumes/*.pdf`; the "Rebuild cards" Action renders `index.html` from that JSON and
+commits it. That is deliberate: `content/` stays the single source of truth no
+matter where an edit came from.
+
+**Experience** works the same way as projects: one JSON file per role in
+`content/experience/`, named `exp-<order>-<id>.json`, rendered between
+`<!-- EXPERIENCE:START -->` and `<!-- EXPERIENCE:END -->`. In the company line, write
+parts separated by a plain ` · ` and the build spaces them.
 
 `api/_lib.js` carries a JavaScript copy of the card validation rules. **If you add
 a block type or a badge kind to `build.py`, add it there too**, or the admin will
 reject a card the build would happily render. The lists to keep in step are
-`SECTIONS`, `BADGE_KINDS`, `BLOCK_TYPES` and `SIDEBAR_TYPES`.
+`SECTIONS`, `BADGE_KINDS`, `BLOCK_TYPES`, `SIDEBAR_TYPES` and `EXPERIENCE_KINDS`;
+`validate.py` fails the build if any of the first four or the last one diverge.
 
 ## Front-end conventions
 
