@@ -917,6 +917,13 @@
 
     if (!session.signedIn) {
       $('gate').hidden = false;
+      if (Array.isArray(session.missing) && session.missing.length) {
+        // no point offering a sign-in button that can only fail
+        $('gateError').textContent = `Setup is not finished. Vercel is missing: ${session.missing.join(', ')}. `
+          + 'Add them under Settings, Environment Variables, then redeploy the project.';
+        $('gateError').hidden = false;
+        document.querySelector('.gate .btn.primary').hidden = true;
+      }
       return;
     }
 

@@ -52,6 +52,12 @@ function requireEnv(name) {
   return value;
 }
 
+// GITHUB_OWNER, GITHUB_REPO and GITHUB_BRANCH have defaults; these do not.
+const REQUIRED_ENV = ['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET', 'SESSION_SECRET'];
+
+/** Names (never values) of required variables absent from this deployment. */
+const missingEnv = () => REQUIRED_ENV.filter((name) => !process.env[name]);
+
 function sessionKey() {
   // A 32-byte key derived from the configured secret, whatever its length.
   return crypto.createHash('sha256').update(requireEnv('SESSION_SECRET')).digest();
@@ -452,7 +458,7 @@ function describeGitHubError(e, method) {
 
 module.exports = {
   REPO_OWNER, REPO, BRANCH, SESSION_COOKIE, STATE_COOKIE,
-  isAllowed, requireEnv, parseCookies, setCookie, clearCookie,
+  isAllowed, requireEnv, missingEnv, parseCookies, setCookie, clearCookie,
   startSession, readSession, requireSession,
   gh, getFile, putFile, readJsonBody, describeGitHubError,
   validateCard, validateExperience, cardFilename, experienceFilename,
