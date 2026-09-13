@@ -151,7 +151,6 @@
           <a href="#frontier"><span class="toc-num">2</span><span class="toc-title">Research</span></a>
           <ul class="toc-cards">
             <li><a href="#proj-creditscore"><span class="toc-num">2.1</span><span class="toc-name">Cost Sensitive Deep Learning for Credit Scoring</span><span class="toc-lede">cost sensitive, interpretable by design</span></a></li>
-            <li><a href="#proj-loanrisk"><span class="toc-num">2.2</span><span class="toc-name">Automated Credit Risk Evaluation for Loan Approval</span><span class="toc-lede">the baseline the research is defined against</span></a></li>
           </ul>
         </li>
         <li class="toc-section">
@@ -676,7 +675,7 @@
 <section id="frontier">
   <p class="section-eyebrow"><span class="sec-sign">§</span>2</p>
   <h2 class="section-title">Research</h2>
-  <p class="section-sub">Independent research under the ACM Research Core programme, and the conventional baseline it is defined against. The second card is on the page precisely because the first one exists to break it.</p>
+  <p class="section-sub">Independent research under the ACM Research Core programme.</p>
 
   <div class="proj-list">
 
@@ -779,98 +778,6 @@
               <div class="metric-row"><span class="metric-label">Architecture</span><span class="metric-val pos">Designed</span></div>
               <div class="metric-row"><span class="metric-label">Implementation</span><span class="metric-val amber">In progress</span></div>
             </div>
-          </div>
-        </div>
-      </div>
-    </details>
-
-    <details class="proj-card" id="proj-loanrisk">
-      <summary class="proj-summary">
-        <div class="ps-left">
-          <span class="proj-num">2.2</span>
-          <div class="proj-info">
-            <div class="proj-title-row">
-              <span class="proj-name" role="heading" aria-level="3">Automated Credit Risk Evaluation for Loan Approval</span>
-              <span class="badge freelance">Foundation work</span>
-            </div>
-            <p class="proj-tagline">Binary classification on historical loan applications: income, loan amount, credit history, education, employment and property area in, an approve or reject decision out. A full supervised pipeline from EDA through feature engineering to a Flask app that serves the trained model. This is the standard formulation of credit scoring, and it is here because the research above exists to attack what it gets wrong.</p>
-            <div class="proj-figures"><span class="fig"><span class="fig-label">Task</span><span class="fig-val">Binary</span></span><span class="fig"><span class="fig-label">Objective</span><span class="fig-val flat">Symmetric</span></span><span class="fig"><span class="fig-label">Temporal modelling</span><span class="fig-val flat">None</span></span></div>
-            <div class="proj-tags">
-              <span class="tag">Binary Classification</span><span class="tag">Feature Engineering</span>
-              <span class="tag">Flask</span><span class="tag">scikit-learn</span>
-            </div>
-          </div>
-        </div>
-        <span class="expand-label">
-          <span class="close-text">View details ↓</span>
-          <span class="open-text">Close ↑</span>
-        </span>
-      </summary>
-
-      <div class="proj-detail">
-        <div>
-          <div class="detail-block">
-            <div class="detail-h">What it does</div>
-            <div class="detail-text">
-              <p>An end to end supervised learning pipeline over historical loan application data: exploratory analysis, preprocessing, feature engineering, and a binary classifier that predicts whether an application should be approved. A Flask interface wraps the trained model so applicant details can be entered and scored directly, which is the part that turns a notebook into something a person can actually use.</p>
-            </div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-h">Pipeline</div>
-            <div class="arch-diagram">
-              <div class="arch-flow">
-                <div class="arch-node">Loan Applications<br><small>applicant + loan features</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">EDA · Preprocessing<br><small>missing values · encoding</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node key">Classifier<br><small>approve / reject</small></div>
-                <span class="arch-arr">→</span>
-                <div class="arch-node">Flask App<br><small>form in, prediction out</small></div>
-              </div>
-              <div class="arch-note">
-                Deliberately the textbook formulation: one dataset, a symmetric objective, and accuracy style classification metrics. Stated plainly rather than dressed up, because the interesting question is what that formulation cannot do.
-              </div>
-            </div>
-          </div>
-          <div class="detail-block">
-            <div class="detail-h">Why it sits next to the research</div>
-            <div class="null-box">
-              <div class="nb-label">Three assumptions this model makes that lending does not support</div>
-              <ul class="detail-bullets">
-                <li>It optimises a symmetric objective. Approving a defaulter and rejecting a creditworthy borrower cost different amounts, and the ratio moves with the size of the loan. R1 replaces this with an instance dependent asymmetric loss trained directly on economic loss</li>
-                <li>It treats borrower risk as stationary. A single snapshot of features carries no notion of debt accumulating faster over time, which is how distress actually shows up before a default. R1 adds an explicit debt acceleration module</li>
-                <li>Whatever explanation it offers is post hoc. A classifier plus SHAP produces an approximation of a decision, not the decision itself, which is the wrong side of the line for a regulated credit decision. R1 makes interpretability part of the forward pass</li>
-              </ul>
-              <div class="detail-text" style="margin-top:14px">
-                <p>Kept on the page for that contrast. The honest description is a competent, conventional credit scoring pipeline with a working demo, and the value of having built it is knowing precisely which of its assumptions to go after.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="detail-sidebar">
-          <div class="sidebar-block">
-            <div class="sb-label">Stack</div>
-            <div class="sb-tags">
-              <span class="tag">Python</span><span class="tag">scikit-learn</span>
-              <span class="tag">Pandas</span><span class="tag">NumPy</span>
-              <span class="tag">Matplotlib</span><span class="tag">Flask</span>
-              <span class="tag">Jupyter</span>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Scope</div>
-            <div class="sb-metrics">
-              <div class="metric-row"><span class="metric-label">Task</span><span class="metric-val">Binary</span></div>
-              <div class="metric-row"><span class="metric-label">Objective</span><span class="metric-val flat">Symmetric</span></div>
-              <div class="metric-row"><span class="metric-label">Temporal modelling</span><span class="metric-val flat">None</span></div>
-              <div class="metric-row"><span class="metric-label">Explainability</span><span class="metric-val flat">Post hoc</span></div>
-              <div class="metric-row"><span class="metric-label">Served via</span><span class="metric-val">Flask</span></div>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sb-label">Links</div>
-            <a href="https://github.com/vj0246/Automated-Credit-Risk-Evaluation-for-Loan-Approval" target="_blank" rel="noopener" class="sb-link">GitHub Repository <span>↗</span></a>
           </div>
         </div>
       </div>
