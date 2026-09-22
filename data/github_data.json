@@ -1,13 +1,22 @@
 {
-  "generated_at": "2026-09-21T22:04:20.487330+00:00",
+  "generated_at": "2026-09-22T21:30:23.727380+00:00",
   "username": "vj0246",
-  "public_repo_count": 39,
+  "public_repo_count": 40,
   "recent_pushes": [
+    {
+      "name": "RegimeEdge",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-09-22T19:29:07Z",
+      "html_url": "https://github.com/vj0246/RegimeEdge",
+      "homepage": "",
+      "stars": 0
+    },
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-09-21T17:52:38Z",
+      "pushed_at": "2026-09-22T16:17:28Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
       "stars": 0
@@ -16,7 +25,7 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-09-20T20:56:26Z",
+      "pushed_at": "2026-09-21T22:04:21Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
@@ -65,27 +74,23 @@
       "html_url": "https://github.com/vj0246/Overnight-Alpha-Tester",
       "homepage": "",
       "stars": 0
-    },
-    {
-      "name": "QuantStorm",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-08-19T19:29:01Z",
-      "html_url": "https://github.com/vj0246/QuantStorm",
-      "homepage": "",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
+      "name": "RegimeEdge",
+      "language": "Python",
+      "pushed_at": "2026-09-22T19:29:07Z"
+    },
+    {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-09-21T17:52:38Z"
+      "pushed_at": "2026-09-22T16:17:28Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-09-20T20:56:26Z"
+      "pushed_at": "2026-09-21T22:04:21Z"
     },
     {
       "name": "artha",
