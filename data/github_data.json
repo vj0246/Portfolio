@@ -1,22 +1,40 @@
 {
-  "generated_at": "2026-09-25T21:41:51.117380+00:00",
+  "generated_at": "2026-09-26T21:19:04.825609+00:00",
   "username": "vj0246",
-  "public_repo_count": 40,
+  "public_repo_count": 42,
   "recent_pushes": [
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-09-25T16:33:23Z",
+      "pushed_at": "2026-09-26T15:47:20Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "CreditSight",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-09-26T15:33:41Z",
+      "html_url": "https://github.com/vj0246/CreditSight",
+      "homepage": "https://power-bi-dashboard-amber.vercel.app",
+      "stars": 0
+    },
+    {
+      "name": "bank-loan-dashboard-site",
+      "description": "",
+      "language": "TypeScript",
+      "pushed_at": "2026-09-26T15:30:30Z",
+      "html_url": "https://github.com/vj0246/bank-loan-dashboard-site",
+      "homepage": "https://bank-loan-dashboard-site.vercel.app",
       "stars": 0
     },
     {
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-09-24T21:37:40Z",
+      "pushed_at": "2026-09-25T21:41:52Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
@@ -56,36 +74,28 @@
       "html_url": "https://github.com/vj0246/Video_Generative_AI_Blog",
       "homepage": "",
       "stars": 0
-    },
-    {
-      "name": "NLP_Blog",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-08-28T13:40:18Z",
-      "html_url": "https://github.com/vj0246/NLP_Blog",
-      "homepage": "",
-      "stars": 0
-    },
-    {
-      "name": "Overnight-Alpha-Tester",
-      "description": "",
-      "language": "Jupyter Notebook",
-      "pushed_at": "2026-08-23T18:47:39Z",
-      "html_url": "https://github.com/vj0246/Overnight-Alpha-Tester",
-      "homepage": "",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-09-25T16:33:23Z"
+      "pushed_at": "2026-09-26T15:47:20Z"
+    },
+    {
+      "name": "CreditSight",
+      "language": "Python",
+      "pushed_at": "2026-09-26T15:33:41Z"
+    },
+    {
+      "name": "bank-loan-dashboard-site",
+      "language": "TypeScript",
+      "pushed_at": "2026-09-26T15:30:30Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-09-24T21:37:40Z"
+      "pushed_at": "2026-09-25T21:41:52Z"
     },
     {
       "name": "RegimeEdge",
