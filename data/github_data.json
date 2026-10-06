@@ -1,24 +1,60 @@
 {
-  "generated_at": "2026-10-06T00:11:21.057947+00:00",
+  "generated_at": "2026-10-06T22:42:38.020470+00:00",
   "username": "vj0246",
-  "public_repo_count": 44,
+  "public_repo_count": 48,
   "recent_pushes": [
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-10-05T20:23:24Z",
+      "pushed_at": "2026-10-06T17:56:22Z",
       "html_url": "https://github.com/vj0246/vj0246",
       "homepage": "",
       "stars": 0
     },
     {
-      "name": "AlphaNovaS1C4",
+      "name": "Microstructure",
       "description": "",
-      "language": "",
-      "pushed_at": "2026-10-05T17:24:05Z",
-      "html_url": "https://github.com/vj0246/AlphaNovaS1C4",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:19:14Z",
+      "html_url": "https://github.com/vj0246/Microstructure",
       "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "monte-carlo",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:19:10Z",
+      "html_url": "https://github.com/vj0246/monte-carlo",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "RegimeEdge",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:18:55Z",
+      "html_url": "https://github.com/vj0246/RegimeEdge",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Crypto",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:18:22Z",
+      "html_url": "https://github.com/vj0246/Crypto",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "Portfolio",
+      "description": "",
+      "language": "HTML",
+      "pushed_at": "2026-10-06T00:11:22Z",
+      "html_url": "https://github.com/vj0246/Portfolio",
+      "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
     },
     {
@@ -31,15 +67,6 @@
       "stars": 0
     },
     {
-      "name": "Portfolio",
-      "description": "",
-      "language": "HTML",
-      "pushed_at": "2026-10-04T21:41:07Z",
-      "html_url": "https://github.com/vj0246/Portfolio",
-      "homepage": "https://vivaan-jain-portfolio.vercel.app",
-      "stars": 0
-    },
-    {
       "name": "bank-loan-dashboard-site",
       "description": "",
       "language": "TypeScript",
@@ -47,55 +74,43 @@
       "html_url": "https://github.com/vj0246/bank-loan-dashboard-site",
       "homepage": "https://bank-loan-dashboard-site.vercel.app",
       "stars": 0
-    },
-    {
-      "name": "CreditSight",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-09-26T22:10:19Z",
-      "html_url": "https://github.com/vj0246/CreditSight",
-      "homepage": "https://power-bi-dashboard-amber.vercel.app",
-      "stars": 0
-    },
-    {
-      "name": "RegimeEdge",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-09-22T19:29:07Z",
-      "html_url": "https://github.com/vj0246/RegimeEdge",
-      "homepage": "",
-      "stars": 0
-    },
-    {
-      "name": "artha",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-09-12T13:57:25Z",
-      "html_url": "https://github.com/vj0246/artha",
-      "homepage": "https://artha-quant.vercel.app",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-10-05T20:23:24Z"
+      "pushed_at": "2026-10-06T17:56:22Z"
     },
     {
-      "name": "AlphaNovaS1C4",
-      "language": "",
-      "pushed_at": "2026-10-05T17:24:05Z"
+      "name": "Microstructure",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:19:14Z"
+    },
+    {
+      "name": "monte-carlo",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:19:10Z"
+    },
+    {
+      "name": "RegimeEdge",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:18:55Z"
+    },
+    {
+      "name": "Crypto",
+      "language": "Python",
+      "pushed_at": "2026-10-06T16:18:22Z"
+    },
+    {
+      "name": "Portfolio",
+      "language": "HTML",
+      "pushed_at": "2026-10-06T00:11:22Z"
     },
     {
       "name": "AlphaNovaBiweeklyS1C3",
       "language": "Python",
       "pushed_at": "2026-10-05T17:20:27Z"
-    },
-    {
-      "name": "Portfolio",
-      "language": "HTML",
-      "pushed_at": "2026-10-04T21:41:07Z"
     },
     {
       "name": "bank-loan-dashboard-site",
@@ -108,9 +123,9 @@
       "pushed_at": "2026-09-26T22:10:19Z"
     },
     {
-      "name": "RegimeEdge",
+      "name": "SIH_PS143",
       "language": "Python",
-      "pushed_at": "2026-09-22T19:29:07Z"
+      "pushed_at": "2026-09-18T09:12:56Z"
     },
     {
       "name": "artha",
@@ -241,6 +256,11 @@
       "name": "IMC_Prosperity_4",
       "language": "Python",
       "pushed_at": "2026-04-16T11:10:29Z"
+    },
+    {
+      "name": "et-hackathon",
+      "language": "",
+      "pushed_at": "2026-03-26T04:51:19Z"
     },
     {
       "name": "nebulon-team-not-found",
