@@ -1,14 +1,32 @@
 {
-  "generated_at": "2026-10-04T21:41:06.127120+00:00",
+  "generated_at": "2026-10-06T00:11:21.057947+00:00",
   "username": "vj0246",
-  "public_repo_count": 42,
+  "public_repo_count": 44,
   "recent_pushes": [
     {
       "name": "vj0246",
       "description": "",
       "language": "",
-      "pushed_at": "2026-10-04T16:26:18Z",
+      "pushed_at": "2026-10-05T20:23:24Z",
       "html_url": "https://github.com/vj0246/vj0246",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "AlphaNovaS1C4",
+      "description": "",
+      "language": "",
+      "pushed_at": "2026-10-05T17:24:05Z",
+      "html_url": "https://github.com/vj0246/AlphaNovaS1C4",
+      "homepage": "",
+      "stars": 0
+    },
+    {
+      "name": "AlphaNovaBiweeklyS1C3",
+      "description": "",
+      "language": "Python",
+      "pushed_at": "2026-10-05T17:20:27Z",
+      "html_url": "https://github.com/vj0246/AlphaNovaBiweeklyS1C3",
       "homepage": "",
       "stars": 0
     },
@@ -16,7 +34,7 @@
       "name": "Portfolio",
       "description": "",
       "language": "HTML",
-      "pushed_at": "2026-10-03T21:30:04Z",
+      "pushed_at": "2026-10-04T21:41:07Z",
       "html_url": "https://github.com/vj0246/Portfolio",
       "homepage": "https://vivaan-jain-portfolio.vercel.app",
       "stars": 0
@@ -56,36 +74,28 @@
       "html_url": "https://github.com/vj0246/artha",
       "homepage": "https://artha-quant.vercel.app",
       "stars": 0
-    },
-    {
-      "name": "Backtesting-Framework",
-      "description": "",
-      "language": "Python",
-      "pushed_at": "2026-09-12T06:42:46Z",
-      "html_url": "https://github.com/vj0246/Backtesting-Framework",
-      "homepage": "",
-      "stars": 0
-    },
-    {
-      "name": "Video_Generative_AI_Blog",
-      "description": "",
-      "language": "",
-      "pushed_at": "2026-08-30T18:40:04Z",
-      "html_url": "https://github.com/vj0246/Video_Generative_AI_Blog",
-      "homepage": "",
-      "stars": 0
     }
   ],
   "all_repos": [
     {
       "name": "vj0246",
       "language": "",
-      "pushed_at": "2026-10-04T16:26:18Z"
+      "pushed_at": "2026-10-05T20:23:24Z"
+    },
+    {
+      "name": "AlphaNovaS1C4",
+      "language": "",
+      "pushed_at": "2026-10-05T17:24:05Z"
+    },
+    {
+      "name": "AlphaNovaBiweeklyS1C3",
+      "language": "Python",
+      "pushed_at": "2026-10-05T17:20:27Z"
     },
     {
       "name": "Portfolio",
       "language": "HTML",
-      "pushed_at": "2026-10-03T21:30:04Z"
+      "pushed_at": "2026-10-04T21:41:07Z"
     },
     {
       "name": "bank-loan-dashboard-site",
